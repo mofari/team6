@@ -1,0 +1,158 @@
+
+@import 'variable.less';
+@import 'function.less';
+
+/* 1.8 FOOTER
+================================== */
+
+#footer-page {
+	color: @color-font-light;
+	padding-top: 50px;
+
+	&:after {
+		border: none;
+	}
+
+	a {
+		display: block;
+		color: @color-font-light;
+		background: url(../../images/arrow-right-white.png) no-repeat scroll left center;
+		padding: 4px 10px 7px 22px;
+
+		.setTransition();
+		.setWKTransition();
+
+		&:hover,
+		&:focus {
+			color: @color-primary-lighter;
+			text-decoration: none;
+			padding-left: 28px;
+		}
+	}
+
+	.title {
+		border-bottom: 1px dotted #FFF;
+		position: relative;
+		display: block;
+		font-size: 22px;
+		height: 48px;
+		padding-top: 10px;
+		margin-bottom: 10px;
+		text-transform: uppercase;
+
+		&.with-icon {
+			padding-left: 34px;
+
+			.logo-footer {
+				.setPosition(absolute, 12px, auto, auto, 0);
+				width: 26px;
+			}
+		}
+	}
+
+	.text {
+		display: block;
+		padding-bottom: 20px;
+
+		&:after {
+			content: '';
+			clear: both;
+			display: block;
+		}
+	}
+
+	.social-icons {
+		padding: 0;
+		list-style: none;
+		float: right;
+
+		li {
+			float: left;
+
+			a {
+				background: none;
+				display: block;
+				width: 36px;
+				height: 36px;
+				overflow: hidden;
+				position: relative;
+				border: 1px solid @color-primary;
+				color: darken(@color-primary, -40%);
+				text-align: center;
+				font-size: 22px;
+				padding: 0;
+				margin: 4px 0 0 6px;
+				line-height: 1.6;
+
+				.fullBorderRadius(2px);
+
+				&:hover {
+					color: @color-primary;
+					background-color: #FFF;
+					border-color: #FFF;
+				}
+			}
+		}
+	}
+
+	.link-extra {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.credits {
+		background-color: @color-primary-dark;
+		font-size: 16px;
+		padding: 10px 0 4px;
+		margin-top: 40px;
+	}
+
+	.credits-text {
+		padding-top: 10px;
+		padding-bottom: 10px;
+
+		b {
+			font-weight: 300;
+			color: @color-primary-lighter;
+		}
+	}
+
+	.newsletter-box {
+		margin-top: 12px;
+		position: relative;
+
+		.form-control {
+			border-color: darken(@color-primary, 4%);
+			height: 42px;
+		}
+
+		.send {
+			background-color: transparent;
+			border: medium none;
+			color: @color-primary-lighter;
+			font-size: 24px;
+			height: 26px;
+			line-height: 1;
+			padding: 0;
+			.setPosition(absolute, 7px, 10px, auto, auto);
+
+			&:hover {
+				color: @color-primary-dark;
+			}
+		}
+
+		.btn-default {
+
+			&:hover {
+				border-color: @color-primary-darked;
+			}
+		}
+	}
+
+	.phone {
+		font-size: 30px;
+		display: block;
+		margin-bottom: 10px
+	}
+}/* end #footer-page */

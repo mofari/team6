@@ -1,0 +1,38 @@
+/* 1.4 SECTION
+================================== */
+.section-color {
+  background-color: #1fb7a6;
+  position: relative;
+}
+.section-color:after,
+.section-color:before {
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  position: absolute !important;
+  top: auto;
+  right: 50%;
+  bottom: auto;
+  left: auto;
+  z-index: 1;
+  content: "";
+  width: 0;
+  height: 0;
+  margin-right: -30px;
+}
+.section-color:after {
+  bottom: -18px;
+  border-top: 20px solid #1fb7a6;
+}
+.section-color:before {
+  top: -1px;
+  border-top: 20px solid #FFF;
+}
+.section-color.no-effect:after,
+.section-color.no-effect:before {
+  border: none !important;
+}
+/* .section-color */
+.section-detail {
+  text-align: center;
+  margin: 50px 0 30px;
+}

@@ -1,0 +1,112 @@
+/* UI SPINNER STYLE
+================================== */
+.ui-spinner {
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  padding: 0;
+  width: 100%;
+  overflow: inherit;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+}
+.ui-spinner .ui-spinner-input {
+  background-color: #FFF;
+  color: #555;
+  font-size: 14px;
+  height: 36px;
+  margin: 0;
+  padding: 10px;
+  color: #ffffff;
+  -webkit-border-radius: 1px;
+  -khtml-border-radius: 1px;
+  -moz-border-radius: 1px;
+  -o-border-radius: 1px;
+  border-radius: 1px;
+}
+.ui-spinner .ui-spinner-input:focus {
+  color: #ffffff;
+}
+.ui-spinner .ui-text {
+  overflow: hidden;
+  position: absolute !important;
+  top: 7px;
+  right: auto;
+  bottom: auto;
+  left: 9px;
+  z-index: 1;
+  white-space: nowrap;
+  width: 62%;
+}
+.ui-spinner .ui-text .ui-value {
+  margin-right: 7px;
+}
+.ui-spinner a.ui-spinner-up,
+.ui-spinner a.ui-spinner-down {
+  cursor: pointer;
+  display: block;
+  width: 20px;
+  height: 18px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 18px;
+  color: #CCC;
+  position: absolute !important;
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: auto;
+  z-index: 1;
+  -moz-transition: 0.2s all ease-in-out;
+  -ms-transition: 0.2s all ease-in-out;
+  -o-transition: 0.2s all ease-in-out;
+  transition: 0.2s all ease-in-out;
+  -webkit-transition: 0.2s all ease-in-out;
+}
+.ui-spinner a.ui-spinner-up:after,
+.ui-spinner a.ui-spinner-down:after {
+  display: block;
+  content: '+';
+  position: absolute !important;
+  top: 4px;
+  right: 0;
+  bottom: auto;
+  left: auto;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+}
+.ui-spinner a.ui-spinner-down {
+  bottom: 0;
+  height: 14px;
+  line-height: 0.8;
+  padding: 0;
+  top: auto;
+}
+.ui-spinner a.ui-spinner-down:after {
+  content: '-';
+  top: -4px;
+}
+.ui-spinner a.ui-spinner-up {
+  height: 22px;
+}
+.ui-spinner a.ui-spinner-up:after {
+  top: 4px;
+}
+.ui-spinner a.ui-spinner-up .ui-icon {
+  margin-top: -7.5px;
+}
+.ui-spinner .ui-icon {
+  display: none;
+}
+.ui-spinner a.ui-spinner-up:hover:after,
+.ui-spinner a.ui-spinner-down:hover:after,
+.ui-spinner a.ui-spinner-up:focus:after,
+.ui-spinner a.ui-spinner-down:focus:after,
+.ui-spinner a.ui-spinner-up:hover:before,
+.ui-spinner a.ui-spinner-down:hover:before,
+.ui-spinner a.ui-spinner-up:focus:before,
+.ui-spinner a.ui-spinner-down:focus:before {
+  color: #106057;
+}

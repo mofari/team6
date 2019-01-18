@@ -1,0 +1,48 @@
+/* 4.13 SHORTCODE
+================================== */
+#shortcode-grid span {
+  padding: 20px 0;
+  text-align: center;
+  color: #999;
+  display: block;
+  background-color: #f8f8f8;
+  border: 1px solid #e5e5e5;
+  margin-bottom: 15px;
+}
+/* #shortcode-grid */
+#shortcode {
+  padding: 70px 0;
+}
+#shortcode .galleryItem {
+  margin-bottom: 30px;
+}
+#shortcode .shortcode-box {
+  margin-bottom: 50px;
+  padding-bottom: 50px;
+  border-bottom: 1px dotted #EEE;
+}
+#shortcode .shortcode-box .diagram {
+  margin-bottom: 50px;
+}
+#shortcode .shortcode-box .content-icon a {
+  padding: 10px;
+  display: block;
+  margin-bottom: 14px;
+  background-color: #FAFAFA;
+  border: 1px solid #E5E5E5;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+#shortcode .shortcode-box .content-icon a:hover {
+  background-color: #1fb7a6;
+  border-color: #188b7e;
+  color: #ffffff;
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  transform: scale(1.05);
+}

@@ -1,0 +1,538 @@
+  /*
+  version 1.8
+  */
+  /* 모든 태그에 적용 */
+  *{
+     font-family: Malgun Gothic; 
+     font-size: 20px; 
+     margin: 0px;  /* top right bottom left */
+     padding: 0px;
+     color: #555555;
+  }  
+  
+  .container {
+    width: 50%;
+    margin: 5px auto;
+  }
+  
+  .content {
+    width: 100%;
+    margin: 0px auto;
+  }
+
+  .sub_menu {
+    text-align: right;
+    clear: both;  /* float 속성 해제 */
+    width: 100%;
+  }
+    
+  .bottom_menu {
+    margin: 20px auto;
+    text-align: center;
+    clear: both;  /* float 속성 해제 */
+  }
+  
+  .focus1 {  /* class='focus1', 단어 강조  */
+    font-weight: bold; 
+    font-size: 32px; 
+    color: #00FF00; 
+    background-color: #FFFF00;
+  }
+  
+  .focus2 {  /* class='focus2', 단어 강조  */
+    font-weight: bold; 
+    font-size: 32px; 
+    color: #FFFFFF; 
+    background-color: #FF0000;
+  }  
+  
+  A:link{  /* 방문전 상태 */
+    text-decoration: none; /* 밑줄 삭제 */
+    color: #333333;
+  }
+
+  A:visited{  /* 방문후 상태 */
+    text-decoration: none; /* 밑줄 삭제 */
+    color: #333333;
+  }
+
+  A:hover{  /* A 태그에 마우스가 올라간 상태 */
+    text-decoration: underline; /* 밑줄 출력 */
+    color: #5555FF;
+  }
+
+  A:active{  /* A 태그를 클릭한 상태 */
+    text-decoration: underline; /* 밑줄 출력 */
+    color: #5555FF;
+  }
+  
+  .fieldset_basic {
+    border-left: none;
+    border-right: none;
+    margin: 10px auto;
+  }
+  
+  .fieldset_home {
+    width: 90%;
+    margin: 10px auto;
+    border-left: none;
+    border-right: none;
+    line-height: 36px;
+    padding-bottom: 10px;
+  }
+  
+  .legend_basic {
+    margin-left: 30px;
+    border: solid 1px #AAAAAA;
+    padding: 2px;
+    background-color: #a6c2ff;
+    color: #FFFFFF;
+  }
+  
+  .legend_home{
+    margin: 0px 30px;
+    norder: none;
+    padding: 2px;
+  }
+  
+  .li_none {
+    list-style: none;  /* 블렛 기호 생략 */
+    margin: 10px 10px;
+  }
+
+  .li_center {
+    text-align: center;
+    list-style: none;  /* 블렛 기호 생략 */
+    margin: 20px auto;
+  }
+  
+  .li_right {
+    text-align: right;
+    list-style: none;  /* 블렛 기호 생략 */
+    margin: 20px auto;
+  }
+  
+  /* 이미지 파일을 찾을때 style.css 파일을 기준으로 검색함. /css/images/bu6.gif */
+  .li_home {
+    background: url(./images/bu6.gif) left center no-repeat;
+    line-height: 20px;
+    padding-left: 15px;
+    list-style: none;  
+  }
+
+  
+  .title_box {
+    color: #FFFFFF;
+    width: 20%;
+    margin: 10px auto;
+    padding: 3px;
+    background-color: #6699ff;
+    border: solid 1px #555555;
+    text-align: center;
+  }
+
+  .title_line {
+    color: #333333;
+    width: 20%;
+    margin: 20px auto;
+    padding: 3px;
+    border-bottom: solid 2px #555555;
+    text-align: center;
+  }
+    
+  .table_basic {
+    border: none;
+    margin: 2px auto;
+    width: 100%;
+    border-collapse: collapse; 
+  }
+  
+  .th_basic {
+    border: solid 1px #CCCCCC;
+    background-color: #efeeff;
+  }
+  
+  .td_basic {
+    border: solid 1px #CCCCCC;
+    background-color: #FFFFFF;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+    border-left: none;
+    border-right: none;
+  }
+  
+  .td_left {
+    border: solid 1px #CCCCCC;
+    background-color: #FFFFFF;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: left;
+    border-left: none;
+    border-right: none;
+  }
+  
+  .td_center {
+    border: solid 1px #CCCCCC;
+    background-color: #FFFFFF;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+    border-left: none;
+    border-right: none;
+  }
+  
+  .top_menu_label {
+    position: relative; /* 속해있는 부모 태그 기준 설정 */
+    top: 1%;
+    left: 0.5%;
+    color: #FFFFFF;
+  }
+  
+  .top_menu {
+    margin-top: 0px;
+    width: 100%;
+    height: 100px;  
+  }
+  
+  .top_menu_list {
+    padding-top: 0.0em;
+    position: relative;
+    top: 45%;
+    left: 0%;
+    background-color: rgba(50, 50, 255, 0.3); /* 0.8: Alpha 투명도 */
+    color: white;
+  }
+  
+  .menu_link:link{  /* 방문전 상태 */
+    text-decoration: none; /* 밑줄 삭제 */
+    color: white;
+  }
+
+  .menu_link:visited{  /* 방문후 상태 */
+    text-decoration: none; /* 밑줄 삭제 */
+    color: white;
+  }
+
+  .menu_link:hover{  /* A 태그에 마우스가 올라간 상태 */
+    text-decoration: underline; /* 밑줄 출력 */
+    color: white;
+    font-weight: bold;
+  }
+
+  .menu_link:active{  /* A 태그를 클릭한 상태 */
+    text-decoration: underline; /* 밑줄 출력 */
+    color: white;
+  }   
+  
+  /* ASIDE 서브메뉴의 시작 -------------------------- */
+    .aside_menu{ /* 서브 메뉴 */
+    width: 100%;
+    border: none;
+    margin: 10px auto;
+  }
+
+  .menu_line{
+    width: 100%;
+    border-bottom: dotted 1px #777777;
+    margin: 20px 0px 10px 0px; /* top -> right -> bottom -> left */
+    clear: both;
+  } 
+  
+  /* ASIDE 메뉴 세로 구분선 */
+  .menu_divide{
+    color: #777777;
+    font-size: 0.8em; /* 부모 태그에비해 글자를 80% 크기로 출력 */
+  }  
+  
+  /* ASIDE 서브메뉴의 종료 -------------------------- */
+    
+  .fieldset_no_line {
+    border: none;
+    margin: 20px auto;
+  }
+  
+  .input_basic {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid 1px #AAAAAA;
+  }
+  
+  /* 기타 메시지 */
+  .message {
+    width: 70%;
+    border: none;
+    margin: 30px auto;
+    text-align: center;
+    background-color: #F8F8F8;
+    padding: 30px;
+    
+  }
+
+  .message2 {
+    width: 70%;
+    border: none;
+    margin: 0px auto;
+    text-align: left;
+    background-color: #FFFFFF;
+    padding: 10px;
+    
+  }
+    
+  /* 알림 메시지 */ 
+  .span_info {
+    color: #ffffff;
+    background-color: rgba(0, 200, 0, 0.6);
+    font-weight: bold;
+    padding: 2px;
+  }
+  
+  /* 주의 메시지 */
+  .span_alert {
+    color: #ffffff;
+    background-color: rgba(0, 0, 200, 0.6);
+    font-weight: bold;
+    padding: 2px;
+  }
+
+
+  /* 경고 메시지 */  
+  .span_warning {
+    color: #FFFFFF;
+    background-color: rgba(255, 0, 0, 0.6);
+    font-weight: bold;
+    padding: 2px; 
+  }
+
+ .div_grid_img {
+    background-color: #EEEEEE;
+    float: left;
+    position: relative;
+    left: 0%;
+    margin: 0.5%;
+    padding: 0.5%;
+    width: 23%;
+    height: 220px; 
+  }
+  
+  .hr_dotted {
+    width:  100%;
+    clear: both;
+    height: 1px;
+    border-top: dotted 1px #AAAAAA;
+    border-right: none;;
+    border-bottom: none;
+    border-left: none;
+    margin: 10px auto;
+  }
+
+  .div_grid_text {
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 100%;
+    margin: 0px auto;
+    display: table;
+    padding-top: 0px;
+    padding-right: 2px;
+    padding-left: 2px;
+    border:solid 1px #DDDDDD;
+  }
+  
+  .div_grid_text_content {
+    background-color: #FFFFFF;
+    vertical-align: middle;
+    display: table-cell;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .top_menu_sep {
+    height: 1.8em;
+    color: #EEEEFF;
+    font-size: 0.8em;
+    display: inline-block; /* 크기 지정 가능, 줄바꿈 안됨 */
+    vertical-align: middle;
+    margin-left: 0.5em; 
+  }
+  
+  .label_basic {
+    width: 150px;
+    background-color: #e6f1ff;
+    display: inline-block; /* 한줄의 영역을 박스 영역으로 확장 표시, 박스 모양에 float='left' 적용 */
+    text-align: right;
+    padding-right: 10px;
+  }
+
+  /* 팝업 윈도우 */
+  .popup1 {
+    line-height: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    position: absolute;
+    top: 25%;
+    left: 35%;
+    width: 36%;
+    background-color: #cc99ff;
+    opacity: 1.0;
+    text-align: center;
+    color: #FFFFFF;
+  }
+  
+  .popup1 A:link{  /* 방문전 상태 */
+    text-decoration: none; /* 밑줄 삭제 */
+    color: #FFFFFF;
+  }
+  
+  .popup1 A:visited{  /* 방문후 상태 */
+    text-decoration: none; /* 밑줄 삭제 */
+    color: #FFFFFF;
+  }
+
+  .popup1 A:hover{  /* A 태그에 마우스가 올라간 상태 */
+    text-decoration: underline; /* 밑줄 출력 */
+    font-weight: bold;
+    color: #FFFFFF;
+  }
+
+  .popup1 A:active{  /* A 태그를 클릭한 상태 */
+    text-decoration: underline; /* 밑줄 출력 */
+    color: #FFFFFF;
+  }  
+
+  .popup_button {
+    color: #333333;
+  }
+
+  .top_menu1 {
+    color: #CCCCCC;
+  }
+  
+  .categrp_category{
+    width: 20%;
+    margin: 0px auto; 
+    border-left: none; 
+    border-right: none;
+    border-top: solid 1px #DDDDDD;  
+    border-bottom: solid 1px #DDDDDD;  
+    text-align: left;
+  }
+  
+  .categrp_category_list{
+    padding-left: 10%; 
+    line-height: 15px;
+  }
+
+  /* 팝업 이미지 */
+  .popup_img {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 1px;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    background-color: #FFFFFF;
+    border: none;
+    opacity: 1.0;
+    text-align: center;
+    color: #FFFFFF;
+  }
+
+.menubar{
+border:none;
+border:0px;
+margin:0px;
+padding:0px;
+font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+font-size:14px;
+font-weight:bold;
+}
+
+.menubar ul{
+background: rgb(109,109,109);
+height:50px;
+list-style:none;
+margin:0;
+padding:0;
+}
+
+.menubar li{
+float:left;
+padding:0px;
+}
+
+.menubar li a{
+background: rgb(109,109,109);
+color:#cccccc;
+display:block;
+font-weight:normal;
+line-height:50px;
+margin:0px;
+padding:0px 25px;
+text-align:center;
+text-decoration:none;
+}
+
+.menubar li a:hover, .menubar ul li:hover a{
+background: rgb(71,71,71);
+color:#FFFFFF;
+text-decoration:none;
+}
+
+.menubar li ul{
+background: rgb(109,109,109);
+display:none; /* 평상시에는 드랍메뉴가 안보이게 하기 */
+height:auto;
+padding:0px;
+margin:0px;
+border:0px;
+position:absolute;
+width:200px;
+z-index:200;
+/*top:1em;
+/*left:0;*/
+}
+
+.menubar li:hover ul{
+display:block; /* 마우스 커서 올리면 드랍메뉴 보이게 하기 */
+}
+
+.menubar li li {
+background: rgb(109,109,109);
+display:block;
+float:none;
+margin:0px;
+padding:0px;
+width:200px;
+}
+
+.menubar li:hover li a{
+background:none;
+}
+
+.menubar li ul a{
+display:block;
+height:50px;
+font-size:12px;
+font-style:normal;
+margin:0px;
+padding:0px 10px 0px 15px;
+text-align:left;
+}
+
+.menubar li ul a:hover, .menubar li ul li:hover a{
+background: rgb(71,71,71);
+border:0px;
+color:#ffffff;
+text-decoration:none;
+}
+
+.menubar p{
+clear:left;
+}
+
+
+
+

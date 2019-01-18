@@ -1,0 +1,51 @@
+/* 4.8 GALLERY
+================================== */
+#gallery {
+  padding: 60px 0 100px;
+}
+#gallery #filter-container {
+  padding: 0;
+  min-height: 40px;
+  margin: 0 0 20px 15px;
+  list-style: none;
+}
+#gallery #filter-container li {
+  float: left;
+  margin-right: -1px;
+}
+#gallery #filter-container li a {
+  height: 40px;
+  padding: 11px 14px 0;
+  border: 1px solid #E5E5E5;
+  background: #FAFAFA;
+  font-size: 12px;
+  display: block;
+  text-transform: uppercase;
+}
+#gallery #filter-container li a:hover,
+#gallery #filter-container li a.active {
+  border-color: #1fb7a6;
+  background: #1fb7a6;
+  color: #ffffff;
+}
+#gallery #images-container {
+  padding: 0;
+  margin: 0;
+  height: auto;
+  list-style: none;
+  min-height: 600px;
+}
+#gallery #images-container .galleryItem {
+  height: 200px;
+  width: 100%;
+  display: block;
+  overflow: hidden;
+  position: relative !important;
+  margin-bottom: 30px;
+}
+#gallery #images-container .masonryGalleryItem {
+  width: 100%;
+  display: block;
+  position: relative !important;
+  margin-bottom: 20px;
+}

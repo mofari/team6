@@ -1,0 +1,202 @@
+/* 4.12 PRICING
+====================================== */
+#pricing {
+  padding: 10px 0 60px;
+}
+#pricing .section-detail {
+  margin-bottom: 80px;
+}
+/* #pricing */
+.pricing {
+  /* background-color: #FAFAFA; */
+  padding: 110px 0 0;
+  position: relative;
+  margin-bottom: 60px;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  /* .select-button */
+  /* &.select */
+}
+.pricing:hover {
+  -webkit-transform: scale(1.02);
+  -moz-transform: scale(1.02);
+  -ms-transform: scale(1.02);
+  -o-transform: scale(1.02);
+  transform: scale(1.02);
+}
+.pricing:hover .price {
+  background-color: #E8E8E8;
+}
+.pricing.in-evidence {
+  -webkit-box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.14);
+  -moz-box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.14);
+  box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.14);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.pricing.no-select {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@opacity-ie)";
+  opacity: 0.4;
+  -moz-opacity: 0.4;
+  -khtml-opacity: 0.4;
+}
+.pricing .header {
+  padding: 14px 10px 0;
+  height: 110px;
+  background-color: #1fb7a6;
+  position: absolute !important;
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: 0;
+  z-index: 1;
+  display: block;
+  color: #ffffff;
+}
+.pricing .header .sub-title,
+.pricing .header .title {
+  display: block;
+  text-align: center;
+}
+.pricing .header .title {
+  font-size: 32px;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+.pricing .header .sub-title {
+  font-size: 18px;
+}
+.pricing .pricing-button {
+  width: 100%;
+  position: relative;
+  z-index: 10;
+}
+.pricing .select-button {
+  outline: 0 !important;
+  position: absolute !important;
+  top: auto;
+  right: auto;
+  bottom: 64px;
+  left: 50%;
+  z-index: 9;
+  display: block;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  margin-left: -20px;
+  line-height: 1;
+  text-align: center;
+  border: 2px solid #188b7e;
+  padding: 0;
+  -webkit-border-radius: 50%;
+  -khtml-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+}
+.pricing .select-button .icon {
+  padding: 0;
+  margin: 0;
+}
+.pricing.select .select-button {
+  background-color: #E95801;
+  border-color: #D85201;
+  color: #ffffff;
+}
+.pricing .price {
+  display: block;
+  text-align: center;
+  position: relative;
+  background-color: #F0F0F0;
+  padding: 18px 0 14px;
+  font-weight: 500;
+  font-size: 30px;
+  color: #777;
+  border-bottom: 10px solid #1fb7a6;
+}
+.pricing .price:after {
+  position: absolute !important;
+  top: auto;
+  right: 50%;
+  bottom: -20px;
+  left: auto;
+  z-index: 1;
+  content: "";
+  margin-right: -20px;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #1fb7a6;
+}
+.pricing .text {
+  padding: 10px;
+  text-align: center;
+}
+.pricing .body {
+  padding: 20px 10px 6px;
+  list-style: none;
+  border-right: 1px solid #E5E5E5;
+  border-left: 1px solid #E5E5E5;
+  margin: 0;
+}
+.pricing .body li {
+  margin: 0 10px;
+  border-bottom: 1px solid #E5E5E5;
+  padding: 10px 0 12px;
+}
+.pricing .body li:last-child {
+  border-bottom: none;
+}
+.pricing .body li .icon {
+  margin-right: 6px;
+  font-weight: 700;
+}
+.pricing .pricing-button .icon {
+  margin-right: 6px;
+  font-weight: 700;
+}
+/* .pricing */
+.pricing-table .table {
+  border: 1px solid #1fb7a6;
+}
+.pricing-table .table thead tr {
+  background-color: #1fb7a6;
+  color: #ffffff;
+  text-align: center;
+}
+.pricing-table .table thead tr th {
+  padding: 16px 8px;
+  font-weight: 400;
+  text-align: center;
+}
+.pricing-table .table tbody tr th {
+  padding: 16px 8px;
+  text-align: center;
+  font-weight: 400;
+  border-right: 1px solid #ddd;
+  padding: 10px 8px;
+  text-align: left;
+}
+.pricing-table .table tbody tr td {
+  text-align: center;
+}
+.pricing-table .table > thead > tr > th {
+  border-bottom: none !important;
+}
+.pricing-table .table > thead > tr > th:nth-of-type(2n+1) {
+  background-color: #20c0ae;
+}
+/* .pricing-table */
+.pricing-table .table tbody tr th {
+  border-right: 1px solid #ddd;
+  padding: 10px 8px;
+  text-align: left;
+}

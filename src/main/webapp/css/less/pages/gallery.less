@@ -1,0 +1,63 @@
+
+@import '../variable.less';
+@import '../function.less';
+
+/* 4.8 GALLERY
+================================== */
+
+#gallery {
+	padding: 60px 0 100px;
+
+	#filter-container {
+		padding: 0;
+		min-height: 40px;
+		margin: 0 0 20px 15px;
+		list-style: none;
+
+		li {
+			float: left;
+			margin-right: -1px;
+
+			a {
+				height: 40px;
+				padding: 11px 14px 0;
+				border: 1px solid #E5E5E5;
+				background: #FAFAFA;
+				font-size: 12px;
+				display: block;
+				text-transform: uppercase;
+
+				&:hover,
+				&.active {
+					border-color: @color-primary;
+					background: @color-primary;
+					color: @color-font-light;
+				}
+			}
+		}
+	}
+
+	#images-container {
+		padding: 0;
+		margin: 0;
+		height: auto;
+		list-style: none;
+		min-height: 600px;
+
+		.galleryItem {
+			height: 200px;
+			width: 100%;
+			display: block;
+			overflow: hidden;
+			position: relative !important;
+			margin-bottom: 30px;
+		}
+
+		.masonryGalleryItem {
+			width: 100%;
+			display: block;
+			position: relative !important;
+			margin-bottom: 20px;
+		}
+	}
+} /* #gallery */

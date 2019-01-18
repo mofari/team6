@@ -1,0 +1,123 @@
+.controls {
+	width: 100%;
+	box-sizing: border-box;
+	min-height: 32px;
+	border: 1px solid #e5e5e5;
+	border-bottom: none;
+	padding: 4px 0 0 6px;
+}
+
+.controls .button-tootlbar {
+	display: inline-block;
+	position: relative;
+	width: 26px;
+	height: 26px;
+	margin-right: 1px;
+	cursor: pointer;
+	color: #bbb;
+
+	-webkit-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.controls .button-tootlbar:hover {
+	background-color: #50c8b4;
+	color: #FFF;
+}
+
+.controls .button-tootlbar:after {
+	font-size: 15px;
+	text-align: center;
+	font-family: 'FontAwesome';
+	padding-top: 3px;
+	font-weight: 100;
+	z-index: 2;
+	position: absolute;
+	width: 26px;
+	height: 26px;
+	top: 0;
+	left: 0;
+}
+
+.controls .button-tootlbar.redo,
+.controls .button-tootlbar.underline,
+.controls .button-tootlbar.justifyLeft,
+.controls .button-tootlbar.printDocument {
+	margin-right: 15px;
+}
+
+.controls .button-tootlbar.redo:after {
+	content: "\f064";
+}
+
+.controls .button-tootlbar.undo:after {
+	content: "\f112";
+	margin-right: 15px;
+}
+
+.controls .button-tootlbar.selectAll:after {
+	content: "\f0d0";
+}
+
+.controls .button-tootlbar.bold:after {
+	content: "\f032";
+}
+
+.controls .button-tootlbar.italic:after {
+	content: "\f033";
+}
+
+.controls .button-tootlbar.underline:after {
+	content: "\f0cd";
+}
+
+.controls .button-tootlbar.justifyLeft:after {
+	content: "\f036";
+}
+
+.controls .button-tootlbar.justifyCenter:after {
+	content: "\f037";
+}
+
+.controls .button-tootlbar.justifyRight:after {
+	content: "\f038";
+}
+
+.controls .button-tootlbar.justifyFull:after {
+	content: "\f039";
+}
+
+.controls .button-tootlbar.insertImage:after {
+	content: "\f03e";
+}
+
+.controls .button-tootlbar.createLink:after {
+	content: "\f0c1";
+}
+
+.controls .button-tootlbar.printDocument:after {
+	content: "\f02f";
+}
+
+.controls .button-tootlbar.htmlEditor:after {
+	content: "\f121";
+}
+
+.editor {
+	border: 1px #e5e5e5 solid;
+	height: 300px;
+	padding: 10px;
+	box-sizing: border-box;
+	resize: both;
+	overflow: auto;
+	box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.05) inset;
+	-webkit-box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.05) inset;
+	-moz-box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.05) inset;
+}
+
+.editor a {
+	color: #50c8b4;
+}

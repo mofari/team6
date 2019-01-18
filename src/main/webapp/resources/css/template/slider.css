@@ -1,0 +1,98 @@
+/* 3 SLIDER
+================================== */
+.home-slider {
+  border-bottom: 4px solid #1fb7a6;
+  position: relative;
+  /* .content */
+  /* .home-slider-nav */
+}
+.home-slider .crsl-item {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center center !important;
+}
+.home-slider .slider-box {
+  height: 640px;
+}
+.home-slider .content {
+  float: right;
+  text-align: right;
+  clear: both;
+}
+.home-slider .content h1,
+.home-slider .content h2,
+.home-slider .content h3 {
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+  line-height: 1;
+  color: #ffffff;
+  margin: 0;
+}
+.home-slider .content h1 {
+  border-bottom: 4px solid #1fb7a6;
+  font-size: 90px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+}
+.home-slider .content h2 {
+  font-size: 40px;
+  font-weight: 100;
+  margin-top: 170px;
+}
+.home-slider .content h3 {
+  text-shadow: 1px 1px 2px rgba(55, 55, 55, 0.6);
+  font-size: 30px;
+  font-weight: 400;
+  margin-left: 20%;
+  line-height: 1.3;
+}
+.home-slider .home-slider-nav {
+  position: absolute !important;
+  top: 0;
+  right: auto;
+  bottom: 0;
+  left: auto;
+  z-index: 1;
+  width: 40px;
+}
+.home-slider .home-slider-nav a {
+  position: absolute !important;
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  z-index: 1;
+  width: 100%;
+  height: 100px;
+  margin-top: -50px;
+  text-indent: -9999em;
+  background: url(../../images/icon-slider.png) no-repeat scroll left center transparent;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@opacity-ie)";
+  opacity: 0.7;
+  -moz-opacity: 0.7;
+  -khtml-opacity: 0.7;
+  -moz-transition: 0.3s all ease-in-out;
+  -ms-transition: 0.3s all ease-in-out;
+  -o-transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
+  -webkit-transition: 0.3s all ease-in-out;
+}
+.home-slider .home-slider-nav a:hover {
+  background-color: rgba(31, 183, 166, 0.6) !important;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@opacity-ie)";
+  opacity: 0.95;
+  -moz-opacity: 0.95;
+  -khtml-opacity: 0.95;
+}
+.home-slider .home-slider-nav a.previus {
+  left: 0;
+}
+.home-slider .home-slider-nav a.next {
+  background-position: right center;
+}
+.home-slider .home-slider-nav.next {
+  right: 0;
+}

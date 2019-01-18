@@ -1,0 +1,84 @@
+/* 3.1 SLIDER-PAGE
+================================== */
+.slider-page {
+  position: relative;
+  /* .slider-box */
+  /* .slider-page-nav */
+}
+.slider-page .crsl-item {
+  background-position: center center !important;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.slider-page .slider-box {
+  height: 460px !important;
+  position: relative;
+}
+.slider-page .slider-box .content {
+  text-align: right;
+  position: absolute !important;
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: auto;
+  z-index: 1;
+}
+.slider-page .slider-box .content h2 {
+  background-color: #188b7e;
+  font-size: 30px;
+  color: #ffffff;
+  font-weight: 200;
+  line-height: 1.4;
+  margin: 20px 0;
+  padding: 10px 20px;
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.25);
+}
+.slider-page .slider-page-nav {
+  position: absolute !important;
+  top: 0;
+  right: auto;
+  bottom: 0;
+  left: auto;
+  z-index: 1;
+  width: 40px;
+}
+.slider-page .slider-page-nav a {
+  position: absolute !important;
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  z-index: 1;
+  width: 100%;
+  height: 100px;
+  margin-top: -50px;
+  text-indent: -9999em;
+  background: url(../../images/icon-slider.png) no-repeat left center;
+  background-color: #1fb7a6;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@opacity-ie)";
+  opacity: 0.7;
+  -moz-opacity: 0.7;
+  -khtml-opacity: 0.7;
+  -moz-transition: 0.3s all ease-in-out;
+  -ms-transition: 0.3s all ease-in-out;
+  -o-transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
+  -webkit-transition: 0.3s all ease-in-out;
+}
+.slider-page .slider-page-nav a:hover {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@opacity-ie)";
+  opacity: 0.95;
+  -moz-opacity: 0.95;
+  -khtml-opacity: 0.95;
+}
+.slider-page .slider-page-nav a.next {
+  background-position: right center;
+}
+.slider-page .slider-page-nav.previus {
+  left: 0;
+}
+.slider-page .slider-page-nav.next {
+  right: 0;
+}

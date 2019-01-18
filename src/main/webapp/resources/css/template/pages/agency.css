@@ -1,0 +1,100 @@
+/* 4.2 AGENCY
+================================== */
+.agency {
+  padding-top: 60px !important;
+}
+#agency {
+  padding: 0 0 60px;
+  /* .agency-box */
+  /* .agency-logo */
+}
+#agency .agency-box {
+  margin-bottom: 20px;
+}
+#agency .agency-box .title {
+  line-height: 1.2;
+  margin: 0;
+}
+#agency .agency-box .title a {
+  color: #1fb7a6;
+  font-weight: 400;
+  font-size: 26px;
+}
+#agency .agency-box .title a:hover {
+  color: #666;
+}
+#agency .agency-box .subtitle {
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0;
+}
+#agency .agency-box .logo {
+  font-size: 100px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #E9E9E9;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+#agency .agency-box .center-box {
+  border: 1px solid #E9E9E9;
+  border-left: 5px solid #1fb7a6;
+  background-color: #FEFEFE;
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+#agency .agency-box .center-box .button-container {
+  padding: 10px 0 6px;
+}
+#agency .agency-box .center-box:after {
+  position: absolute !important;
+  top: 30px;
+  right: auto;
+  bottom: auto;
+  left: -12px;
+  z-index: 1;
+  content: "";
+  width: 0;
+  height: 0;
+  border-right: 10px solid #1fb7a6;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+#agency .agency-box address {
+  font-size: 15px;
+}
+#agency .agency-logo .logo {
+  font-size: 100px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #E9E9E9;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+#agency .agency-detail {
+  border: 1px solid #E9E9E9;
+  border-left: 5px solid #1fb7a6;
+  background-color: #FEFEFE;
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+#agency .agency-detail:after {
+  position: absolute !important;
+  top: 30px;
+  right: auto;
+  bottom: auto;
+  left: -12px;
+  z-index: 1;
+  content: "";
+  width: 0;
+  height: 0;
+  border-right: 10px solid #1fb7a6;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}

@@ -1,0 +1,278 @@
+/*
+
+    Theme Name: PROHOME - Responsive Real Estate Template
+    Author: Poporoso
+    Support: c.birrillo@gmail.com
+    Created: 12/05/2015
+    Description: An innovative interface and a new way to manage your web site.
+    Version: 1.0
+    Tags: For Sale, Google Maps, Home, location, Housing, Property, Real Estate, Realtor, Realty, Rentals, Bootstrap, Full Responsive
+
+    ===============================================================
+
+    TABLE OF CONTENT
+
+    1 GENERAL STYLING
+    --------------------------------
+		1.1 BASIC
+		----------------------------
+			1.1.1  RIGHT BUTTON (RETURN TOP PAGE, EMAIL CONTACT)
+			1.1.2  FORM FIELD STYLE
+			1.1.3  RIGHT BOX GREY (CONTAINER)
+			1.1.4  COLOR OPTION DROPDOWN
+			1.1.5  SLIDER PRICE
+			1.1.6  LABELAUTY
+			1.1.7  DROPZONE
+			1.1.8  DEATH TEXT EDITOR
+			1.1.9  FOTORAMA SLIDE
+			1.1.10 SKILL BAR
+			1.1.11 FLIPCLOCK
+
+		1.2 TYPOGRAPHY
+		1.3 NAVBAR
+		1.4 SECTION
+		1.5 BUTTON
+		1.6 BREADCRUMBS
+		1.7 PAGINATION
+		1.8 FOOTER
+		1.9 MODAL
+
+		1.10 OBJECT
+		----------------------------
+			 1.10.1  FILTER TAGS
+			 1.10.2  AVATAR / LOGO
+			 1.10.3  RECENT POST
+			 1.10.4  FORM
+			 1.10.5  PROGRESS BAR
+			 1.10.6  ALERT
+			 1.10.7  COUNTER
+			 1.10.8  TABS
+			 1.10.9  GREY BUTTON
+			 1.10.10 LINE BUTTON
+			 1.10.11 ACCORDION
+			 1.10.12 MENU BLOCK
+			 1.10.13 AGENT CARD
+			 1.10.14 AGENT CARD ROUNDED
+			 1.10.15 AGENT GREY CARD
+			 1.10.16 TOP AGENT CARD
+			 1.10.17 FORM AGENT
+			 1.10.18 OBJECT SIDEBAR
+			 1.10.19 CALLOUT BOX
+			 1.10.20 MORTGAGE CALC
+			 1.10.21 SECTION TITLE
+			 1.10.22 BOX TITLE STYLE (HOME+)
+			 1.10.23 LINK EFFECT
+			 1.10.24 SEARCH
+			 1.10.25 PANEL
+
+
+    2 MAPS
+    --------------------------------
+		2.1 SEARCHER BOX
+		2.2 INFO-BOX
+
+	3 SLIDER
+    --------------------------------
+		3.1 SLIDER-PAGE
+
+
+    4 PAGES
+    --------------------------------
+		4.1 HOME
+		----------------------------
+			4.1.1  RECENT LIST
+			4.1.2  SERVICES
+			4.1.3  SPINNER
+			4.1.4  SUBMIT SECTION
+			4.1.5  NAVIGATION SLIDE
+			4.1.6  RECENT NEWS
+			4.1.7  FEEDBACK
+
+		4.2 AGENCY
+		4.3 COMING SOON
+		4.4 BLOG
+		4.5 CONTACT
+		4.6 CREATE AGENCY
+		4.7 FAQ
+		4.8 GALLERY
+		4.9 INVOICE
+		4.10 MY PROPERTY
+		4.11 NEW PROPERTY
+		4.12 PRICING
+		4.13 SHORTCODE
+		4.14 SIDEBAR
+		4.15 TERM CONDITION
+		4.16 SIGN-IN
+		4.17 TIMELINE
+		4.18 USER PROFILE
+		4.19 ERROR
+		4.20 ABOUT
+		4.21 AGENT
+		4.22 HEADER PAGE
+		4.23 PROPERTY-PAGE
+		4.24 LISTING-PAGE
+
+    =============================================================== 
+
+*/
+
+
+/* GOOGLE FONT (https://www.google.com/fonts)
+================================================== */
+@import url(http://fonts.googleapis.com/css?family=Gafata:400|Roboto:300,400,500,700,900);
+
+/* 1.1 BASIC
+====================================== */
+@import url(template/basic.css);
+
+/* 1.2 TYPOGRAPHY
+====================================== */
+@import url(template/typography.css);
+
+/* 1.3 NAVBAR
+====================================== */
+@import url(template/navbar.css);
+
+/* 1.4 SECTION
+====================================== */
+@import url(template/section.css);
+
+/* 1.5 BUTTON
+====================================== */
+@import url(template/button.css);
+
+/* 1.6 BREADCRUMBS
+====================================== */
+@import url(template/breadcrumb.css);
+
+/* 1.7 PAGINATION
+====================================== */
+@import url(template/pagination.css);
+
+/* 1.8 FOOTER
+====================================== */
+@import url(template/footer.css);
+
+/* 1.9 MODAL
+====================================== */
+@import url(template/modal.css);
+
+/* 1.10 OBJECT
+====================================== */
+@import url(template/object.css);
+
+/* 2 MAPS
+====================================== */
+@import url(template/maps.css);
+
+/* 2.1 SEARCHER BOX
+====================================== */
+@import url(template/searcher.css);
+
+/* 2.2 INFO-BOX
+====================================== */
+@import url(template/info-box.css);
+
+/* 3 SLIDER
+====================================== */
+@import url(template/slider.css);
+
+/* 3.1 SLIDER-PAGE
+====================================== */
+@import url(template/slider-page.css);
+
+/* 4.1 HOME
+====================================== */
+@import url(template/pages/home.css);
+
+/* 4.2 AGENCY
+====================================== */
+@import url(template/pages/agency.css);
+
+/* 4.3 COMING SOON
+====================================== */
+@import url(template/pages/coming-soon.css);
+
+/* 4.4 BLOG
+====================================== */
+@import url(template/pages/blog.css);
+
+/* 4.5 CONTACT
+====================================== */
+@import url(template/pages/contact.css);
+
+/* 4.6 CREATE AGENCY
+====================================== */
+@import url(template/pages/create-agency.css);
+
+/* 4.7 FAQ
+====================================== */
+@import url(template/pages/faq.css);
+
+/* 4.8 GALLERY
+====================================== */
+@import url(template/pages/gallery.css);
+
+/* 4.9 INVOICE
+====================================== */
+@import url(template/pages/invoice.css);
+
+/* 4.10 MY PROPERTY
+====================================== */
+@import url(template/pages/my-property.css);
+
+/* 4.11 NEW PROPERTY
+====================================== */
+@import url(template/pages/new-property.css);
+
+/* 4.12 PRICING
+====================================== */
+@import url(template/pages/pricing.css);
+
+/* 4.13 SHORTCODE
+====================================== */
+@import url(template/pages/shortcode.css);
+
+/* 4.14 SIDEBAR
+====================================== */
+@import url(template/pages/sidebar.css);
+
+/* 4.15 TERM CONDITION
+====================================== */
+@import url(template/pages/term-condition.css);
+
+/* 4.16 SIGN-IN
+====================================== */
+@import url(template/pages/sign-in.css);
+
+/* 4.17 TIMELINE
+====================================== */
+@import url(template/pages/timeline.css);
+
+/* 4.18 USER PROFILE
+====================================== */
+@import url(template/pages/user-profile.css);
+
+/* 4.19 ERROR
+====================================== */
+@import url(template/pages/error.css);
+
+/* 4.20 ABOUT
+====================================== */
+@import url(template/pages/about.css);
+
+/* 4.21 AGENT
+====================================== */
+@import url(template/pages/agent.css);
+
+/* 4.23 PROPERTY-PAGE
+====================================== */
+@import url(template/pages/property-page.css);
+
+/* 4.24 LISTING-PAGE
+====================================== */
+@import url(template/pages/listing-page.css);
+
+/* 4.22 HEADER PAGE
+====================================== */
+@import url(template/pages/header-page.css);

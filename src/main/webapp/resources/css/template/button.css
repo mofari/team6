@@ -1,0 +1,74 @@
+/* 1.5 BUTTON
+================================== */
+.btn {
+  position: relative;
+  font-size: 14px;
+  padding-left: 12px;
+  padding-right: 12px;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -moz-transition: 0.3s all ease-in-out;
+  -ms-transition: 0.3s all ease-in-out;
+  -o-transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
+  -webkit-transition: 0.3s all ease-in-out;
+}
+.btn .icon {
+  margin-right: 6px;
+}
+.btn-default {
+  border: 1px solid #1fb7a6;
+  background-color: #1fb7a6;
+  color: #ffffff;
+}
+.btn-default.active,
+.btn-default.focus,
+.btn-default:active,
+.btn-default:focus,
+.btn-default:hover {
+  border: 1px solid #1fb7a6;
+  background-color: #FFF;
+  color: #333;
+}
+.btn-link {
+  color: #333;
+  border: 1px solid #F2F2F2;
+}
+.btn-link.active,
+.btn-link.focus,
+.btn-link:active,
+.btn-link:focus,
+.btn-link:hover {
+  color: #106057;
+  text-decoration: none;
+  border: 1px solid #106057;
+}
+.open > .dropdown-toggle.btn-default {
+  background-color: #FFF;
+  color: #333;
+}
+.open > .dropdown-toggle.btn-reverse {
+  background-color: #1fb7a6;
+}
+.btn-reverse {
+  border: 1px solid #1fb7a6;
+  background-color: #FFF;
+  color: #333;
+}
+.btn-reverse.active,
+.btn-reverse.focus,
+.btn-reverse:active,
+.btn-reverse:focus,
+.btn-reverse:hover {
+  border: 1px solid #1fb7a6;
+  background-color: #1fb7a6;
+  color: #ffffff;
+}
+.btn-group-lg > .btn,
+.btn-group-lg .btn-lg {
+  font-size: 14px;
+  height: 44px;
+}

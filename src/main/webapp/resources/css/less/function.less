@@ -1,0 +1,95 @@
+
+.setWKTransition(@duration: .3s, @type: all, @effect: ease-in-out) {
+	-webkit-transition: @duration @type @effect;
+}
+
+.setTransition(@duration: .3s, @type: all, @effect: ease-in-out) {
+	   -moz-transition: @duration @type @effect;
+	    -ms-transition: @duration @type @effect;
+	     -o-transition: @duration @type @effect;
+	        transition: @duration @type @effect;
+}
+
+.rgbaColorIn(@color, @opacity: 1, @type: background-color){
+	@{type}: rgba( red(@color), green(@color), blue(@color), @opacity );
+}
+
+.borderStyle(@width, @type: solid, @color, @opacity: 1, @position: border){ 
+	@{position}: @width @type rgba( red(@color), green(@color), blue(@color), @opacity );
+}
+
+.fullBorderRadius(@val: 0) { 
+	-webkit-border-radius: @val;
+	 -khtml-border-radius: @val;
+	   -moz-border-radius: @val;
+         -o-border-radius: @val;
+	        border-radius: @val;
+}
+
+.borderRadius(@top, @right, @bottom, @left) { 
+	-webkit-border-radius: @top @right @bottom @left;
+	 -khtml-border-radius: @top @right @bottom @left;
+	   -moz-border-radius: @top @right @bottom @left;
+         -o-border-radius: @top @right @bottom @left;
+	        border-radius: @top @right @bottom @left;
+}
+
+.setScale(@ratio) {
+  -webkit-transform: scale(@ratio);
+     -moz-transform: scale(@ratio);
+      -ms-transform: scale(@ratio);
+       -o-transform: scale(@ratio);
+          transform: scale(@ratio);
+}
+
+.setOrigin(@value: 0 0) {
+	-webkit-transform-origin: @value;
+	   -moz-transform-origin: @value;
+	     -o-transform-origin: @value;
+	    -ms-transform-origin: @value;
+	        transform-origin: @value;
+}
+
+.setRotate(@value) {
+	-webkit-transform: rotate(@value);
+		-ms-transform: rotate(@value);
+			transform: rotate(@value);
+}
+
+.setTranslate(@ratio) {
+  -webkit-transform: translateY(@ratio);
+     -moz-transform: translateY(@ratio);
+      -ms-transform: translateY(@ratio);
+       -o-transform: translateY(@ratio);
+          transform: translateY(@ratio);
+}
+
+.setBoxShadow(@value, @color: #000, @opacity: .3) {
+	-webkit-box-shadow: @value rgba( red(@color), green(@color), blue(@color), @opacity );
+	   -moz-box-shadow: @value rgba( red(@color), green(@color), blue(@color), @opacity );
+	        box-shadow: @value rgba( red(@color), green(@color), blue(@color), @opacity );
+}
+
+.setOpacity(@val: 0) {
+	@opacity-ie: (@val * 100);
+	-ms-filter: ~'"progid:DXImageTransform.Microsoft.Alpha(Opacity=@opacity-ie)"';
+	opacity: @val;
+	-moz-opacity: @val;
+	-khtml-opacity: @val;
+}
+
+.setCover() { 
+    -webkit-background-size: cover;
+       -moz-background-size: cover;
+         -o-background-size: cover;
+            background-size: cover;
+}
+
+.setPosition(@position: absolute, @top: auto, @right: auto, @bottom: auto, @left: auto, @zindex: 1) {
+	position: @position !important;
+	top: @top;
+	right: @right;
+	bottom: @bottom;
+	left: @left;
+	z-index: @zindex;
+}

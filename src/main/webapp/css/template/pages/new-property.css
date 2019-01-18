@@ -1,0 +1,95 @@
+/* 4.11 NEW PROPERTY
+================================== */
+#new-property {
+  padding: 60px 0;
+}
+#new-property .card-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+#new-property .card-list li {
+  position: relative;
+  padding: 8px 0 5px 44px;
+  margin-right: -16px;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+#new-property .card-list li .icon {
+  font-size: 23px;
+  position: absolute !important;
+  top: 7px;
+  right: auto;
+  bottom: auto;
+  left: 8px;
+  z-index: 1;
+}
+#new-property .card-list li.active {
+  position: relative;
+  z-index: 2;
+  background-color: #F9F9F9;
+  border: 1px solid #E8E8E8;
+  border-right: none;
+}
+#new-property .card-list li.active:after {
+  background-color: #1fb7a6;
+  content: '';
+  width: 3px;
+  position: absolute !important;
+  top: -1px;
+  right: auto;
+  bottom: -1px;
+  left: -1px;
+  z-index: 3;
+}
+#new-property .info-card {
+  background-color: #F9F9F9;
+  border: 1px solid #E8E8E8;
+  position: relative;
+  z-index: 1;
+  margin-left: -15px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+#new-property .info-card .icon-cv {
+  font-size: 26px;
+  margin: 4px 0 0 -20px;
+}
+#new-property .features-box {
+  margin-bottom: 40px;
+}
+#new-property .features-box div {
+  padding-top: 20px;
+}
+#new-property #images .text {
+  text-align: center;
+  display: block;
+  padding: 10px 0 10px 0;
+  border-bottom: 1px dashed #DDD;
+}
+#new-property .space-form {
+  height: 54px;
+  margin-top: 5px;
+}
+#new-property .description {
+  height: 178px;
+}
+#new-property #position {
+  background-color: #1fb7a6;
+  position: relative;
+  height: 40px;
+  padding: 8px 0 0 14px;
+  color: #FFF;
+}
+#new-property #position:after {
+  position: absolute;
+  content: "";
+  top: -10px;
+  z-index: 10;
+  left: 80px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #1fb7a6;
+}

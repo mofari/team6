@@ -1,0 +1,89 @@
+
+@import '../variable.less';
+@import '../function.less';
+
+/* 4.16 SIGN-IN
+================================== */
+
+#login-page,
+#signin-page {
+	padding: 80px 0 120px;
+
+	input {
+		padding-left: 44px;
+	}
+
+	.form-group, 
+	.field {
+		margin-top: 20px;
+		position: relative;
+	}
+
+	.field {
+
+		i {
+			border-right: 1px solid #e5e5e5;
+			color: #ddd;
+			font-size: 20px;
+			padding-right: 8px;
+			.setPosition(absolute, auto, auto, 10px, 10px);
+
+			&.user {
+				font-size: 14px;
+				padding: 3px 10px 3px 3px;
+			}
+		}
+	}
+
+	.form-group {
+
+		i {
+			border-right: 1px solid #e5e5e5;
+			color: #ddd;
+			font-size: 20px;
+			padding-right: 8px;
+			.setPosition(absolute, auto, auto, 10px, 10px);
+		}
+	
+	}
+
+	.footer-form {
+		border-top: 1px solid #e5e5e5;
+		padding: 20px 0;
+		position: relative;
+
+		.remember {
+			font-size: 14px;
+			.setPosition(absolute, 26px, auto, auto, 0);
+		}
+
+		.button-form {
+			padding: 6px 26px;
+		}
+	}
+} /* #login-page, #signin-page */
+
+#login-page {
+
+	.title {
+		margin-top: 60px;
+	}
+} /* #login-page */
+
+#signin-page {
+
+	.title {
+		margin-top: 20px;
+	}
+
+	.text-desclaimer {
+		padding-left: 30px;
+		border-left: 1px dotted #CCC;
+	}
+
+	.form-group, 
+	.field {
+		margin-top: 20px;
+		position: relative;
+	}
+} /* #signin-page */

@@ -1,0 +1,64 @@
+/* 4.21 AGENT
+================================== */
+#agent-list {
+  padding: 10px 0 80px;
+}
+/* #agent-list */
+#agent-page {
+  padding: 60px 0;
+  /* .my-property */
+}
+#agent-page .section-title.no-margin {
+  margin-top: 0;
+}
+#agent-page .right-box.no-margin {
+  margin-bottom: 0;
+}
+#agent-page .form-contact input,
+#agent-page .form-contact textarea {
+  margin-bottom: 20px;
+}
+#agent-page .form-contact textarea {
+  height: 140px;
+}
+#agent-page .skill-box {
+  height: 170px;
+  margin-top: 32px;
+}
+#agent-page .my-property {
+  position: relative;
+  padding-bottom: 40px;
+  /* .my-property-nav */
+}
+#agent-page .my-property .my-property-nav {
+  text-align: center;
+}
+#agent-page .my-property .my-property-nav .button-container {
+  border-top: 1px solid #1fb7a6;
+  position: absolute !important;
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  height: 30px;
+}
+#agent-page .my-property .my-property-nav a {
+  background: url(../../../images/mini-arrow.png) no-repeat scroll top center;
+  display: inline-block;
+  background-color: #1fb7a6;
+  float: right;
+  width: 30px;
+  height: 30px;
+  text-indent: -9999px;
+  margin-left: 1px;
+}
+#agent-page .my-property .my-property-nav a:hover {
+  background-color: #188b7e;
+}
+#agent-page .my-property .my-property-nav a.previous {
+  background-position: 11px -36px;
+}
+#agent-page .my-property .my-property-nav a.next {
+  background-position: -40px -36px;
+}

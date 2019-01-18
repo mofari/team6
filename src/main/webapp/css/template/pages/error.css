@@ -1,0 +1,30 @@
+/* 4.19 ERROR
+================================== */
+#error-page {
+  padding: 360px 0 160px;
+  text-align: center;
+}
+#error-page .title {
+  font-size: 100px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #777;
+}
+#error-page .title span {
+  color: #1fb7a6;
+  font-weight: 500;
+}
+#error-page .title span img {
+  margin: -8px 6px 0;
+}
+#error-page .text {
+  margin: 10px 0 20px;
+}
+#error-page .error-button {
+  margin-top: 20px;
+}
+#error-page .line-broken {
+  background: url(../../../images/broken-line.png) repeat-x scroll center bottom;
+  padding-bottom: 44px;
+  font-size: 36px;
+}

@@ -1,0 +1,88 @@
+
+@import '../variable.less';
+@import '../function.less';
+
+/* 4.22 HEADER PAGE
+================================== */
+
+#header-page {
+	height: 300px;
+	position: relative;
+	z-index: 0;
+
+	.skyline {
+		background-color: #F7F7F7;
+		position: relative;
+		height: 250px;
+		width: 100%;
+		overflow: hidden;
+
+		.p2, .p1, .p3, .p4 {
+			.setPosition(absolute, auto, 0, -62px, 0);
+			width: 100%;
+			height: 300px;
+		}
+
+		.p1 {
+			background:url(../../../images/parallax/parallax-header1.png) no-repeat center;
+			z-index: 4;
+		}
+
+		.p2 {
+			background:url(../../../images/parallax/parallax-header2.png) no-repeat center;
+			z-index: 3;
+		}
+
+		.p3 {
+			background:url(../../../images/parallax/parallax-header-cloud.png) no-repeat center;
+			z-index: 2;
+		}
+
+		.p4 {
+			background:url(../../../images/parallax/parallax-header-sun.png) no-repeat center;
+			z-index: 1;
+		}
+
+		.header-text {
+			position: relative;
+			z-index: 7;
+			padding-top: 76px;
+
+			div {
+				clear: both;
+			}
+
+			.title, 
+			.sub-title {
+				margin: 0;
+				float: left;
+				font-weight: 100;
+
+				.fullBorderRadius(2px);
+			}
+
+			.title {
+				.rgbaColorIn(@color-primary, .6, background-color);
+				padding: 0 14px;
+				font-size: 44px;
+				font-weight: 100;
+				color: @color-font-light;
+			}
+
+			.sub-title {
+				margin-top: 6px;
+				text-transform: uppercase;
+				background-color: rgba(80,80,80, .6);
+				padding: 6px 12px;
+				font-size: 18px;
+				font-weight: 100;
+				color: @color-font-light;
+			}
+		}
+
+		.cover {
+			.setPosition(absolute, 0, 0, 0, 0, 6);
+			/*.rgbaColorIn(@color-primary, .07, background-color);*/
+		}
+	} /* .skyline */
+} /* #header-page */

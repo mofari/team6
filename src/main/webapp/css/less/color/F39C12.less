@@ -1,0 +1,1852 @@
+/* COLOR BASE VARIANT
+============================== */
+
+@color-primary-lighter: lighten(@color-primary, 20%);
+@color-primary-light: lighten(@color-primary, 10%);
+@color-primary: #F39C12;
+@color-primary-dark: darken(@color-primary, 10%);
+@color-primary-darked: darken(@color-primary, 20%);
+
+@grey-base: #E5E5E5;
+@color-font-light: #FFF;
+
+@import '../function.less';
+
+/* BUTTON RIGHT BOTTOM 
+  (RETURN TOP PAGE, EMAIL CONTACT) 
+================================== */
+
+.fixed-button {
+	.rgbaColorIn(@color-primary-dark, .5, background-color);
+
+	&:hover {
+		.rgbaColorIn(@color-primary-dark, 1, background-color);
+	}
+
+	&:after {
+		.borderStyle(6px, solid, @color-primary-dark, .5, border-left);
+	}
+
+	&:hover {
+		&:after {
+			.rgbaColorIn(@color-primary-dark, 1, border-left-color);
+		}
+	}
+
+} /* .fixed-button */
+
+
+
+
+
+/* FORM FIELD STYLE
+================================== */
+
+.form-control {
+
+	&:focus {
+		border-color: @color-primary;
+		.setBoxShadow(0 0 0 4px, @color-primary-lighter, .1);
+	}
+}
+
+#service {
+	color: @color-font-light;
+
+	.content-box {
+		color: @color-primary-dark;
+
+		&:hover {
+
+			.icon-box {
+				color: @color-primary-dark;
+			}
+		}
+	}
+	/* .content-box */
+}
+/* #service */
+
+
+/* SPINNER HOME
+================================== */
+
+#spinner-show {
+	color: @color-primary;
+} /* #spinner-show */
+
+
+/* SUBMIT SECTION
+================================== */
+#submit-property {
+	color: @color-font-light;
+
+	.overlay {
+		.rgbaColorIn(@color-primary, .73, background-color);
+	}
+}
+
+#recent-listed {
+	color: @color-font-light;
+
+	/* NAVIGATION SLIDE
+	================================== */
+
+	.nav-box {
+
+		a {
+
+			&:hover {
+				.rgbaColorIn(@color-primary, .6, background-color);
+			}
+		}
+	}
+}
+
+/* FEEDBACK
+================================== */
+.feeddback-user {
+
+	.info-user {
+
+		&:after {
+			border-right-color: @color-primary;
+		}
+
+	} /* .info-user */
+
+	.message {
+		border-left-color: @color-primary;
+
+		.rating {
+			color: @color-primary;
+		}
+
+		.more-button {
+			color: @color-primary;
+		}
+	}/* message */
+} /* .feeddback-user */
+
+
+/* BREADCRUMB
+================================== */
+
+#breadcrumb {
+
+	.breadcrumb {
+
+		a {
+
+			&:hover,
+			&:focus {
+				background-color: @color-primary;
+				color: @color-font-light;
+			}
+		}
+	}
+}
+
+
+
+/* BUTTON
+================================== */
+.btn-default {
+	border-color: @color-primary;
+	background-color: @color-primary;
+	color: @color-font-light;
+
+	&.active,
+	&.focus,
+	&:active,
+	&:focus,
+	&:hover {
+		border-color: @color-primary;
+	}
+}
+
+.btn-link {
+
+	&.active,
+	&.focus,
+	&:active,
+	&:focus,
+	&:hover {
+		color: @color-primary-darked;
+		border-color: @color-primary-darked;
+	}
+}
+
+.open {
+
+	 > .dropdown-toggle {
+
+		&.btn-reverse {
+			background-color: @color-primary;
+		}
+	}
+}
+
+.btn-reverse {
+	border-color: @color-primary;
+
+	&.active,
+	&.focus,
+	&:active,
+	&:focus,
+	&:hover {
+		border-color: @color-primary;
+		background-color: @color-primary;
+		color: @color-font-light;
+	}
+}
+
+/* FOOTER
+================================== */
+
+#footer-page {
+	color: @color-font-light;
+
+
+	a {
+		color: @color-font-light;
+
+		&:hover,
+		&:focus {
+			color: @color-primary-lighter;
+		}
+	}
+
+	.social-icons {
+
+		li {
+
+			a {
+				border-color: @color-primary;
+				color: darken(@color-primary, -40%);
+
+				&:hover {
+					color: @color-primary;
+				}
+			}
+		}
+	}
+	.credits {
+		background-color: @color-primary-dark;
+	}
+
+	.credits-text {
+
+		b {
+			color: @color-primary-lighter;
+		}
+	}
+
+	.newsletter-box {
+
+		.form-control {
+			border-color: @color-primary-darked;
+		}
+
+		.send {
+			color: @color-primary-lighter;
+
+			&:hover {
+				color: @color-primary-dark;
+			}
+		}
+
+		.btn-default {
+
+			&:hover {
+				border-color: @color-primary-darked;
+			}
+		}
+	}
+}/* end #footer-page */
+
+
+/* HEADER PAGE
+================================== */
+#header-page {
+
+	.skyline {
+
+		.header-text {
+
+			.title {
+				.rgbaColorIn(@color-primary, .6, background-color);
+				color: @color-font-light;
+			}
+
+			.sub-title {
+				color: @color-font-light;
+			}
+		}
+
+		.cover {
+			.rgbaColorIn(@color-primary, .0, background-color);
+		}
+	} /* .skyline */
+} /* #header-page */
+
+
+/* BOX MAPS
+================================== */
+.ads-maps {
+
+	.img-container {
+
+		.title {
+			.rgbaColorIn(@color-primary, .9, background-color);
+			color: @color-font-light;
+
+			&:after,
+			&:before {
+				.rgbaColorIn(@color-primary-dark, 1, background-color);
+			}
+			&:hover {
+				.rgbaColorIn(@color-primary, .9, background-color);
+			}
+		} /* .title */
+	} /* .img-container */
+
+	.price {
+		color: @color-font-light;
+        .rgbaColorIn(@color-primary, .8, background-color);
+	}
+} /* .ads-maps */
+
+
+/* GENERIC BOX
+================================== */
+
+.box-ads {
+
+	.title {
+		border-bottom-color: @color-primary;
+	}
+
+	.price {
+		background-color: @color-primary;
+		color: @color-font-light;
+
+		&:after {
+			border-bottom-color: @color-primary;
+		}
+	}
+} /* .box-ads */
+
+
+/* BOX LIST
+================================== */
+
+.box-ads {
+
+	&.box-list {
+
+		.image {
+
+			&:after {
+				border-left-color: @color-primary;
+			}
+		}
+	} /* &.box-list */
+} /* .box-ads */
+
+
+/* MINI BOX GRID
+================================== */
+.box-ads {
+
+	&.box-grid {
+
+		&.mini {
+
+			.price {
+				border-top-color: @color-primary;
+
+				&:after {
+					border-bottom-color: @color-primary;
+				}
+			}
+		} /* &.mini */
+	} /* &.box-grid */
+} /* .box-ads */
+
+
+/* SLIDE BOX HOME
+================================== */
+
+.box-property-slide {
+	color: @color-font-light;
+
+	.left-block,
+	.right-block {
+
+		.rgbaColorIn(@color-primary, .7);
+	}
+	.left-block {
+
+		&:after {
+			.borderStyle(20px, solid, @color-primary, .7, border-left);
+			.borderStyle(20px, solid, @color-primary, .0, border-top);
+			.borderStyle(20px, solid, @color-primary, .0, border-bottom);
+		}
+
+		.price {
+			background-color: @color-primary-dark;
+			color: @color-font-light;
+		}
+
+		.detail {
+
+			dd {
+
+				span {
+
+					.rgbaColorIn(@color-primary-dark, .3, background-color);
+					.borderStyle(1px, solid, @color-primary-dark, .9, border);
+				}
+			}
+		} /* .detail */
+	} /* left-block */
+} /* .box-property-slide */
+
+
+/* CAROUSEL BOX
+================================== */
+
+.property-carousel-box {
+
+	.content {
+
+		.price {
+
+			span {
+				background-color: @color-primary;
+				color: @color-font-light;
+				&:after {
+					border-left-color: @color-primary;
+				}
+			}
+		}
+	} /* content */
+} /* property-carousel-box */
+
+
+/* BUTTON ADD PROPERTY
+================================== */
+#add-property {
+
+	&:hover {
+		color: @color-font-light;
+		.rgbaColorIn(@color-primary-dark, 1, background-color);
+	}
+} /* #add-property */
+
+
+/* MAPS
+================================== */
+#maps {
+
+	.find-result {
+		.rgbaColorIn(@color-primary-dark, .8, background-color);
+		color: @color-font-light;
+
+		&:after {
+			.rgbaColorIn(@color-primary-darked, .8, background-color);
+		}
+	}
+
+	.loading-container {
+
+		.spinner {
+			background-color: @color-primary-light;
+		}
+	} /* .loading-container */
+
+	.control-left-wrapper,
+	.control-right-wrapper {
+
+		div {
+
+			&:after {
+				background-color: @color-primary-dark;
+				border-color: @color-primary-darked;
+				color: @color-font-light;
+			}
+		}
+	}
+} /* #maps */
+
+
+/* NAVBAR
+================================== */
+nav li.has_submenu:hover > a,
+nav a:hover {
+	background-color: @color-primary;
+	color: @color-font-light;
+}
+
+nav ul ul {
+	border-top-color: @color-primary;
+}
+
+
+/* MODAL
+================================== */
+
+.modal-dialog {
+
+	.login-button-container {
+		background-color: @color-primary;
+		border-right-color: @color-primary-darked;
+
+		a {
+			color: @color-font-light;
+
+			&.active {
+				color: @color-primary;
+				border-color: @color-primary-darked;
+			}
+
+			&:hover {
+				background-color: @color-primary-darked;
+			}
+		} /* a */
+	} /* .login-button-container */
+
+	.form-container {
+
+		a {
+			color: @color-primary;
+		}
+
+		.object-contact {
+
+			li {
+
+				a {
+
+					&:hover,
+					&.active {
+						background-color: @color-primary;
+						color: @color-font-light;
+					}
+
+					&.active {
+
+						&:after {
+							border-top-color: @color-primary;						
+						}
+					}
+				}
+			}
+		} /* .object-contact */
+	} /* .form-container */
+} /* .modal-dialog */
+
+
+/* STANDARD HEADER / NAV
+================================== */
+.info {
+	background-color: @color-primary;
+
+	a {
+		border-right-color: lighten(@color-primary, 7%);
+		border-left-color: lighten(@color-primary, 7%);
+		color: #FFF !important;
+
+		&:hover {
+			background-color: darken(@color-primary, 5%);
+		}
+	}
+}
+
+/* MENU COLOR LOGO
+================================== */
+
+.menu-color-line {
+
+	.info {
+
+		a {
+			border-color: @color-primary-light;
+		}
+	}
+} /* .menu-color-line */
+
+
+/* UI SPINNER STYLE
+================================== */
+
+.ui-spinner {
+
+	.ui-spinner-input {
+		color: @color-font-light;
+
+		&:focus {
+			color: @color-font-light;
+		}
+	}
+
+	a.ui-spinner-up:hover:after, 
+	a.ui-spinner-down:hover:after,
+	a.ui-spinner-up:focus:after, 
+	a.ui-spinner-down:focus:after,
+	a.ui-spinner-up:hover:before, 
+	a.ui-spinner-down:hover:before,
+	a.ui-spinner-up:focus:before, 
+	a.ui-spinner-down:focus:before {
+		color: @color-primary-darked;
+	}
+} /* .ui-spinner */
+
+
+/* SLIDER PAGE
+================================== */
+
+.slider-page {
+
+	.slider-box {
+
+		.content {
+
+			h2 {
+				background-color: @color-primary-dark;
+				color: @color-font-light;
+			}
+		}
+	} /* .slider-box */
+
+	.slider-page-nav {
+
+		a {
+			background-color: @color-primary;
+		}
+	} /* .slider-page-nav */
+} /* .slider-page */
+
+
+/* SLIDER
+================================== */
+
+.home-slider {
+	border-bottom-color: @color-primary;
+
+	.content {
+		h1,
+		h2,
+		h3 {
+			color: @color-font-light;
+		}
+
+		h1 {
+			border-bottom-color: @color-primary;
+		}
+	} /* .content */
+
+	.home-slider-nav {
+
+		a {
+
+			&:hover {
+				.rgbaColorIn(@color-primary, .6, background-color) !important;
+			}
+		}
+	} /* .home-slider-nav */
+} /* .home-slider */
+
+
+/* SECTION
+================================== */
+
+.section-color {
+	background-color: @color-primary;
+
+	&:after {
+		border-top-color: @color-primary;
+	}
+} /* .section-color */
+
+
+/* SERCHER BOX
+================================== */
+
+#search-box {
+
+	.search-container {
+
+		.search-options {
+
+			.botton-options-inactive,
+			.botton-options {
+				color: @color-font-light;
+				.rgbaColorIn(@color-primary-dark, .8, background-color);
+
+				&:hover {
+					.rgbaColorIn(@color-primary-darked, .9, background-color);
+				}
+			}
+
+		} /* .search-options */
+
+		/* SIMPLE PAGE SERCHER */
+
+		&.sample-page {
+
+			.search-options {
+
+				.searcher {
+
+					.footer {
+						background-color: @color-primary-dark;
+						border-top-color: @color-primary-dark;
+					}
+				}
+			}
+		} /* &.sample-page */
+	} /* .search-container */
+} /* #search-box */
+
+.ads-type {
+	background-color: @color-primary;
+
+	a { 
+		&.item-type {
+			background-color: darken(@color-primary, 5%);
+			color: @color-font-light;
+			border-right-color: darken(@color-primary, 1%);
+
+			&:hover {
+				background-color: darken(@color-primary, 7%);
+			}
+
+			&.item-selected {
+				background-color: darken(@color-primary, 10%);
+			}
+		}
+	}
+
+	.nav-box {
+
+		a {
+			background-color: darken(@color-primary, 3%);
+
+			&:hover,
+			&:focus {
+				background-color: darken(@color-primary, 5%);
+			}
+		}
+
+		.previous {
+			border-color: lighten(@color-primary, 2%);
+			border-right-color: darken(@color-primary, 1%);
+		}
+
+		.next {
+			border-right-color: lighten(@color-primary, 2%);
+		}
+	}
+} /* .ads-type */
+
+/* PROPERTY DETAIL PAGES
+================================== */
+
+#property-content {
+
+	.large-price {
+		background-color: @color-primary;
+		color: #FFF;
+	}
+
+	/* FEEDBACK
+	================================== */
+
+	.feedback {
+
+		.user-feedback {
+
+			.vote {
+				color: @color-primary;
+			}
+		}
+	} /* .feedback */
+
+
+	/* RATING
+	================================== */
+
+	.rating {
+
+		.graphic {
+
+			.percent {
+				background-color: @color-primary;
+			}
+		}
+	}
+
+	/* DETAILS
+	================================== */
+
+	.details {
+
+		.detail {
+
+			.fa-square {
+				color: @color-primary;
+			}
+		}
+	}
+
+} /* #property-content */
+
+/* PAGINATION STYLE
+================================== */
+
+.pagination {
+
+	> li {
+
+		> a {
+
+			&:hover,
+			&:focus,
+			&.active,
+			&:hover i {
+				background-color: @color-primary;
+			}
+		} /* > a */
+	} /* > li */
+} /* .pagination */
+
+
+/* FILTER TAGS
+================================== */
+#filter-box {
+
+	.filter {
+		background-color: @color-primary;
+		color: @color-font-light;
+
+		&:hover {
+			background-color: @color-primary;
+		}
+	}
+}
+
+
+/* RECENT POST
+================================== */
+.recent-post {
+
+	.title {
+		background-color: @color-primary;
+		color: @color-font-light;
+
+		&:after {
+			border-bottom-color: @color-primary;
+		}
+	}
+} /* .recent-post */
+
+
+
+
+/* FORM
+================================== */
+
+.form-large {
+
+	&.grey-color {
+		border-top-color: @color-primary;
+	}
+} /* .form-large */
+
+
+/* ALERT
+================================== */
+
+.alert {
+	color: @color-font-light;
+} /* .alert */
+
+
+/* TABS
+================================== */
+.tabs {
+
+	/* NORMAL BUTTON
+	================================== */
+	.tab-button {
+
+		li {
+
+			&.active {
+
+				a {
+					background-color: @color-primary;
+					color: @color-font-light;
+
+					&:hover {
+						background-color: @color-primary;
+						color: @color-font-light;
+					}
+				}
+			}
+		}
+
+		a {
+
+			&:hover {
+				background-color: @color-primary;
+				color: @color-font-light;
+			}
+		}
+	}
+
+	.tab-text {
+		border-top-color: @color-primary;
+	}
+
+	/* LINE BUTTON
+	================================== */
+	&.line {
+
+		li {
+
+			&.active {
+
+				a, a:hover {
+					border-bottom-color: @color-primary;
+				}
+			}
+		}
+
+		.tab-button {
+
+			a {
+
+				&:hover {
+					border-bottom-color: @color-primary;
+				}
+			}
+		}
+	} /* &.line */
+} /* .tabs */
+
+
+
+/* ACCORDION
+================================== */
+.toggle,
+.accordion {
+
+	.title {
+
+		&:after {
+			border-top-color: @color-primary-dark;
+		}
+		&.active {
+
+			&:after {
+				border-bottom-color: @color-primary-dark;
+			}
+		}
+	}
+
+	.text-container {
+
+		.footer {
+			color: @color-primary;
+
+			a {
+				&:hover, &:focus {
+					color: @color-primary;
+				}
+			}
+		}
+	}
+} /* .toggle, .accordion */
+
+
+/* MENU BLOCK
+================================== */
+
+.block-menu {
+
+	li {
+
+		a {
+
+			&.active,
+			&:hover {
+				background-color: @color-primary;
+				border-color: @color-primary;
+				border-right-color: @color-primary;
+				color: @color-font-light;
+			}
+
+			&.active {
+
+				&:after {
+					border-left-color: @color-primary;
+				}
+			}
+		}
+	}
+} /* .block-menu */
+
+
+/* AGENT CARD
+================================== */
+
+.agent-box-card {
+
+	.image-content {
+
+		.image {
+			.borderStyle(1px, solid, @color-primary-dark, .7, border);
+		}
+	}
+
+	.info-agent {
+		.rgbaColorIn(@color-primary-dark, .7, background-color);
+
+		&:after {
+			.borderStyle(16px, solid, @color-primary-dark, .7, border-bottom);
+		}
+
+		.text {
+			color: @color-font-light;
+		}
+
+		.name {
+			color: @color-font-light;
+		}
+
+		.contact {
+			.borderStyle(1px, solid, @color-primary-dark, .7, border-top);
+
+			li {
+				.borderStyle(1px, solid, @color-primary-dark, .7, border-right);
+
+				.icon {
+					color: @color-font-light;
+
+					&:hover {
+						.rgbaColorIn(@color-primary-dark, 1, color);
+					}
+				}
+			}
+		}
+	} /* .info-agent */
+
+	/* TOP AGENT CARD
+	================================== */
+
+	&.top-agent {
+
+		.image-content {
+
+			&:after {
+				color: @color-font-light;
+				.rgbaColorIn(@color-primary-dark, .95, background-color);
+			}
+
+			&:before {
+				.borderStyle(16px, solid, @color-primary-dark, .95, border-left);
+			}
+		}
+	} /* &.top-agent */
+} /* .agent-box-card */
+
+
+/* OBJECT SIDEBAR
+================================== */
+
+.button-sidebar {
+	background-color: @color-primary;
+	border-color: @color-primary-dark;
+	color: @color-font-light;
+
+	.icon {
+		color: @color-font-light;
+	}
+} /* .button-sidebar */
+
+
+/* CALLOUT BOX
+================================== */
+
+.bs-callout {
+	border-left-color: @color-primary;
+} /* .bs-callout */
+
+
+/* MORTGAGE CALC
+================================== */
+
+.mortgage-calculator-box {
+
+	.result-calc {
+		background-color: @color-primary;
+		color: @color-font-light;
+	}
+}
+
+/* SECTION TITLE
+================================== */
+
+.section-title {
+	border-bottom-color: @color-primary;
+
+	.title {
+		background-color: @color-primary;
+		color: @color-font-light;
+	}
+
+	&.line-style {
+
+		.title {
+			border-bottom-color: @color-primary;
+		}
+	}
+}
+
+/* BOX TITLE STYLE (HOME+)
+================================== */
+
+.list-box-title {
+	border-bottom-color: @color-primary;
+
+	span {
+		background-color: @color-primary;
+		color: @color-font-light;
+	}
+}
+
+.list-box-section {
+		background-color: @color-primary;
+		color: @color-font-light;
+}
+
+/* LINK EFFECT
+================================== */
+
+.hover-effect {
+
+	.cover {
+		.rgbaColorIn(@color-primary, .3, background-color);
+
+		&:before {
+			color: @color-primary;
+		}
+	} /* .cover */
+
+	.cover-title {
+		.rgbaColorIn(@color-primary, .8, background-color);
+		color: @color-font-light;
+	} /* .cover-title */
+} /* .hover-effect */
+
+
+/* ABOUT V2
+================================== */
+#about-us {
+
+	.director {
+
+		&:before {
+			.borderStyle(12px, solid, @color-primary-dark, .7, border-top);
+		}
+	}
+
+	.team {
+		color: @color-font-light;
+		border-top-color: @color-primary-dark;
+		border-bottom-color: @color-primary-dark;
+	}
+
+	#counter {
+		.rgbaColorIn(@color-primary-dark, .7, background-color);
+
+		&:after {
+			.borderStyle(12px, solid, @color-primary-dark, .7, border-bottom);
+		}
+	}
+} /* #about-us */
+
+
+/* AGENCY
+================================== */
+
+#agency {
+
+	.agency-box {
+
+		.title {
+
+			a {
+				color: @color-primary;
+			}
+		}
+		.center-box {
+			border-left-color: @color-primary;
+
+			&:after {
+				border-right-color: @color-primary;
+			}
+		}
+	} /* .agency-box */
+
+	.agency-detail {
+		border-left-color: @color-primary;
+
+		&:after {
+			border-right-color: @color-primary;
+		}
+	}
+} /* #agency */
+
+
+
+
+/* AGENT DETAIL
+================================== */
+#agent-page {
+
+	.my-property {
+
+		.my-property-nav {
+
+			.button-container {
+				border-top-color: @color-primary;
+			}
+
+			a {
+				background-color: @color-primary;
+
+				&:hover {
+					background-color: @color-primary-dark;
+				}
+			}
+		} /* .my-property-nav */
+	} /* .my-property */
+} /* #agent-page */
+
+
+
+
+/* BLOG LIST
+================================== */
+
+#blog {
+
+	/* BLOG DETAILS
+	============================== */
+	.blog-list {
+
+		/* BLOG LIST INLINE
+		=========================== */
+		&.post-line {
+
+			.image {
+				border-left-color: @color-primary;
+			}
+		} /* &.post-line */
+
+		.image {
+			border-right-color: @color-primary;
+		}
+
+		.social {
+
+			.date {
+				background-color: @color-primary;
+				color: @color-font-light;
+			}
+
+			a {
+
+				&:hover {
+					background-color: lighten(@color-primary, 2%);
+					color: @color-font-light;
+				}
+
+			}
+		} /* .social */
+
+		.subtitle {
+			color: @color-primary;
+		}
+
+	} /* .blog-list */
+
+	#comments {
+
+		.title-form,
+		.title-comment {
+
+			span {
+				background-color: @color-primary;
+				color: @color-font-light;
+			}
+		}
+
+		.medialist {
+
+			.media-body {
+
+				.comment-line {
+					border-left-color: @color-primary;
+
+					&:after {
+						border-right-color: @color-primary;
+					}
+				}
+			}
+		} /* .medialist */
+
+	} /* #comments */
+
+	.blog-search {
+
+		.button-search {
+
+			&:hover {
+				color: @color-primary;
+			}
+		}
+	}
+
+	/* CATEGORY BOX
+	================================== */
+	.category-list {
+
+		li {
+
+			a {
+
+				&:hover {
+					border-left-color: @color-primary;
+
+					&:before {
+						border-right-color: @color-primary;
+					}
+				}
+			} /* &.active */
+
+			&.active {
+
+				a {
+					border-left-color: @color-primary;
+
+					&:before {
+						border-right-color: @color-primary;
+					}
+				}
+			} /* &.active */
+		} /* li */
+	} /* .category-list */
+} /* #blog */
+
+
+
+
+/* CONTACT
+================================== */
+#contact {
+
+	.info-top {
+		background-color: @color-primary;
+		color: @color-font-light;
+
+		&:after {
+			border-right-color: @color-primary;
+		}
+
+		a {
+			color: @color-font-light;
+		}
+	} /* .info-top */
+
+	.form-container {
+		border-left-color: @color-primary;
+
+		&:after {
+			border-right-color: @color-primary;
+		}
+	}
+
+	.grey-box {
+
+		li {
+
+			.icon {
+				color: @color-font-light;
+				background-color: @color-primary;
+			}
+		}
+	}
+} /* #contact */
+
+
+
+
+
+/* CREATE AGENCY
+================================== */
+
+#create-agency {
+
+	.map-box {
+
+		> span {
+			background-color: @color-primary;
+			color: @color-font-light;
+
+			&:after {
+				border-bottom-color: @color-primary;
+			}
+		}
+	}
+} /* #create-agency */
+
+
+
+
+/* ERROR PAGES
+================================== */
+#error-page {
+
+	.title {
+
+		span {
+			color: @color-primary;
+		}
+	}
+} /* #error-page */
+
+
+
+
+/* FAQ PAGES
+================================== */
+#faq {
+
+	.faq-container {
+		border-top-color: @color-primary;
+	}
+} /* #faq */
+
+
+
+
+/* GALLERY
+================================== */
+#gallery {
+
+	#filter-container {
+
+		li {
+
+			a {
+
+				&:hover,
+				&.active {
+					border-color: @color-primary;
+					background: @color-primary;
+					color: @color-font-light;
+				}
+			}
+		}
+	}
+} /* #gallery */
+
+
+
+/* MY PROPERTY
+================================== */
+#user-profile {
+
+	.property-list {
+
+		table {
+
+			thead {
+				background-color: @color-primary;
+
+				th {
+					color: @color-font-light;
+				}
+				th:nth-of-type(2n+1) {
+					background-color: lighten(@color-primary, 2%);
+				}
+			}
+
+		} /* table */
+	} /* .property-list */
+} /* #user-profile */
+
+
+
+
+
+/* NEW PROPERTY
+================================== */
+#new-property {
+
+	.card-list {
+
+		li {
+
+			&.active {
+
+				&:after {
+					background-color: @color-primary;
+				}
+			}
+		}
+	}
+
+	#position {
+		background-color: @color-primary;
+
+		&:after {
+		    border-bottom-color: @color-primary;
+		}
+	}
+
+} /* #new-property */
+
+
+
+
+/* PRICING
+====================================== */
+.pricing {
+
+	.header {
+		background-color: @color-primary;
+		color: @color-font-light;
+	}
+
+	.select-button {
+		border: 2px solid @color-primary-dark;
+	} /* .select-button */
+
+	&.select {
+
+		.select-button {
+			color: @color-font-light;
+		}
+	} /* &.select */
+
+	.price {
+		border-bottom-color: @color-primary;
+
+		&:after {
+			border-top-color: @color-primary;
+		}
+	}
+
+} /* .pricing */
+
+
+.pricing-table {
+
+	.table {
+		border: 1px solid @color-primary;
+
+		thead {
+
+			tr {
+				background-color: @color-primary;
+				color: @color-font-light;
+			}
+		}
+
+		> thead {
+
+			> tr {
+
+				> th {
+
+					&:nth-of-type(2n+1) {
+						background-color: lighten(@color-primary, 2%);
+					}
+				}
+			}
+		}
+	}
+} /* .pricing-table */
+
+
+
+
+
+/* SHORTCODE
+================================== */
+#shortcode {
+
+	.shortcode-box {
+
+		.content-icon {
+
+			a {
+
+				&:hover {
+					background-color: @color-primary;
+					border-color: @color-primary-dark;
+					color: @color-font-light;
+				}
+			}
+		}
+	}
+}
+
+
+
+/* TIMELINE PAGE
+================================== */
+#timeline {
+	
+	.timeline-item {
+		.timeline-icon {
+			background: @color-primary;
+			color: @color-font-light;
+
+			&:after {
+				background-color: @color-primary;
+			}
+		}
+
+		.timeline-content {
+
+			&.right {
+
+				.orario {
+					border-right-color: @color-primary-dark;
+
+					&:before {
+						border-left-color: @color-primary-dark;
+					}
+				}
+
+				.title {
+
+					&:before {
+						.borderStyle(10px, solid, @color-primary, .9, border-right);
+					}
+				}
+
+			} /* &.right */
+
+			.edit-post {
+				color: @color-font-light;
+			}
+
+			.orario {
+				background-color: @color-primary;
+				color: @color-font-light;
+				border-left-color: @color-primary-dark;
+
+				&:before {
+					border-right-color: @color-primary-dark;
+				}
+			}
+
+			.title {
+				.rgbaColorIn(@color-primary, .9, background);
+				color: @color-font-light;
+
+				&:before {
+					.borderStyle(10px, solid, @color-primary, .9, border-left);
+
+				}
+			}
+		} /* .timeline-content */
+	} /* .timeline-item */
+
+
+	/* TIMELINE PAGE
+	================================== */
+	&.parallax {
+
+		.section-detail {
+			color: @color-font-light;
+		}
+	}
+} /* #timeline */
+
+
+/* MEDIA SCREEN VERSION */
+@media screen and (max-width: 768px) {
+
+	#timeline {
+
+		.timeline-item {
+
+			.timeline-content {
+
+				.title {
+
+					&:before {
+						.borderStyle(10px, solid, @color-primary, .9, border-right);
+					}
+				}
+
+				&.right {
+
+					.orario {
+						&:after,
+						&:before {
+							border-bottom-color: @color-primary;
+						}
+					}
+				}
+
+				.orario {
+
+					&:after,
+					&:before {
+						border-bottom-color: @color-primary;
+					}
+				}
+			} /* .timeline-content */
+		} /* .timeline-item */
+	} /* #timeline */
+} /* @mediascreen */
+
+
+
+
+/* COLOR OPTION DROPDOWN
+===================================================*/
+.dropdown .carat:after {
+    border-top-color: @color-primary;
+}
+.dropdown.open .carat {
+    background-color: @color-primary;
+    border-left-color: @color-primary;
+}
+
+.dropdown li.hover,
+.dropdown li.focus,
+.dropdown li.active {
+    background-color: @color-primary;
+}
+.dropdown.open {
+    border-color: @color-primary;
+    .setBoxShadow(0 0 0 4px, @color-primary-lighter, .1);
+}
+
+
+/* SLIDER PRICE
+===================================================*/
+
+.price-slider.price #price-value-min::after, 
+.price-slider.price #price-value-max::after {
+    border-left-color: @color-primary;
+}
+.price-slider.price #price-value-max::after {
+    border-right-color: @color-primary;
+}
+.price-slider.price #price-value-min, .price-slider.price #price-value-max {
+    background-color: @color-primary;
+}
+
+.noUi-connect {
+    background-color: @color-primary-light;
+}
+
+.noUi-horizontal .noUi-handle {
+    background-color: @color-primary;
+}
+
+
+
+/* LABELAUTY SCRIPT
+=================================================== */
+
+input.labelauty + label > span.labelauty-checked-image {
+    background-color: @color-primary;
+    border-color: @color-primary-dark;
+}
+
+input.labelauty:hover + label > span.labelauty-checked-image {
+    background-color: @color-primary-dark;
+    border-color: @color-primary-dark;
+}
+
+
+/* DROPZONE
+=================================================== */
+.dropzone .dz-default.dz-message:after {
+	color: @color-primary-light;
+}
+
+
+/* DEATH TEXTAREA
+=================================================== */
+.controls .button-tootlbar:hover {
+	background-color: @color-primary-light;
+}
+
+
+/* FOTORAMA SLIDE
+=================================================== */
+.fotorama__arr {
+	.rgbaColorIn(@color-primary-light, .8, background-color);
+}
+
+
+/* SKILL BAR
+=================================================== */
+.skillbar-bar {
+	.rgbaColorIn(@color-primary-dark, .5, background-color);
+}
+.skillbar-title {
+	.rgbaColorIn(@color-primary-darked, .9, background-color);
+}
+
+/* FLIPCLOCK
+=================================================== */
+.flip-clock-wrapper ul li a div div.inn,
+.flip-clock-dot {
+	background-color: @color-primary;
+}
+
+
+/* EDITOR
+=================================================== */
+.editor {
+	&&:hover, 
+	&:focus {
+		border-color: @color-primary;
+	}
+}
+
+/* RESPONSIVE
+=================================================== */
+@media (max-width: 768px) {
+
+	.info {
+		.rgbaColorIn(@color-primary, .95, background-color);
+	}
+
+	/* AGENCY LISTING
+	================================== */
+
+	#agency .agency-box .logo {
+		border-bottom-color:@color-primary !important;
+	}
+
+	#agency address:after {
+		border-bottom-color: @color-primary;
+	}
+
+} /* 768px */

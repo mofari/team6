@@ -1,0 +1,221 @@
+
+@import 'variable.less';
+@import 'function.less';
+
+/* 1.9 MODAL
+================================== */
+
+.modal {
+    background-color: rgba(0, 0, 0, .5);
+	.setPosition(fixed, 0, 0, 0, 0, 9999);
+    display: none;
+
+	&.in {
+		display: block;
+	}
+} /* .modal */
+
+.modal-dialog {
+	.setPosition(absolute, 100px, auto, auto, 50%, 50);
+	color: #777;
+    width: 500px;
+	min-height: 300px;
+	margin-left: -250px;
+	background-color: #FFF;
+
+	.fullBorderRadius(2px);
+
+	.login-button-container {
+		.setPosition(absolute, 0, auto, 0, 0);
+		background-color: @color-primary;
+		border-right: 1px solid @color-primary-darked;
+		width: 50px;
+
+		.setBoxShadow(inset -5px 3px 4px 0, #000, .12);
+
+		a {
+			width: 50px;
+			height: 50px;
+			display: block;
+			color: @color-font-light;
+			text-align: center;
+			font-size: 28px;
+			padding-top: 4px;
+
+			&.active {
+				background-color: #FFF;
+				color: @color-primary;
+				border: 1px solid @color-primary-dark;
+				border-left: none;
+				border-right: none;
+
+				&:first-child {
+					border-top-color: #FFF !important;
+				}
+
+				&:hover {
+					background-color: #FFF;
+				}
+			}
+
+			&:first-child {
+				.borderRadius(2px, 0, 0, 0);
+			}
+
+			&:hover {
+				display: block;
+				background-color: @color-primary-darked;
+			}
+		} /* a */
+	} /* .login-button-container */
+
+	.close {
+		margin: 10px;
+	}
+
+	.form-container {
+		margin-left: 50px;
+		padding: 20px 30px;
+
+		.box {
+			display: none;
+
+			&.active {
+				display: block;
+			}
+		}
+
+		&.full-fixed {
+			margin-left: 0;
+		}
+
+		.modal-contact {
+			display: block !important;
+		}
+
+		.title {
+			border-bottom: 1px dotted #E5E5E5;
+			margin: 0 0 12px;
+			padding-bottom: 8px;
+		}
+
+		.sub-title {
+			font-size: 14px;
+			font-weight: 200;
+			text-align: justify;
+		}
+
+		a {
+			color: @color-primary;
+			text-decoration: none;
+
+			&:hover,
+			:focus {
+				color: #777;
+			}
+		}
+
+		.form-group,
+		.field {
+			margin-top: 20px;
+			position: relative;
+		}
+
+		.field {
+
+			textarea {
+				width: 100%;
+				height: 120px;
+			}
+		}
+
+		.object-contact {
+			list-style: none;
+			padding: 0;
+			margin: 20px 0 0;
+
+			li {
+				display: inline-table;
+
+				a {
+					font-size: 14px;
+					padding: 7px 12px;
+					color: #777;
+
+					i {
+						margin-right: 5px;
+					}
+
+					&:hover,
+					&.active {
+						position: relative;
+						background-color: @color-primary;
+						color: @color-font-light;
+
+						.fullBorderRadius(3px);
+					}
+
+					&.active {
+
+						&:after {
+							.setPosition(absolute, auto, 50%, -8px, auto);
+							content: "";
+							width: 0;
+							height: 0;
+							margin-right: -10px;
+							border-left: 8px solid transparent;
+							border-right: 8px solid transparent;
+							border-top: 8px solid @color-primary;						
+						}
+					}
+				}
+			}
+		} /* .object-contact */
+
+		.input-inline {
+			width: 185px;
+
+			&.margin-right {
+				margin-right: 13px;
+			}
+
+			&.margin-left {
+				margin-left: 13px;
+			}
+		}
+
+		.form-group i,
+		.field i {
+			.setPosition(absolute, auto, auto, 10px, 10px);
+			color: #DDD;
+			font-size: 20px;
+			border-right: 1px solid #e5e5e5;
+			padding-right: 8px;
+
+			&.user {
+				font-size: 14px;
+				padding: 3px 10px 3px 3px;
+				padding-bottom: 3px;
+			}
+		}
+
+		input {
+			padding-left: 44px;
+		}
+	} /* .form-container */
+
+	.footer-form {
+		border-top: 1px solid #E5E5E5;
+		padding: 20px 0;
+		position: relative;
+
+		.remember {
+			.setPosition(absolute, 26px, auto, auto, 0);
+			font-size: 14px;
+		}
+
+		.button-form {
+			padding: 6px 26px;
+		}
+	}
+} /* .modal-dialog */

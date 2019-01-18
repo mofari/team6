@@ -1,0 +1,80 @@
+
+@import '../variable.less';
+@import '../function.less';
+
+/* 4.20 ABOUT
+================================== */
+#about-us {
+	padding: 60px 0;
+
+	/* ABOUT V2
+	================================== */
+
+	.team {
+
+		&.sample-about {
+			padding-top: 0;
+			background: none;
+			border: none;
+		}
+
+		.agent {
+
+			&.sample-about  {
+				margin-top: 0;
+			}
+		}
+	}
+
+	.director {
+		margin-bottom: 50px;
+
+		&:before {
+			border-left: 12px solid transparent;
+			border-right: 12px solid transparent;
+			content: "";
+			height: 0;
+			margin-right: -12px;
+			width: 0;
+			.borderStyle(12px, solid, @color-primary-dark, .7, border-top);
+			.setPosition(absolute, auto, 50%, 18px, auto, 1);
+		}
+	}
+
+	.team {
+		padding: 60px 0 0;
+		position: relative;
+		z-index: 1;
+		color: @color-font-light;
+		border-top: 4px solid @color-primary-dark;
+		border-bottom: 4px solid @color-primary-dark;
+		margin-top: -20px;
+		background: url(http://placehold.it/1920x1000&text=Parallax);
+		.setCover();
+	}
+
+	.director-image {
+		position: relative;
+		z-index: 2;
+	}
+
+	#counter {
+		.rgbaColorIn(@color-primary-dark, .7, background-color);
+		position: relative;
+		text-align: center;
+		padding: 100px 0;
+		margin: 100px 0 0;
+		font-size: 22px;
+
+		&:after {
+			.setPosition(absolute, -12px, 50%);
+			content: "";
+			margin-right: -12px;
+			width: 0;
+			height: 0;
+			border-left: 12px solid transparent;
+			border-right: 12px solid transparent;
+			.borderStyle(12px, solid, @color-primary-dark, .7, border-bottom);
+		}
+	}
+} /* #about-us */

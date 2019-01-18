@@ -1,0 +1,48 @@
+
+@import 'variable.less';
+@import 'function.less';
+
+/* 1.7 PAGINATION
+================================== */
+
+.pagination {
+	padding: 0;
+	text-align: center;
+
+	> li {
+
+		> a,
+		> span {
+			color: #333;
+			font-size: 14px;
+			margin-left: 2px;
+			float: left;
+			border: none;
+			float: none;
+			background-color: transparent;
+		}
+
+		> a {
+
+			&:hover,
+			&:focus,
+			&.active,
+			&:hover i {
+				background-color: @color-primary;
+				color: #FFF !important;
+
+				.fullBorderRadius(1px);
+			}
+		} /* > a */
+
+		&:first-child,
+		&:last-child {
+
+			a, > span {
+				padding: 6px;
+				color: #333333;
+			}
+		}
+
+	} /* > li */
+} /* .pagination */

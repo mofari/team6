@@ -1,0 +1,167 @@
+
+@import 'variable.less';
+@import 'function.less';
+
+/* 1.3 NAVBAR
+================================== */
+header {
+	font-size: 14px;
+	border-top: none !important;
+}
+
+header nav {
+	font-size: 13px;
+}
+
+.fixed-header #header-container-box {
+	.setPosition(fixed, 0, 0, auto, 0, 99);
+	.setTransition(.2s);
+	.setWKTransition(.2s);
+}
+
+.info {
+	background-color: @color-primary;
+
+	a {
+		height: 44px;
+		display: block;
+		float: left;
+		padding: 10px 12px 0 34px;
+		border-right: 1px solid darken(@color-primary, 4%);
+		border-left: 1px solid darken(@color-primary, 4%);
+		position: relative;
+		color: @color-font-light;
+		margin-left: -1px;
+
+		&:hover {
+			background-color: @color-primary-dark;
+			color: @color-font-light;
+		}
+
+		.icon {
+			.setPosition(absolute, 13px, auto, auto, 14px);
+		}
+	}
+
+	#login-pan {
+
+		a {
+			float: right;
+		}
+	}
+}
+
+.logo {
+	background-color: #FFF;
+	text-align: center;
+	padding: 14px 0;
+}
+
+
+/* MENU LINE
+================================== */
+
+.menu-line,
+.menu-color-line,
+.menu-dual-line,
+.menu-navbar {
+	border-top: 1px solid #E9E9E9;
+	background-color: #FFF;
+    position: relative;
+    z-index: 1;
+
+	.setBoxShadow(0 2px 4px, #000, .1);
+}
+
+
+.menu-dual-line,
+.menu-line {
+
+	.logo {
+		float: left;
+		padding: 8px 0;
+	}
+}
+
+.menu-line {
+
+	nav {
+		float: right;
+	}
+}
+
+/* MENU DUAL LINE
+================================== */
+
+.menu-dual-line {
+
+	nav {
+		float: right;
+		margin-top: 10px;
+	}
+}
+
+/* MENU COLOR LOGO
+================================== */
+
+.menu-color-line {
+	border-top: none;
+
+	.info {
+
+		a {
+			float: right;
+			height: 41px;
+			margin: 9px 3px;
+			border: 1px solid darken(@color-primary, 4%);
+
+			.fullBorderRadius(3px);
+
+			&:hover {
+				background-color: darken(@color-primary, 2%);
+			}
+		}
+	}
+
+	.logo-withe {
+
+		a {
+			float: left;
+			padding: 0;
+			border: none;
+
+			&:hover {
+				background-color: transparent;
+			}
+		}
+	}
+} /* .menu-color-line */
+
+
+
+/* BASE
+================================== */
+.fixed-header .header-margin-base  {
+	margin-top: 206px;
+}
+
+
+/* LINE
+================================== */
+.fixed-header .header-margin-line  {
+	margin-top: 56px;
+}
+
+
+/* DUAL LINE
+================================== */
+.fixed-header .header-margin-dual-line  {
+	margin-top: 118px;
+}
+
+
+/* COLOR STYLE
+================================== */
+.fixed-header .header-margin-color-line  {
+	margin-top: 116px;
+}

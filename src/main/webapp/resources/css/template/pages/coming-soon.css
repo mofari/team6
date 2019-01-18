@@ -1,0 +1,27 @@
+/* 4.3 COMING SOON
+================================== */
+#coming-soon {
+  padding: 360px 0 160px;
+  text-align: center;
+  /* .title */
+}
+#coming-soon .title {
+  font-size: 100px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #777;
+}
+#coming-soon .title span {
+  color: #1fb7a6;
+}
+#coming-soon .title span img {
+  margin: -8px 6px 0;
+}
+#coming-soon .line-broken {
+  background: url(../../../images/broken-line.png) repeat-x scroll center bottom;
+  padding-bottom: 44px;
+  font-size: 36px;
+}
+#coming-soon .text {
+  margin: 10px 0 20px;
+}

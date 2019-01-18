@@ -1,0 +1,170 @@
+
+@import '../variable.less';
+@import '../function.less';
+
+/* 4.23 PROPERTY-PAGE
+================================== */
+
+#property-content {
+	padding: 30px 0 30px;
+
+	.large-price {
+		font-size: 30px;
+		background-color: @color-primary;
+		display: block;
+		color: #FFF;
+		padding: 4px 16px;
+		margin-top: 38px;
+		.setPosition(absolute, 0, auto, auto, 0, 16);
+	}
+
+	/* FEEDBACK
+	================================== */
+	.feedback {
+
+		.user-feedback {
+			height: 135px;
+			background-color: #999;
+			position: relative;
+			border: 1px solid #E5E5E5;
+			background-color: #FEFEFE;
+			margin-bottom: 20px;
+
+			span {
+				display: block;
+				margin: 0 10px 0 110px;
+			}
+
+			.avatar {
+				margin-left: 0 !important;
+				.setPosition(absolute, 0, auto, 0, 0, 4);
+				width: 100px;
+			}
+
+			.name {
+				font-size: 18px;
+				font-weight: 400;
+				margin-bottom: 2px;
+				margin-top: 12px;
+			}
+
+			.text {
+				font-size: 14px;
+				line-height: 1.2;
+				overflow: hidden;
+				margin-bottom: 4px;
+				padding-bottom: 10px;
+			}
+
+			.vote {
+				.setPosition(absolute, auto, 0, 0, 100px);
+				color: @color-primary;
+				margin: 0;
+				text-align: center;
+				font-size: 16px;
+				background-color: #F7F7F7;
+				border-top: 1px solid #F0F0F0;
+				padding: 1px 6px 3px;
+
+				i {
+					margin-right: 1px;
+				}
+			}
+		}
+	} /* .feedback */
+
+
+	/* RATING
+	================================== */
+
+	.rating {
+		padding: 0;
+		margin: 15px 0 30px;
+		font-size: 14px;
+
+		.value {
+			position: relative;
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		.name {
+			.setPosition(absolute, 2px, auto, auto, 4px);
+			display: block;
+		}
+
+		.count {
+			.setPosition(absolute, 2px, 4px, auto, auto);
+			display: block;
+			width: 30px;
+			text-align: left;
+		}
+
+		.graphic {
+			position: relative;
+			display: block;
+			margin: 0 40px 0 76px;
+			height: 22px;
+			background-color: #EBEBEB;
+
+			.percent {
+				.setPosition(absolute, 0, auto, 0, 0);
+				width: 10%;
+				background-color: @color-primary;
+			}
+		}
+	}
+
+	/* MAP
+	================================== */
+
+	.map-container {
+		height: 345px;
+		width: 100%;
+	}
+
+	/* DETAILS
+	================================== */
+
+	.details {
+
+		.detail {
+			position: relative;
+			display: block;
+			padding: 2px 5px;
+			border: 1px solid #F5F5F5;
+			padding: 3px 0 3px 26px;
+			margin-bottom: 6px;
+			line-height: 1.2;
+			text-transform: capitalize;
+			font-size: 14px;
+
+			i {
+				.setPosition(absolute, 6px, auto, auto, 9px);
+				color: #BBB;
+				font-size: 10px;
+			}
+
+			.fa-square {
+				color: @color-primary;
+			}
+		}
+	}
+
+	/* DESCRIPTION
+	================================== */
+
+	.description {
+		font-size: 17px;
+		text-align: justify;
+	}
+
+
+	/* AGENT & FORM
+	================================== */
+
+	.agent-box-card {
+		margin-bottom: 0;
+	}
+
+} /* #property-content */

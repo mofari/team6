@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="category"> <!-- 테이블명 사용 -->
+    <!-- 카테고리 목록 -->
+    <select id="list" resultType="CategoryVO" >
+      SELECT category_no, category_title, category_rdate, category_cnt, goods_cnt, category_seqno, category_visible, category_ids, procate_upno
+      FROM Category 
+    </select>
+    
+    <!-- 새 카테고리 등록 -->
+    <insert id="create"  parameterType="CategoryVO">
+      INSERT INTO Category(category_no, category_title, category_rdate, category_cnt,
+      category_visible, category_ids)
+      VALUES ((SELECT NVL(MAX(category_no), 0)+1 as category_no 
+      FROM Category), #{category_title}, sysdate, 0, #{category_visible},#{category_ids})
+    </insert>
+    
+    <!-- 카테고리 조회 -->
+    <select id="read" parameterType="int" resultType="CategoryVO">
+      SELECT category_no, category_title, category_rdate, category_cnt, category_seqno, category_visible, category_ids
+      FROM Category
+      WHERE category_no=#{category_no}
+    </select>
+    
+    <!-- 카테고리 삭제 -->
+    <delete id="delete" parameterType="int">
+      DELETE Category
+      WHERE category_no=#{category_no}
+    </delete>
+    
+    <!-- 카테고리 수정 -->
+    <update id="update" parameterType="CategoryVO">
+      UPDATE Category 
+      SET category_title=#{category_title}, category_visible=#{category_visible}, category_ids=#{category_ids}
+      WHERE category_no=#{category_no}
+    </update>
+    
+    
+    
+</mapper>

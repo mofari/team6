@@ -1,0 +1,143 @@
+/* 1.8 FOOTER
+================================== */
+#footer-page {
+  color: #ffffff;
+  padding-top: 50px;
+}
+#footer-page:after {
+  border: none;
+}
+#footer-page a {
+  display: block;
+  color: #ffffff;
+  background: url(../../images/arrow-right-white.png) no-repeat scroll left center;
+  padding: 4px 10px 7px 22px;
+  -moz-transition: 0.3s all ease-in-out;
+  -ms-transition: 0.3s all ease-in-out;
+  -o-transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
+  -webkit-transition: 0.3s all ease-in-out;
+}
+#footer-page a:hover,
+#footer-page a:focus {
+  color: #59e3d3;
+  text-decoration: none;
+  padding-left: 28px;
+}
+#footer-page .title {
+  border-bottom: 1px dotted #FFF;
+  position: relative;
+  display: block;
+  font-size: 22px;
+  height: 48px;
+  padding-top: 10px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+#footer-page .title.with-icon {
+  padding-left: 34px;
+}
+#footer-page .title.with-icon .logo-footer {
+  position: absolute !important;
+  top: 12px;
+  right: auto;
+  bottom: auto;
+  left: 0;
+  z-index: 1;
+  width: 26px;
+}
+#footer-page .text {
+  display: block;
+  padding-bottom: 20px;
+}
+#footer-page .text:after {
+  content: '';
+  clear: both;
+  display: block;
+}
+#footer-page .social-icons {
+  padding: 0;
+  list-style: none;
+  float: right;
+}
+#footer-page .social-icons li {
+  float: left;
+}
+#footer-page .social-icons li a {
+  background: none;
+  display: block;
+  width: 36px;
+  height: 36px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #1fb7a6;
+  color: #b0f2ea;
+  text-align: center;
+  font-size: 22px;
+  padding: 0;
+  margin: 4px 0 0 6px;
+  line-height: 1.6;
+  -webkit-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+}
+#footer-page .social-icons li a:hover {
+  color: #1fb7a6;
+  background-color: #FFF;
+  border-color: #FFF;
+}
+#footer-page .link-extra {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#footer-page .credits {
+  background-color: #188b7e;
+  font-size: 16px;
+  padding: 10px 0 4px;
+  margin-top: 40px;
+}
+#footer-page .credits-text {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#footer-page .credits-text b {
+  font-weight: 300;
+  color: #59e3d3;
+}
+#footer-page .newsletter-box {
+  margin-top: 12px;
+  position: relative;
+}
+#footer-page .newsletter-box .form-control {
+  border-color: #1ca696;
+  height: 42px;
+}
+#footer-page .newsletter-box .send {
+  background-color: transparent;
+  border: medium none;
+  color: #59e3d3;
+  font-size: 24px;
+  height: 26px;
+  line-height: 1;
+  padding: 0;
+  position: absolute !important;
+  top: 7px;
+  right: 10px;
+  bottom: auto;
+  left: auto;
+  z-index: 1;
+}
+#footer-page .newsletter-box .send:hover {
+  color: #188b7e;
+}
+#footer-page .newsletter-box .btn-default:hover {
+  border-color: #106057;
+}
+#footer-page .phone {
+  font-size: 30px;
+  display: block;
+  margin-bottom: 10px;
+}

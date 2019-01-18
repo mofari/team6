@@ -1,0 +1,88 @@
+/* 4.22 HEADER PAGE
+================================== */
+#header-page {
+  height: 300px;
+  position: relative;
+  z-index: 0;
+  /* .skyline */
+}
+#header-page .skyline {
+  background-color: #F7F7F7;
+  position: relative;
+  height: 250px;
+  width: 100%;
+  overflow: hidden;
+}
+#header-page .skyline .p2,
+#header-page .skyline .p1,
+#header-page .skyline .p3,
+#header-page .skyline .p4 {
+  position: absolute !important;
+  top: auto;
+  right: 0;
+  bottom: -62px;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 300px;
+}
+#header-page .skyline .p1 {
+  background: url(../../../images/parallax/parallax-header1.png) no-repeat center;
+  z-index: 4;
+}
+#header-page .skyline .p2 {
+  background: url(../../../images/parallax/parallax-header2.png) no-repeat center;
+  z-index: 3;
+}
+#header-page .skyline .p3 {
+  background: url(../../../images/parallax/parallax-header-cloud.png) no-repeat center;
+  z-index: 2;
+}
+#header-page .skyline .p4 {
+  background: url(../../../images/parallax/parallax-header-sun.png) no-repeat center;
+  z-index: 1;
+}
+#header-page .skyline .header-text {
+  position: relative;
+  z-index: 7;
+  padding-top: 76px;
+}
+#header-page .skyline .header-text div {
+  clear: both;
+}
+#header-page .skyline .header-text .title,
+#header-page .skyline .header-text .sub-title {
+  margin: 0;
+  float: left;
+  font-weight: 100;
+  -webkit-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+}
+#header-page .skyline .header-text .title {
+  background-color: rgba(31, 183, 166, 0.6);
+  padding: 0 14px;
+  font-size: 44px;
+  font-weight: 100;
+  color: #ffffff;
+}
+#header-page .skyline .header-text .sub-title {
+  margin-top: 6px;
+  text-transform: uppercase;
+  background-color: rgba(80, 80, 80, 0.6);
+  padding: 6px 12px;
+  font-size: 18px;
+  font-weight: 100;
+  color: #ffffff;
+}
+#header-page .skyline .cover {
+  position: absolute !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 6;
+  /*.rgbaColorIn(@color-primary, .07, background-color);*/
+}

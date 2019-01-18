@@ -1,0 +1,81 @@
+
+@import '../variable.less';
+@import '../function.less';
+
+/* 4.21 AGENT
+================================== */
+
+#agent-list {
+	padding: 10px 0 80px;
+} /* #agent-list */
+
+#agent-page {
+	padding: 60px 0;
+
+	.section-title {
+
+		&.no-margin {
+			margin-top: 0;
+		}
+	}
+
+	.right-box {
+		&.no-margin {
+			margin-bottom: 0;
+		}
+	}
+
+	.form-contact {
+
+		input, textarea {
+			margin-bottom: 20px;
+		}
+
+		textarea {
+			height: 140px;
+		}
+	}
+
+	.skill-box {
+		height: 170px;
+		margin-top: 32px;
+	}
+
+	.my-property {
+		position: relative;
+		padding-bottom: 40px;
+
+		.my-property-nav {
+			text-align: center;
+
+			.button-container {
+				border-top: 1px solid @color-primary;
+				.setPosition(absolute, auto, 0, 0, 0);
+				height: 30px;
+			}
+
+			a {
+				background: url(../../../images/mini-arrow.png) no-repeat scroll top center;
+				display: inline-block;
+				background-color: @color-primary;
+				float: right;
+				width: 30px;
+				height: 30px;
+				text-indent: -9999px;
+				margin-left: 1px;
+
+				&:hover {
+					background-color: @color-primary-dark;
+				}
+
+				&.previous {
+					background-position: 11px -36px;
+				}
+
+				&.next {
+					background-position: -40px -36px;
+				}
+			}
+		} /* .my-property-nav */
+	} /* .my-property */
+} /* #agent-page */

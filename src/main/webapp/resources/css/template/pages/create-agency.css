@@ -1,0 +1,83 @@
+/* 4.6 CREATE AGENCY
+================================== */
+#create-agency {
+  padding: 60px 0;
+}
+#create-agency .profile {
+  list-style: outside none none;
+  margin: 0;
+  padding: 0;
+}
+#create-agency .profile > li {
+  border-bottom: 1px dotted #e5e5e5;
+  padding: 18px 0 18px 130px;
+  color: #555;
+  font-size: 14px;
+  font-weight: 300;
+  position: relative;
+  text-align: justify;
+}
+#create-agency .profile > li > span {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 100;
+  position: absolute !important;
+  top: 20px;
+  right: auto;
+  bottom: auto;
+  left: 0;
+  z-index: 1;
+}
+#create-agency .profile > li > textarea {
+  height: 120px;
+}
+#create-agency .signin-button {
+  font-size: 18px;
+  margin-top: 30px;
+  padding: 8px 20px;
+}
+#create-agency .map-box {
+  padding-bottom: 30px;
+  border: 1px solid #e5e5e5;
+  position: relative;
+}
+#create-agency .map-box > span {
+  background-color: #1fb7a6;
+  color: #ffffff;
+  display: block;
+  position: absolute !important;
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  text-align: center;
+  height: 30px;
+  padding: 3px 10px 0;
+}
+#create-agency .map-box > span:after {
+  position: absolute !important;
+  top: -10px;
+  right: 50%;
+  bottom: auto;
+  left: auto;
+  z-index: 2;
+  content: "";
+  margin-right: -8px;
+  width: 0;
+  height: 0;
+  border-left: 16px solid transparent;
+  border-right: 16px solid transparent;
+  border-bottom: 16px solid #1fb7a6;
+}
+#create-agency .terms {
+  height: 69px;
+  width: 100%;
+  color: #aaa;
+  font-size: 14px;
+  border: 1px solid #E5E5E5;
+  background-color: #FAFAFA;
+  padding: 6px;
+  margin-bottom: 30px;
+  overflow-x: hidden;
+}

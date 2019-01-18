@@ -1,0 +1,9 @@
+/* 4.15 TERM CONDITION
+================================== */
+#term-condition {
+  padding: 50px 0;
+}
+#term-condition .text {
+  padding: 0;
+  margin: 16px;
+}

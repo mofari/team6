@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="review_reply"> <!-- 테이블명 사용 -->
+  <select id="list" resultType="ReviewReplyVO" parameterType="int">
+    SELECT review_reply_no, member_no, review_reply_content, review_reply_rdate, review_no 
+    FROM review_reply 
+    WHERE review_no = #{review_no}
+    ORDER BY review_reply_no DESC
+  </select>
+  
+  <insert id="reply_create"  parameterType="ReviewReplyVO">
+    INSERT INTO review_reply(review_reply_no,review_no, 
+    member_no, review_reply_content, review_reply_rdate) 
+    VALUES ((SELECT NVL(MAX(review_reply_no), 0)+1 as review_reply_no 
+    FROM review_reply), #{review_no}, #{member_no}, #{review_reply_content}, sysdate)
+  </insert>
+  
+  <update id="reply_update" parameterType="ReviewReplyVO">
+    UPDATE review_reply 
+    SET review_reply_content=#{review_reply_content}
+    WHERE review_reply_no=#{review_reply_no}
+  </update>
+  
+  <select id="reply_read" parameterType="int" resultType="ReviewReplyVO">
+    SELECT review_reply_no, review_reply_content
+    FROM review_reply
+    WHERE review_reply_no=#{review_reply_no}
+  </select>
+  
+  <delete id='reply_delete' parameterType="int">
+    DELETE FROM review_reply 
+    WHERE review_reply_no=#{review_reply_no}
+  </delete>
+  
+  <update id="reply_cntup" parameterType="int">
+    UPDATE review
+    SET review_reply_cnt = review_reply_cnt + 1
+    WHERE review_no = #{review_no}
+  </update>
+</mapper>

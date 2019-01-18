@@ -1,0 +1,91 @@
+
+@import 'variable.less';
+@import 'function.less';
+
+/* 1.5 BUTTON
+================================== */
+
+.btn {
+	position: relative;
+	font-size: 14px;
+	padding-left: 12px;
+	padding-right: 12px;
+
+	.fullBorderRadius(3px);
+	.setTransition();
+	.setWKTransition();
+
+	.icon {
+		margin-right: 6px;
+	}
+}
+
+.btn-default {
+	border: 1px solid @color-primary;
+	background-color: @color-primary;
+	color: @color-font-light;
+
+	&.active,
+	&.focus,
+	&:active,
+	&:focus,
+	&:hover {
+		border: 1px solid @color-primary;
+		background-color: #FFF;
+		color: #333;
+	}
+}
+
+.btn-link {
+	color: #333;
+	border: 1px solid #F2F2F2;
+
+	&.active,
+	&.focus,
+	&:active,
+	&:focus,
+	&:hover {
+		color: @color-primary-darked;
+		text-decoration: none;
+		border: 1px solid @color-primary-darked;
+	}
+}
+
+.open {
+
+	 > .dropdown-toggle {
+
+		&.btn-default {
+			background-color: #FFF;
+			color: #333;
+		}
+
+		&.btn-reverse {
+			background-color: @color-primary;
+		}
+	}
+}
+
+.btn-reverse {
+	border: 1px solid @color-primary;
+	background-color: #FFF;
+	color: #333;
+
+	&.active,
+	&.focus,
+	&:active,
+	&:focus,
+	&:hover {
+		border: 1px solid @color-primary;
+		background-color: @color-primary;
+		color: @color-font-light;
+	}
+}
+
+.btn-group-lg {
+
+	> .btn, .btn-lg {
+		font-size: 14px;
+		height: 44px;
+	}
+}

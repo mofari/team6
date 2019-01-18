@@ -1,0 +1,13 @@
+/* 4.7 FAQ
+================================== */
+#faq {
+  padding: 60px 0;
+}
+#faq .no-margin {
+  margin-top: 0;
+}
+#faq .faq-container {
+  border-top: 1px dotted #1fb7a6;
+  padding-top: 14px;
+  margin-bottom: 60px;
+}

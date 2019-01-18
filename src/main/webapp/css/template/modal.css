@@ -1,0 +1,221 @@
+/* 1.9 MODAL
+================================== */
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  display: none;
+}
+.modal.in {
+  display: block;
+}
+/* .modal */
+.modal-dialog {
+  position: absolute !important;
+  top: 100px;
+  right: auto;
+  bottom: auto;
+  left: 50%;
+  z-index: 50;
+  color: #777;
+  width: 500px;
+  min-height: 300px;
+  margin-left: -250px;
+  background-color: #FFF;
+  -webkit-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  /* .login-button-container */
+  /* .form-container */
+}
+.modal-dialog .login-button-container {
+  position: absolute !important;
+  top: 0;
+  right: auto;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  background-color: #1fb7a6;
+  border-right: 1px solid #106057;
+  width: 50px;
+  -webkit-box-shadow: inset -5px 3px 4px 0 rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: inset -5px 3px 4px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: inset -5px 3px 4px 0 rgba(0, 0, 0, 0.12);
+  /* a */
+}
+.modal-dialog .login-button-container a {
+  width: 50px;
+  height: 50px;
+  display: block;
+  color: #ffffff;
+  text-align: center;
+  font-size: 28px;
+  padding-top: 4px;
+}
+.modal-dialog .login-button-container a.active {
+  background-color: #FFF;
+  color: #1fb7a6;
+  border: 1px solid #188b7e;
+  border-left: none;
+  border-right: none;
+}
+.modal-dialog .login-button-container a.active:first-child {
+  border-top-color: #FFF !important;
+}
+.modal-dialog .login-button-container a.active:hover {
+  background-color: #FFF;
+}
+.modal-dialog .login-button-container a:first-child {
+  -webkit-border-radius: 2px 0 0 0;
+  -khtml-border-radius: 2px 0 0 0;
+  -moz-border-radius: 2px 0 0 0;
+  -o-border-radius: 2px 0 0 0;
+  border-radius: 2px 0 0 0;
+}
+.modal-dialog .login-button-container a:hover {
+  display: block;
+  background-color: #106057;
+}
+.modal-dialog .close {
+  margin: 10px;
+}
+.modal-dialog .form-container {
+  margin-left: 50px;
+  padding: 20px 30px;
+  /* .object-contact */
+}
+.modal-dialog .form-container .box {
+  display: none;
+}
+.modal-dialog .form-container .box.active {
+  display: block;
+}
+.modal-dialog .form-container.full-fixed {
+  margin-left: 0;
+}
+.modal-dialog .form-container .modal-contact {
+  display: block !important;
+}
+.modal-dialog .form-container .title {
+  border-bottom: 1px dotted #E5E5E5;
+  margin: 0 0 12px;
+  padding-bottom: 8px;
+}
+.modal-dialog .form-container .sub-title {
+  font-size: 14px;
+  font-weight: 200;
+  text-align: justify;
+}
+.modal-dialog .form-container a {
+  color: #1fb7a6;
+  text-decoration: none;
+}
+.modal-dialog .form-container a:hover,
+.modal-dialog .form-container a :focus {
+  color: #777;
+}
+.modal-dialog .form-container .form-group,
+.modal-dialog .form-container .field {
+  margin-top: 20px;
+  position: relative;
+}
+.modal-dialog .form-container .field textarea {
+  width: 100%;
+  height: 120px;
+}
+.modal-dialog .form-container .object-contact {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+}
+.modal-dialog .form-container .object-contact li {
+  display: inline-table;
+}
+.modal-dialog .form-container .object-contact li a {
+  font-size: 14px;
+  padding: 7px 12px;
+  color: #777;
+}
+.modal-dialog .form-container .object-contact li a i {
+  margin-right: 5px;
+}
+.modal-dialog .form-container .object-contact li a:hover,
+.modal-dialog .form-container .object-contact li a.active {
+  position: relative;
+  background-color: #1fb7a6;
+  color: #ffffff;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+.modal-dialog .form-container .object-contact li a.active:after {
+  position: absolute !important;
+  top: auto;
+  right: 50%;
+  bottom: -8px;
+  left: auto;
+  z-index: 1;
+  content: "";
+  width: 0;
+  height: 0;
+  margin-right: -10px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #1fb7a6;
+}
+.modal-dialog .form-container .input-inline {
+  width: 185px;
+}
+.modal-dialog .form-container .input-inline.margin-right {
+  margin-right: 13px;
+}
+.modal-dialog .form-container .input-inline.margin-left {
+  margin-left: 13px;
+}
+.modal-dialog .form-container .form-group i,
+.modal-dialog .form-container .field i {
+  position: absolute !important;
+  top: auto;
+  right: auto;
+  bottom: 10px;
+  left: 10px;
+  z-index: 1;
+  color: #DDD;
+  font-size: 20px;
+  border-right: 1px solid #e5e5e5;
+  padding-right: 8px;
+}
+.modal-dialog .form-container .form-group i.user,
+.modal-dialog .form-container .field i.user {
+  font-size: 14px;
+  padding: 3px 10px 3px 3px;
+  padding-bottom: 3px;
+}
+.modal-dialog .form-container input {
+  padding-left: 44px;
+}
+.modal-dialog .footer-form {
+  border-top: 1px solid #E5E5E5;
+  padding: 20px 0;
+  position: relative;
+}
+.modal-dialog .footer-form .remember {
+  position: absolute !important;
+  top: 26px;
+  right: auto;
+  bottom: auto;
+  left: 0;
+  z-index: 1;
+  font-size: 14px;
+}
+.modal-dialog .footer-form .button-form {
+  padding: 6px 26px;
+}

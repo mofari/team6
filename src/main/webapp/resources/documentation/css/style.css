@@ -1,0 +1,70 @@
+
+.container {
+  width: 970px !important;
+  max-width: none !important;
+}
+
+header {
+	height: 160px;
+}
+
+header .header {
+	height: 140px;
+	border-bottom: 10px solid #50C8B4;
+}
+.box-doc {
+	line-height: 1.7 !important;
+	margin-bottom: 69px;
+	padding-bottom: 30px;
+}
+
+.block-menu {
+	width: 263px;
+}
+
+#logo {
+	margin-top: 24px;
+}
+
+h1 {
+	color: #666;
+	font-size: 30px;
+	border-bottom: 1px dotted #aaa;
+	margin: 0 0 20px;
+	padding: 30px 0 10px;
+	font-weight: 200;
+	text-transform: uppercase;
+}
+
+.label {
+    font-size: 88%;
+    font-weight: 400;
+    padding: 2px 6px 3px;
+}
+
+.block-menu.affix {
+    position: fixed !important;
+    top: 36px;
+}
+
+.container-box .box-doc:first-child {
+	margin-bottom: 0;
+}
+
+.container-box .box-doc:last-child {
+	margin-bottom: 220px;
+}
+
+.block-menu li a.active::after {
+	border: none !important;
+}
+
+.flink {
+	font-weight: 400;
+}
+
+.flink span {
+	font-weight: 100 !important;
+	margin-left: 20px;
+	color: #999;
+}

@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>PROHOME - Documentation</title>
+
+	<link rel="stylesheet" href="../css/bootstrap.min.css">                            <!-- Bootstrap -->
+    <link rel="stylesheet" href="../css/vendor/font-awesom/css/font-awesome.min.css">  <!-- Font Awesome -->
+    <link rel="stylesheet" href="../css/custom.css">
+	<link rel="stylesheet" href="css/style.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+
+  <body>
+	<header id="header-container-box">
+		<div class="text-center">
+			<div class="header">
+				<img src="../images/logo_x2.png" id="logo" />
+				<h2>Template Documentation</h2>
+			</div>
+		</div>
+	</header>
+	<section id="block-documentation">
+		<div class="container">
+			<div class="row">
+				<div id="block-menu-content" class="col-xs-4">
+					<ul class="block-menu" data-spy="affix" data-offset-top="120" data-offset-bottom="30">
+						<li><a class="faq-button active" href="#struttura"><i class="icon fa fa-code"></i> HTML Structure</a></li>
+						<li><a class="faq-button" href="#file-struct"><i class="icon fa fa-sitemap"></i> Files Structure</a></li>
+						<li><a class="faq-button" href="#header"><i class="icon fa fa-list-alt"></i> Header</a></li>
+						<li><a class="faq-button" href="#maps"><i class="icon fa fa-spinner"></i> Loading Property</a></li>
+						<li><a class="faq-button" href="#less"><i class="icon fa fa-magic"></i> LESS file</a></li>
+						<li><a class="faq-button" href="#color"><i class="icon fa fa-eyedropper"></i> Colors</a></li>
+						<li><a class="faq-button" href="#dark"><i class="icon fa fa-paint-brush"></i> Dark version</a></li>
+						<li><a class="faq-button" href="#mail"><i class="icon fa fa-cogs"></i>Email Settings</a></li>
+						<li><a class="faq-button" href="#css"><i class="icon fa fa-sitemap"></i> Files CSS</a></li>
+						<li><a class="faq-button" href="#script"><i class="icon fa fa-code"></i> Scripts</a></li>
+						<li><a class="faq-button" href="#browser"><i class="icon fa fa-heartbeat"></i> Browser Compatibility</a></li>
+					</ul>
+				</div>
+				<div class="col-xs-8 container-box">
+					<div class="box-doc">
+						Thank you for purchasing this theme. If you have any questions that are beyond the scope of this help file, 
+						please feel free to me.<br /><strong>Thanks so much!</strong>
+					</div>
+					<div class="box-doc" id="struttura">
+						<h1><i class="fa fa-code"></i> HTML Structure</h1>
+						This theme uses the Bootstrap grid system, which will help streamline any customization you wish to make.
+						<img src="images/bootstrap-code.png" alt="Bootstrap code" />
+				</div>
+				<div class="box-doc" id="file-struct">
+					<h1><i class="fa fa-sitemap"></i> File Structure</h1>
+<pre>
+ROOT
+   - 401.html
+   - 403.html
+   - 404.html
+   - 500.html
+   - about.html
+   - about-v2.html
+   - agencies-listing.html
+   - agency-detail.html
+   - agent-detail.html
+   - agents-listing.html
+   - agents-listing-v2.html
+   - agents-listing-v3.html
+   - blog.html
+   - blog-v2.html
+   - blog-v3.html
+   - blog-detail.html
+   - blog-detail-full.html
+   - bookmarked.html
+   - comingsoon.html
+   - contact.html
+   - contact-v2.html
+   - contact-v3.html
+   - create-account.html
+   - create-agency.html
+   - faq.html
+   - gallery.html
+   - gallery-v2.html
+   - gallery-v3.html
+   - index-carousel.html
+   - index-carousel-v2.html
+   - index-carousel-v3.html
+   - index-carousel-v4.html
+   - index-carousel-v5.html
+   - index-map.html
+   - index-map-v2.html
+   - index-map-v3.html
+   - index-map-v4.html
+   - index-map-v5.html
+   - index-search.html
+   - index-search-v2.html
+   - index-search-v3.html
+   - index-search-v4.html
+   - index-search-v5.html
+   - index-property-slide.html
+   - invoice-print.html
+   - left-sidebar.html
+   - right-sidebar.html
+   - login.html
+   - sign-in.html
+   - my-properties.html
+   - new-property.html
+   - pricing.html
+   - pricing-v2.html
+   - profile.html
+   - properties-listing.html
+   - properties-listing-2c.html
+   - properties-listing-grid-lc.html
+   - properties-listing-grid-rc.html
+   - properties-listing-lines-lc.html
+   - properties-listing-lines-rc.html
+   - property-detail.html
+   - shortcodes.html
+   - terms-conditions.html
+   - timeline.html
+   - timeline-v2.html
+   - contact.php
+   - upload.php
+
+   - AJAX
+	- marker.json
+
+   - IMAGES
+	- arrow-right-white.png
+	- bloken-line.png
+	- broken-pin.png
+	- default-user-image.png
+	- icon-ads.png
+	- icon-ads-grey.png
+	- icon-property.png
+	- icon-slider.png
+	- icon-slider-large.png
+	- logo.png
+	- logo_x1.png
+	- logo_x1_w.png
+	- logo_x1-light.png
+	- logo_x2.png
+	- logo_x2-light.png
+	- logo-light.png
+	- mini-arrow.png
+	- mini-arrow-menu.png
+	- mini-logo.png
+	- mini-logo-x1.png
+	- property-selected.png
+	- separator.png
+
+	- FAVICON
+	    - apple-touch-icon.png
+	    - apple-touch-icon-57x57.png
+	    - apple-touch-icon-72x72.png
+	    - apple-touch-icon-76x76.png
+	    - apple-touch-icon-114x114.png
+	    - apple-touch-icon-120x120.png
+	    - apple-touch-icon-144x144.png
+	    - apple-touch-icon-152x152.png
+	    - favicon.ico
+	    - favicon.png
+
+	- MAPS
+	    - apartement-pin.png
+	    - apartement-hover-pin.png
+	    - building-area-pin.png
+	    - building-area-hover-pin.png
+	    - close.png
+	    - condominium-pin.png
+	    - condominium-hover-pin.png
+	    - cottage-pin.png
+	    - cottage-hover-pin.png
+	    - family-house-pin.png
+	    - family-house-hover-pin.png
+	    - m1.png
+	    - m2.png
+	    - m3.png
+	    - m4.png
+	    - m5.png
+	    - pin-drag.png
+	    - pin-maps.png
+	    - pin-maps-hover.png
+	    - single-home-pin.png
+	    - single-home-hover-pin.png
+	    - you-are-here.png
+
+	- PARALLAX
+	    - parallax-header1.png
+	    - parallax-header2.png
+	    - parallax-header-cloud.png
+	    - parallax-header-sun.png
+
+   - CSS
+	- bootstrap.css
+	- bootstrap.min.css
+	- custom.css
+	- media-query.css
+	- menu.css
+	- ui-spinner.css
+
+	- LESS
+	    - basic.less
+	    - breadcrumb.less
+	    - button.less
+	    - footer.less
+	    - function.less
+	    - home.less
+	    - info-box.less
+	    - maps.less
+	    - media-query.less
+	    - menu.less
+	    - modal.less
+	    - navbar.less
+	    - object.less
+	    - pagination.less
+	    - searcher.less
+	    - section.less
+	    - slider.less
+	    - slider-page.less
+	    - typography.less
+	    - ui-spinner.less
+	    - variable.less
+
+	    - COLOR
+		- 1ABC9C.less
+		- 1FB7A6.less
+		- 2C3E50.less
+		- 2ECC71.less
+		- 7F8C8D.less
+		- 8E44AD.less
+		- 9B59B6.less
+		- 16A085.less
+		- 27AE60.less
+		- 50C8B4.less
+		- 2980B9.less
+		- 3498DB.less
+		- 34495E.less
+		- 687475.less
+		- C0392B.less
+		- D35400.less
+		- E67E22.less
+		- E74C3C.less
+		- F1C40F.less
+		- F39C12.less
+		- DARK.less
+
+	    - PAGES
+		- about.less
+		- agency.less
+		- agent.less
+		- blog.less
+		- coming-soon.less
+		- contact.less
+		- create-agency.less
+		- error.less
+		- faq.less
+		- gallery.less
+		- header-page.less
+		- invoice.less
+		- listing-page.less
+		- my-property.less
+		- new-property.less
+		- pricing.less
+		- property-page.less
+		- shortcode.less
+		- sidebar.less
+		- sign-in.less
+		- term-condition.less
+		- timeline.less
+		- user-profile.less
+
+	- TEMPLATE
+	    - basic.css
+	    - breadcrumb.css
+	    - button.css
+	    - footer.css
+	    - home.css
+	    - info-box.css
+	    - maps.css
+	    - modal.css
+	    - navbar.css
+	    - object.css
+	    - pagination.css
+	    - searcher.css
+	    - section.css
+	    - slider.css
+	    - slider-page.css
+	    - typography.css
+
+	    - COLOR
+		- 1ABC9C.css
+		- 1FB7A6.css
+		- 2C3E50.css
+		- 2ECC71.css
+		- 7F8C8D.css
+		- 8E44AD.css
+		- 9B59B6.css
+		- 16A085.css
+		- 27AE60.css
+		- 50C8B4.css
+		- 2980B9.css
+		- 3498DB.css
+		- 34495E.css
+		- 687475.css
+		- C0392B.css
+		- D35400.css
+		- E67E22.css
+		- E74C3C.css
+		- F1C40F.css
+		- F39C12.css
+		- DARK.css
+
+	    -PAGES
+		- about.css
+		- agency.css
+		- agent.css
+		- blog.css
+		- coming-soon.css
+		- contact.css
+		- create-agency.css
+		- error.css
+		- faq.css
+		- gallery.css
+		- header-page.css
+		- invoice.css
+		- listing-page.css
+		- my-property.css
+		- new-property.css
+		- pricing.css
+		- property-page.css
+		- shortcode.css
+		- sidebar.css
+		- sign-in.css
+		- term-condition.css
+		- timeline.css
+		- user-profile.css
+
+	- VENDOR
+
+	    - ANIMATE-WOW
+	        - animate.css
+
+	    - DEATH
+	        - death.css
+
+	    - DROPZONE
+	        - dropzone.css
+
+	    - EASYDROPDOWN
+	        - easydropdown.css
+
+	    - FLIPCLOCK
+	        - flipclock.css
+
+	    - FONT-AWESOM
+	        - font-awesome.min.css
+
+		FONTS
+		    - FontAwesome.otf
+		    - fontawesome-webfont.eot
+		    - fontawesome-webfont.svg
+		    - fontawesome-webfont.ttf
+		    - fontawesome-webfont.woff
+		    - fontawesome-webfont.woff2
+
+		CSS
+		    - font-awesome.min.css
+
+	    - FOTORAMA
+	        - fotorama.css
+		- fotorama.png
+		- fotorama@2x.png
+
+	    - LABELAUTY
+	        - labelauty.css
+
+	    - MAGNIFIC-POPUP
+	        - magnific-popup.css
+
+	    - MMENU
+	        - jquery.mmenu.all.css
+
+	    - NOUISLIDER
+	        - nouislider.min.css
+
+	    - SKILL-BAR
+	        - skill-bars.css
+
+   - SCRIPT
+	- jquery.min.js
+	- jquery-ui.min.js
+	- bootstrap.min.js
+	- custom.js
+	- modernizr.min.js
+
+	- MMENU
+	    - mmenu.min.all.js
+
+	- ANIMATION-WOW
+	    - wow.min.js
+
+	- LABELAUTY
+	    - labelauty.js
+
+	- PARALLAX
+	    - parallax.js
+
+	- IMAGES-FILL
+	    - imagesloaded.min.js
+	    - imagefill.js
+
+	- EASYDROPDOWN
+	    - jquery.easydropdown.min.js
+
+	- MAPS
+	    - infobox.js
+	    - home-maps.js
+	    - markerclusterer.js
+
+	- CAROUSEL
+	    - responsiveCarousel.min.js
+
+	- NOUI-SLIDER
+	    - nouislider.all.js
+
+	- FOTORAMA
+	    - fotorama.min.js
+
+	- DEATH
+	    - death.js
+
+	- MAGNIFIC-POPUP
+	    - magnific-popup.min.js
+
+	- SKILL-BARS
+	    - custom.js
+
+	- CIRCLE-DIAGRAM
+	    - circle-diagram.js
+
+	- COUNTTO
+	    - countTo.min.js
+
+	- DROPZONE
+	    - dropzone.min.js
+
+	- GRID-A-LICIOUS
+	    - grid-a-licious.min.js
+
+	- SUFFLE
+	    - shuffle.min.js
+	    - ba-throttle-debounce.min.js
+
+	- FLIPCLOCK
+	    - flipclock.js
+</pre>
+
+					</div>
+					<div class="box-doc" id="header">
+						<h1><i class="fa fa-list-alt"></i> Header (Navigation) Settings</h1>
+						You can choose between <span class="label label-success">Four</span> header/menu types:
+						<div><img src="images/header.png" alt="Header image" /></div>
+
+						Code diversifies in compilation and you can find it within the tag <span class="label label-danger">header</span><hr />
+						If you don’t want to use the menu fixed, remove the class <span class="label label-danger">.fixed-header</span> in the tag <span class="label label-primary">body</span> as in the following exemple:
+						<img src="images/header-fixed.png" alt="Header fixed" />
+					</div>
+					<div class="box-doc" id="maps">
+						<h1><i class="fa fa-spinner"></i> Loading Property</h1>
+						All the map Properties will be loaded by a json file, placed in the folder <span class="label label-primary">/ajax</span> 
+						You'll have to rename it as <span class="label label-danger">marker.json</span>.
+						You'll have to edit the file if you want to change its name and the folder path<br />
+						<span class="label label-success">script/vendor/maps/home-maps.js</span>&nbsp; &raquo; &nbsp;
+						<strong class="label label-primary">247</strong> : <span class="label label-danger">$.getJSON("./ajax/marker.json", function(data)</span>
+						<br /><br />
+						Exemple of a Property code:
+						<br />
+<pre>
+{
+	"id"    :  1,
+	"title" : "Property 1",
+	"description" : "Morbi non convallis lectus. Vivamus ipsum arcu, 
+			 fringilla auctor justo sit amet, laoreet auctor 
+			 sem. Cras mattis, lectus non tincidunt placerat, 
+			 ante nisi finibus libero: 960-DB4436",
+	"info"  : {
+			"price": "280,000", 
+			"bathRoom": 2, 
+			"bedRoom": 3, 
+			"perimeter": 130, 
+			"room": 4
+	 },
+	"img"   : "images/sample/property/p1.jpg",
+	"propertyType" : "apartement",
+	"url"   : "property-detail.html",
+	"lon"   : -74.0000439,
+	"lat"   : 40.7205914
+}
+</pre>
+
+					</div>
+					<div class="box-doc" id="less">
+						<h1><i class="fa fa-magic"></i> Less file</h1>
+						Template also includes <strong>Less</strong> files, edit to your liking and compile in the template folder.<br />
+						All the files included in the template folder will be imported  in the file <span class="label label-danger">./css/custom.css</span> where you could change the files path or name.<br /><br />
+						In this project we used  <strong>WinLess</strong> program  to compile <strong>Less</strong> files. You can freely download it at the following <a href="http://winless.org/" target="new"><strong style="text-decoration: underline">link</strong></a>
+					</div>
+					<div class="box-doc" id="color">
+						<h1><i class="fa fa-eyedropper"></i> Color</h1>
+						Template includes <span class="label label-primary">20 specific colours</span>. You can choose your colour by adding the css file path of your choice to the <strong>HTML</strong> code of all pages, like in the following exemple:<br /><br />
+						<img src="images/color.png" alt="Color" /><br />
+						<hr />
+						Alternatively edit the file <span class="label label-danger">./css/less/variable.less</span>, and set the color as in the following exemple:<br /><br />
+						<img src="images/color-setting.png" alt="Less color" />
+					</div>
+					<div class="box-doc" id="dark">
+						<h1><i class="fa fa-paint-brush"></i> Dark Version</h1>
+						In order to use the template dark version , add  file <span class="label label-danger">/css/template/color/dark.css</span> to the <strong>HTML</strong> code of all the pages, like in the following exemple:<br /><br />
+						<img src="images/dark-version.png" alt="Dark version" /><br /><hr />
+						To change the colors of the <strong>Dark</strong> version, edit the file <span class="label label-danger">./css/less/color/dark.css</span>
+					</div>
+					<div class="box-doc" id="mail">
+						<h1><i class="fa fa-cogs"></i> Email Setting</h1>
+						An user can contact you using contact form. To set e-mail address where you want to receive e-mails and other settings open <span class="label label-primary">contact.php</span> located in root directory.<br />You can change: <span class="label label-danger">$email_site = 'support@yourdomain.com';</span> // Here you can set address for receiving emails (usually your email)<br />
+						<span class="label label-danger">$subject = stripslashes( $_POST['subject'] );</span> // Message displayed in "subject" label in email (If you prefer excluding the field from the form), example:<br />
+						<img src="images/email-setting.png" alt="Email Setting" />
+
+					</div>
+					<div class="box-doc" id="css">
+						<h1><i class="fa fa-sitemap"></i> Files CSS</h1>
+	<pre>	
+    TABLE OF CONTENT
+
+    1 GENERAL STYLING
+    --------------------------------
+		1.1 BASIC
+		----------------------------
+			1.1.1  RIGHT BUTTON (RETURN TOP PAGE, EMAIL CONTACT)
+			1.1.2  FORM FIELD STYLE
+			1.1.3  RIGHT BOX GREY (CONTAINER)
+			1.1.4  COLOR OPTION DROPDOWN
+			1.1.5  SLIDER PRICE
+			1.1.6  LABELAUTY
+			1.1.7  DROPZONE
+			1.1.8  DEATH TEXT EDITOR
+			1.1.9  FOTORAMA SLIDE
+			1.1.10 SKILL BAR
+			1.1.11 FLIPCLOCK
+
+		1.2 TYPOGRAPHY
+		1.3 NAVBAR
+		1.4 SECTION
+		1.5 BUTTON
+		1.6 BREADCRUMBS
+		1.7 PAGINATION
+		1.8 FOOTER
+		1.9 MODAL
+
+		1.10 OBJECT
+		----------------------------
+			 1.10.1  FILTER TAGS
+			 1.10.2  AVATAR / LOGO
+			 1.10.3  RECENT POST
+			 1.10.4  FORM
+	 ....
+	 ....
+	</pre> 
+		<p>If you would like to edit a specific section of the site, simply find the appropriate label in the CSS file, and then scroll down until you find the file path that needs to be edited, Example:</p> 
+		<pre> 
+	/* 4.5 CONTACT
+	=============================== */
+	@import url(template/pages/contact.css);
+
+	/* 4.6 CREATE AGENCY
+	=============================== */
+	@import url(template/pages/create-agency.css);
+
+	/* 4.7 FAQ
+	=============================== */
+	@import url(template/pages/faq.css);
+
+	/* 4.8 GALLERY
+	=============================== */
+	@import url(template/pages/gallery.css);
+		</pre> 
+
+					</div>
+					<div class="box-doc" id="script">
+						<h1><i class="fa fa-code"></i> Scripts</h1>
+						<p>There are 19 script files in this theme:</p>
+						<div class="flink">Animation Wow <span>Reveal CSS animation as you scroll down a page.</span></div> 
+						<div class="flink">Carousel <span>Simple and friendly responsive carousel plugin for jQuery.</span></div> 
+						<div class="flink">Circle Diagram <span>jQuery-plugin to create pie charts with css.</span></div> 
+						<div class="flink">Count To <span>jQuery plugin that will count up to a target number at a specified speed.</span></div> 
+						<div class="flink">Death <span>Simple textarea editor.</span></div> 
+						<div class="flink">DropZone <span>DropzoneJS is an open source library that provides drag'n'drop file uploads with image previews.</span></div> 
+						<div class="flink">Easy Dropdown <span>A Drop-down Builder for Styleable Inputs and Menus.</span></div> 
+						<div class="flink">Flipclock <span>Simple clock with flip style.</span></div> 
+						<div class="flink">Fotorama <span>A simple, stunning, powerful jQuery gallery.</span></div> 
+						<div class="flink">Grid a licious<span>Divs are placed in chronological order with a special grid.</span></div> 
+						<div class="flink">Images fill <span>The jQuery plugin for making images fill their containers (and be centered).</span></div> 
+						<div class="flink">Labelauty <span>A nice and lightweight jQuery plugin that gives beauty to checkboxes and radio buttons.</span></div> 
+						<div class="flink">Magnific popup <span>Responsive lightbox with focus on performance and providing best experience for user with any device.</span></div> 
+						<div class="flink">Google Maps + InfoBox <span>Google Maps V3, InfoBox extends the Google Maps JavaScript API</span></div> 
+						<div class="flink">Mmenu< <span>The best jQuery plugin for app look-alike on- and off-canvas menus with sliding submenus for your website.</span></div> 
+						<div class="flink">Noui Slider <span>noUiSlider is a range slider.</span></div> 
+						<div class="flink">Parallax <span>Easy as hell Parallax Jquery plugin</span></div> 
+						<div class="flink">Skill Bars <span>Sample jQuery code for animate Bars</span></div> 
+						<div class="flink">Suffle <span>Categorize, sort, and filter a responsive grid of items</span></div> 
+					</div>
+					<div class="box-doc" id="browser">
+						<h1><i class="fa fa-heartbeat"></i> Browser Compatibility</h1>
+						<p>This theme works well all the Browser</p>
+						<a href="#">&nbsp;IE9+&nbsp;</a><br />
+						<a href="#">&nbsp;Chrome&nbsp;</a><br />	
+						<a href="#">&nbsp;Firefox&nbsp;</a><br />	
+						<a href="#">&nbsp;Safari&nbsp;</a><br />	
+						<a href="#">&nbsp;Opera&nbsp;</a><br />	
+					</div>
+					<div class="box-doc">
+						Created: 12/05/2015<br />
+						By: AndyLab<br />
+						Support: <a href="mailto:c.birrillo@gmail.com">c.birrillo@gmail.com</a><hr /> 
+						Once again, thank you so much for purchasing this theme. As I said at the beginning, I'd be glad to help you if you have any questions relating to this theme. No guarantees, but I'll do my best to assist. 
+						<br /><br />If you have a more general question relating to the themes on ThemeForest, you might consider visiting the forums and asking your question in the "Item Discussion" section.
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script	src="../script/jquery.min.js"></script>		<!-- jQuery	(necessary for Bootstrap's JavaScript plugins) -->
+	<script	src="../script/jquery-ui.min.js"></script>	<!-- jQuery	UI is a	curated	set	of user	interface interactions,	effects, widgets, and themes -->
+	<script	src="../script/bootstrap.min.js"></script>	<!-- Include all compiled plugins (below), or include individual files as needed -->
+
+	<script>
+
+	/* SCROLL PAGE
+	============================================== */
+	$(window).scroll(function() {
+		// Header source
+		var $headerFixed = $('#header-container-box');
+		// Fixed
+		if($(this).scrollTop() > 130) {
+			$headerFixed.css({'top': '-130px', 'position': 'fixed', 'left': '0', 'right': '0', 'z-index':'30'});
+			$('.container-box').css({'padding-top':'130px'});
+
+		} else {
+			$headerFixed.css({'top': '0px', 'position': 'relative'});
+			$('.container-box').css({'padding-top': '0'});
+		}
+    });
+
+
+	/* RESPONSIVE LEFT MENU
+	============================================== */
+	$(document).ready(function(){
+		var lastId, $targetLink = $('.block-menu a[href^="#"]');
+		$($targetLink, document.body).on('click',function (e) {
+			$targetLink.removeClass('active');
+			$(this).addClass('active');
+			e.preventDefault();
+			var target = this.hash;
+			var $target = $(target);
+			var pointer = $target.offset().top;
+			$('html, body').stop().animate({
+				'scrollTop': pointer
+			}, 900, 'swing', function () {
+				//window.location.hash = target;
+			});
+		});
+
+		var lastId, topMenu = $(".block-menu"),
+			topMenuHeight = 160,
+			menuItems = topMenu.find('a[href^="#"]');
+
+			// Anchors corresponding to menu items
+			var scrollItems = menuItems.map(function(){
+
+				var item = $($(this).attr("href"));
+				if (item.length) { 
+					return item;
+				}
+
+			});
+
+			// Bind to scroll
+			$(window).scroll(function(){
+
+				if(topMenu.hasClass('affix')){
+
+				   // Get container scroll position
+				   var fromTop = $(this).scrollTop()+topMenuHeight;
+				   
+				   // Get id of current scroll item
+				   var cur = scrollItems.map(function(){
+					 if ($(this).offset().top < fromTop)
+					   return this;
+				   });
+				   // Get the id of the current element
+				   cur = cur[cur.length-1];
+				   var id = cur && cur.length ? cur[0].id : "";
+				   
+				   if (lastId !== id) {
+					   lastId = id;
+					   // Set/remove active class
+					   menuItems.removeClass("active");
+					   menuItems.filter("[href=#"+id+"]").addClass("active");
+				   }  
+				} //end- if
+			}); //end- scroll
+
+	});
+	</script>
+
+  </body>
+</html>

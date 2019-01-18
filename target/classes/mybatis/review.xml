@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="review"> <!-- 테이블명 사용 -->
+    <!-- 카테고리에 따른 리뷰 목록 -->
+<!--     <select id="list" resultType="Review_MemberVO" parameterType="int">
+      SELECT r.review_no, r.review_title, r.review_thumb, r.review_grade, r.review_good, r.review_rdate, r.category_no, 
+                  m.member_nickname, r.review_file, p.product_no, p.product_name, p.product_price, p.product_img
+      FROM review r, member m, product p 
+      WHERE r.category_no=#{category_no} AND r.member_no = m.member_no AND r.product_no=p.product_no
+      ORDER BY review_no DESC
+    </select> -->
+    
+    <!-- 리뷰 등록 -->
+    <insert id="create" parameterType="Review_MemberVO">
+      INSERT INTO review(review_no, product_no, member_no, review_title, 
+                                    review_content, review_thumb, review_file, review_size, 
+                                   review_grade, category_no, pet_no,
+                                   review_rdate) 
+      VALUES((SELECT NVL(MAX(review_no), 0)+1 as review_no FROM review),#{product_no}, #{member_no},
+      #{review_title}, #{review_content},    
+      #{review_thumb}, #{review_file}, #{review_size}, #{review_grade}, #{category_no}, #{pet_no}, sysdate)
+     </insert>
+     
+         <update id="update" parameterType="ReviewVO">
+            UPDATE review
+            SET review_title=#{review_title}, review_content=#{review_content},
+            review_thumb=#{review_thumb}, review_file=#{review_file}, review_size=#{review_size}
+            WHERE review_no=#{review_no}
+  </update>
+     
+    <update id="increaseCnt" parameterType="int">
+          UPDATE Category 
+          SET category_cnt = category_cnt + 1 
+          WHERE category_no=#{category_no}
+    </update>
+    
+    
+    <!-- 상품 목록 출력 -->
+    <select id="product_name_search" resultType="Review_MemberVO" parameterType="String">
+      SELECT product_no, product_name, product_img, product_price FROM product WHERE product_name LIKE '%' || #{product_name} || '%'
+    </select>   
+    
+    
+    <!-- 리뷰 읽기 -->
+    <select id="read" parameterType="int" resultType="Review_MemberVO">
+      SELECT r.review_no, r.review_title, r.review_content, r.review_thumb, r.review_grade, r.review_good, r.review_rdate, r.category_no, 
+          m.member_nickname, r.review_file, p.product_no, p.product_name, p.product_img, p.product_price
+      FROM review r, member m, product p 
+      WHERE r.member_no = m.member_no AND r.review_no=#{review_no} AND r.product_no=p.product_no
+    </select>
+    
+    
+    <!-- 반려동물 정보 읽기 -->
+    <select id="pet_read" resultType="PetVO" parameterType="int">
+      SELECT p.pet_no, p.pet_name, p.pet_age, p.pet_weight, 
+      p.pet_kind, p.pet_image, p.pet_gender, p.pet_specific, p.member_no
+      FROM pet p, review r
+      WHERE p.pet_no = r.pet_no AND r.review_no=#{review_no}
+    </select>
+    
+      <insert id="reply_create"  parameterType="ReviewReplyVO">
+    INSERT INTO review_reply(review_reply_no,review_no, 
+    member_no, review_reply_content, review_reply_rdate) 
+    VALUES ((SELECT NVL(MAX(review_reply_no), 0)+1 as review_reply_no 
+    FROM review_reply), #{review_no}, #{member_no}, #{review_reply_content}, sysdate)
+  </insert>
+  
+  <!-- category별 검색된 레코드 갯수 -->
+  <select id="search_count" resultType="int" parameterType="HashMap">
+    SELECT COUNT(*) as review_cnt
+    FROM review
+    <choose>
+      <when test="word == null or word == ''"> <!-- 검색하지 않는 경우 -->
+        WHERE category_no=#{category_no}
+      </when>
+      <otherwise>
+        WHERE category_no=#{category_no} AND review_title LIKE '%' || #{word} || '%'  
+      </otherwise>
+    </choose>
+  </select>
+
+
+    <!-- category별 검색된 레코드 목록 + 페이징 -->
+  <select id="list" resultType="Review_MemberVO" parameterType="HashMap">
+  SELECT review_no, review_title, review_thumb, review_grade, review_good, review_rdate, category_no, review_reply_cnt,
+                  member_nickname, review_file, product_no, product_name, product_price, product_img, r
+  FROM (
+                  SELECT review_no, review_title, review_thumb, review_grade, review_good, review_rdate, category_no, review_reply_cnt,
+                  member_nickname, review_file, product_no, product_name, product_price, product_img, rownum as r
+                  FROM (
+                  SELECT r.review_no, r.review_title, r.review_thumb, r.review_grade, r.review_good, r.review_rdate, r.category_no, r.review_reply_cnt,
+                                  m.member_nickname, r.review_file, p.product_no, p.product_name, p.product_price, p.product_img
+                      FROM review r, member m, product p 
+                      <choose>
+                        <when test="word == null or word == ''"> <!-- 검색하지 않는 경우 -->
+                        WHERE r.category_no=#{category_no} AND r.member_no = m.member_no 
+                        AND r.product_no=p.product_no
+                        </when>
+                        <otherwise> <!-- 검색하는 경우 -->
+                        WHERE r.category_no=#{category_no} AND r.member_no = m.member_no 
+                        AND r.product_no=p.product_no
+                        AND (r.review_title LIKE '%' || #{word} || '%'  OR p.product_name LIKE '%' || #{word} || '%'  OR m.member_nickname LIKE '%' || #{word} || '%')
+                        </otherwise>
+                      </choose>                                                              
+                      ORDER BY r.review_no DESC
+                  )
+  )
+   WHERE <![CDATA[ r >= #{startNum} AND r <= #{endNum} ]]>  
+  </select>
+  
+
+ 
+</mapper>

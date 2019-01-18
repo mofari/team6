@@ -1,0 +1,911 @@
+[{
+	"id"    :  1,
+	"title" : "Property 1",
+	"description" : "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 960-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "apartement",
+	"url"   : "property-detail.html",
+	"lon"   : -74.0000439,
+	"lat"   : 40.7205914
+},{
+	"id"    :  2,
+	"title" : "Property 2",
+	"description" : "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 960-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "building-area",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9988852,
+	"lat"   : 40.721372
+},{
+	"id"    :  3,
+	"title" : "Property 3",
+	"description" : "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 960-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "condominium",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9999151,
+	"lat"   : 40.7219574
+},{
+	"id"    :  4,
+	"title" : "Property 4",
+	"description" : "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 960-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "apartement",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9975441,
+	"lat"   : 40.7212988
+},{
+	"id"    :  5,
+	"title" : "Property 5",
+	"description" : "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 960-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "cottage",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9987135,
+	"lat"   : 40.7225429
+},{
+	"id"    :  6,
+	"title" : "Property 6",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 960-F8971B",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "family-house",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9973724,
+	"lat"   : 40.7224697
+},{
+	"id"    :  7,
+	"title" : "Property 7",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "building-area",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9999044,
+	"lat"   : 40.7227949
+},{
+	"id"    :  8,
+	"title" : "Property 8",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "apartement",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9967287,
+	"lat"   : 40.7231934
+},{
+	"id"    :  9,
+	"title" : "Property 9",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "cottage",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9471722,
+	"lat"   : 40.7148666
+},{
+	"id"    :  10,
+	"title" : "Property 10",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "condominium",
+	"url"   : "property-detail.html",
+	"lon"   : -73.969059,
+	"lat"   : 40.7039362
+},{
+	"id"    :  11,
+	"title" : "Property 11",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "apartement",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9199638,
+	"lat"   : 40.7211768
+},{
+	"id"    :  12,
+	"title" : "Property 12",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "single-home",
+	"url"   : "property-detail.html",
+	"lon"   : -73.99231910000002,
+	"lat"   : 40.7369822
+},{
+	"id"    :  13,
+	"title" : "Property 13",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "building-area",
+	"url"   : "property-detail.html",
+	"lon"   : -74.0029621,
+	"lat"   : 40.7436155
+},{
+	"id"    :  14,
+	"title" : "Property 14",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "apartement",
+	"url"   : "property-detail.html",
+	"lon"   : -73.904171,
+	"lat"   : 40.7073196
+},{
+	"id"    :  15,
+	"title" : "Property 15",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "condominium",
+	"url"   : "property-detail.html",
+	"lon"   : -74.0636444,
+	"lat"   : 40.7346409
+},{
+	"id"    :  16,
+	"title" : "Property 16",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "cottage",
+	"url"   : "property-detail.html",
+	"lon"   : -74.0543747,
+	"lat"   : 40.753369
+},{
+	"id"    :  17,
+	"title" : "Property 17",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "family-house",
+	"url"   : "property-detail.html",
+	"lon"   : -74.0691376,
+	"lat"   : 40.7610408
+},{
+	"id"    :  18,
+	"title" : "Property 18",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "apartement",
+	"url"   : "property-detail.html",
+	"lon"   : -73.979702,
+	"lat"   : 40.7529789
+},{
+	"id"    :  19,
+	"title" : "Property 19",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "condominium",
+	"url"   : "property-detail.html",
+	"lon"   : -74.0428734,
+	"lat"   : 40.7715719
+},{
+	"id"    :  20,
+	"title" : "Property 20",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "single-home",
+	"url"   : "property-detail.html",
+	"lon"   : -74.0825272,
+	"lat"   : 40.7057581
+},{
+	"id"    :  21,
+	"title" : "Property 21",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "apartement",
+	"url"   : "property-detail.html",
+	"lon"   : -74.0408134,
+	"lat"   : 40.7378927
+},{
+	"id"    :  22,
+	"title" : "Property 22",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "building-area",
+	"url"   : "property-detail.html",
+	"lon"   : -74.0713692,
+	"lat"   : 40.7466067
+},{
+	"id"    :  23,
+	"title" : "Property 23",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "apartement",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9362717,
+	"lat"   : 40.7423149
+},{
+	"id"    :  24,
+	"title" : "Property 24",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "condominium",
+	"url"   : "property-detail.html",
+	"lon"   : -73.8976479,
+	"lat"   : 40.738413
+},{
+	"id"    :  25,
+	"title" : "Property 25",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "condominium",
+	"url"   : "property-detail.html",
+	"lon"   : -73.8842583,
+	"lat"   : 40.7224128
+},{
+	"id"    :  26,
+	"title" : "Property 26",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "condominium",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9441681,
+	"lat"   : 40.73034830000001
+},{
+	"id"    :  27,
+	"title" : "Property 27",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "apartement",
+	"url"   : "property-detail.html",
+	"lon"   : -74.0636444,
+	"lat"   : 40.7204613
+},{
+	"id"    :  28,
+	"title" : "Property 28",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "condominium",
+	"url"   : "property-detail.html",
+	"lon"   : -74.0763474,
+	"lat"   : 40.7602607
+},{
+	"id"    :  29,
+	"title" : "Property 29",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "cottage",
+	"url"   : "property-detail.html",
+	"lon"   : -73.979187,
+	"lat"   : 40.7456963
+},{
+	"id"    :  30,
+	"title" : "Property 30",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "building-area",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9833069,
+	"lat"   : 40.7307386
+},{
+	"id"    :  31,
+	"title" : "Property 31",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "apartement",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9223671,
+	"lat"   : 40.7067991
+},{
+	"id"    :  32,
+	"title" : "Property 32",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "condominium",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9165306,
+	"lat"   : 40.7417946
+},{
+	"id"    :  33,
+	"title" : "Property 33",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "condominium",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9113808,
+	"lat"   : 40.7350311
+},{
+	"id"    :  34,
+	"title" : "Property 34",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "cottage",
+	"url"   : "property-detail.html",
+	"lon"   : -73.8967896,
+	"lat"   : 40.7547994
+},{
+	"id"    :  35,
+	"title" : "Property 35",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "apartement",
+	"url"   : "property-detail.html",
+	"lon"   : -73.8653755,
+	"lat"   : 40.7377626
+},{
+	"id"    :  36,
+	"title" : "Property 36",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "building-area",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9697456,
+	"lat"   : 40.7715719
+},{
+	"id"    :  37,
+	"title" : "Property 37",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "condominium",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9814186,
+	"lat"   : 40.7694918
+},{
+	"id"    :  38,
+	"title" : "Property 38",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "apartement",
+	"url"   : "property-detail.html",
+	"lon"   : -74.0270805,
+	"lat"   : 40.7772917
+},{
+	"id"    :  39,
+	"title" : "Property 39",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "cottage",
+	"url"   : "property-detail.html",
+	"lon"   : -73.870182,
+	"lat"   : 40.75688
+},{
+	"id"    :  40,
+	"title" : "Property 40",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "condominium",
+	"url"   : "property-detail.html",
+	"lon"   : -73.8090706,
+	"lat"   : 40.7488175
+},{
+	"id"    :  41,
+	"title" : "Property 41",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "cottage",
+	"url"   : "property-detail.html",
+	"lon"   : -73.8694954,
+	"lat"   : 40.7304784
+},{
+	"id"    :  42,
+	"title" : "Property 42",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "apartement",
+	"url"   : "property-detail.html",
+	"lon"   : -73.8736153,
+	"lat"   : 40.7481673
+},{
+	"id"    :  43,
+	"title" : "Property 43",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "condominium",
+	"url"   : "property-detail.html",
+	"lon"   : -73.8827133,
+	"lat"   : 40.7109631
+},{
+	"id"    :  44,
+	"title" : "Property 44",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "building-area",
+	"url"   : "property-detail.html",
+	"lon"   : -73.8641739,
+	"lat"   : 40.7177291
+},{
+	"id"    :  45,
+	"title" : "Property 45",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "family-house",
+	"url"   : "property-detail.html",
+	"lon"   : -73.8473511,
+	"lat"   : 40.7302182
+},{
+	"id"    :  46,
+	"title" : "Property 46",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "apartement",
+	"url"   : "property-detail.html",
+	"lon"   : -73.8482094,
+	"lat"   : 40.7116137
+},{
+	"id"    :  47,
+	"title" : "Property 47",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "apartement",
+	"url"   : "property-detail.html",
+	"lon"   : -73.8274384,
+	"lat"   : 40.7112234
+},{
+	"id"    :  48,
+	"title" : "Property 48",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "apartement",
+	"url"   : "property-detail.html",
+	"lon"   : -73.8106155,
+	"lat"   : 40.7237137
+},{
+	"id"    :  49,
+	"title" : "Property 49",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "building-area",
+	"url"   : "property-detail.html",
+	"lon"   : -73.8301849,
+	"lat"   : 40.7324296
+},{
+	"id"    :  50,
+	"title" : "Property 50",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "family-house",
+	"url"   : "property-detail.html",
+	"lon"   : -73.82864,
+	"lat"   : 40.7594805
+},{
+	"id"    :  51,
+	"title" : "Property 51",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "apartement",
+	"url"   : "property-detail.html",
+	"lon"   : -73.92219540000002,
+	"lat"   : 40.76962180000001
+},{
+	"id"    :  52,
+	"title" : "Property 52",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "condominium",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9383316,
+	"lat"   : 40.7434854
+},{
+	"id"    :  53,
+	"title" : "Property 53",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "single-home",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9379883,
+	"lat"   : 40.7443958
+},{
+	"id"    :  54,
+	"title" : "Property 54",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "family-house",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9390182,
+	"lat"   : 40.7412744
+},{
+	"id"    :  55,
+	"title" : "Property 55",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "building-area",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9402199,
+	"lat"   : 40.7459564
+},{
+	"id"    :  56,
+	"title" : "Property 56",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "condominium",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9357567,
+	"lat"   : 40.7466067
+},{
+	"id"    :  57,
+	"title" : "Property 57",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "apartement",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9936066,
+	"lat"   : 40.7380228
+},{
+	"id"    :  58,
+	"title" : "Property 58",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "single-home",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9929199,
+	"lat"   : 40.7390633
+},{
+	"id"    :  59,
+	"title" : "Property 59",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "family-house",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9929199,
+	"lat"   : 40.7390633
+},{
+	"id"    :  60,
+	"title" : "Property 60",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "family-house",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9929199,
+	"lat"   : 40.7390633
+},{
+	"id"    :  61,
+	"title" : "Property 61",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "apartement",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9949799,
+	"lat"   : 40.7391934
+},{
+	"id"    :  62,
+	"title" : "Property 62",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "building-area",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9937568,
+	"lat"   : 40.738982
+},{
+	"id"    :  63,
+	"title" : "Property 63",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "condominium",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9945507,
+	"lat"   : 40.7382504
+},{
+	"id"    :  64,
+	"title" : "Property 64",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "single-home",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9925981,
+	"lat"   : 40.738543
+},{
+	"id"    :  65,
+	"title" : "Property 65",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "family-house",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9933491,
+	"lat"   : 40.7387381
+},{
+	"id"    :  66,
+	"title" : "Property 66",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "apartement",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9943147,
+	"lat"   : 40.7377789
+},{
+	"id"    :  67,
+	"title" : "Property 67",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "building-area",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9952374,
+	"lat"   : 40.7386081
+},{
+	"id"    :  68,
+	"title" : "Property 68",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "condominium",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9929199,
+	"lat"   : 40.7383317
+},{
+	"id"    :  69,
+	"title" : "Property 69",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "condominium",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9934134,
+	"lat"   : 40.73747
+},{
+	"id"    :  70,
+	"title" : "Property 70",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "apartement",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9363575,
+	"lat"   : 40.7450461
+},{
+	"id"    :  71,
+	"title" : "Property 71",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "family-house",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9397907,
+	"lat"   : 40.744786
+},{
+	"id"    :  72,
+	"title" : "Property 72",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "building-area",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9402199,
+	"lat"   : 40.7442657
+},{
+	"id"    :  73,
+	"title" : "Property 73",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "condominium",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9452839,
+	"lat"   : 40.7311288
+},{
+	"id"    :  74,
+	"title" : "Property 74",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "apartement",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9440823,
+	"lat"   : 40.7311288
+},{
+	"id"    :  75,
+	"title" : "Property 75",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "single-home",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9451981,
+	"lat"   : 40.73060850000001
+},{
+	"id"    :  76,
+	"title" : "Property 76",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "family-house",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9460564,
+	"lat"   : 40.7307386
+},{
+	"id"    :  77,
+	"title" : "Property 77",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "building-area",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9460564,
+	"lat"   : 40.7307386
+},{
+	"id"    :  78,
+	"title" : "Property 78",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "family-house",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9792728,
+	"lat"   : 40.7467368
+},{
+	"id"    :  79,
+	"title" : "Property 79",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "apartement",
+	"url"   : "property-detail.html",
+	"lon"   : -74.0032196,
+	"lat"   : 40.7479722
+},{
+	"id"    :  80,
+	"title" : "Property 80",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "single-home",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9839077,
+	"lat"   : 40.7315841
+},{
+	"id"    :  81,
+	"title" : "Property 81",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "family-house",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9985847,
+	"lat"   : 40.73340520000001
+},{
+	"id"    :  82,
+	"title" : "Property 82",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "single-home",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9825344,
+	"lat"   : 40.728332
+},{
+	"id"    :  83,
+	"title" : "Property 83",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "single-home",
+	"url"   : "property-detail.html",
+	"lon"   : -73.91249660000001,
+	"lat"   : 40.7363969
+},{
+	"id"    :  84,
+	"title" : "Property 84",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "family-house",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9174747,
+	"lat"   : 40.7222176
+},{
+	"id"    :  85,
+	"title" : "Property 85",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "family-house",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9113808,
+	"lat"   : 40.7371773
+},{
+	"id"    :  86,
+	"title" : "Property 86",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "single-home",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9184189,
+	"lat"   : 40.7222176
+},{
+	"id"    :  87,
+	"title" : "Property 87",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "single-home",
+	"url"   : "property-detail.html",
+	"lon"   : -73.90545850000001,
+	"lat"   : 40.7131751
+},{
+	"id"    :  88,
+	"title" : "Property 88",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "single-home",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9291477,
+	"lat"   : 40.7088811
+},{
+	"id"    :  89,
+	"title" : "Property 89",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "family-house",
+	"url"   : "property-detail.html",
+	"lon"   : -73.9394474,
+	"lat"   : 40.7184446
+},{
+	"id"    :  90,
+	"title" : "Property 90",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "single-home",
+	"url"   : "property-detail.html",
+	"lon"   : -73.8669205,
+	"lat"   : 40.7261205
+},{
+	"id"    :  91,
+	"title" : "Property 91",
+	"description": "Morbi non convallis lectus. Vivamus ipsum arcu, fringilla auctor justo sit amet, laoreet auctor sem. Cras mattis, lectus non tincidunt placerat, ante nisi finibus libero: 503-DB4436",
+	"info"  : {"price": "280,000", "bathRoom": 2, "bedRoom": 3, "perimeter": 130, "room": 4},
+	"img"   : "http://placehold.it/320x260/bbbbbb/ffffff",
+	"propertyType" : "family-house",
+	"url"   : "property-detail.html",
+	"lon"   : -73.8847733,
+	"lat"   : 40.7332101
+}]

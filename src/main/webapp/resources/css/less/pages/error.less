@@ -1,0 +1,41 @@
+
+@import '../variable.less';
+@import '../function.less';
+
+/* 4.19 ERROR
+================================== */
+
+#error-page {
+	padding: 360px 0 160px;
+	text-align: center;
+
+	.title {
+		font-size: 100px;
+		font-weight: 400;
+		text-transform: uppercase;
+		color: #777;
+
+		span {
+			color: @color-primary;
+			font-weight: 500;
+
+			img {
+				margin: -8px 6px 0;
+			}
+		}
+	}
+
+	.text {
+		margin: 10px 0 20px;
+	}
+
+	.error-button {
+		margin-top: 20px;
+	}
+
+	.line-broken {
+		background: url(../../../images/broken-line.png) repeat-x scroll center bottom;
+		padding-bottom: 44px;
+		font-size: 36px;
+	}
+} /* #error-page */

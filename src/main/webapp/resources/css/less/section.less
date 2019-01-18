@@ -1,0 +1,42 @@
+
+@import 'variable.less';
+@import 'function.less';
+
+/* 1.4 SECTION
+================================== */
+
+.section-color {
+	background-color: @color-primary;
+	position: relative;
+
+	&:after,
+	&:before {
+		border-left: 30px solid transparent;
+		border-right: 30px solid transparent;
+		.setPosition(absolute, auto, 50%, auto, auto);
+		content: "";
+		width: 0;
+		height: 0;
+		margin-right: -30px;
+	}
+
+	&:after {
+		bottom: -18px;
+		border-top: 20px solid @color-primary;
+	}
+
+	&:before {
+		top: -1px;
+		border-top: 20px solid #FFF;
+	}
+
+	&.no-effect:after,
+	&.no-effect:before {
+		border: none !important;
+	}
+} /* .section-color */
+
+.section-detail {
+	text-align: center;
+	margin: 50px 0 30px;
+}

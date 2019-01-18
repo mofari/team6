@@ -1,0 +1,104 @@
+
+@import '../variable.less';
+@import '../function.less';
+
+/* 4.2 AGENCY
+================================== */
+
+.agency {
+	padding-top: 60px !important;
+}
+
+#agency {
+	padding: 0 0 60px;
+
+	.agency-box {
+		margin-bottom: 20px;
+
+		.title {
+			line-height: 1.2;
+			margin: 0;
+
+			a {
+				color: @color-primary;
+				font-weight: 400;
+				font-size: 26px;
+
+				&:hover {
+					color: #666;
+				}
+			}
+		}
+
+		.subtitle {
+			font-size: 18px;
+			font-weight: 400;
+			margin: 0;
+		}
+
+		.logo {
+			font-size: 100px;
+			padding: 20px;
+			text-align: center;
+			border: 1px solid #E9E9E9;
+
+			.fullBorderRadius(3px);
+		}
+
+		.center-box {
+			border: 1px solid #E9E9E9;
+			border-left: 5px solid @color-primary;
+			background-color: #FEFEFE;
+			padding-top: 5px;
+			padding-bottom: 10px;
+
+			.button-container {
+				padding: 10px 0 6px;
+			}
+
+			&:after {
+				.setPosition(absolute, 30px, auto, auto, -12px);
+				content: "";
+				width: 0;
+				height: 0;
+				border-right: 10px solid @color-primary;
+				border-top: 10px solid transparent;
+				border-bottom: 10px solid transparent;
+			}
+		}
+
+		address {
+			font-size: 15px;
+		}
+	} /* .agency-box */
+
+	.agency-logo {
+
+		.logo{
+			font-size: 100px;
+			padding: 20px;
+			text-align: center;
+			border: 1px solid #E9E9E9;
+
+			.fullBorderRadius(3px);
+		}
+	} /* .agency-logo */
+
+	.agency-detail {
+		border: 1px solid #E9E9E9;
+		border-left: 5px solid @color-primary;
+		background-color: #FEFEFE;
+		padding-top: 5px;
+		padding-bottom: 10px;
+
+		&:after {
+			.setPosition(absolute, 30px, auto, auto, -12px);
+			content: "";
+			width: 0;
+			height: 0;
+			border-right: 10px solid @color-primary;
+			border-top: 10px solid transparent;
+			border-bottom: 10px solid transparent;
+		}
+	}
+} /* #agency */

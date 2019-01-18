@@ -1,0 +1,107 @@
+
+@import '../variable.less';
+@import '../function.less';
+
+/* 4.11 NEW PROPERTY
+================================== */
+#new-property {
+	padding: 60px 0;
+
+	.card-list {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+
+		li {
+			position: relative;
+			padding: 8px 0 5px 44px;
+			margin-right: -16px;
+			margin-bottom: 10px;
+			font-size: 15px;
+
+			.icon {
+				font-size: 23px;
+				.setPosition(absolute, 7px, auto, auto, 8px);
+			}
+
+			&.active {
+				position: relative;
+				z-index: 2;
+				background-color: #F9F9F9;
+				border: 1px solid #E8E8E8;
+				border-right: none;
+
+				&:after {
+					background-color: @color-primary;
+					content: '';
+					width: 3px;
+					.setPosition(absolute, -1px, auto, -1px, -1px, 3);
+				}
+			}
+		}
+	}
+
+	.info-card {
+		background-color: #F9F9F9;
+		border: 1px solid #E8E8E8;
+		position: relative;
+		z-index: 1;
+		margin-left: -15px;
+		padding-top: 30px;
+		padding-bottom: 30px;
+
+		.icon-cv {
+			font-size: 26px;
+			margin: 4px 0 0 -20px;
+		}
+	}
+
+	.features-box {
+		margin-bottom: 40px;
+
+		div {
+			padding-top: 20px;
+		}
+	}
+
+	#images {
+
+		.text {
+			text-align: center;
+			display: block;
+			padding: 10px 0 10px 0;
+			border-bottom: 1px dashed #DDD;
+		}
+	}
+
+	.space-form {
+		height: 54px;
+		margin-top: 5px;
+	}
+
+	.description {
+		height: 178px;
+	}
+
+	#position {
+		background-color: @color-primary;
+		position: relative;
+		height: 40px;
+		padding: 8px 0 0 14px;
+		color: #FFF;
+
+		&:after {
+		    position: absolute;
+		    content: "";
+		    top: -10px;
+			z-index: 10;
+		    left: 80px;
+		    width: 0;
+		    height: 0;
+		    border-left: 10px solid transparent;
+		    border-right: 10px solid transparent;
+		    border-bottom: 10px solid @color-primary;
+		}
+	}
+
+} /* #new-property */

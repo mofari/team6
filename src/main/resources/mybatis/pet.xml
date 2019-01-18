@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pet"> <!-- 테이블명 사용 -->
+  <select id="read" resultType="PetVO" parameterType="int">
+    SELECT pet_no, pet_name, pet_age, pet_weight, 
+    pet_kind, pet_image, pet_gender, pet_specific, member_no
+    FROM pet
+    WHERE member_no=#{member_no}
+  </select>
+</mapper>
