@@ -18,7 +18,7 @@
         function product_select(product_name,product_no){
           $('#product_name').val(product_name);
           $('#product_no').val(product_no);
-          
+          $('#frm_product_name_search').hide();
           $('#tbody_panel').hide();
 
 					// 상품명 재검색시 다시 jquery 호출

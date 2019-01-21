@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="country"> <!-- 테이블명 사용 -->
+    <!-- 상품 등록 -->
+    <insert id="create" parameterType="CountryVO">
+    INSERT INTO country(country_no,country_name) VALUES((SELECT NVL(MAX(country_no), 0)+1 AS country_no FROM country), #{country_name})
+    </insert>
+    
+    <select id="list" resultType="CountryVO">
+    SELECT * FROM country 
+    ORDER BY country_no DESC
+    </select>    
+    
+    <delete id="delete" parameterType="int">
+    DELETE FROM country
+    WHERE country_no = #{countryno}
+    </delete>
+    
+    <select id="read" resultType="CountryVO" parameterType="int">
+    SELECT * FROM country 
+    WHERE country_no = #{countryno}
+    </select>  
+    
+    <update id="update" parameterType="CountryVO">
+    UPDATE country
+    SET country_name = #{country_name}
+    WHERE country_no = #{country_no}
+    </update>
+</mapper>

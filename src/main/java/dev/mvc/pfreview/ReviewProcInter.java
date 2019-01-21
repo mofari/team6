@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import dev.mvc.pet.PetVO;
+import dev.mvc.product.ProductVO;
 
 public interface ReviewProcInter {
   /**
@@ -78,4 +79,8 @@ public interface ReviewProcInter {
    * @return 페이징 생성 문자열
    */ 
   public String paging(int category_no, int search_count, int nowPage, String word);
+  
+  
+  public ProductVO rproduct_name_search(int review_no);
+
 }

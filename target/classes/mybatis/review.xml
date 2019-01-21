@@ -113,5 +113,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   </select>
   
 
- 
+ <select id="rproduct_name_search" parameterType="int" resultType="ProductVO">
+      SELECT p.product_no, p.product_name
+      FROM review r, product p
+      WHERE r.product_no = p.product_no AND r.review_no=#{review_no}
+  </select>
 </mapper>

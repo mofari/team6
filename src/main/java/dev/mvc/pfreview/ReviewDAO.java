@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import dev.mvc.pet.PetVO;
 import dev.mvc.pfreview.ReviewDAOInter;
+import dev.mvc.product.ProductVO;
 
 @Repository("dev.mvc.pfreview.ReviewDAO") // DBMS 저장소 접근 
 public class ReviewDAO implements ReviewDAOInter {
@@ -64,5 +65,9 @@ public class ReviewDAO implements ReviewDAOInter {
     return sqlSessionTemplate.selectList("review.list", hashMap);
   }
 
+  @Override
+  public ProductVO rproduct_name_search(int review_no) {
+    return sqlSessionTemplate.selectOne("review.rproduct_name_search", review_no);
+  }
 }
  

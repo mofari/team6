@@ -23,6 +23,8 @@
                                 dev.mvc.pet,
                                 dev.mvc.review_reply,
                                 dev.mvc.product,
+                                dev.mvc.manufacturer,
+                                dev.mvc.country,
                                 nation.web.tool" />
     <property name="mapperLocations" value="classpath:mybatis/*.xml" />
   </bean> 
