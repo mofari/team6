@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import dev.mvc.pet.PetVO;
 import dev.mvc.pfreview.ReviewDAOInter;
 import dev.mvc.pfreview.ReviewProcInter;
+import dev.mvc.product.ProductVO;
 import nation.web.tool.Tool;
 
 @Component("dev.mvc.pfreview.ReviewProc")
@@ -19,7 +20,7 @@ public class ReviewProc implements ReviewProcInter {
   @Autowired
   @Qualifier("dev.mvc.pfreview.ReviewDAO")
   private ReviewDAOInter reviewDAO = null;
-
+ 
   public ReviewProc() {
     System.out.println("--> ReviewProc created.");
   }
@@ -184,5 +185,8 @@ public class ReviewProc implements ReviewProcInter {
     return str.toString(); 
   }
 
-
+  @Override
+  public ProductVO rproduct_name_search(int review_no) {
+    return reviewDAO.rproduct_name_search(review_no);
+  }
 }

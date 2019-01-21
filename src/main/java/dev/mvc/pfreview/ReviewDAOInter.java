@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import dev.mvc.pet.PetVO;
+import dev.mvc.product.ProductVO;
 
 public interface ReviewDAOInter {
   /**
@@ -62,4 +63,7 @@ public interface ReviewDAOInter {
    * @return
    */
   public List<Review_MemberVO> list(HashMap<String, Object> hashMap);
+  
+  public ProductVO rproduct_name_search(int review_no);
+
 }

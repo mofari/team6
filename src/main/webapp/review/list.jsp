@@ -144,10 +144,10 @@
 			<div class="container">
       <form name="frm" id="frm" action="./list.do">
       <input type="hidden" id="category_no" name="category_no" value="${param.category_no }">
-				<div class="row">
+				<div class="row">        
       <c:forEach var="review_MemberVO" items="${list }">
                <div class="col-md-4">
-                  <div class="box-ads box-home" style="padding-bottom: 10px;">
+                  <div class="box-ads box-home" style="padding-bottom: 0px;">
                <a class="hover-effect image image-fill" href="./read.do?review_no=${review_MemberVO.review_no}&category_no=${review_MemberVO.category_no}">
                         <span class="cover"></span> 
                 <c:choose>

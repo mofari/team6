@@ -29,7 +29,6 @@ import dev.mvc.category.CategoryVO;
 import dev.mvc.pet.PetProcInter;
 import dev.mvc.pet.PetVO;
 import dev.mvc.pfreview.ReviewProcInter;
-import dev.mvc.product.ProductProcInter;
 import dev.mvc.product.ProductVO;
 import dev.mvc.review_reply.ReviewReplyProcInter;
 import dev.mvc.review_reply.ReviewReplyVO;
@@ -49,10 +48,6 @@ public class ReviewCont {
   @Autowired
   @Qualifier("dev.mvc.review_reply.ReviewReplyProc")
   private ReviewReplyProcInter reviewreplyProc = null;
-  
-  @Autowired
-  @Qualifier("dev.mvc.product.ProductProc")
-  private ProductProcInter productProc = null;
 
   @Autowired
   @Qualifier("dev.mvc.pet.PetProc")
@@ -269,7 +264,7 @@ public class ReviewCont {
     Review_MemberVO review_memberVO = reviewProc.read(review_no);
     mav.addObject("review_memberVO", review_memberVO);
     
-    ProductVO productVO = productProc.product_name_search(review_no);
+    ProductVO productVO = reviewProc.rproduct_name_search(review_no);
     mav.addObject("productVO", productVO);
     
     return mav;
