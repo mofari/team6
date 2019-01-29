@@ -61,6 +61,18 @@ public interface DiaryProcInter {
   public int increseCnt(int diary_no);
   
   /**
+   * 댓글수 증가
+   * 
+   */
+  public int increseRcnt(int diary_no);
+  /**
+   * 댓글수 감소
+   * 
+   */
+  public int deincreseRcnt(int diary_no);
+  
+  
+  /**
    * category별 검색된 레코드 갯수
    * @return
    */

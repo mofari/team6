@@ -46,7 +46,17 @@ public interface DiaryDAOInter {
    * 
    */
   public int increseCnt(int diary_no);
-
+  
+  /**
+   * 댓글수 증가
+   * 
+   */
+  public int increseRcnt(int diary_no);
+  /**
+   * 댓글수 감소
+   * 
+   */
+  public int deincreseRcnt(int diary_no);
   
   /**
    * 전체 글수

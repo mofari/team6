@@ -16,6 +16,7 @@ public class DiaryDAO implements DiaryDAOInter{
  
   public DiaryDAO(){
     System.out.println("DiaryDAO create");
+    
   }
   
   @Override
@@ -71,6 +72,19 @@ public class DiaryDAO implements DiaryDAOInter{
   public int total_count() {
     
     return sqlSessionTemplate.selectOne("diary.total_count");
+  }
+
+  @Override
+  public int increseRcnt(int diary_no) {
+    
+    return sqlSessionTemplate.update("diary.increseRcnt",diary_no);
+    
+  }
+
+  @Override
+  public int deincreseRcnt(int diary_no) {
+    // TODO Auto-generated method stub
+    return sqlSessionTemplate.update("diary.deincreseRcnt",diary_no);
   }
   
   
