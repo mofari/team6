@@ -1,66 +1,13 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html lang="ko">
   <head>
     <title>이벤트</title>
   </head>
-  
-  <style type="text/css">
-  .event_title{
-  display: block;
-  padding: 6px 12px;  
-  font-weight: 600;
-  color: #222;
-   font-size: 16px;
-   }
-  .event_rdate{
-    display: inline-block;
-    padding: 8px 12px 10px;
-    font-size: 10px;
-    border-top: none;
-    text-align: right;
-    border-bottom: none;
-    float: right!important;
-    background-color: #ffffff;
-    }
-    .event_good{
-    display: inline-block;
-    padding: 8px 12px 10px;
-    font-size: 10px;
-    border-top: none;
-    text-align: left;
-    border-bottom: none;
-    background-color: #ffffff;
-    }
-    .event_start{
-    background-color: #000000;
-    font-weight: 600;
-    color: #fff;
-    font-size: 10px;
-    padding: 4px 11px;
-    position: absolute !important;
-    top: 11px;
-    right: 4%;
-    left: auto;
-    z-index: 3;
-    }
-    .event_end{
-    background-color: rgba(192, 192, 192, 0.9);
-    font-weight: 600;
-    color: #fff;
-    font-size: 10px;
-    padding: 4px 11px;
-    position: absolute !important;
-    top: 11px;
-    right: 4%;
-    left: auto;
-    z-index: 3;
-    }
-  </style> 
-  
   
   <body class="fixed-header">
 
@@ -83,43 +30,75 @@
         <div class="container">
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-home"></i></a></li>
-            <li><a href="#">이벤트</a></li>
+            <li><a href="./list_event_paging.do">이벤트</a></li>
+            <li class="active">이벤트 신청서 목록</li>
           </ol>
         </div>
       </div><!-- /#breadcrumb -->
       <span class="cover"></span>
     </section><!-- /#header -->
 
-    <section id="recent-list">
-			<div class="container">
-				<div class="row">
-        
-        <%-- 썸네일 --%>
-        <c:forEach var="eventVO" items="${list }">
-					<div class="col-md-4">
-						<div class="box-ads box-home" style="padding-bottom: 0px;">
-							<a class="hover-effect image image-fill" href="">
-								<span class="cover"></span> 
-								<img alt="Event images" src='./storage/${eventVO.event_img }'  style="width: 100%; height: 100%;">
-                <c:if test="${eventVO.event_ck == 'Y' }">
-								<h3 class="event_start">이벤트 진행중</h3>
-                </c:if>
-                <c:if test="${eventVO.event_ck == 'N' }">
-                <h3 class="event_end">이벤트 종료</h3>
-                </c:if>
-							</a><!-- /.hover-effect -->
-							<span class="event_title" >${eventVO.event_title }</span>
-              <span class="event_good" ><img src='./images/good.png' style="width: 15%; margin-right: 3px;">${eventVO.event_good }</span>
-							<span class="event_rdate" >${eventVO.event_rdate.substring(0, 10) }</span>
-                <%-- <span class="price">${eventVO.event_rdate.substring(0, 10) }</span> --%>
-						</div><!-- /.box-home .box-ads --> 
-					</div><!-- ./col-md-4 -->
-          </c:forEach>
-          
-          
-				</div><!-- row -->
-        </div><!-- container -->
-		</section>
+    <section id="user-profile">
+      <div class="container" style="text-align: center;">
+        <div class="row">
+          <div class="col-sm-12 col-md-12">
+            <div class="section-title line-style no-margin">
+              <h3 class="title">이벤트 신청서  목록</h3>
+            </div>
+            <div class="table-responsive property-list">
+              <table class="table-striped table-hover">
+                <thead>
+                <tr>
+                  <th style="text-align: center; width: 10%;">이벤트 이미지</th>
+                  <th style="text-align: center;">이벤트 제목</th>
+                  <th class="hidden-xs" style="text-align: center;">등록날짜</th>
+                  <th class="hidden-xs hidden-sm" style="text-align: center;">종료날짜</th>
+                  <th class="hidden-xs" style="text-align: center;">조회수</th>
+                 <th style="text-align: center;">이벤트 상태</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                <%-- 이벤트 목록 --%>
+               <c:forEach var="eventVO" items="${list }">
+                <tr>
+                  <td>
+                    <span>
+                    <c:choose>
+                   <c:when test="${eventVO.event_imgsize > 0}">
+                     <img src='./storage/${eventVO.event_thumb }'   alt="Image Sample"  style="padding: 5px; width: 100%;height: 75px;">
+                   </c:when>
+                   <c:otherwise>
+                     <img alt="Image Sample"  src='./images/no-image.jpg' style="padding: 5px; width: 100%; height: 75px;">
+                   </c:otherwise> 
+                   </c:choose>
+                    </span>
+                  </td>
+                  <td><a href="${pageContext.request.contextPath}/request/list_event_request.do?event_no=${eventVO.event_no}" style="font-weight: 600; font-size: 14px;">${eventVO.event_title }</a></td>
+                  <td class="hidden-xs"><b>${eventVO.event_rdate.substring(0, 10) }</b></td>
+                  <td class="hidden-xs hidden-sm"><b>${eventVO.event_endrdate.substring(0, 10) }</b></td>
+                  <td class="hidden-xs"><b>${eventVO.event_view }</b></td>
+                  <td>
+                    <c:if test="${eventVO.event_ck == 'Y' }">
+                    <span class="label label-success">이벤트 진행</span>
+                    </c:if>
+                    <c:if test="${eventVO.event_ck == 'N' }">
+                    <span class="label label-danger">이벤트 종료</span>
+                    </c:if>
+                  </td>
+                </tr>
+                </c:forEach>
+                <%-- 이벤트 목록 END --%>
+
+                </tbody>
+              </table>
+            </div><!-- /.table-responsive -->
+
+          </div>
+        </div>
+      </div>
+    </section>
+    
 
         <c:import url="/menu/bottom.jsp" />
 

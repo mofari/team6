@@ -59,7 +59,7 @@
 
                       <br>
                       <button type='button' onclick="location.href='./create.do'" class="btn btn-default select-button">새로운 이벤트 등록</button>
-                      <button type='button' onclick="location.href='./list_event.jsp'" class="btn btn-default select-button">목록</button>
+                      <button type='button' onclick="location.href='./list_event_paging.do'" class="btn btn-default select-button">목록</button>
               </DIV>
           </div>
         </div>

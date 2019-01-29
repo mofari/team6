@@ -1,12 +1,14 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <title>이벤트 등록</title>
+    <title>이벤트 수정</title>
 
   <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/vendor/death/jquery.death.css">                <!-- edit text script -->
+  <link rel="stylesheet" href="./css/switch.css">
    
   <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
   <script type="text/JavaScript">
@@ -14,6 +16,20 @@
       CKEDITOR.replace('event_content');  // <TEXTAREA>태그 id 값
     };
   </script>
+  
+  <script type="text/javascript">
+  function check_event(){
+    if ($('#event_ck2').is(":checked"))
+    {
+      $('#event_ck').val("Y");
+      alert("※이벤트 진행");
+    }else{
+      $('#event_ck').val("N");
+      alert("※이벤트 종료, 혹은 조기종료시 눌러주시기 바랍니다.");
+    }
+  }
+</script>
+
   <style type="text/css">
   .faq-button{
   font-size: 13px;
@@ -44,8 +60,8 @@
         <div class="container">
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-home"></i></a></li>
-            <li><a href="./list_event_paging.do">이벤트</a></li>
-            <li class="active">이벤트 등록</li>
+            <li><a href="./read.do?event_no=${eventVO.event_no }">이벤트</a></li>
+            <li class="active">이벤트 수정</li>
           </ol>
         </div>
       </div><!-- /#breadcrumb -->
@@ -57,38 +73,47 @@
         <div class="row">
           <div class="col-sm-3 col-md-3" id="block-menu-content">
             <ul class="block-menu" data-spy="affix" data-offset-top="500" data-offset-bottom="400">
-              <li><a class="faq-button active" href="#basic"><i class="icon fa fa-check-square-o"></i>이벤트 정보입력</a></li>
-              <li><a class="faq-button" href="#summary"><i class="icon fa fa-th-list"></i> 이벤트 사이트 등록</a></li>
-              <li><a class="faq-button" href="#images"><i class="icon fa fa-picture-o"></i> 썸네일 등록</a></li>
-
+              <li><a class="faq-button active" href="#basic"><i class="icon fa fa-check-square-o"></i>이벤트 정보수정</a></li>
+              <li><a class="faq-button" href="#summary"><i class="icon fa fa-th-list"></i> 이벤트 사이트 수정</a></li>
+              <li><a class="faq-button" href="#images"><i class="icon fa fa-picture-o"></i> 썸네일 수정</a></li>
             </ul>
           </div>
- <FORM name='frm' method='POST' action='./create.do'
+ <FORM name='frm' method='POST' action='./update.do'
                enctype="multipart/form-data" class="form-horizontal">
           
-          <input type='hidden' name='member_no' id='member_no' value='1'>
-          <input type='hidden' name='event_visibel' id='event_visibel' value='Y'>
-          <input type='hidden' name='event_ck' id='event_ck' value='Y'>
-          
+          <input type='hidden' name='event_no' id='event_no' value='${eventVO.event_no }'>
+          <input type='hidden' name='event_visibel' id='event_visibel' value='${eventVO.event_visibel }'>
+   
           <div class="col-sm-9 col-md-9">
 
             <div class="info-block" id="basic">
               <div class="section-title line-style no-margin">
-                <h3 class="title">이벤트 정보입력</h3>
+                <h3 class="title">이벤트 정보수정</h3>
+                   <div class="checkbox checbox-switch switch-success" style="float: right;">
+                   <input type="hidden" name="event_ck"  id="event_ck" value="${eventVO.event_ck }">
+                         <label>
+                         <c:if test="${eventVO.event_ck == 'Y' }">
+                           <input type="checkbox" name="event_ck2"  id="event_ck2" value="${eventVO.event_ck }"  onclick="check_event()" checked=""/>
+                         </c:if>
+                         <c:if test="${eventVO.event_ck == 'N' }">
+                           <input type="checkbox" name="event_ck2"  id="event_ck2" value="${eventVO.event_ck }"  onclick="check_event()">
+                         </c:if>
+                                 <span></span>
+                                 <div style="display: inline-block;font-size: 11px;color: #9f9f9f;">※ 이벤트 상태 설정(ON/OFF)</div>
+                           </label>
+                       </div>
               </div>
               <div class="row">
                 <div class="col-md-7 space-form">
                 <div style="font-size: 13px; margin-bottom: 6px; color: #1fb7a6;">이벤트 제목</div>
-                  <input id="event_title" class="form-control" type="text" placeholder="제목을 입력해주세요" name="event_title"  value="이벤트 입력하는 중입니다." required="required">
+                  <input id="event_title" class="form-control" type="text" placeholder="제목을 입력해주세요" name="event_title"  value="${eventVO.event_title }">
                 </div>  
                 <div class="col-md-5 space-form">
                 <div style="font-size: 13px; margin-bottom: 6px; color: #1fb7a6;">이벤트 종료 날짜</div>
-                  <input id="event_endrdate" class="form-control" type="date" name="event_endrdate"  value="" required="required">
+                  <input id="event_endrdate" class="form-control" type="date" name="event_endrdate"  value="${eventVO.event_endrdate.substring(0, 10) }">
                 </div>
                 <div class="col-md-12"  style="margin-top: 30px;">
-                  <textarea name='event_content' id='event_content' rows='10' cols='70' >
-                  컨텐츠를 입력해주세용
-                  </textarea>
+                  <textarea name='event_content' id='event_content' rows='10' cols='70' >${eventVO.event_content}</textarea>
                 </div>
               </div>
             </div>
@@ -96,32 +121,55 @@
             
             <div class="info-block" id="summary">
               <div class="section-title line-style">
-                <h3 class="title">이벤트 사이트 등록</h3>
+                <h3 class="title">이벤트 사이트 수정</h3>
               </div>
 
               <div class="row">
                  <div class="col-md-12 space-form">
-                <div style="font-size: 13px; margin-bottom: 6px; color: #1fb7a6;">이벤트 사이트 주소 등록</div>
-                  <input id="event_site" class="form-control" type="text" placeholder="이벤트 사이트를 입력해주세요" name="event_site"  value="www.naver.com">
+                <div style="font-size: 13px; margin-bottom: 6px; color: #1fb7a6;">이벤트 사이트 주소 수정</div>
+                  <input id="event_site" class="form-control" type="text" placeholder="이벤트 사이트를 입력해주세요" name="event_site"  value="${eventVO.event_site }">
                 </div>  
               </div>
             </div>
+            
+            
+
             
             <div class="info-block" id="images">
               <div class="section-title line-style">
                 <h3 class="title">썸네일 등록</h3>
               </div>
-               <input type="file" class="form-control input-lg" name='filesMF' id='filesMF' size='40' multiple="multiple" >
+              
+              <%-- 썸네일 미리보기 --%>
+              <div id='file1Panel' class="form-group" style="margin: 5px 0px 40px 0px; padding: 10px; border: 3px dashed #dfdfdf;">
+                  <c:if test="${file_list.size() > 0 }">
+                      <DIV>
+                        <c:forEach var ="fileVO"  items="${file_list }">
+                          <IMG src='./storage/${fileVO.file }' style='margin-top: 2px; width: 100%;'>
+                        </c:forEach>
+                      </DIV>
+                    </c:if>
+              </div>
+              
+              <div class="form-group">   
+                <div class="col-md-11" style="width: 100%;">
+                  <input type="file" class="form-control input-md" name='filesMF' id='filesMF' size='40' multiple="multiple" >
               <span class="text">
                 <strong>썸네일</strong> 이미지를 등록해 주세요.<br />
               </span>
+              </div>
+              </div>   
+            
+
+              
+              
             </div>
 
             <!-- 작성정보 끝 -->
             
       <DIV style='text-align: right; margin-top: 50px;'>
-        <button type="submit" class="btn btn-reverse select-button">등록</button>
-        <!-- <button type="button" onclick="location.href='./'">취소[목록]</button> -->
+         <button type="button" class="btn btn-reverse select-button"  onclick="history.back()">취소</button>
+        <button type="submit" class="btn btn-reverse  select-button">수정</button>
       </DIV>
           </div>
             

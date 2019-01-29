@@ -34,7 +34,7 @@
         <div class="container">
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-home"></i></a></li>
-            <li><a href="#">이벤트</a></li>
+            <li><a href="./list_event_paging.do">이벤트</a></li>
             <li class="active">이벤트 조회</li>
           </ol>
         </div>
@@ -47,15 +47,29 @@
        <div class="row">
        
        <%-- 추후 관리자만 사용 --%>
-       <div style="float: right; font-weight: 600; padding: 10px;">
-       <A href='./create.do?'>등록</A>
+       <div style="text-align: right; font-weight: 600; padding: 10px;">
+       <A href='./update.do?event_no=${eventVO.event_no }'>수정</A>
+       <A href='./delete.do?event_no=${eventVO.event_no }'>삭제</A>
        </div>
        
+        <c:if test="${eventVO.event_ck == 'N' }">
+       <div class="event_contitle" style="background-color: #1fb7a6; color: white; text-align: center; padding: 10px; margin-bottom: 30px; font-weight: 600;">
+       당첨자 확인
+       
+       </div>
+       </c:if>
        
        <FORM name='frm' method="get" action='./update.do'>
       <input type="hidden" name="eventno" value="${eventVO.event_no}">
        <div class="event_read_header" > 
-          <img alt="Event images" src='./storage/${eventVO.event_img }'  style="width: 100%; height: 250px;">
+               <c:choose>
+                   <c:when test="${eventVO.event_imgsize > 0}">
+                     <img alt="Event images" src='./storage/${eventVO.event_img }'  style="width: 100%; height: 250px;">
+                   </c:when>
+                   <c:otherwise>
+                     <img alt="Event images" src='./images/no-image.jpg'  style="width: 100%; height: 250px;">
+                   </c:otherwise> 
+                </c:choose>
              <div class="event_read_headr_title" style="position: relative;">
               <div class="event_read_headr_title_sub"  style="font-weight: 600; font-size: 20px; width: 80%;margin: 10px;">
               ${eventVO.event_title }
@@ -67,20 +81,18 @@
           </div> 
        </div>
        
-       <div class="event_contitle" style="background-color: #1fb7a6; color: white; text-align: center; padding: 10px; margin-bottom: 30px; font-weight: 600;">
-       이벤트 설명
-       </div>
        
        <%-- 컨텐츠 --%>
         <div class="event_content"  id="event_content">
           ${eventVO.event_content }
         </div>
         <%-- 컨텐츠 END --%>
+        </FORM>
         
         <c:if test="${null ne eventVO.event_site}">
         <%-- 보러가기 버튼 --%>
         <div style="text-align: center; margin: 30px 0 30px 0px;">
-        <button style="    background-color: #ffffff; color: #1fb7a6;font-size: 25px;font-weight: 700; width: 80%;border: solid 3px #1fb7a6; padding: 10px;">
+        <button style="background-color: #ffffff; color: #1fb7a6;font-size: 25px;font-weight: 700; width: 80%;border: solid 3px #1fb7a6; padding: 10px;" onclick="window.open('${eventVO.event_site}')" >
             더 자세한 정보가 알고싶다면??
         </button>
         </div>
@@ -91,26 +103,60 @@
         <c:if test="${eventVO.event_ck == 'Y' }">
         <%-- 신청하기 버튼 --%>
         <div style="text-align: center; margin: 30px 0 30px 0px;">
-        <button style="background-color: #1fb7a6;color: white;font-size: 25px;font-weight: 700;width: 80%;border: none;padding: 10px;border-radius: 40px;">
+        <button style="background-color: #1fb7a6;color: white;font-size: 25px;font-weight: 700;width: 80%;border: none;
+        padding: 10px;border-radius: 40px;" onclick = "location.href = '${pageContext.request.contextPath}/request/create.do?event_no=${eventVO.event_no }' ">
             신청하기
         </button>
         </div>
       <%-- 신청하기 버튼 END --%>
       </c:if>
-      
+
        <c:if test="${eventVO.event_ck == 'N' }">
         <%-- 신청종료시 --%>
         <div style="text-align: center; margin: 30px 0 30px 0px;">
-        <button style="background-color: #1fb7a6;color: white;font-size: 25px;font-weight: 700;width: 80%;border: none;padding: 10px;border-radius: 40px;" disabled = 'disabled'>
+        <button style="background-color: #1fb7a6;color: white;font-size: 25px;font-weight: 700;width: 80%;border: none;
+        padding: 10px;border-radius: 40px;" disabled = 'disabled'>
             신청종료
         </button>
         </div>
       <%-- 신청종료시 END --%>
       </c:if>
       
-      </FORM>
-				</div>
+      
+      <div style="padding: 50px 30px 50px 10px; text-align: right;">
+          <div style="display: inline-block; color: #bdbdbd;">
+            <img alt="good images" src='./images/good.png'  style="width: 13px;margin-right: 3px;">
+            ${eventVO.event_good}
+          </div>
+          <div style="display: inline-block; color: #bdbdbd;">
+            <img alt="good images" src='./images/comment.png'  style="width: 13px;margin-right: 3px;">
+            ${eventVO.event_comment}
+          </div>
+          <div style="display: inline-block; color: #bdbdbd;">
+            <img alt="good images" src='./images/view.png'  style="width: 13px;margin-right: 3px;">
+            ${eventVO.event_view}
+          </div>
+      </div>
+      
 
+      
+      <%--댓글 등록 --%>
+      <div id="panel_create" style="">
+          <h3 class="title-form" style="margin-left: 20px; font-size: 15px;  font-weight: 600;"><img alt="good images" src="./images/comment.png" style="width: 23px;"> 댓글을 달아주세요~ </h3>
+              <form class="form-large grey-color" action="./create.do" method="post" id="frm_create" name="frm_create"  style="border-top: 1px solid #E5E5E5;">
+              <input type="hidden" value="2" id="member_no" name="member_no">
+                <div class="row">
+                  <div class="col-md-12">
+                    <textarea name="text-message" id="text-message" rows="4" class="margin-bottom form-control"  required disabled placeholder="로그인을 해주세요"></textarea>
+                  </div>
+                </div>
+                <button type="button" id="submit" name="submit" class="btn btn-default" onclick="create()" style="margin-left: 91%;">등록</button>
+              </form> 
+          </div>
+          <%--댓글 등록 폼 END --%>
+          
+          
+				</div>
       </div>
     </section>
 

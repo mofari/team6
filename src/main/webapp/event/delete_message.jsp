@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <title>이벤트 등록확인</title>
+    <title>이벤트 삭제확인</title>
   </head>
   
   <body class="fixed-header">
@@ -30,8 +30,8 @@
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-home"></i></a></li>
             <li><a href="#">이벤트</a></li>
-            <li class="active">이벤트 등록</li>
-            <li class="active">이벤트 등록확인</li>
+            <li class="active">이벤트 수정</li>
+            <li class="active">이벤트 수정확인</li>
           </ol>
         </div>
       </div><!-- /#breadcrumb -->
@@ -43,23 +43,23 @@
         <div class="row">
           <div class="col-md-12">
             <div class="section-title no-margin">
-              <h3 class="title">이벤트 등록 확인 알림</h3>
+              <h3 class="title">이벤트 삭제 확인 알림</h3>
             </div>
               <DIV class='message' style='text-align: center;'> 
                     <c:choose>
                       <c:when test="${param.count == 1 }">
                          <img src="./images/success.png" style="width: 10%;">
-                        <div style="margin-top: 30px; font-weight: 600;">새로운 이벤트를 등록했습니다.</div>
+                        <div style="margin-top: 30px; font-weight: 600;">이벤트를 삭제했습니다.</div>
                       </c:when>
                       <c:otherwise>
                           <img src="./images/fail.png" style="width: 10%;">
-                        <div style="margin-top: 30px; font-weight: 600;">새로운 이벤트 등록에 실패했습니다.</div>
+                        <div style="margin-top: 30px; font-weight: 600;">이벤트 삭제에 실패했습니다.</div>
                       </c:otherwise>
                     </c:choose>
 
                       <br>
                       <button type='button' onclick="location.href='./create.do'" class="btn btn-default select-button">새로운 이벤트 등록</button>
-                      <button type='button' onclick="location.href='./list_event.jsp'" class="btn btn-default select-button">목록</button>
+                      <button type='button' onclick="location.href='./list_event_paging.do'" class="btn btn-default select-button">목록</button>
               </DIV>
           </div>
         </div>

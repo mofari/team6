@@ -96,7 +96,7 @@
         <div class="container">
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-home"></i></a></li>
-            <li><a href="#">이벤트</a></li>
+            <li><a href="./list_event_paging.do">이벤트</a></li>
           </ol>
         </div>
       </div><!-- /#breadcrumb -->
@@ -107,13 +107,30 @@
 			<div class="container">
 				<div class="row">
         
+        <div style="text-align: right;
+    font-size: 12px;
+    margin-right: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: dashed 2px #dfdfdf;">
+          <A href='./list_event.do?' >이벤트 신청서 목록 </A>&nbsp;|&nbsp;<A href='./create.do?'>이벤트 등록</A>
+        </div>
+        
         <%-- 썸네일 --%>
         <c:forEach var="eventVO" items="${list }">
 					<div class="col-md-4">
 						<div class="box-ads box-home" style="padding-bottom: 0px;">
 							<a class="hover-effect image image-fill" href="./read.do?event_no=${eventVO.event_no }">
-								<span class="cover"></span> 
-								<img alt="Event images" src='./storage/${eventVO.event_img }' ">
+								<span class="cover"></span>
+                  <c:choose>
+                   <c:when test="${eventVO.event_imgsize > 0}">
+                     <img alt="Event images" src='./storage/${eventVO.event_img }' >
+                   </c:when>
+                   <c:otherwise>
+                     <img alt="Event images" src='./images/no-image.jpg' >
+                   </c:otherwise> 
+                </c:choose>
                 <c:if test="${eventVO.event_ck == 'Y' }">
 								<h3 class="event_start">이벤트 진행중</h3>
                 </c:if>

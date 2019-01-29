@@ -1,33 +1,18 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <title>이벤트 등록</title>
-
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/vendor/death/jquery.death.css">                <!-- edit text script -->
-   
-  <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
-  <script type="text/JavaScript">
-    window.onload=function(){
-      CKEDITOR.replace('event_content');  // <TEXTAREA>태그 id 값
-    };
-  </script>
-  <style type="text/css">
-  .faq-button{
-  font-size: 13px;
-  font-weight: 600;
-  }
-  </style>
-
+    <title>이벤트 수정확인</title>
   </head>
+  
   <body class="fixed-header">
 
   <div id="page-container">
-        <c:import url="/menu/top2.jsp" />
-  
-    
+      <c:import url="/menu/top2.jsp" />
+      
     <section id="header-page" class="header-margin-base">
       <div class="skyline">
         <div data-offset="50" class="p1 parallax"></div>
@@ -44,96 +29,45 @@
         <div class="container">
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-home"></i></a></li>
-            <li><a href="./list_event_paging.do">이벤트</a></li>
-            <li class="active">이벤트 등록</li>
+            <li><a href="#">이벤트</a></li>
+            <li class="active">이벤트 수정</li>
+            <li class="active">이벤트 수정확인</li>
           </ol>
         </div>
       </div><!-- /#breadcrumb -->
       <span class="cover"></span>
     </section><!-- /#header -->
 
-    <section id="new-property">
+    <section id="term-condition">
       <div class="container">
         <div class="row">
-          <div class="col-sm-3 col-md-3" id="block-menu-content">
-            <ul class="block-menu" data-spy="affix" data-offset-top="500" data-offset-bottom="400">
-              <li><a class="faq-button active" href="#basic"><i class="icon fa fa-check-square-o"></i>이벤트 정보입력</a></li>
-              <li><a class="faq-button" href="#summary"><i class="icon fa fa-th-list"></i> 이벤트 사이트 등록</a></li>
-              <li><a class="faq-button" href="#images"><i class="icon fa fa-picture-o"></i> 썸네일 등록</a></li>
+          <div class="col-md-12">
+            <div class="section-title no-margin">
+              <h3 class="title">이벤트 등록 확인 알림</h3>
+            </div>
+              <DIV class='message' style='text-align: center;'> 
+                    <c:choose>
+                      <c:when test="${param.count == 1 }">
+                         <img src="./images/success.png" style="width: 10%;">
+                        <div style="margin-top: 30px; font-weight: 600;">이벤트를 수정했습니다.</div>
+                      </c:when>
+                      <c:otherwise>
+                          <img src="./images/fail.png" style="width: 10%;">
+                        <div style="margin-top: 30px; font-weight: 600;">이벤트 수정에 실패했습니다.</div>
+                      </c:otherwise>
+                    </c:choose>
 
-            </ul>
+                      <br>
+                      <button type='button' onclick="location.href='./create.do'" class="btn btn-default select-button">새로운 이벤트 등록</button>
+                      <button type='button' onclick="location.href='./list_event_paging.do'" class="btn btn-default select-button">목록</button>
+              </DIV>
           </div>
- <FORM name='frm' method='POST' action='./create.do'
-               enctype="multipart/form-data" class="form-horizontal">
-          
-          <input type='hidden' name='member_no' id='member_no' value='1'>
-          <input type='hidden' name='event_visibel' id='event_visibel' value='Y'>
-          <input type='hidden' name='event_ck' id='event_ck' value='Y'>
-          
-          <div class="col-sm-9 col-md-9">
-
-            <div class="info-block" id="basic">
-              <div class="section-title line-style no-margin">
-                <h3 class="title">이벤트 정보입력</h3>
-              </div>
-              <div class="row">
-                <div class="col-md-7 space-form">
-                <div style="font-size: 13px; margin-bottom: 6px; color: #1fb7a6;">이벤트 제목</div>
-                  <input id="event_title" class="form-control" type="text" placeholder="제목을 입력해주세요" name="event_title"  value="이벤트 입력하는 중입니다." required="required">
-                </div>  
-                <div class="col-md-5 space-form">
-                <div style="font-size: 13px; margin-bottom: 6px; color: #1fb7a6;">이벤트 종료 날짜</div>
-                  <input id="event_endrdate" class="form-control" type="date" name="event_endrdate"  value="" required="required">
-                </div>
-                <div class="col-md-12"  style="margin-top: 30px;">
-                  <textarea name='event_content' id='event_content' rows='10' cols='70' >
-                  컨텐츠를 입력해주세용
-                  </textarea>
-                </div>
-              </div>
-            </div>
-            
-            
-            <div class="info-block" id="summary">
-              <div class="section-title line-style">
-                <h3 class="title">이벤트 사이트 등록</h3>
-              </div>
-
-              <div class="row">
-                 <div class="col-md-12 space-form">
-                <div style="font-size: 13px; margin-bottom: 6px; color: #1fb7a6;">이벤트 사이트 주소 등록</div>
-                  <input id="event_site" class="form-control" type="text" placeholder="이벤트 사이트를 입력해주세요" name="event_site"  value="www.naver.com">
-                </div>  
-              </div>
-            </div>
-            
-            <div class="info-block" id="images">
-              <div class="section-title line-style">
-                <h3 class="title">썸네일 등록</h3>
-              </div>
-               <input type="file" class="form-control input-lg" name='filesMF' id='filesMF' size='40' multiple="multiple" >
-              <span class="text">
-                <strong>썸네일</strong> 이미지를 등록해 주세요.<br />
-              </span>
-            </div>
-
-            <!-- 작성정보 끝 -->
-            
-      <DIV style='text-align: right; margin-top: 50px;'>
-        <button type="submit" class="btn btn-reverse select-button">등록</button>
-        <!-- <button type="button" onclick="location.href='./'">취소[목록]</button> -->
-      </DIV>
-          </div>
-            
-          
-
-        </FORM> <!-- from 종료 -->
-          
         </div>
       </div>
     </section>
 
- <c:import url="/menu/bottom.jsp" />
+        <c:import url="/menu/bottom.jsp" />
+
 
     <div class="modal fade login-modal" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog">
@@ -269,12 +203,7 @@
     </div><!-- /.modal -->
   </div><!-- /#page-container -->
 
+<c:import url="/menu/js/index_js.jsp" />
 
-<c:import url="/menu/js/event_create_js.jsp" />
-  <script>
-      $('#filesMF').filestyle({
-       buttonText : '파일 선택'
-      });                        
-</script>
   </body>
 </html>
