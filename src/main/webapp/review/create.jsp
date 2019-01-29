@@ -18,7 +18,7 @@
         function product_select(product_name,product_no){
           $('#product_name').val(product_name);
           $('#product_no').val(product_no);
-          
+          $('#frm_product_name_search').hide();
           $('#tbody_panel').hide();
 
 					// 상품명 재검색시 다시 jquery 호출
@@ -56,8 +56,8 @@
     </script>
     
     
-  <link rel="stylesheet prefetch" href="/review/resources/css/vendor/dropzone/dropzone.css">        <!-- Dropzone Upload File -->
-  <link rel="stylesheet" href="/review/resources/css/vendor/death/jquery.death.css">                <!-- edit text script -->
+  <link rel="stylesheet prefetch" href="../resources/css/vendor/dropzone/dropzone.css">        <!-- Dropzone Upload File -->
+  <link rel="stylesheet" href="../resources/css/vendor/death/jquery.death.css">                <!-- edit text script -->
    
   <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
   <script type="text/JavaScript">

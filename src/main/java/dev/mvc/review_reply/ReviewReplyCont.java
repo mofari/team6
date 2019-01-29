@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import dev.mvc.category.CategoryVO;
+import dev.mvc.pfreview.ReviewProcInter;
 
 
 @Controller
@@ -21,6 +22,10 @@ public class ReviewReplyCont {
   @Autowired
   @Qualifier("dev.mvc.review_reply.ReviewReplyProc")
   private ReviewReplyProcInter reviewreplyProc = null;
+  
+  @Autowired
+  @Qualifier("dev.mvc.pfreview.ReviewProc")
+  private ReviewProcInter reviewProc = null;
   
   public ReviewReplyCont() {
     System.out.println("--> ReviewReplyCont created.");
@@ -38,6 +43,7 @@ public class ReviewReplyCont {
 
     if (reviewreplyProc.create(reviewreplyVO) == 1) {
       msgs.put("댓글을 등록했습니다.");
+      reviewProc.reply_cntup(reviewreplyVO.getReview_no());
     } else {
       msgs.put("댓글 등록에 실패했습니다.");
       msgs.put("다시한번 시도해주세요. ☏ 문의: 000-0000-0000");
@@ -47,10 +53,12 @@ public class ReviewReplyCont {
     return new ResponseEntity(json.toString(), responseHeaders, HttpStatus.CREATED);
   }
   
+  
+  // 리뷰 안 댓글 수정
   @ResponseBody
-  @RequestMapping(value = "/review/update.do", 
+  @RequestMapping(value = "/review/reply_update.do", 
                            method = RequestMethod.GET, produces = "text/plain;charset=UTF-8")
-  public String update(int review_reply_no) {
+  public String reply_update(int review_reply_no) {
     ReviewReplyVO reviewreplyVO = reviewreplyProc.reply_read(review_reply_no);
     JSONObject obj = new JSONObject(reviewreplyVO);
 
@@ -85,10 +93,11 @@ public class ReviewReplyCont {
     JSONObject json = new JSONObject();
     JSONArray msgs = new JSONArray();
     
-    System.out.println("★ review_reply_no: "+review_reply_no);
-
+    ReviewReplyVO reviewreplyVO = reviewreplyProc.reply_read(review_reply_no);
+    
     if (reviewreplyProc.reply_delete(review_reply_no) == 1) {
       msgs.put("댓글을 수정했습니다.");
+      reviewProc.reply_cntdown(reviewreplyVO.getReview_no());
     } else {
       msgs.put("댓글 수정에 실패했습니다.");
       msgs.put("다시한번 시도해주세요. ☏ 문의: 000-0000-0000");

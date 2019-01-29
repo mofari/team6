@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <title>PROHOME - Responsive Real Estate Template</title>
+    <title>리뷰</title>
 
 	<link rel="stylesheet" href="../css/bootstrap.min.css">                            <!-- Bootstrap -->
     <link rel="stylesheet" href="../css/vendor/font-awesom/css/font-awesome.min.css">  <!-- Font Awesome -->
@@ -24,6 +24,8 @@
 	<link rel="stylesheet" href="../css/custom.css">                                   <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="../css/media-query.css">                              <!-- Media Query -->
     <link rel="stylesheet" href="../css/review_reply.css">                              <!-- Media Query -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/css/swiper.min.css">
+
 
 	<!-- Use Iconifyer to generate all the favicons and touch icons you need: http://iconifier.net -->
 	<link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon" />
@@ -43,20 +45,52 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 	<script src="../script/modernizr.min.js"></script> <!-- Modernizr -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.min.js"></script>
   
   <script type="text/javascript">
   window.onload=function(){
     action_cancel();
     $('#frm_afterheart').hide();
     list();  // 모든 댓글 목록
+
+    // rgood테이블에서 회원번호&리뷰번호 비교해서 있으면 빨간색으로(좋아요 체크) 칠하기
+    like(${reviewVO.member_no});
+    
+    $("#text-message").keydown(function(){
+      var numChar = $(this).val().length;
+      var maxNum = 250;
+      var charRemain = maxNum - numChar;
+      $("span > em").text(charRemain);
+      if(charRemain < 1){
+        alert("250자 미만으로 입력해주세요!.");
+        $('#text-message').val($('#text-message').val().substring(0,250));
+        $(".submit").prop("disabled", true);
+      } else {
+        $(".submit").prop("disabled", false);
+      }
+    }); 
+    
+    
+    $('[data-toggle="popover"]').popover({
+      container: 'body',
+      html: true,
+      placement: 'auto',
+      trigger: 'hover',
+      content: function() {
+        // get the url for the full size img
+        var url = $(this).data('full');
+        return '<input style="width:100px;" value="' + url + '">'
+      }
+    	});
   };
   
+
   function reply_update(review_reply_no){
     $('#panel_create').hide();
     $('#panel_update').show();
 
     $.ajax({
-      url: "./update.do", // 요청을 보낼주소
+      url: "./reply_update.do", // 요청을 보낼주소
       type: "get",  // or get
       cache: false,
       dataType: "json", // 응답 데이터 형식, or json
@@ -132,8 +166,9 @@
       // Ajax 통신 성공, JSP 정상 처리  
       success: function(rdata) { // callback 함수  
         var panel = '';
-        
-        for(index=0; index < rdata.length; index++) {
+       // var like_check = ${like_check}; // 회원이 게시글에 좋아요를 눌렀다면 1 (빨간색)
+
+       for(index=0; index < rdata.length; index++) {
           panel += "<div id='comments'>";
           panel += "<div class='medialist'>";
           panel += "<div class='media' style='padding-left:3%'>";
@@ -196,20 +231,90 @@
     $('#frm_create')[0].reset(); // id가 frm_create인 첫번째폼을 reset
   } 
   
-	var state=0;
-  function like(){
-		if(state==0){
+  function like(member_no){
+   var like_check = ${like_check};
+		if(like_check==1){		// 좋아요
 		  document.beforeheart.src="../menu/images/afterheart.png";
-		  state=1;
-		} else {
+		  like_check=0;
+		} else {	// None
 		  document.beforeheart.src="../menu/images/beforeheart.png";
-		  state=0;
+		  like_check=1;
 		}
-  }
+  } 
+  
+   function like_change(member_no, like_check){
+    $.ajax({
+       url: "./like_change.do", // 요청을 보낼주소
+       type: "get",  // or get
+       cache: false,
+       dataType: "json", // 응답 데이터 형식, or json
+       data: 'review_no=' +${param.review_no},
+       // Ajax 통신 성공, JSP 정상 처리 
+       success: function(rdata) { // callback 함수
+         var review_rgood_cnt = rdata.review_rgood_cnt;
+       $('.review_rgood_cnt').text(review_rgood_cnt);
+ 					var like_check = rdata.like_check;      // 성공시 1
+					if(like_check==0){	// 흰색 -> 빨강
+					  document.beforeheart.src="../menu/images/afterheart.png";
+					} else {	// 빨강 -> 흰색
+					  document.beforeheart.src="../menu/images/beforeheart.png";
+					} 
+       		
+       },
+       // Ajax 통신 에러, 응답 코드가 200이 아닌경우, dataType이 다른경우 
+       error: function(request, status, error) { // callback 함수
+         alert("like_check error");
+       }
+     });   
+   }
+    
+   
+   function data_analysis(product_no, review_no) {
+     // 문자열: ', ""
+     var url = './data_analysis.do?product_no='+product_no+'&review_no='+review_no;
+     var width = 900;
+     var height = 400;
+     var win = window.open(url, '상품 만족도 데이터 분석', 'width='+width+'px, height='+height+'px');
+     var x = (screen.width - width) / 2; 
+     var y = (screen.height - height) / 2;
+     
+     win.moveTo(x, y);
+   }  
+   
+   
+   
   </script>
   
   </head>
+  
+  <style type="text/css">
+  body .popover {
+      max-width: 250px;
+    }
+/* 슬라이드 효과 css 시작*/
+.swiper-container {
+  height:420px;
+  border:5px solid silver;
+  border-radius:7px;
+  box-shadow:0 0 20px #ccc inset;
+}
+.swiper-slide {
+  text-align:center;
+  display:flex; /* 내용을 중앙정렬 하기위해 flex 사용 */
+  align-items:center; /* 위아래 기준 중앙정렬 */
+  justify-content:center; /* 좌우 기준 중앙정렬 */
+}
+.swiper-slide img {
+  box-shadow:0 0 5px #555;
+  max-width:100%; /* 이미지 최대너비를 제한, 슬라이드에 이미지가 여러개가 보여질때 필요 */
+  /* 이 예제에서 필요해서 설정했습니다. 상황에따라 다를 수 있습니다. */
+}
+/* 슬라이드 효과 css 끝*/
+</style>
+
   <body class="fixed-header*">
+  
+  
 
   <div id="page-container">
 <c:import url="/menu/top2.jsp" />
@@ -242,8 +347,11 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-3 col-md-2 agency-logo">
+           <div style='text-align:center; margin-bottom:10px;'><button onclick="javascript:data_analysis(${reviewVO.product_no}, ${reviewVO.review_no });" class="btn btn-default btn-sm">상품 만족도 보기</button></div>
 						<div class="logo">
-							<img src='./storage/${review_memberVO.product_img }' style='width:100%;' class="img-responsive" alt="logo Agency" />
+              <a data-toggle='popover'  data-full='${review_memberVO.product_name }'>
+							 <img src='./storage/${review_memberVO.product_img }' style='width:100%;' class="img-responsive" alt="logo Agency" />
+              </a>
 						</div><br>
             <div style='text-align:center'>
             <c:forEach begin='1' end='${review_memberVO.review_grade }'>
@@ -251,6 +359,8 @@
             </c:forEach>
 					  </div>
           </div>
+          <input type="hidden" id= "member_no" name="member_no" value="${reviewVO.member_no }">
+          <input type="hidden" id= "like_check" name="like_check" value="${like_check }">
 					<div class="col-sm-9 col-md-7">
           <div class="section-title line-style no-margin">
 						<h1 class="title">${review_memberVO.review_title }</h1>
@@ -259,7 +369,7 @@
               ${review_memberVO.review_content }
 						</div>
 					</div>
-          
+         
 
 					<div class="col-sm-12 col-md-3">
 						<div class="row">
@@ -289,7 +399,9 @@
 				</div>
 
        <div style='margin-left:45%; margin-top:8%;'>
-          <img name="beforeheart" id="beforeheart" src="../menu/images/beforeheart.png"  onclick="like()">
+          <img name="beforeheart" id="beforeheart" src="../menu/images/beforeheart.png"  onclick="like_change(${reviewVO.member_no},${like_check })">
+       </div>
+       <div class="review_rgood_cnt" style="text-align:center; margin-right:7%;" id="review_rgood_cnt" >${review_rgood_cnt }
        </div>
        
        <DIV id='panel_create' style='width: 80%; margin-left:10%; margin-top:8%' >
@@ -302,7 +414,8 @@
                     <textarea name="text-message" id="text-message" rows="4" class="margin-bottom form-control"></textarea>
                   </div>
                 </div>
-                <button type="button" id='submit'  name='submit' class="btn btn-default" onclick="create()">등록</button>
+                <button type="button" class="btn btn-default" onclick="create()">등록</button>
+                <span style="float:right;"><em>250</em> / 250</span>
               </form> 
           </DIV>
           
@@ -316,15 +429,62 @@
                     <textarea name="text-message" id="text-message" rows="4" class="margin-bottom form-control"></textarea>
                   </div>
                 </div>
-                <button type="button" id='submit'  name='submit' class="btn btn-default"  onclick="reply_update_proc()">수정</button>
+                <button type="button" class="btn btn-default"  onclick="reply_update_proc()">수정</button>
               </form> 
           </DIV>
           
-          
-          
           <TABLE style='width: 80%; margin-left:10%; ' >
-                <tbody id='tbody_panel' data-nowPage='0' data-endPage='0'></tbody>
-              </TABLE>
+             <tbody id='tbody_panel' data-nowPage='0' data-endPage='0'></tbody>
+          </TABLE>
+          
+          <DIV style="margin-left:10%; padding-top:5%; font-size:20px;" class="section-title line-style no-margin">
+            <a href="./member_review_list.do?member_no=${reviewVO.member_no }"><span style="font-weight:bold; color:#ff5400">${reviewVO.member_nickname }</span></a>님의 다른 리뷰
+          </DIV>
+          <div class="swiper-container" style="width:80%; height:190px;">
+	           <div class="swiper-wrapper">
+                <c:forEach var ="reviewVO"  items="${member_review_list }">
+                  <div class="swiper-slide"><a href="./read.do?review_no=${reviewVO.review_no }&catgory_no=${reviewVO.category_no}"><img src="./storage/${reviewVO.review_file}"></a></div>
+                </c:forEach>
+	           </div>
+
+          	<!-- 네비게이션 -->
+          	<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+          	<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
+
+          	<!-- 페이징 -->
+          	<div class="swiper-pagination"></div>
+        </div>
+
+<script>
+
+new Swiper('.swiper-container', {
+
+  slidesPerView : 3, // 동시에 보여줄 슬라이드 갯수
+  spaceBetween : 30, // 슬라이드간 간격
+  slidesPerGroup : 3, // 그룹으로 묶을 수, slidesPerView 와 같은 값을 지정하는게 좋음
+
+  // 그룹수가 맞지 않을 경우 빈칸으로 메우기
+  // 3개가 나와야 되는데 1개만 있다면 2개는 빈칸으로 채워서 3개를 만듬
+  loopFillGroupWithBlank : true,
+
+  loop : true, // 무한 반복
+
+  autoplay : { // 자동 재생
+		delay : 0, // 딜레이 0
+	},
+	speed : 4000, // 슬라이드 속도 4초
+  pagination : { // 페이징
+    el : '.swiper-pagination',
+    clickable : true, // 페이징을 클릭하면 해당 영역으로 이동, 필요시 지정해 줘야 기능 작동
+  },
+  navigation : { // 네비게이션
+    nextEl : '.swiper-button-next', // 다음 버튼 클래스명
+    prevEl : '.swiper-button-prev', // 이번 버튼 클래스명
+  },
+});
+
+</script>
+
 
 		</section>
 

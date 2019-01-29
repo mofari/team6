@@ -1,7 +1,8 @@
 /**********************************/
 /* Table Name: ±ÇÇÑ */
 /**********************************/
-DROP TABLE act;
+DROP TABLE review;
+
 CREATE TABLE act(
 		act_no                        		NUMBER(10)		 NOT NULL		 PRIMARY KEY,
 		act_name                      		VARCHAR2(10)		 NOT NULL

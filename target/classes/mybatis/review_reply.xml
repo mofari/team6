@@ -26,7 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   </update>
   
   <select id="reply_read" parameterType="int" resultType="ReviewReplyVO">
-    SELECT review_reply_no, review_reply_content
+    SELECT review_reply_no, review_reply_content, review_no
     FROM review_reply
     WHERE review_reply_no=#{review_reply_no}
   </select>
@@ -36,9 +36,4 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     WHERE review_reply_no=#{review_reply_no}
   </delete>
   
-  <update id="reply_cntup" parameterType="int">
-    UPDATE review
-    SET review_reply_cnt = review_reply_cnt + 1
-    WHERE review_no = #{review_no}
-  </update>
 </mapper>

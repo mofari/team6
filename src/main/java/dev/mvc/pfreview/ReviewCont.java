@@ -1,6 +1,8 @@
 package dev.mvc.pfreview;
 
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -29,7 +31,6 @@ import dev.mvc.category.CategoryVO;
 import dev.mvc.pet.PetProcInter;
 import dev.mvc.pet.PetVO;
 import dev.mvc.pfreview.ReviewProcInter;
-import dev.mvc.product.ProductProcInter;
 import dev.mvc.product.ProductVO;
 import dev.mvc.review_reply.ReviewReplyProcInter;
 import dev.mvc.review_reply.ReviewReplyVO;
@@ -49,10 +50,6 @@ public class ReviewCont {
   @Autowired
   @Qualifier("dev.mvc.review_reply.ReviewReplyProc")
   private ReviewReplyProcInter reviewreplyProc = null;
-  
-  @Autowired
-  @Qualifier("dev.mvc.product.ProductProc")
-  private ProductProcInter productProc = null;
 
   @Autowired
   @Qualifier("dev.mvc.pet.PetProc")
@@ -61,27 +58,6 @@ public class ReviewCont {
   public ReviewCont() {
     System.out.println("--> ReviewCont created.");
   }
-  
-  
-  /**
-   * 카테고리별 목록
-   * @return
-   */
-  // http://localhost:9090/review/review/list.do?category_no=1
-/*  @RequestMapping(value = "/review/list.do", method = RequestMethod.GET)
-  public ModelAndView list(int category_no) {
-    ModelAndView mav = new ModelAndView();
-    
-    CategoryVO categoryVO = categoryProc.read(category_no);
-    mav.addObject("categoryVO", categoryVO);
-
-    List<Review_MemberVO> list = reviewProc.list(category_no); 
-    mav.addObject("list", list);
-
-    mav.setViewName("/review/list"); // /webapp/review/list.jsp
-
-    return mav;
-  }*/
   
   
   /**
@@ -113,6 +89,7 @@ public class ReviewCont {
    * @param review_memberVO
    * @return
    */
+  int create_count = 0;
   @RequestMapping(value = "/review/create.do", method = RequestMethod.POST)
   public ModelAndView create(HttpServletRequest request, Review_MemberVO review_memberVO) {
     // System.out.println("--> create() POST executed");
@@ -144,7 +121,6 @@ public class ReviewCont {
       // for (MultipartFile multipartFile: filesMF) {
       for (int i = 0; i < count; i++) {
         MultipartFile multipartFile = filesMF.get(i); // 0 ~
-        System.out.println("multipartFile.getName(): " + multipartFile.getName());
 
         // if (multipartFile.getName().length() > 0) { // 전송파일이 있는지 체크, filesMF
         if (multipartFile.getSize() > 0) { // 전송파일이 있는지 체크
@@ -184,8 +160,8 @@ public class ReviewCont {
 // System.out.println("카테고리 번호 : "+ review_memberVO.getCategory_no());
     
     
-    count = reviewProc.create(review_memberVO);
-    if (count == 1) {
+    create_count = reviewProc.create(review_memberVO);
+    if (create_count == 1) {
       reviewProc.increaseCnt(review_memberVO.getCategory_no()); // 글수 증가
     }
  
@@ -219,6 +195,17 @@ public class ReviewCont {
   @RequestMapping(value = "/review/read.do", method = RequestMethod.GET)
   public ModelAndView read(int review_no) {
     ModelAndView mav = new ModelAndView();
+    
+    Review_MemberVO reviewVO = reviewProc.read(review_no);
+    mav.addObject("reviewVO", reviewVO);
+    mav.addObject("review_rgood_cnt",reviewVO.getReview_good());
+    
+    HashMap<String, Object> hashMap = new HashMap<String, Object>();
+    hashMap.put("review_no", review_no);
+    hashMap.put("member_no", reviewVO.getMember_no());
+    
+    int like_check = reviewProc.like_check(hashMap);
+    mav.addObject("like_check", like_check);  // 회원이 게시글에 좋아요를 눌렀다면 1 (빨간색)
         
     List<ReviewReplyVO> reply_list = reviewreplyProc.list(review_no);
     mav.addObject("reply_list", reply_list);
@@ -226,6 +213,8 @@ public class ReviewCont {
     PetVO petVO = reviewProc.pet_read(review_no);
     mav.addObject("petVO", petVO); 
     
+    List<Review_MemberVO> member_review_list = reviewProc.member_review_list(reviewVO.getMember_no());
+    mav.addObject("member_review_list", member_review_list);
     
     Review_MemberVO review_memberVO = reviewProc.read(review_no);
     mav.addObject("review_memberVO", review_memberVO);
@@ -269,7 +258,7 @@ public class ReviewCont {
     Review_MemberVO review_memberVO = reviewProc.read(review_no);
     mav.addObject("review_memberVO", review_memberVO);
     
-    ProductVO productVO = productProc.product_name_search(review_no);
+    ProductVO productVO = reviewProc.rproduct_name_search(review_no);
     mav.addObject("productVO", productVO);
     
     return mav;
@@ -325,7 +314,6 @@ public class ReviewCont {
       // for (MultipartFile multipartFile: filesMF) {
       for (int i = 0; i < count; i++) {
         MultipartFile multipartFile = filesMF.get(i); // 0 ~
-        System.out.println("multipartFile.getName(): " + multipartFile.getName());
 
         // if (multipartFile.getName().length() > 0) { // 전송파일이 있는지 체크, filesMF
         if (multipartFile.getSize() > 0) { // 전송파일이 있는지 체크
@@ -402,7 +390,7 @@ public class ReviewCont {
       @RequestParam(value="nowPage", defaultValue="1") int nowPage
       ) { 
     System.out.println("--> list_by_category() GET called.");
-    System.out.println("--> nowPage: " + nowPage);
+    //System.out.println("--> nowPage: " + nowPage);
     
     ModelAndView mav = new ModelAndView();
     
@@ -429,7 +417,41 @@ public class ReviewCont {
     Review_MemberVO review_memberVO = reviewProc.read(category_no);
     mav.addObject("review_memberVO", review_memberVO);
     
-    // mav.addObject("word", word);
+    int review_no=0;
+    int product_no = 0;
+    int review_grade=0;
+    FileWriter fw = null; // 파일에 기록
+    String createfile="C:\\ai3\\ws_frame\\team6_v1s4m3c\\src\\main\\java\\dev\\mvc\\pfreview\\csv\\csvfile.csv";
+    try {
+      fw = new FileWriter(createfile, true);
+      /*fw.append("리뷰번호,상품번호,별점");
+      fw.append('\n');*/
+      
+      if(create_count == 1){
+        for(int i=0; i<1; i++){
+          review_no = list.get(0).getReview_no();
+          product_no = list.get(0).getProduct_no();
+          review_grade = list.get(0).getReview_grade();
+        }
+        
+        String review__no = Integer.toString(review_no);
+        String product__no = Integer.toString(product_no);
+        String review__grade = Integer.toString(review_grade);
+        
+        fw.append(review__no);
+        fw.append(",");
+        fw.append(product__no);
+        fw.append(",");
+        fw.append(review__grade);
+        fw.append('\n');
+        fw.flush();
+        fw.close();
+      }
+    } catch (IOException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+   
   
     /*
      * SPAN태그를 이용한 박스 모델의 지원, 1 페이지부터 시작 
@@ -447,6 +469,199 @@ public class ReviewCont {
     mav.addObject("nowPage", nowPage);
     
     return mav;
+  }
+  
+  
+  @RequestMapping(value = "/review/delete.do", method = RequestMethod.GET)
+  public ModelAndView delete(int review_no, int category_no) {
+    // System.out.println("--> delete() GET executed");
+    ModelAndView mav = new ModelAndView();
+    mav.setViewName("/review/delete"); // /webapp/contents/delete.jsp
+
+    CategoryVO categoryVO = categoryProc.read(category_no);
+    mav.addObject("categoryVO", categoryVO);
+
+    Review_MemberVO reviewVO = reviewProc.read(review_no);
+    mav.addObject("reviewVO", reviewVO);
+
+    return mav;
+  }
+  
+  
+  @RequestMapping(value = "/review/delete.do", method = RequestMethod.POST)
+  public ModelAndView delete(RedirectAttributes redirectAttributes, 
+                                        HttpServletRequest request, 
+                                        int category_no,
+                                        int review_no, 
+                                        @RequestParam(value="word", defaultValue="") String word,
+                                        @RequestParam(value="nowPage", defaultValue="1") int nowPage 
+      ) {
+    ModelAndView mav = new ModelAndView();
+    mav.setViewName("/review/delete_message"); // /webapp/contents/delete_message.jsp
+
+    String upDir = Tool.getRealPath(request, "/review/storage"); // 저장 폴더 절대
+                                                                   // 경로
+
+    Review_MemberVO reviewVO = reviewProc.read(review_no); // 삭제할 파일 정보를 읽기 위한
+                                                           // 목적
+
+    String thumbs_old = reviewVO.getReview_thumb();
+    String files_old = reviewVO.getReview_file();
+
+    StringTokenizer thumbs_st = new StringTokenizer(thumbs_old, "/"); // Thumbs
+    while (thumbs_st.hasMoreTokens()) { // 단어가 있는지 검사
+      String fname = upDir + thumbs_st.nextToken(); // 단어 추출
+      Tool.deleteFile(fname);
+    }
+
+    StringTokenizer files_st = new StringTokenizer(files_old, "/"); // files
+    while (files_st.hasMoreTokens()) { // 단어가 있는지 검사
+      String fname = upDir + files_st.nextToken(); // 단어 추출
+      Tool.deleteFile(fname);
+    }
+
+    int count = reviewProc.review_delete(review_no); // 레코드 삭제
+
+    if (count == 1) {
+      reviewProc.decreaseCnt(category_no); // 등록된 글수의 감소
+       
+      // 4개의 레코드가 하나의 페이지인경우 5번째 레코드가 삭제되면 페이지수도
+      // 2페이지에서 1 페이지로 줄여야합니다. 
+      HashMap<String, Object> hashMap = new HashMap<String, Object>();
+      hashMap.put("category_no", category_no); // #{categoryno}
+      hashMap.put("word", word);                  // #{word}
+      if (reviewProc.search_count(hashMap) % Reviews.RECORD_PER_PAGE == 0){ 
+        nowPage = nowPage - 1;
+        if (nowPage < 1){
+          nowPage = 1;
+        }
+      }
+      
+    }
+    
+    // redirect시에는 request가 전달이안됨으로 아래의 방법을 이용하여 데이터 전달
+    redirectAttributes.addAttribute("count", count); // 1 or 0
+    redirectAttributes.addAttribute("review_no", reviewVO.getReview_no());
+    redirectAttributes.addAttribute("category_no", reviewVO.getCategory_no());
+    redirectAttributes.addAttribute("word", word);
+    redirectAttributes.addAttribute("nowPage", nowPage);
+
+    mav.setViewName("redirect:/review/delete_message.jsp");
+
+    return mav;
+  }
+  
+  
+  /**
+   * 좋아요 <-> 좋아요 해제
+   * @param review_no
+   * @return
+   */
+  @ResponseBody
+  @RequestMapping(value = "/review/like_change.do", method = RequestMethod.GET, produces = "text/plain;charset=UTF-8")
+  public String like_change(int review_no) {
+    System.out.println("--> like_change() GET executed");
+    
+    Review_MemberVO reviewVO = reviewProc.read(review_no);
+    int member_no = reviewVO.getMember_no();
+    
+    JSONObject obj = new JSONObject();
+    HashMap<String, Object> hashMap = new HashMap<String, Object>();
+    hashMap.put("review_no", review_no);
+    hashMap.put("member_no", member_no);
+    
+    int like_check = reviewProc.like_check(hashMap);    // 좋아요 테이블에서 회원이 좋아요 했는지 안했는지 카운트로 확인 ( 1: 누름 / 0: 안누름)
+    
+    if(like_check == 0){  // 안누른 상태 (= 좋아요를 누른다면)
+      reviewProc.like_member_insert(hashMap);  // 좋아요 테이블에 좋아요한 회원 추가
+      reviewProc.like_up(review_no);    // 좋아요 갯수 증가
+    } else if(like_check == 1) {  // 누른 상태 (= 좋아요 취소시)
+      reviewProc.like_member_delete(hashMap);  // 좋아요 테이블에 좋아요한 회원 삭제
+      reviewProc.like_down(review_no);    // 좋아요 갯수 감소
+    }
+    reviewVO = reviewProc.read(review_no);
+    
+    obj.put("like_check", like_check);    // 성공시 1
+    obj.put("review_rgood_cnt", reviewVO.getReview_good());
+    
+    return obj.toString();
+    
+  }
+  
+  
+  @RequestMapping(value = "/review/data_analysis.do", method = RequestMethod.GET)
+  public ModelAndView data_analysis(int product_no, int review_no) {
+    System.out.println("--> data_analysis() GET executed");
+    ModelAndView mav = new ModelAndView();
+    
+    int product_grade0 = 0;
+    int product_grade1 = 0;
+    int product_grade2 = 0;
+    int product_grade3 = 0;
+    int product_grade4 = 0;
+    
+    List<Review_MemberVO> list = reviewProc.product_data_analysis(product_no);
+    for(int i=0; i<list.size(); i++ ){
+      if(list.get(i).getReview_grade() == 1){
+        product_grade0 = product_grade0 + 1;
+      } else if(list.get(i).getReview_grade() == 2){
+        product_grade1 = product_grade1 + 1;
+      } else if(list.get(i).getReview_grade() == 3){
+        product_grade2 = product_grade2 + 1;
+      } else if(list.get(i).getReview_grade() == 4){
+        product_grade3 = product_grade3 + 1;
+      } else if(list.get(i).getReview_grade() == 5){
+        product_grade4 = product_grade4 + 1;
+      }
+    }
+    
+    mav.addObject("product_grade0", product_grade0);
+    mav.addObject("product_grade1", product_grade1);
+    mav.addObject("product_grade2", product_grade2);
+    mav.addObject("product_grade3", product_grade3);
+    mav.addObject("product_grade4", product_grade4);
+    
+    mav.addObject("product_no", product_no);
+
+    mav.setViewName("/review/data_analysis"); // /webapp/review/create.jsp
+
+    return mav;
+  }
+  
+
+  @RequestMapping(value = "/review/member_review_list.do", method = RequestMethod.GET)
+  public ModelAndView member_review_list(int member_no) {
+    ModelAndView mav = new ModelAndView();
+    
+    List<Review_MemberVO> member_review_list = reviewProc.member_review_list(member_no);
+    mav.addObject("member_review_list", member_review_list);
+    mav.addObject("member_nickname", member_review_list.get(0).getMember_nickname());
+    mav.addObject("member_image", member_review_list.get(0).getMember_image());
+    mav.addObject("member_no", member_review_list.get(0).getMember_no());
+    
+    
+    mav.setViewName("/review/member_review_list");
+
+    return mav;
+  }
+  
+  
+  @ResponseBody
+  @RequestMapping(value = "/review/pet_category.do", method = RequestMethod.GET, produces = "text/plain;charset=UTF-8")
+  public ResponseEntity pet_category(int category_no, int member_no) {
+    HttpHeaders responseHeaders = new HttpHeaders();
+    
+    
+    HashMap<String, Object> hashMap = new HashMap<String, Object>();
+    hashMap.put("category_no", category_no);
+    hashMap.put("member_no", member_no);
+    
+    List<Review_MemberVO> pet_category_list = reviewProc.pet_category(hashMap);
+    
+    JSONArray json = new JSONArray(pet_category_list);
+    
+
+    return new ResponseEntity(json.toString(), responseHeaders, HttpStatus.CREATED);
   }
 }
   

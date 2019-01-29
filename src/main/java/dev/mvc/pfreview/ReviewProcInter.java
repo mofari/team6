@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import dev.mvc.pet.PetVO;
+import dev.mvc.product.ProductVO;
 
 public interface ReviewProcInter {
   /**
@@ -27,6 +28,9 @@ public interface ReviewProcInter {
    * @return
    */
   public int increaseCnt(int category_no);
+  
+  public int decreaseCnt(int category_no);
+
   
   /**
    * 상품명 목록
@@ -78,4 +82,31 @@ public interface ReviewProcInter {
    * @return 페이징 생성 문자열
    */ 
   public String paging(int category_no, int search_count, int nowPage, String word);
+  
+  
+  public ProductVO rproduct_name_search(int review_no);
+
+  public int reply_cntup(int review_no);
+  
+  public int reply_cntdown(int review_no);
+
+  public int review_delete(int review_no);
+    
+  public int like_check(HashMap hashMap);
+
+  public int like_up(int review_no);
+  
+  public int like_down(int review_no);
+
+  
+  public int like_member_insert(HashMap hashMap);
+
+  public int like_member_delete(HashMap hashMap);
+
+  public List<Review_MemberVO> product_data_analysis(int product_no);
+
+  public List<Review_MemberVO> member_review_list(int member_no);
+
+  public List<Review_MemberVO> pet_category(HashMap hashMap);
+
 }

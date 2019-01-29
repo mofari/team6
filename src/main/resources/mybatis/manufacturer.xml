@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="manufacturer"> <!-- 테이블명 사용 -->
+    <!-- 상품 등록 -->
+    <insert id="create" parameterType="ManufacturerVO">
+INSERT INTO manufacturer(manufacturer_no,
+									manufacturer_name, manufacturer_img, manufacturer_callnumber, manufacturer_zipcode, manufacturer_webpageurl)
+VALUES((SELECT NVL(MAX(manufacturer_no), 0)+1 as manufacturer_no FROM manufacturer),
+									#{manufacturer_name}, #{manufacturer_img}, #{manufacturer_callnumber}, #{manufacturer_zipcode}, #{manufacturer_webpageurl})
+    </insert>
+
+  <select id="list" resultType="ManufacturerVO" parameterType="HashMap">
+    SELECT * FROM (
+      SELECT manufacturer_no, manufacturer_name, manufacturer_img, manufacturer_callnumber, manufacturer_zipcode, manufacturer_webpageurl, rownum as r
+      FROM manufacturer 
+    <choose>
+      <when test="word == null or word == ''"> <!-- 검색하지 않는 경우 -->
+      </when>
+      <otherwise> <!-- 검색하는 경우 -->
+    WHERE LOWER(manufacturer_name) LIKE '%' || LOWER(#{word}) || '%'
+      </otherwise>
+    </choose>
+      ORDER BY manufacturer_no DESC
+    )
+    WHERE <![CDATA[ r >= #{startNum} AND r <= #{endNum} ]]>
+  </select>
+  
+    <select id="listcount" resultType="int" parameterType="HashMap">
+    SELECT COUNT(*) as cnt FROM manufacturer
+    <choose>
+      <when test="word == null or word == ''"> <!-- 검색하지 않는 경우 -->
+      </when>
+      <otherwise> <!-- 검색하는 경우 -->
+    WHERE LOWER(manufacturer_name) LIKE '%' || LOWER(#{word}) || '%'
+      </otherwise>
+    </choose>
+  </select>
+    
+    <select id="read" resultType="ManufacturerVO" parameterType="int">
+      SELECT * FROM manufacturer WHERE manufacturer_no = #{manno}
+    </select>
+    
+    <delete id="delete" parameterType="int">
+      DELETE manufacturer
+      WHERE manufacturer_no=#{manno}
+    </delete>
+    
+    <update id="update" parameterType="ManufacturerVO">
+      UPDATE manufacturer
+      SET manufacturer_name = #{manufacturer_name},
+  	  manufacturer_callnumber = #{manufacturer_callnumber}, 
+      manufacturer_zipcode = #{manufacturer_zipcode}, 
+	  manufacturer_webpageurl = #{manufacturer_webpageurl} 
+      WHERE manufacturer_no = #{manufacturer_no}
+    </update>
+    
+    <update id="updateimg" parameterType="ManufacturerVO">
+      UPDATE manufacturer
+      SET manufacturer_img = #{manufacturer_img}
+      WHERE manufacturer_no = #{manufacturer_no}
+    </update>
+    
+    
+</mapper>

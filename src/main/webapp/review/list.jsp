@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <title>이벤트</title>
+    <title>리뷰 목록</title>
   </head>
   
   <style type="text/css">
@@ -63,6 +63,7 @@
   </style> 
   
   
+  
   <body class="fixed-header*">
 
   <div id="page-container">
@@ -76,22 +77,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <title>PROHOME - Responsive Real Estate Template</title>
 
-  <link rel="stylesheet" href="/review/resources/css/bootstrap.min.css">                            <!-- Bootstrap -->
-    <link rel="stylesheet" href="/review/resources/css/vendor/font-awesom/css/font-awesome.min.css">  <!-- Font Awesome -->
-  <link rel="stylesheet" href="/review/resources/css/vendor/mmenu/jquery.mmenu.all.css" />          <!-- Menu Responsive -->
-  <link rel="stylesheet" href="/review/resources/css/vendor/animate-wow/animate.css">               <!-- Animation WOW -->
 
- <link rel="stylesheet" href="/review/resources/css/vendor/flipclock/flipclock.css">               <!-- Flip Countdown -->
-
-    <link rel="stylesheet" href="/review/resources/css/vendor/labelauty/labelauty.css">               <!-- Checkbox form Style -->
-  <link rel="stylesheet" href="/review/resources/css/vendor/nouislider/nouislider.min.css">         <!-- Slider Price -->
-    <link rel="stylesheet" href="/review/resources/css/vendor/easydropdown/easydropdown.css">         <!-- Select form Style -->
-    <link rel="stylesheet" href="/review/resources/css/ui-spinner.css">                               <!-- Spinner -->
-    
-
-  <link rel="stylesheet" href="/review/resources/css/menu.css">                                     <!-- Include Menu stylesheet -->
-  <link rel="stylesheet" href="/review/resources/css/custom.css">                                   <!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="/review/resources/css/media-query.css">                              <!-- Media Query -->
 
   <!-- Use Iconifyer to generate all the favicons and touch icons you need: http://iconifier.net -->
   <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon" />
@@ -110,8 +96,22 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+  <script src="../script/modernizr.min.js"></script> <!-- Modernizr -->
+  
+<script>
+function data_analysis(product_no, review_no) {
+  // 문자열: ', ""
+  var url = './data_analysis.do?product_no='+product_no+'&review_no='+review_no;
+  var width = 900;
+  var height = 400;
+  var win = window.open(url, '상품 만족도 데이터 분석', 'width='+width+'px, height='+height+'px');
+  var x = (screen.width - width) / 2; 
+  var y = (screen.height - height) / 2;
+  
+  win.moveTo(x, y);
+}  
+</script>
 
-  <script src="/review/resources/script/modernizr.min.js"></script> <!-- Modernizr -->
 
   </head>
   <c:import url="/menu/top2.jsp" />
@@ -133,6 +133,7 @@
             <li><a href="#"><i class="fa fa-home"></i></a></li>
             <li><a href="#">리뷰</a></li>
             <li class="active">${categoryVO.category_title  }</li>
+            <li style="float:right;"><button type="button" onclick="location.href='./create.do?category_no=${param.category_no }'" class="btn btn-default btn-sm">등록</button></li>
           </ol>
         </div>
       </div><!-- /#breadcrumb -->
@@ -140,14 +141,14 @@
     </section><!-- /#header -->
  
     <section id="recent-list">
-    <div style="float:right; margin-right:60px;"><A href='./create.do?category_no=${param.category_no }'>등록</A></div>
 			<div class="container">
       <form name="frm" id="frm" action="./list.do">
       <input type="hidden" id="category_no" name="category_no" value="${param.category_no }">
-				<div class="row">
+				<div class="row">        
+
       <c:forEach var="review_MemberVO" items="${list }">
                <div class="col-md-4">
-                  <div class="box-ads box-home" style="padding-bottom: 10px;">
+                  <div class="box-ads box-home" style="padding-bottom: 0px;">
                <a class="hover-effect image image-fill" href="./read.do?review_no=${review_MemberVO.review_no}&category_no=${review_MemberVO.category_no}">
                         <span class="cover"></span> 
                 <c:choose>
@@ -156,25 +157,31 @@
                           </c:when>
                   <c:otherwise>
                     <!-- 파일이 존재하지 않는 경우 -->
-                    <IMG src='./images/none1.jpg' style='width: 120px; height: 80px;'>
+                    <IMG src='./images/good.png' style='width: 120px; height: 80px;'>
                   </c:otherwise>
                 </c:choose>
 
 							</a><!-- /.hover-effect -->
 							<span class="event_title" >
-               <a href="./read.do?review_no=${review_MemberVO.review_no}&category_no=${review_MemberVO.category_no}">
                 <c:choose>
                   <c:when test="${fn:length(review_MemberVO.review_title) > 12}">
-                  	<c:out value="${fn:substring(review_MemberVO.review_title,0,11)}"/>....
+                  	<a href="./read.do?review_no=${review_MemberVO.review_no}&category_no=${review_MemberVO.category_no}"><c:out value="${fn:substring(review_MemberVO.review_title,0,11)}"/>....</a>
+                    <span style="float:right;">
+                      <a href="./update.do?review_no=${review_MemberVO.review_no}&category_no=${review_MemberVO.category_no}"><img alt="update" src="./images/update.png" title="수정"></a>
+                      <a href="./delete.do?review_no=${review_MemberVO.review_no }&category_no=${review_MemberVO.category_no}"><img alt="delete" src="./images/delete.png" title="삭제" onclick="javascript:review_delete(${review_MemberVO.review_no})"></a>
+                    </span>
                   </c:when>
-                  <c:otherwise>
-                    <c:out value="${review_MemberVO.review_title}"/>
+                  <c:otherwise >
+                    <a href="./read.do?review_no=${review_MemberVO.review_no}&category_no=${review_MemberVO.category_no}"><c:out value="${review_MemberVO.review_title}"/></a>
+                    <span style="float:right;">
+                      <a href="./update.do?review_no=${review_MemberVO.review_no}&category_no=${review_MemberVO.category_no}"><img alt="update" src="./images/update.png" title="수정"></a>
+                      <a href="./delete.do?review_no=${review_MemberVO.review_no }&category_no=${review_MemberVO.category_no}"><img alt="delete" src="./images/delete.png" title="삭제" onclick="javascript:review_delete(${review_MemberVO.review_no})"></a>
+                    </span>
                   </c:otherwise> 
-                </c:choose>      
-               </a>         
-             </span> 
+                </c:choose>        
+             </span>  
              <span>
-             <img src="./storage/${review_MemberVO.product_img }" style="width:20%">
+             <img src="./storage/${review_MemberVO.product_img }" style="width:20%;" onclick="javascript:data_analysis(${review_MemberVO.product_no}, ${review_MemberVO.review_no });">
              <c:choose>
                              <c:when test="${fn:length(review_MemberVO.product_name) > 20}">
                               <c:out value="${fn:substring(review_MemberVO.product_name,0,19)}"/>....
@@ -190,25 +197,21 @@
                 <img src='./images/reply.png' style="width: 8%; margin-right: 3px; margin-left:8px;">${review_MemberVO.review_reply_cnt }
               </span>
 							<span class="event_rdate" >${fn:substring(review_MemberVO.review_rdate, 0, 10) }</span>
+              
 						</div><!-- /.box-home .box-ads -->  
 					</div><!-- ./col-md-4 -->
           </c:forEach> 
 				</div><!-- row -->
         <div style="padding-left:30%; ">
-      <input style="width:40%; border" type="text" name="word" id="word" placeholder="검색어를 입력하세요" value='${param.word }' >
-    <button type="submit" style="display:inline-table; " class="btn btn-default search-button">검색 </button>
+      <input style="width:40%; border-radius: 5px; height:33px;" type="text" name="word" id="word" placeholder="검색어를 입력하세요" value='${param.word }' >
+    <button type="submit" style="display:inline-table; margin-bottom:5px; height:33px;" class="btn btn-default search-button">검색 </button>
     </div> 
         </form>
         </div><!-- container -->
          <DIV class='bottom_menu'>${paging }</DIV>
 		</section>
 
-        
-
-
-
 <c:import url="/menu/bottom.jsp" />
-
 
     <div class="modal fade login-modal" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog">
@@ -344,19 +347,6 @@
     </div><!-- /.modal -->
   </div><!-- /#page-container -->
 
-  <script src="/review/resources/script/jquery.min.js"></script>    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="/review/resources/script/jquery-ui.min.js"></script>   <!-- jQuery UI is a curated set of user interface interactions, effects, widgets, and themes -->
-  <script src="/review/resources/script/bootstrap.min.js"></script>   <!-- Include all compiled plugins (below), or include individual files as needed -->
-
-  <script src="/review/resources/script/vendor/mmenu/mmenu.min.all.js"></script>          <!-- Menu Responsive -->
-  <script src="/review/resources/script/vendor/animation-wow/wow.min.js"></script>          <!-- Animate Script -->
-  <script src="/review/resources/script/vendor/labelauty/labelauty.min.js"></script>          <!-- Checkbox Script -->
-  <script src="/review/resources/script/vendor/parallax/parallax.min.js"></script>            <!-- Parallax Script -->
-  <script src="/review/resources/script/vendor/images-fill/imagesloaded.min.js"></script>     <!-- Loaded image with ImageFill -->
-  <script src="/review/resources/script/vendor/images-fill/imagefill.min.js"></script>          <!-- ImageFill Script -->
-  <script src="/review/resources/script/vendor/easydropdown/jquery.easydropdown.min.js"></script> <!-- Select list Script -->
-  <script src="/review/resources/script/vendor/carousel/responsiveCarousel.min.js"></script>    <!-- Carousel Script -->
-
-  <script src="/review/resources/script/custom.js"></script>    <!-- Custom Script -->
+<c:import url="../menu/js/review_list_js.jsp" />
 </body>
 </html>

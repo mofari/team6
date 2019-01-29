@@ -5,15 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="review"> <!-- 테이블명 사용 -->
-    <!-- 카테고리에 따른 리뷰 목록 -->
-<!--     <select id="list" resultType="Review_MemberVO" parameterType="int">
-      SELECT r.review_no, r.review_title, r.review_thumb, r.review_grade, r.review_good, r.review_rdate, r.category_no, 
-                  m.member_nickname, r.review_file, p.product_no, p.product_name, p.product_price, p.product_img
-      FROM review r, member m, product p 
-      WHERE r.category_no=#{category_no} AND r.member_no = m.member_no AND r.product_no=p.product_no
-      ORDER BY review_no DESC
-    </select> -->
-    
+
     <!-- 리뷰 등록 -->
     <insert id="create" parameterType="Review_MemberVO">
       INSERT INTO review(review_no, product_no, member_no, review_title, 
@@ -38,6 +30,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
           WHERE category_no=#{category_no}
     </update>
     
+        <update id="decreaseCnt" parameterType="int">
+          UPDATE Category 
+          SET category_cnt = category_cnt- 1 
+          WHERE category_no=#{category_no}
+    </update>
+    
     
     <!-- 상품 목록 출력 -->
     <select id="product_name_search" resultType="Review_MemberVO" parameterType="String">
@@ -48,7 +46,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <!-- 리뷰 읽기 -->
     <select id="read" parameterType="int" resultType="Review_MemberVO">
       SELECT r.review_no, r.review_title, r.review_content, r.review_thumb, r.review_grade, r.review_good, r.review_rdate, r.category_no, 
-          m.member_nickname, r.review_file, p.product_no, p.product_name, p.product_img, p.product_price
+          m.member_no, m.member_nickname, r.review_file, p.product_no, p.product_name, p.product_img, p.product_price
       FROM review r, member m, product p 
       WHERE r.member_no = m.member_no AND r.review_no=#{review_no} AND r.product_no=p.product_no
     </select>
@@ -113,5 +111,80 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   </select>
   
 
- 
+ <select id="rproduct_name_search" parameterType="int" resultType="ProductVO">
+      SELECT p.product_no, p.product_name
+      FROM review r, product p
+      WHERE r.product_no = p.product_no AND r.review_no=#{review_no}
+  </select>
+  
+  
+    <update id="reply_cntup" parameterType="int">
+    UPDATE review
+    SET review_reply_cnt = review_reply_cnt + 1
+    WHERE review_no = #{review_no}
+  </update>
+  
+  <update id="reply_cntdown" parameterType="int">
+    UPDATE review
+    SET review_reply_cnt = review_reply_cnt - 1
+    WHERE review_no = #{review_no}
+  </update>
+  
+  <delete id="review_delete" parameterType="int">
+    DELETE FROM review
+    WHERE review_no = #{review_no}
+  </delete>
+  
+  <!-- 좋아요 테이블에서 회원이 해당 리뷰글에서 좋아요를 눌렀는지 안눌렀는지 구별 -->
+  <select id="like_check" parameterType="HashMap" resultType="int">
+    SELECT COUNT(*) as cnt FROM rgood WHERE review_no=#{review_no} AND member_no=#{member_no}
+  </select>
+  
+  <!-- 좋아요 갯수 증가 -->
+  <update id="like_up" parameterType="int">
+    UPDATE review
+    SET review_good = review_good + 1
+    WHERE review_no = #{review_no}
+  </update>
+  
+    <update id="like_down" parameterType="int">
+    UPDATE review
+    SET review_good = review_good - 1
+    WHERE review_no = #{review_no}
+  </update>
+  
+  <insert id="like_member_insert" parameterType="HashMap">
+    INSERT INTO rgood(rgood_no, rgood_rdate, review_no, member_no)
+    VALUES ((SELECT NVL(MAX(rgood_no), 0)+1 as rgood_no 
+    FROM rgood), sysdate, #{review_no}, #{member_no})
+  </insert>
+  
+  <delete id="like_member_delete" parameterType="HashMap">
+    DELETE FROM rgood
+    WHERE member_no=#{member_no} AND review_no=#{review_no}
+  </delete>
+  
+  <select id="product_data_analysis" parameterType="int" resultType="Review_MemberVO">
+    SELECT p.product_no, r.review_no, r.review_grade
+    FROM product p, review r
+    WHERE p.product_no = r.product_no AND p.product_no=#{product_no}
+  </select>
+   
+  <select id="member_review_list" parameterType="int" resultType="Review_MemberVO">
+    SELECT rownum as no, r.review_no, r.review_title, r.review_grade, r.review_good, r.review_rdate, r.review_file, r.review_reply_cnt, r.category_no,
+						 p.product_no, p.product_name, p.product_img,
+						 m.member_no, m.member_nickname, m.member_image
+    FROM review r, product p, member m
+    WHERE r.product_no = p.product_no AND m.member_no = #{member_no}
+    ORDER BY r.review_rdate DESC
+  </select>
+  
+  <select id="pet_category" parameterType="HashMap" resultType="Review_MemberVO">
+    SELECT rownum as no, r.review_no, r.review_title, r.review_grade, r.review_good, r.review_rdate, r.review_file, r.review_reply_cnt, r.category_no,
+             p.product_no, p.product_name, p.product_img,
+             m.member_no, m.member_nickname, m.member_image
+    FROM review r, product p, member m
+    WHERE r.product_no = p.product_no AND m.member_no = #{member_no} AND r.category_no = #{category_no}
+    ORDER BY r.review_rdate DESC
+  </select>
 </mapper>
