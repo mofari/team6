@@ -25,6 +25,8 @@
                                 dev.mvc.product,
                                 dev.mvc.manufacturer,
                                 dev.mvc.country,
+                                dev.mvc.event,
+                                dev.mvc.request,
                                 nation.web.tool" />
     <property name="mapperLocations" value="classpath:mybatis/*.xml" />
   </bean> 
