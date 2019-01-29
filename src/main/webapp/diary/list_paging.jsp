@@ -1,72 +1,161 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+ 
 
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-<meta charset="UTF-8">
-<title></title>
-
-<!-- <link href="../css/style.css" rel="Stylesheet" type="text/css"> -->
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
-<script type="text/javascript">
-
-</script>
-
-<script type="text/javascript">
-</script>
-</head>
-
-<body>
-<jsp:include page="/menu/top.jsp" flush='false' />
-
-<DIV class='container' style='width: 80%;'  style="margin-bottom:20px;">
+  <head>
+    <title>다이어리</title>
+  </head>
   
-      <a href="#" class="fixed-button top"><i class="fa fa-chevron-up"></i></a>
-      <a href="#" class="hidden-xs fixed-button email" data-toggle="modal" data-target="#modal-contact" data-section="modal-contact"><i class="fa fa-envelope-o"></i></a>
- 
+  <style type="text/css">
+  .event_title{
+  display: block;
+  padding: 6px 12px;  
+  font-weight: 600;
+  color: #222;
+   font-size: 16px;
+   }
+  .event_rdate{
+    display: inline-block;
+    padding: 8px 12px 10px;
+    font-size: 10px;
+    border-top: none;
+    text-align: right;
+    border-bottom: none;
+    float: right!important;
+    background-color: #ffffff;
+    }
+    .event_good{
+    display: inline-block;
+    padding: 8px 12px 10px;
+    font-size: 10px;
+    border-top: none;
+    text-align: left;
+    border-bottom: none;
+    background-color: #ffffff;
+    }
+    .event_start{
+    background-color: #000000;
+    font-weight: 600;
+    color: #fff;
+    font-size: 10px;
+    padding: 4px 11px;
+    position: absolute !important;
+    top: 11px;
+    right: 4%;
+    left: auto;
+    z-index: 3;
+    }
+    .event_end{
+    background-color: rgba(192, 192, 192, 0.9);
+    font-weight: 600;
+    color: #fff;
+    font-size: 10px;
+    padding: 4px 11px;
+    position: absolute !important;
+    top: 11px;
+    right: 4%;
+    left: auto;
+    z-index: 3;
+    }
+   #member_image{
+    width:20%;
+    height: 50px ;
+    border: 2px solid gold;
+    border-radius: 100px;
+   -moz-border-radius: 7px;
+   -khtml-border-radius: 7px;
+/*    -webkit-border-radius: 7px; */
+}
+
+  #pet_info{
+  float:left;
+  margin-left:60px;
+  margin-top: -25px;
+  }
+  </style> 
+  
+  
+  <body class="fixed-header*">
+
+  <div id="page-container">
+      
+
+
+  <!-- 화면 상단 메뉴 -->
+    <head> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <title>PROHOME - Responsive Real Estate Template</title>
+
+  <link rel="stylesheet" href="/review/resources/css/bootstrap.min.css">                            <!-- Bootstrap -->
+    <link rel="stylesheet" href="/review/resources/css/vendor/font-awesom/css/font-awesome.min.css">  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/review/resources/css/vendor/mmenu/jquery.mmenu.all.css" />          <!-- Menu Responsive -->
+  <link rel="stylesheet" href="/review/resources/css/vendor/animate-wow/animate.css">               <!-- Animation WOW -->
+
+ <link rel="stylesheet" href="/review/resources/css/vendor/flipclock/flipclock.css">               <!-- Flip Countdown -->
+
+    <link rel="stylesheet" href="/review/resources/css/vendor/labelauty/labelauty.css">               <!-- Checkbox form Style -->
+  <link rel="stylesheet" href="/review/resources/css/vendor/nouislider/nouislider.min.css">         <!-- Slider Price -->
+    <link rel="stylesheet" href="/review/resources/css/vendor/easydropdown/easydropdown.css">         <!-- Select form Style -->
+    <link rel="stylesheet" href="/review/resources/css/ui-spinner.css">                               <!-- Spinner -->
     
-<DIV class='content'>     
-<section id="header-page" class="header-margin-base">
-<div class="skyline">
+
+  <link rel="stylesheet" href="/review/resources/css/menu.css">                                     <!-- Include Menu stylesheet -->
+  <link rel="stylesheet" href="/review/resources/css/custom.css">                                   <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="/review/resources/css/media-query.css">                              <!-- Media Query -->
+
+  <!-- Use Iconifyer to generate all the favicons and touch icons you need: http://iconifier.net -->
+  <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="images/favicon/apple-touch-icon.png" />
+  <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="images/favicon/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="images/favicon/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="images/favicon/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="images/favicon/apple-touch-icon-152x152.png" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  <script src="/review/resources/script/modernizr.min.js"></script> <!-- Modernizr -->
+
+  </head>
+  <c:import url="/menu/top2.jsp" />
+    <section id="header-page" class="header-margin-base">
+      <div class="skyline">
         <div data-offset="50" class="p1 parallax"></div>
         <div data-offset="25" class="p2 parallax"></div>
         <div data-offset="15" class="p3 parallax"></div>
         <div data-offset="8"  class="p4 parallax"></div>
         <span class="cover"></span>
         <div class="container header-text">
-          <div><h1 class="title">${categoryVO.category_title } 다이어리</h1></div>
-          <div><h2 class="sub-title">자신의 애완동물을 자랑해보아요~</h2></div>
+          <div><h1 class="title">${categoryVO.category_title  } 다이어리</h1></div>
+          <div><h2 class="sub-title">${categoryVO.category_title } 다이어리 보고가세요!</h2></div>
         </div>
       </div>
-  <div id="breadcrumb">
-				<div class="container">
-					<ol class="breadcrumb">
-						<li><a href="#"><i class="fa fa-home"></i></a></li>
-						<li><a href="#">Diary</a></li>
-						<li class="active">${categoryVO.category_title }</li>
-					</ol>
-				</div>
-			</div>
-     
+      <div id="breadcrumb">
+        <div class="container">
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-home"></i></a></li>
+            <li><a href="#">다이어리</a></li>
+            <li class="active">${categoryVO.category_title  }</li>
+          </ol>
+        </div>
+      </div><!-- /#breadcrumb -->
+      <span class="cover"></span>
       
-      
- 
-   </section> <!-- header  -->
-   <section>
-   
-   <div class="section-title line-style no-margin" >
-              <h3 class="title">목록</h3>
-     </div>
-     
-   <ASIDE style='float: right;'>
+    </section><!-- /#header -->
+    <section>
+     <ASIDE style='float: right;'>
        <button class="btn btn-default signout-button" type="submit" 
        onclick="javascript:location.reload();">
         새로고침</button> 
@@ -76,180 +165,251 @@
         <i class="fa fa-sign-in"></i>등록</button>
       
         </ASIDE>
-        
-  </section>
-  
-  <!--  본문 -->
-  
-  
-   <section id="blog">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-9">
-          <form name ='frm'  method="get" action="./list_paging.do">
-            <input type='hidden' name='category_no' id='category_no' value='${categoryVO.category_no }'>
-          <div class= "row"style="">
-          <input type='text'   class ="margin form-control" name='word' id='word' value='' style='width: 35%;'>
-           <button  class = "btn btn-default signin-button" type='submit'><i class="fa fa-pinterest-p">검색</i></button>
+    
+    </section>
+    <section id="recent-list">
+    
+			<div class="container">
+   
+
+      
+      <form name='frm' method ="get" action="./list_paging.do">
+      <input type='hidden' id='category_no' name='category_no' value="${categoryVO.category_no }">
+				<div class="row">    
+        <section>
+           <input type='text'   class ="margin form-control" name='word' id='word' value=''  placeholder="검색어를 입력하세요" style='width: 35%;'>
+          <button  class = "btn btn-default signin-button" type='submit'><i class="fa fa-pinterest-p">검색</i></button>
                <c:if test="${param.word.length() > 0}"> 
       
       [${param.word}] 검색 목록(${search_count } 건) 
       <button class="btn btn-default "  type="button"
     onclick="location.href='./list_paging.do?category_no=${param.category_no}'" >    
         <i class="fa fa-sign-in"></i>취소</button>
-    </c:if>
-           </div>
-          <c:forEach var="diaryVO" items="${list }">   <!--  VO 가져와서 리스트에 넣음? -->
-          
-            <div class="row blog-list" style="border:5px solid #E5E5E5;">
-              <div class="col-md-5" style= "padding-top:20px;">
-                <div class="social">
-                  <span class="date">${diaryVO.diary_no}<span></span></span>
-                  <a href="#"><i class="fa fa-heart-o"></i><span>${diaryVO.diary_like}</span></a>
-                  <a href="#"><i class="fa fa-eye"></i><span>${diaryVO.diary_cnt }</span></a>
-                  <a href="#"><i class="fa fa-comments"></i><span>${diaryVO.diary_rcnt }</span></a>
-                </div>
+       
+            </c:if>
+          </section>
+      <c:forEach var="diaryVO" items="${list }">
+               <div class="col-md-4">
+<!--                <div style="display: inline-block;"> -->
+<%--                <span class='event_title'> <img  id ='member_image' src='./storage/${diaryVO.member_image}' style=" ">${diaryVO.member_nickname } </span> --%>
+<!--                <div class="" style=""> -->
+<%--                  <span style="font-size: 10px;">${diaryVO.pet_kind }(${diaryVO.pet_age })</span> --%>
+<%--                   •<span style="font-size: 10px;"> ${diaryVO.pet_name }</span> --%>
+<!--                </div> -->
+
+<!--                </div> -->
+               <div class="box-ads box-home" style="padding-bottom: 0px;">
+               <div style="margin:auto; width:300px; ">
+               <div class='event_title' style ="float:left; width:auto; margin-left:-30px;"> 
+               <img  id ='member_image' src='./storage/${diaryVO.member_image}' style=" ">
+                <span>${diaryVO.member_nickname } </span>
+               </div>
+              
+               <div class='pet_info'  style="float:left; margin-left:30px; margin-top: -25px;">
+                  <span style="font-size: 10px; display: inline-block;">${diaryVO.pet_kind }(${diaryVO.pet_age })</span>
+                 <span style="font-size: 10px;"> ${diaryVO.pet_name }</span>                
+               </div>
+               </div>           
+               <a class="hover-effect image image-fill" href="./read.do?diary_no=${diaryVO.diary_no}&category_no=${diaryVO.category_no}">
+                        <span class="cover"></span> 
+                <c:choose> 
+                  <c:when test="${diaryVO.diary_file != ''}">
+                            <img id='diary_file'  style='width:100%; height: 250px;' src='./storage/${diaryVO.diary_file }'>
+                          </c:when>
+                  <c:otherwise> 
+                    <!-- 파일이 존재하지 않는 경우 -->
+                    <IMG src='./images/none1.png' style='width: 100%; height: 250px;'>
+                  </c:otherwise>
+                </c:choose>
+
+							</a><!-- /.hover-effect -->
+							<span class="event_title" >
+               <a href="./read.do?diary_no=${diaryVO.diary_no}&category_no=${diaryVO.category_no}">
                 <c:choose>
-                <c:when test="${diaryVO.diary_thumb != ''}">
-                  <IMG id='diary_thumb' src='./storage/${diaryVO.diary_thumb }'  style="width: 77%;height: 200px;"> 
-                </c:when>
-                <c:otherwise>
-                   
-                  <IMG src='./images/none1.png' style='width: 77%; height: 200px;'>
-                </c:otherwise>
-              </c:choose>
-                <%-- <div class="image image-fill" >
-                  <!-- <img src="http://placehold.it/1280x850/bbbbbb/ffffff" alt="Image Sample" /> -->
-                         <img src='./storage/${diaryVO.diary_thumb }' alt="Image Sample"  style="width:100%; height: 100%;"/>
-                </div> --%>
-              </div>
-              <div class="col-md-7">
-                <%-- <h2 class="subtitle"><a href="blog-detail.html">${diaryVO.diary_title }</a></h2> --%>
-                 <h3 class="subtitle"  style="margin-top:20px;">제목 : ${diaryVO.diary_title }</h3><br>
-                <h2 class="title" >작성자 : ${diaryVO.member_nickname }</h2>
-                <h2 class="title" >등록일 : ${diaryVO.diary_rdate.substring(0, 10) } ${diaryVO.category_no }</h2>
-               <div class="text"  id="diary_content" >
-               <c:choose>
-               <c:when test="${fn:length(diaryVO.diary_content) >59 }">
-                 <c:out value="${fn:substring(diaryVO.diary_content,0,60) }"/>...
-                 </c:when>
-                 <c:otherwise>
-                 ${diaryVO.diary_content }  
-                 </c:otherwise>
-                  </c:choose>
-                  </div>
-                <input type="button" value="Read now" class="btn btn-default" 
-                onclick="location.href='./read.do?diary_no=${diaryVO.diary_no }&category_no= ${diaryVO.category_no}&nowPage=${param.nowPage }' " />
-                <div style="float:right;">
-              <a href="./update.do?diary_no=${diaryVO.diary_no}&category_no=${diaryVO.category_no}&nowPage=${param.nowPage}"><img src="./images/update.png" title="수정" border='0'/></a>
-              <a href="./delete.do?diary_no=${diaryVO.diary_no}&category_no=${diaryVO.category_no}&nowPage=${param.nowPage}"><img src="./images/delete.png" title="삭제"  border='0'/></a>
-              </div>
-             </div> 
+                  <c:when test="${fn:length(diaryVO.diary_title) > 12}"> 
+                  	<c:out value="${fn:substring(diaryVO.diary_title,0,11)}"/>.... 
+                  </c:when>
+                  <c:otherwise>
+                    <c:out value="${diaryVO.diary_title}"/> 
+                  </c:otherwise>  
+                </c:choose>   
+                 
+               </a>     
+                     
+             </span> 
              
-            </div><!-- /.blog-list -->
-            </c:forEach>
-            </form>
-            </div>
-            </div>
-            </div>
-            
-   </section>
-     
-<!--   <DIV class='menu_line' style='clear: both;'></DIV>  
- <div class="row">
-          <div class="col-md-12">
-            <ul id="filter-container" class="filter-options">
-              <li><a href="#" data-group="all" class="active">All</a></li>
-              <li><a href="#" data-group="sale">Sale</a></li>
-              <li><a href="#" data-group="commercial">Commercial</a></li>
-              <li><a href="#" data-group="mortgage">Mortgage</a></li>
-              <li><a href="#" data-group="refinance">Refinance</a></li>
-            </ul>       
-          </div>
-        </div> -->
+              <span class="event_good" >
+                <img src='./images/good.png' style="width: 8%; margin-right: 3px;">${diaryVO.diary_like }
+                <img src='./images/reply.png' style="width: 8%; margin-right: 3px; margin-left:8px; ">${diaryVO.diary_rcnt } 
+              </span> 
+							<span class="event_rdate" >${fn:substring(diaryVO.diary_rdate, 0, 10) }</span>
+						</div><!-- /.box-home .box-ads -->  
+					</div><!-- ./col-md-4 -->
+          </c:forEach> 
+				</div><!-- row -->
+<!--          <div style="padding-left:34%; ">  -->
+<!--       <input style="width:40%; border" type="text" name="word" id="word" placeholder="검색어를 입력하세요" value='' >  -->
+<!--      <button type="submit" style="display:inline-table; " class="btn btn-default search-button">검색 </button>  -->
+<!--     </div>     -->
+        </form>
+        </div><!-- container --> 
+         <DIV class='bottom_menu'>${paging }</DIV>
+		</section>
 
-
- 
- <!--        <div class ="images-container" id=""> -->
-   <%-- <table class="table table-striped" style='width: 100%;'>
-      <tbody>
-          <c:forEach var="diaryVO" items="${list }">
-          <div class="col-xs-12 col-sm-4 col-md-3" data-groups='["refinance"]'  >
-          
-            <c:choose>
-                <c:when test="${diaryVO.diary_thumb != ''}"><a class="image image-fill">
-                  <IMG id='diary_thumb' src='./storage/${diaryVO.diary_thumb }'> </a>
-                </c:when>
-                <c:otherwise>       
-                  <IMG src='./images/none1.png' style='width: 220px; height: 80px;'>
-                </c:otherwise>
-              </c:choose>
-              <div>
-             <a href="./read.do?diary_no=${diaryVO.diary_no}&category_no=${diaryVO.category_no}">${diaryVO.diary_title} (${diaryVO.diary_cnt})</a>
-          </div>
-          <div class="col-xs-6 col-sm-4 col-md-3 shuffle_sizer">
-          ${diaryVO.member_nickname}
-          </div> 
-          </div>
-          
-           
-              
-            
-            
-          <tr id ="images-container"> 
-            <td style='vertical-align: middle;' class="col-xs-12 col-sm-4 col-md-3">
-             <c:choose>
-                <c:when test="${diaryVO.diary_thumb != ''}">
-                  <IMG id='diary_thumb' src='./storage/${diaryVO.diary_thumb }'> 
-                </c:when>
-                <c:otherwise>
-                   
-                  <IMG src='./images/none1.png' style='width: 120px; height: 80px;'>
-                </c:otherwise>
-              </c:choose>
-            </td>
-            
-            
-              
-         
-          </tr>
-          <td style='vertical-align: middle;'>
-              <a href="./read.do?diary_no=${diaryVO.diary_no}&category_no=${diaryVO.category_no}">${diaryVO.diary_title} (${diaryVO.diary_cnt})</a>
-              <tr>${diaryVO.member_nickname}</tr>  
-            </td>  
-            
-            <td style='vertical-align: middle;'>${diaryVO.diary_rdate.substring(0, 10)}</td> 
-            <td style='vertical-align: middle;'>${diaryVO.diary_rcnt}</td>
-            <td style='vertical-align: middle;'>${diaryVO.diary_like}</td>
-      
-        </c:forEach>
         
-      </tbody>
-    </table>  --%>
-
-    <br><br>
-  
-  </div>
-<DIV class = 'bottom_menu'> ${paging }</DIV>
-
-</DIV> <!-- content END -->
 
 
-<jsp:include page="/menu/bottom.jsp" flush='false' />
-  <script src="script/jquery.min.js"></script>    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="script/jquery-ui.min.js"></script>   <!-- jQuery UI is a curated set of user interface interactions, effects, widgets, and themes -->
-  <script src="script/bootstrap.min.js"></script>   <!-- Include all compiled plugins (below), or include individual files as needed -->
 
-  <script src="script/vendor/mmenu/mmenu.min.all.js"></script>          <!-- Menu Responsive -->
-  <script src="script/vendor/animation-wow/wow.min.js"></script>          <!-- Animate Script -->
-  <script src="script/vendor/labelauty/labelauty.min.js"></script>          <!-- Checkbox Script -->
-  <script src="script/vendor/parallax/parallax.min.js"></script>            <!-- Parallax Script -->
-  <script src="script/vendor/images-fill/imagesloaded.min.js"></script>     <!-- Loaded image with ImageFill -->
-  <script src="script/vendor/images-fill/imagefill.min.js"></script>          <!-- ImageFill Script -->
-  <script src="script/vendor/easydropdown/jquery.easydropdown.min.js"></script> <!-- Select list Script -->
+<c:import url="/menu/bottom.jsp" />
 
-  <script src="script/custom.js"></script>    <!-- Custom Script -->
 
+    <div class="modal fade login-modal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-close"></i></button>
+        <div class="login-button-container">
+          <a href="#" data-section="login"><i class="fa fa-user"></i></a>
+          <a href="#" data-section="sign-in"><i class="fa fa-pencil-square-o"></i></a>
+          <a href="#" data-section="recovery"><i class="fa fa-lock"></i></a>
+          <a href="#" data-section="setting"><i class="fa fa-cog"></i></a>
+        </div><!-- ./login-button-container -->
+        <div class="form-container">
+          <form method="post" action="#">
+            <div id="login" class="box">
+              <h2 class="title">Login in to your account</h2>
+              <h3 class="sub-title">It is a breach of our terms and conditions to provide username and password details to unauthorised third parties. Unauthorised use may lead to suspension or termination.</h3>
+              <div class="field">
+                <input id="user-log" name="user-log" class="form-control" type="text" placeholder="Username or email">
+                <i class="fa fa-user user"></i>
+              </div>
+              <div class="field">
+                <input id="password-log" name="password-log" class="form-control" type="password" placeholder="Password">
+                <i class="fa fa-ellipsis-h"></i>
+              </div>
+              <div class="field footer-form text-right">
+                <span class="remember"><input class="labelauty" type="checkbox" data-labelauty="Keep me signed in" checked /></span>
+                <button type="button" class="btn btn-reverse button-form">Reset</button>
+                <button type="button" class="btn btn-default button-form">Login</button>
+              </div>
+            </div> <!-- ./login -->
+            <div id="sign-in" class="box">
+              <h2 class="title">Sign In</h2>
+              <h3 class="sub-title">Create a Free account and discover how you can centralize all communication around a transaction, connect with clients, market your listings, and more. </h3>
+              <div class="form-inline">
+                <div class="form-group">
+                  <input id="user-sign" name="user-sign" class="form-control input-inline margin-right" type="text" placeholder="Username">
+                  <i class="fa fa-user user"></i>
+                </div>
+                <div class="form-group">
+                  <input id="email-sign" class="form-control input-inline" type="text" name="email-sign" placeholder="Email">
+                  <i class="fa fa-envelope-o"></i>
+                </div>
+              </div>
+              <div class="field">
+                <input id="password-sign" class="form-control" type="password" name="password-sign" placeholder="Password">
+                <i class="fa fa-ellipsis-h"></i>
+              </div>
+              <div class="field">
+                <input id="re-password-sign" class="form-control" type="password" name="re-password-sign" placeholder="Repeat password">
+                <i class="fa fa-ellipsis-h"></i>
+              </div>
+              <div class="field footer-form text-right">
+                <span class="remember"><input class="labelauty" type="checkbox" data-labelauty="I have read the privacy policy." checked /></span>
+                <button type="button" class="btn btn-default button-form">Sign in</button>
+              </div>
+            </div><!-- ./sign-in -->
+            <div id="setting" class="box">
+              <h2 class="title">Setting profile</h2>
+              <h3 class="sub-title">Please note: You won't be able to change your name within the next 60 days. Make sure that you don't add any unusual capitalisation, punctuation, characters or random words. <a href="#">Learn more</a>.</h3>
+              <div class="field">
+                <input id="username-block" class="form-control" type="text" name="username-block" value="John Doe" disabled>
+                <i class="fa fa-user user"></i>
+              </div>
+              <div class="field">
+                <input id="email-setting" class="form-control" type="text" name="email-setting" value="administrator@prohome.com">
+                <i class="fa fa-envelope-o"></i>
+              </div>
+              <div class="field">
+                <input id="update-pass" class="form-control" type="password" name="update-pass" placeholder="New password">
+                <i class="fa fa-ellipsis-h"></i>
+              </div>
+              <div class="field">
+                <input id="update-repass" class="form-control" type="password" name="update-repass" placeholder="Repeat password">
+                <i class="fa fa-ellipsis-h"></i>
+              </div>
+              <div class="field footer-form text-right">
+                <button type="button" class="btn btn-reverse button-form">Cancel</button>
+                <button type="button" class="btn btn-default button-form">Update</button>
+              </div>
+            </div><!-- ./recovery -->
+            <div id="recovery" class="box">
+              <h2 class="title">Need a new password?</h2>
+              <h3 class="sub-title">Enter your email address, and we’ll email you instructions to reset your password.</h3>
+              <div class="field">
+                <input id="recovery-email" class="form-control" type="text" name="recovery-email" placeholder="Your email">
+                <i class="fa fa-envelope-o"></i>
+              </div>
+              <div class="field footer-form text-right">
+                <button type="button" class="btn btn-default button-form">Recovery</button>
+              </div>
+            </div><!-- ./recovery -->
+          </form><!-- ./form-container -->
+        </div><!-- ./login-button-container -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <div class="modal fade" id="modal-contact" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-close"></i></button>
+
+        <div class="form-container full-fixed">
+          <form method="post" action="#">
+            <div id="form-modal-contact" class="box active modal-contact">
+              <h2 class="title">How can we help?</h2>
+              <h3 class="sub-title">Please send us your thoughts by filling out the below form. Comments are solely for internal use. Your address will not be shared with outside parties or used for any other purpose than to respond to your comments.</h3>
+              <ul class="object-contact">
+                <li><a href="#"><i class="fa fa-code"></i>Suggestion</a></li>
+                <li><a href="#"><i class="fa fa-question"></i>Question</a></li>
+                <li><a href="#" class="active"><i class="fa fa-bug"></i>Problems</a></li>
+                <li><a href="#"><i class="fa fa-comment-o"></i>Feedback</a></li>
+              </ul>
+              <div class="field">
+                <textarea class="form-control" name="message" id="message" placeholder="Your message"></textarea>
+              </div>
+              <div class="field">
+                <input id="short-summary" class="form-control" type="text" name="short-summary" placeholder="Short summary">
+                <i class="fa fa-tag"></i>
+              </div>
+              <div class="field">
+                <input id="email-help" class="form-control" type="text" name="email-help" placeholder="Your email">
+                <i class="fa fa-envelope-o"></i>
+              </div>
+              <div class="field footer-form text-right">
+                <button type="button" class="btn btn-reverse button-form">Cancel</button>
+                <button type="button" class="btn btn-default button-form">Send</button>
+              </div>
+
+            </div>
+          </form>
+        </div>
+
+
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+  </div><!-- /#page-container -->
+
+  <script src="/review/resources/script/jquery.min.js"></script>    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="/review/resources/script/jquery-ui.min.js"></script>   <!-- jQuery UI is a curated set of user interface interactions, effects, widgets, and themes -->
+  <script src="/review/resources/script/bootstrap.min.js"></script>   <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+  <script src="/review/resources/script/vendor/mmenu/mmenu.min.all.js"></script>          <!-- Menu Responsive -->
+  <script src="/review/resources/script/vendor/animation-wow/wow.min.js"></script>          <!-- Animate Script -->
+  <script src="/review/resources/script/vendor/labelauty/labelauty.min.js"></script>          <!-- Checkbox Script -->
+  <script src="/review/resources/script/vendor/parallax/parallax.min.js"></script>            <!-- Parallax Script -->
+  <script src="/review/resources/script/vendor/images-fill/imagesloaded.min.js"></script>     <!-- Loaded image with ImageFill -->
+  <script src="/review/resources/script/vendor/images-fill/imagefill.min.js"></script>          <!-- ImageFill Script -->
+  <script src="/review/resources/script/vendor/easydropdown/jquery.easydropdown.min.js"></script> <!-- Select list Script -->
+  <script src="/review/resources/script/vendor/carousel/responsiveCarousel.min.js"></script>    <!-- Carousel Script -->
+
+  <script src="/review/resources/script/custom.js"></script>    <!-- Custom Script -->
 </body>
-
 </html>
