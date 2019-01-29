@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="request"> <!-- 테이블명 사용 -->
+    
+    <!-- 목록 -->
+    <select id="list_event_request" resultType="RequestVO"  parameterType="int">
+    SELECT * FROM event_request
+    WHERE event_no = #{event_no}
+    </select>
+    
+    <!-- 신청서 등록 -->
+    <insert id="create" parameterType="RequestVO">
+      INSERT INTO event_request(event_requestno, event_no, member_no, event_requestman, event_requestphone,
+      event_requestaddr, event_requestprize)
+      VALUES((SELECT NVL(MAX(event_requestno), 0)+1 as event_requestno FROM event_request),
+      #{event_no}, #{member_no},#{event_requestman},#{event_requestphone},
+      #{event_requestaddr},#{event_requestprize})
+    </insert>
+    
+      <!-- 조회 -->
+    <select id="read" resultType="RequestVO" parameterType="int">
+    SELECT * FROM event_request
+     WHERE event_requestno=#{event_requestno}
+    </select>
+    
+    <!--  수정 -->
+    <update id="update" parameterType="RequestVO">
+      UPDATE event_request
+      SET event_requestman=#{event_requestman}, event_requestphone=#{event_requestphone},
+      event_requestaddr=#{event_requestaddr}, event_requestprize=#{event_requestprize}, 
+      event_no=#{event_no}, member_no=#{member_no}
+      WHERE event_requestno=#{event_requestno}
+    </update>
+    
+    <!-- 삭제 -->
+    <delete id="delete" parameterType="int">
+    DELETE FROM event_request
+    WHERE event_requestno=#{event_requestno}
+    </delete>
+    
+    
+</mapper>

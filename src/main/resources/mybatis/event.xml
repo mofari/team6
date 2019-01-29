@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="event"> <!-- 테이블명 사용 -->
+    <!-- 이벤트 등록 -->
+    <insert  id="create"  parameterType="EventVO" >
+     INSERT INTO petfood_event(event_no, member_no, event_title, event_content, event_thumb,
+     event_img, event_imgsize, event_good, event_view, event_comment,
+     event_rdate, event_endrdate, event_site, event_visibel, event_ck)
+     VALUES((SELECT NVL(MAX(event_no), 0)+1 as event_no FROM petfood_event),
+     #{member_no}, #{event_title}, #{event_content}, #{event_thumb}, #{event_img}, #{event_imgsize},
+     0, 0, 0, sysdate, #{event_endrdate}, #{event_site}, #{event_visibel}, #{event_ck})
+    </insert>
+    
+    <!-- 목록 -->
+    <select id ="list_event" resultType="EventVO">
+    SELECT event_no, event_title, event_thumb, event_img, event_good,
+    event_view, event_comment, event_rdate,event_imgsize,
+    event_endrdate, event_visibel, event_ck
+    FROM petfood_event
+    ORDER BY event_no DESC
+    </select>
+    
+    
+    <!-- 레코드 갯수 -->
+  <select id="total_count" resultType="int" parameterType="HashMap">
+    SELECT COUNT(*) as cnt
+    FROM petfood_event
+  </select>
+  
+  <!-- 페이징 -->
+  <select id="list_event_paging" resultType="EventVO" parameterType="HashMap">
+  SELECT * FROM (
+  SELECT event_no, event_title, event_thumb, event_img, event_good,
+    event_view, event_comment, event_rdate, event_imgsize,
+    event_endrdate, event_visibel, event_ck, rownum as r
+    FROM petfood_event
+    ORDER BY event_no DESC
+    )
+    WHERE <![CDATA[ r >= #{startNum} AND r <= #{endNum} ]]>
+  </select>
+  
+  <!-- 조회 -->
+  <select id="read" resultType="EventVO" parameterType="int">
+  SELECT * FROM petfood_event
+    WHERE event_no=#{event_no}
+  </select>
+  
+  <!-- 수정 -->
+  <update id="update" parameterType="EventVO">
+   UPDATE petfood_event
+   SET event_title=#{event_title}, event_content=#{event_content}, event_img=#{event_img},
+   event_thumb=#{event_thumb}, event_imgsize=#{event_imgsize},
+   event_endrdate=#{event_endrdate}, event_site=#{event_site}, event_visibel=#{event_visibel},
+   event_ck=#{event_ck}
+   WHERE event_no=#{event_no}
+  </update>
+  
+  <!-- 조회수 증가 -->
+  <update id="increaseView" parameterType="int">
+  UPDATE petfood_event
+  SET event_view = event_view + 1
+  WHERE event_no=#{event_no}
+  </update>
+  
+  <!-- 삭제 -->
+  <delete id="delete" parameterType="int">
+  DELETE FROM petfood_event
+  WHERE event_no=#{event_no}
+  </delete>
+  
+  
+
+    
+</mapper>
