@@ -159,13 +159,13 @@
             <li class="current-menu-item submenu">
               <a href="#">이벤트</a>
               </li>
-              <li class="has_submenu"><a href="#">Blog</a>
+              <li class="has_submenu"><a href="#">관리</a>
                 <ul>
-                  <li><a href="blog.html">blog V1</a></li>
-                  <li><a href="blog-v2.html">blog V2</a></li>
-                  <li><a href="blog-v3.html">blog V3</a></li>
-                  <li><a href="blog-detail.html">blog Details</a></li>
-                  <li><a href="blog-detail-full.html">blog Details V2</a></li>
+                <li><a href="${pageContext.request.contextPath}/mnf/list.do">제조사</a></li>
+                <li><a href="${pageContext.request.contextPath}/country/list.do">제조국</a></li>
+                <li><a href="blog-v3.html">blog V3</a></li>
+                <li><a href="blog-detail.html">blog Details</a></li>
+                <li><a href="blog-detail-full.html">blog Details V2</a></li>
                 </ul>
               </li>              
             </ul>

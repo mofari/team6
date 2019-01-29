@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="product"> <!-- 테이블명 사용 -->
+    <!-- 상품 등록 -->
+    <insert id="create" parameterType="ProductVO">
+INSERT INTO product(product_no, 
+							manufacturer_no, country_no, category_no, product_name, product_img, material, product_introimg, product_target, 
+							product_weight, product_price, product_wprotein, product_wfat, product_wash, product_wfiber, product_wcalcium, product_wp, 
+							product_like, product_visible, product_rpcnt, product_rvcnt, product_rdate, product_udate)
+VALUES((SELECT NVL(MAX(product_no), 0)+1 AS product_no FROM product), 
+							#{manufacturer_no}, #{country_no}, #{category_no}, #{product_name}, #{product_img}, #{material}, #{product_introimg}, #{product_target},
+							#{product_weight}, #{product_price}, #{product_wprotein}, #{product_wfat}, #{product_wash}, #{product_wfiber}, #{product_wcalcium}, #{product_wp},
+                            0, 'Y', 0, 0, sysdate, null)
+    </insert>
+    
+        <select id="select_category_one" resultType="CategoryVO">
+        SELECT * FROM category
+        WHERE procate_upno = 0
+    </select>
+    
+            <select id="select_category_two" resultType="CategoryVO" parameterType="int">
+        SELECT * FROM category
+        WHERE procate_upno = #{categoryno}
+    </select>
+    
+    <select id="country_list" resultType="CountryVO">
+        SELECT * FROM country 
+    ORDER BY country_name ASC
+    </select>
+    
+    
+</mapper>

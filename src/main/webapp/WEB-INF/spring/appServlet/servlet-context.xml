@@ -28,6 +28,8 @@
   <context:component-scan base-package="dev.mvc.category" />
   <context:component-scan base-package="dev.mvc.pet" />
   <context:component-scan base-package="dev.mvc.review_reply" />
+  <context:component-scan base-package="dev.mvc.country" />
+  <context:component-scan base-package="dev.mvc.manufacturer" />
   <context:component-scan base-package="dev.mvc.product" />
   <context:component-scan base-package="nation.web.tool" />
   
