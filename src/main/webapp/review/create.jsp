@@ -56,8 +56,8 @@
     </script>
     
     
-  <link rel="stylesheet prefetch" href="/review/resources/css/vendor/dropzone/dropzone.css">        <!-- Dropzone Upload File -->
-  <link rel="stylesheet" href="/review/resources/css/vendor/death/jquery.death.css">                <!-- edit text script -->
+  <link rel="stylesheet prefetch" href="../resources/css/vendor/dropzone/dropzone.css">        <!-- Dropzone Upload File -->
+  <link rel="stylesheet" href="../resources/css/vendor/death/jquery.death.css">                <!-- edit text script -->
    
   <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
   <script type="text/JavaScript">

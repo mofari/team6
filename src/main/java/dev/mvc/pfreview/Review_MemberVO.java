@@ -26,6 +26,7 @@ import nation.web.tool.Tool;
     word                                  VARCHAR2(100)  NULL
  */
 public class Review_MemberVO {
+  private int no;
   private int review_no;
   private int product_no;
   private int member_no;
@@ -45,10 +46,12 @@ public class Review_MemberVO {
   private String word;
   
   private String member_nickname;
+  private String member_image;
   
   private int product_price;
   private String product_name;
   private String product_img;
+  private String pet_specific;
 
   /** 
   Spring Framework에서 자동 주입되는 업로드 파일 객체,
@@ -64,10 +67,12 @@ public class Review_MemberVO {
   }
   
   
-  public Review_MemberVO(int review_no, int product_no, int member_no, String review_title, String review_content,
+  public Review_MemberVO(int no, int review_no, int product_no, int member_no, String review_title, String review_content,
       String review_thumb, String review_file, String review_size, int review_grade, int review_good, int review_cnt,
-      int review_reply_cnt, String review_rdate, String review_visible, int category_no, String member_nickname, String product_name, String product_img, int product_price, int pet_no, String word) {
+      int review_reply_cnt, String review_rdate, String review_visible, int category_no, String member_nickname,
+      String product_name, String product_img, int product_price, int pet_no, String word, String member_image, String pet_specific) {
     super();
+    this.no = no;
     this.review_no = review_no;
     this.product_no = product_no;
     this.member_no = member_no;
@@ -84,15 +89,27 @@ public class Review_MemberVO {
     this.review_visible = review_visible;
     this.category_no = category_no;
     this.member_nickname = member_nickname;
+    this.member_image = member_image;
     this.word = word;
     
     this.product_name = product_name;
     this.product_price = product_price;
     this.product_img = product_img;
     this.pet_no = pet_no;
+    this.pet_specific = pet_specific;
   }
 
   
+  public int getNo() {
+    return no;
+  }
+
+
+  public void setNo(int no) {
+    this.no = no;
+  }
+
+
   public int getReview_reply_cnt() {
     return review_reply_cnt;
   }
@@ -250,6 +267,26 @@ public class Review_MemberVO {
 
   public void setProduct_img(String product_img) {
     this.product_img = product_img;
+  }
+
+
+  public String getMember_image() {
+    return member_image;
+  }
+
+
+  public void setMember_image(String member_image) {
+    this.member_image = member_image;
+  }
+
+
+  public String getPet_specific() {
+    return pet_specific;
+  }
+
+
+  public void setPet_specific(String pet_specific) {
+    this.pet_specific = pet_specific;
   }
   
   

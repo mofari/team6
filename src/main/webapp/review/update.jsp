@@ -55,8 +55,8 @@
     </script>
     
     
-  <link rel="stylesheet prefetch" href="/review/resources/css/vendor/dropzone/dropzone.css">        <!-- Dropzone Upload File -->
-  <link rel="stylesheet" href="/review/resources/css/vendor/death/jquery.death.css">                <!-- edit text script -->
+  <link rel="stylesheet prefetch" href="../resources/css/vendor/dropzone/dropzone.css">        <!-- Dropzone Upload File -->
+  <link rel="stylesheet" href="../resources/css/vendor/death/jquery.death.css">                <!-- edit text script -->
    
   <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
   <script type="text/JavaScript">
@@ -97,11 +97,12 @@
     
 <FORM name='frm' method='POST' action='./update.do'
                enctype="multipart/form-data" class="form-horizontal">
-  <input type="text"  id="review_no" name="review_no" value="${param.review_no }">
+  <input type="hidden"  id="review_no" name="review_no" value="${param.review_no }">
   <input type='hidden' name='product_no' id='product_no' value='1'>
   <input type='hidden' name='member_no' id='member_no' value='3'>
   <input type='hidden' name='category_no' id='category_no' value='${param.category_no}'>
-                                          
+  <input type='text' name='review_file' id='review_file'  value='${review_memberVO.review_file }'>
+                                            
     <section id="new-property">
       <div class="container">
         <div class="row">
@@ -177,7 +178,8 @@
               <div class="section-title line-style">
                 <h3 class="title">썸네일 등록</h3>
               </div>
-               <input type="file" class="form-control input-lg" name='filesMF' id='filesMF' size='40' multiple="multiple"  required>
+              <img alt="thumb_img" src="./storage/${review_MemberVO.review_file }">
+               <input type="file" class="form-control input-lg" name='filesMF' id='filesMF' size='40'   multiple="multiple"  required>
               <span class="text">
                 <strong>썸네일</strong> 이미지를 등록해 주세요.<br />
               </span>
@@ -331,6 +333,6 @@
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
   </div><!-- /#page-container -->
-<c:import url="/menu/js/review_create_js.jsp" />
+<c:import url="/menu/js/review_update_js.jsp" />
   </body>
 </html>

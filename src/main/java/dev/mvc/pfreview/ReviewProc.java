@@ -24,11 +24,6 @@ public class ReviewProc implements ReviewProcInter {
   public ReviewProc() {
     System.out.println("--> ReviewProc created.");
   }
-  
-/*  @Override
-  public List<Review_MemberVO> list(int category_no) {
-    return reviewDAO.list(category_no);
-  }*/
 
   @Override
   public int create(Review_MemberVO review_memberVO) {
@@ -55,10 +50,6 @@ public class ReviewProc implements ReviewProcInter {
     return reviewDAO.pet_read(review_no);
   }
 
-/*  @Override
-  public int update(Review_MemberVO review_memberVO) {
-    return reviewDAO.update(review_memberVO);
-  }*/
   @Override
   public int update(ReviewVO review_memberVO) {
     return reviewDAO.update(review_memberVO);
@@ -137,7 +128,7 @@ public class ReviewProc implements ReviewProcInter {
     str.append("  }"); 
     str.append("  .span_box_2{"); 
     str.append("    text-align: center;");    
-    str.append("    background-color: #668db4;"); 
+    str.append("    background-color: #1fb7a6;"); 
     str.append("    color: #FFFFFF;"); 
     str.append("    font-size: 1em;"); 
     str.append("    border: 1px;"); 
@@ -189,4 +180,65 @@ public class ReviewProc implements ReviewProcInter {
   public ProductVO rproduct_name_search(int review_no) {
     return reviewDAO.rproduct_name_search(review_no);
   }
+
+  @Override
+  public int reply_cntup(int review_no) {
+    return reviewDAO.reply_cntup(review_no);
+  }
+
+  @Override
+  public int reply_cntdown(int review_no) {
+    return reviewDAO.reply_cntdown(review_no);
+  }
+
+  @Override
+  public int review_delete(int review_no) {
+    return reviewDAO.review_delete(review_no);
+  }
+
+  @Override
+  public int decreaseCnt(int category_no) {
+    return reviewDAO.decreaseCnt(category_no);
+  }
+
+  @Override
+  public int like_check(HashMap hashMap) {
+    return reviewDAO.like_check(hashMap);
+  }
+
+  @Override
+  public int like_up(int review_no) {
+    return reviewDAO.like_up(review_no);
+  }
+
+  @Override
+  public int like_member_insert(HashMap hashMap) {
+    return reviewDAO.like_member_insert(hashMap);
+  }
+
+  @Override
+  public int like_member_delete(HashMap hashMap) {
+    return reviewDAO.like_member_delete(hashMap);
+  }
+
+  @Override
+  public int like_down(int review_no) {
+    return reviewDAO.like_down(review_no);
+  }
+
+  @Override
+  public List<Review_MemberVO> product_data_analysis(int product_no) {
+    return reviewDAO.product_data_analysis(product_no);
+  }
+
+  @Override
+  public List<Review_MemberVO> member_review_list(int member_no) {
+    return reviewDAO.member_review_list(member_no);
+  }
+
+  @Override
+  public List<Review_MemberVO> pet_category(HashMap hashMap) {
+    return reviewDAO.pet_category(hashMap);
+  }
+
 }
