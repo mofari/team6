@@ -72,6 +72,35 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   WHERE event_no=#{event_no}
   </delete>
   
+    <!-- 좋아요 구별 -->
+  <select id="like_check" parameterType="HashMap" resultType="int">
+    SELECT COUNT(*) as cnt FROM event_like WHERE event_no=#{event_no} AND member_no=#{member_no}
+  </select>
+  
+  <!-- 좋아요 갯수 증가 -->
+  <update id="like_up" parameterType="int">
+    UPDATE petfood_event
+    SET event_good = event_good + 1
+    WHERE event_no = #{event_no}
+  </update>
+  
+    <update id="like_down" parameterType="int">
+    UPDATE petfood_event
+    SET event_good = event_good - 1
+    WHERE event_no = #{event_no}
+  </update>
+  
+  <insert id="like_member_insert" parameterType="HashMap">
+    INSERT INTO event_like(event_likeno, event_likerdate, event_no, member_no)
+    VALUES ((SELECT NVL(MAX(event_likeno), 0)+1 as event_likeno 
+    FROM event_like), sysdate, #{event_no}, #{member_no})
+  </insert>
+  
+  <delete id="like_member_delete" parameterType="HashMap">
+    DELETE FROM event_like
+    WHERE member_no=#{member_no} AND event_no=#{event_no}
+  </delete>
+  
   
 
     

@@ -197,6 +197,31 @@ public class EventProc implements EventProcInter {
   public int delete(int event_no) {
     return eventDAO.delete(event_no);
   }
+
+  @Override
+  public int like_check(HashMap hashMap) {
+    return eventDAO.like_check(hashMap);
+  }
+
+  @Override
+  public int like_up(int event_no) {
+    return eventDAO.like_up(event_no);
+  }
+
+  @Override
+  public int like_down(int event_no) {
+    return eventDAO.like_down(event_no);
+  }
+
+  @Override
+  public int like_member_insert(HashMap hashMap) {
+    return eventDAO.like_member_insert(hashMap);
+  }
+
+  @Override
+  public int like_member_delete(HashMap hashMap) {
+    return eventDAO.like_member_delete(hashMap);
+  }
   
 
 }
