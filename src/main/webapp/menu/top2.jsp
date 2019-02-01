@@ -151,10 +151,14 @@
             </li>
             <li class="has_submenu">
               <a href="#">다이어리</a>
-              <ul>
-                <li><a href="invoice-print.html">강아지</a></li>
-                <li><a href="profile.html">고양이</a></li>
-                <li><a href="my-properties.html">기타</a></li>
+                 <ul>
+                <li>
+                  <a href="${pageContext.request.contextPath}/diary/list_paging.do?category_no=1">강아지</a>
+                </li>
+                <li>
+                  <a href="${pageContext.request.contextPath}/diary/list_paging.do?category_no=2">고양이</a>
+                </li>
+                <li><a href="${pageContext.request.contextPath}/diary/list_paging.do?category_no=3">기타</a></li>
               </ul>
             </li>
             <li class="current-menu-item has_submenu"><a href="#">About</a>

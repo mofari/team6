@@ -61,6 +61,18 @@ public interface DiaryProcInter {
   public int increseCnt(int diary_no);
   
   /**
+   * 댓글수 증가
+   * 
+   */
+  public int increseRcnt(int diary_no);
+  /**
+   * 댓글수 감소
+   * 
+   */
+  public int deincreseRcnt(int diary_no);
+  
+  
+  /**
    * category별 검색된 레코드 갯수
    * @return
    */
@@ -85,6 +97,16 @@ public interface DiaryProcInter {
    * @return 페이징 생성 문자열
    */ 
   public String paging(int category_no, int search_count, int nowPage, String word);
+  
+  /**좋아요 체크 */
+  public int like_check(HashMap hashMap);
+  /**좋아요 증가*/
+  public int like_up(int diary_no);
+ /**좋아요 감소*/
+  public int like_down(int diary_no);
+  
+  /** 조회수 top3 */
+  public List<DiaryVO> cnt_list(int category_no);
   
   
 }

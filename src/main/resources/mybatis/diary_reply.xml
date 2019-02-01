@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="diary_reply"> <!-- 테이블 명  -->
+   <insert id='create'  parameterType="DiaryReplyVO">
+      INSERT INTO diary_reply(diary_reply_no,diary_no, 
+      member_no, diary_reply_content, diary_reply_rdate) 
+      VALUES ((SELECT NVL(MAX(diary_reply_no), 0)+1 as diary_reply_no 
+      FROM diary_reply), #{diary_no}, #{member_no}, #{diary_reply_content}, sysdate) 
+   </insert>
+  
+  <select id ='list' parameterType ="int" resultType="DiaryReplyVO">
+    <!-- SELECT diary_reply_no, member_no, diary_reply_content, diary_reply_rdate, diary_no 
+    FROM diary_reply 
+    WHERE diary_no = #{diary_no}
+    ORDER BY diary_reply_no DESC   -->
+    SELECT d.diary_reply_no, d.diary_reply_content, d.diary_reply_rdate,
+     m.member_image, m.member_nickname
+     FROM diary_reply d , member m 
+     WHERE d.diary_no = #{diary_no} AND d.member_no = m.member_no
+     ORDER BY d.diary_reply_no DESC
+  </select>
+
+  <update id="update" parameterType="DiaryReplyVO">
+    UPDATE diary_reply 
+    SET diary_reply_content=#{diary_reply_content}
+    WHERE diary_reply_no=#{diary_reply_no} 
+  </update>
+   
+  <select id="read" parameterType="int" resultType="DiaryReplyVO">
+    SELECT diary_reply_no, diary_reply_content, diary_no
+    FROM diary_reply
+    WHERE diary_reply_no=#{diary_reply_no}
+  </select>
+  
+  <delete id='delete' parameterType="int">
+    DELETE FROM diary_reply 
+    WHERE diary_reply_no=#{diary_reply_no}
+  </delete>
+  
+  
+  
+  
+  
+  
+
+</mapper>

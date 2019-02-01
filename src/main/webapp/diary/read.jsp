@@ -5,19 +5,265 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8"> 
     <title></title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
+ 
 <script type="text/javascript">
-window.onload=function(){
-  CKEDITOR.replace('diary_content');  // <TEXTAREA>태그 id 값
-};
-</script>
+  window.onload=function(){
+    action_cancel();
+  
+    list();  // 모든 댓글 목록
+  };
+  
+  $(function() {
+    $('#panel_create').show();
+    $('#panel_update').hide();
+  });
+  
+  function reply_update(diary_reply_no){
+ //   alert(diary_reply_no);
+    $('#panel_create').hide();
+    $('#panel_update').show();
+    $.ajax({ 
+      url: "./reply_update.do", // 요청을 보낼주소
+      type: "get",  // or get
+      cache: false,
+      dataType: "json", // 응답 데이터 형식, or json
+      data: 'diary_reply_no=' +diary_reply_no,
+      // Ajax 통신 성공, JSP 정상 처리
+      success: function(rdata) { // callback 함수
+         var frm_update = $('#frm_update');
+
+         $('#diary_reply_no', frm_update).val(rdata.diary_reply_no);         
+        $('#text-message', frm_update).val(rdata.diary_reply_content);      
+      },
+      // Ajax 통신 에러, 응답 코드가 200이 아닌경우, dataType이 다른경우 
+      error: function(request, status, error) { // callback 함수
+				alert('reply_update error');
+      }
+    });
+  }
+  function diary_update_proc(){
+    var frm_update = $('#frm_update');
+    $.ajax({
+      url: "./update_json.do", // 요청을 보낼주소
+      type: "post",  // or get
+      cache: false,
+      dataType: "json", // 응답 데이터 형식, or json
+      data: 'diary_reply_content='+$('#text-message', frm_update).val()+'&diary_reply_no='+$('#diary_reply_no').val(),
+      // Ajax 통신 성공, JSP 정상 처리
+      success: function(rdata) { // callback 함수
+      	 list();  // 전체 카테고리 목록
+      	 action_cancel();
+      },
+      // Ajax 통신 에러, 응답 코드가 200이 아닌경우, dataType이 다른경우 
+      error: function(request, status, error) { // callback 함수
+        alert("diary_update_proc error")
+      }
+    });   
+  }
+  
+  function reply_delete(diary_reply_no){
+    if (confirm("정말 삭제하시겠습니까?") == true){    //확인
+      $.ajax({
+        url: "./delete_json.do", // 요청을 보낼주소
+        type: "post",  // or get
+        cache: false,
+        dataType: "json", // 응답 데이터 형식, or json
+        data: 'diary_reply_no='+diary_reply_no,
+        // Ajax 통신 성공, JSP 정상 처리
+        success: function(rdata) { // callback 함수
+        	 list();  // 전체 카테고리 목록
+           
+        	 action_cancel(); 
+        },
+        // Ajax 통신 에러, 응답 코드가 200이 아닌경우, dataType이 다른경우 
+        error: function(request, status, error) { // callback 함수
+          alert("reply_delete error")
+        }
+      });   
+    }else{   //취소
+        return;
+    }
+  }
+  
+  // 모든 댓글 목록
+  function list() {
+     $.ajax({
+      url: "./list_json.do", // 요청을 보낼주소
+      type: "get",  // or get
+      cache: false,
+      dataType: "json", // 응답 데이터 형식, or json
+       data: "diary_no=" + ${param.diary_no}, 
+      // Ajax 통신 성공, JSP 정상 처리  
+      success: function(rdata) { // callback 함수  
+        //alert(" 리스트 확인");
+        var panel = ''; 
+               
+        for(index=0; index < rdata.length; index++) {
+         
+          panel += "<div id='comments'>"; 
+          panel += "<div class='medialist'>";
+          panel += "<div class='media' style='padding-left:3%'>";
+          panel += "<div class='media-left'>";
+          panel += "<a href='#'>";
+        //   panel += "<img style='float: left;' src='./storage/member.jpg' alt='Image sample' />";
+        // panel += "<a>"+rdate[index].member_image+"</a>"; 
+          panel += "<img style='float: left;' src='./storage/"+rdata[index].member_image+"' alt='Image sample' />";
+          panel += "</a>";
+          panel += "<div class='media-body' style='padding-left:3%; padding-top:2%'>";
+          panel += "<div class='comment-line' style='padding-bottom:5%;'>";
+          panel += "<div class='media-heading'>";
+          panel += rdata[index].diary_reply_content;		
+          panel += "<span class='date-comment'>"+(rdata[index].diary_reply_rdate).substring(2, 16)+"</span>";
+          panel += "</div>";
+          panel += "작성자 : "+rdata[index].member_nickname+"<i class='icon fa fa-pencil' style='float:right; margin-right:2%;' onclick='javascript:reply_update("+rdata[index].diary_reply_no+");'></i><i class='fa fa-trash-o' style='float:right; padding-right:2%;' onclick='javascript:reply_delete("+rdata[index].diary_reply_no+");'></i></div>";
+          panel += "</div>";
+          panel += "</div>";
+          panel += "</div>";
+          panel += "</div>";
+          panel += "</div>";
+          panel += "</div>";
+        }
+         
+        $('#tbody_panel').empty();
+        $('#tbody_panel').append(panel);
+      },
+      // Ajax 통신 에러, 응답 코드가 200이 아닌경우, dataType이 다른경우 
+      error: function(request, status, error) { // callback 함수
+				
+      } 
+    }); 
+  }
+    
+   
+  function create(){
+    $.ajax({
+      url: "./create_json.do", // 요청을 보낼주소
+      type: "post",  // or get
+      cache: false,
+      dataType: "json", // 응답 데이터 형식, or json 
+      data: 'diary_no=' +${param.diary_no}+'&member_no='+$('#member_no').val()+'&diary_reply_content='+$('#text-message').val(), 
+      // Ajax 통신 성공, JSP 정상 처리
+      success: function(rdata) { // callback 함수
+     	  list();  // 전체 카테고리 목록
+         // alert("댓글 등록 성공");
+     	   
+        $('#text-message').val(''); 
+        alert(diary_reply_content); 
+      }, 
+      // Ajax 통신 에러, 응답 코드가 200이 아닌경우, dataType이 다른경우 
+      error: function(request, status, error) { // callback 함수
+        alert("create error")
+      }
+    });  
+       
+  }
+  
+  function like(member_no, like_check){
+    $.ajax({
+       url: "./like.do", // 요청을 보낼주소
+       type: "get",  // or get
+       cache: false,
+       dataType: "json", // 응답 데이터 형식, or json
+       data: 'diary_no=' +${param.diary_no},
+       // Ajax 통신 성공, JSP 정상 처리 
+       success: function(rdata) { // callback 함수
+         var diary_like = rdata.diary_like;
+       $('.diary_like').text(diary_like);
+ 					var like_check = rdata.like_check;      // 성공시 1
+					if(like_check==0){	// 흰색 -> 빨강
+					  document.heart.src="./images/like.png";
+					} else {	// 빨강 -> 흰색
+					  document.heart.src="./images/dislike.png";
+					} 
+       		 
+       },
+       // Ajax 통신 에러, 응답 코드가 200이 아닌경우, dataType이 다른경우 
+       error: function(request, status, error) { // callback 함수
+         alert("like_check error");
+       }
+     });   
+   }
+   
+  function action_cancel() {
+    $('#panel_update').hide();
+    $('#panel_create').show();
+    $('#frm_create')[0].reset(); // id가 frm_create인 첫번째폼을 reset
+  } 
+   /*  function like(member_no){
+      var like_check =${like_check};
+      if(like_check==1){
+        document.heart.src="./images/like.png";
+        like_check=0;
+      } else{
+        document.heart.src="./images/dislike.png";
+        like_check=1;
+      }
+    }
+    
+ */
+
+  /* $(function() {
+    $('#heart').click(function() {
+      var $this = $(this);
+      if ($this.hasClass('highlighted')) {
+        $this.removeClass('highlighted');
+        $this.text('Like');
+        $('#heart').prop("src","./images/like.png");
+      } else {
+        $this.addClass('highlighted');
+        $("#heart").prop("src", "./images/dislike.png");
+        $this.text('Unlike');
+      }
+    });
+  }); */
+  
+/*   $(document).ready(function () {
+
+    var heartval = ${heart};
+
+    if(heartval>0) {
+        console.log(heartval);
+        $("#heart").prop("src", "./images/dislike.png");
+        $(".heart").prop('name',heartval)
+    }
+    else {
+        console.log(heartval);
+        $("#heart").prop("src", "./images/like.png");
+        $(".heart").prop('name',heartval)
+    }
+
+    $(".heart").on("click", function () {
+
+        var that = $(".heart");
+
+        var sendData = {'diary_no' : '${diaryVO.diary_no}','heart' : that.prop('name')};
+        $.ajax({
+            url :'/diary/heart',
+            type :'POST',
+            data : sendData, 
+            success : function(data){
+                that.prop('name',data);
+                if(data==1) {
+                    $('#heart').prop("src","./images/dislike.png");
+                }
+                else{
+                    $('#heart').prop("src","./images/like.png");
+                }
+
+
+            }
+        });
+    });
+}
+) */
+  </script>
 
   </head>
   <body>
@@ -53,7 +299,7 @@ window.onload=function(){
 		</section><!-- /#header -->
 
 		<section id="blog">
-
+ 
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-8 col-md-9">
@@ -89,13 +335,15 @@ window.onload=function(){
               </a>/.image -->
               
 							<h3 class="subtitle">${diaryVO.diary_title }.</h3>
+               <div class="section-title line-style no-margin" >
 							<div class="text" style="">
                 ${diaryVO.diary_rdate.substring(0, 10) }  ... ${diaryVO.diary_place } 에서
               </div>
+                     </div>
               <div class="text">
 								${diaryVO.diary_content }
 							</div>
-              
+      
             </FORM> 
             <input type="button" class="button-read button-read btn btn-default" value="수정"  
              onclick="location.href='./update.do?diary_no=${diaryVO.diary_no }&nowPage=${param.nowPage }'">  
@@ -103,50 +351,66 @@ window.onload=function(){
              onclick="location.href='./delete.do?diary_no=${diaryVO.diary_no}&category_no=${diaryVO.category_no}&nowPage=${param.nowPage}'" >  
 						</div><!-- /.blog-list --> 
 
+    <!--   좋아요 -->
 
-              <!--  댓글 ajax 로 해야함  -->
-						<div id="comments"> 
-							<h2 class="title-comment"> <span class="total-comment">댓글</span></h2>
-							<div class="medialist">
-												
-								<div class="media">
-									<div class="media-left">
-										<a href="#">
-											<img class="media-object" src='./images/none1.png'   />
-										</a>
-									</div>
-									<div class="media-body">
-										<div class="comment-line">
-											<h4 class="media-heading">
-												Margaret Smith
-												<span class="date-comment">4 February at 16:52</span> 
-												<button class="reply"><i class="fa fa-share-square-o"></i></button>
-											</h4>
-											Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.							
-										</div>
-									</div>
-								</div>
-							</div>
+       <div style='margin-left:45%; margin-top:8%;'>
+          <img name="heart" id="heart" src="./images/dislike.png"  onclick="like(${diaryVO.member_no},${like_check })">
+       </div>
+       <div class="diary_like" style="text-align:center; margin-right:7%;" id="diary_like" >${diary_like }
+       </div>
+      <!--  댓글 ajax 로 해야함  -->
+
+    <!-- 	<DIV id='panel_delete' style='padding: 10px 0px 10px 0px; background-color: #FFAAAA; width: 100%; text-align: center;'>
+        <FORM name='frm_delete' id='frm_delete'>
+          <input type='hidden' name='diary_reply_no' id='diary_reply_no' value=''>
+          <input type='hidden' name='member_no' id='member_no' value='2'>
+      
+          <span id='category_title'></span> 댓글을 삭제하시겠습니까?
+          삭제하면 복구 할 수 없습니다.
+         <button type="button" id='submit' onclick="delete_submit()">삭제</button>
+         <button type="button" onclick="action_cancel()">취소</button>
+        </FORM>
+       </DIV> -->
+       
+       
+        <DIV id='panel_create' style='width: 80%; margin-left:10%; margin-top:8%' >
+          <h3 class="title-form"><i class="icon fa fa-comment"></i> 댓글 </h3>
+              <form class="form-large grey-color" action="./create.do" method="POST" id="frm_create" name='frm_create'>
+              <input type='hidden' value='2' id='member_no' name='member_no'>
+            <input type='hidden' value='${diaryReplyVO.diary_no }' id='diary_no' name='diary_no'>
               
-							<h3 class="title-form"><i class="icon fa fa-comment"></i> 댓글 쓰기 </h3>
-							<form class="form-large grey-color" action="#" method="post">
-								<div class="row">
-									<div class="col-md-6 col-sm-6 col-xs-12">
-										<label for="name">Name</label>
-										<input type="text" placeholder="Name .." name="name" id="name" class="margin-bottom form-control">
-									</div>
-									<div class="col-md-6 col-sm-6 col-xs-12">
-										<label for="email">Email</label>
-										<input type="text" placeholder="Email .." name="email" id="email" class="margin-bottom form-control">
-									</div>
-									<div class="col-md-12">
-										<label for="text-message">Message</label>
-										<textarea name="text-message" id="text-message" rows="4" class="margin-bottom form-control"></textarea>
-									</div>
-								</div>
-								<input type="submit" class="btn btn-default" value="Send Comment">
-							</form>			
-						</div><!-- /. end-comment -->
+               
+                <div class="row">
+                  <div class="col-md-12">
+                    <label for="text-message">내용</label>
+                    <textarea name="text-message" id="text-message" rows="4" class="margin-bottom form-control"></textarea>
+                  </div>
+                </div>
+                <button type="button" id='submit'   class="btn btn-default" onclick="create()">등록</button>
+              </form> 
+          </DIV>
+          
+         <DIV id='panel_update' style='width: 80%; margin-left:10%; margin-top:8%' >
+          <h3 class="title-form"><i class="icon fa fa-comment"></i> 댓글</h3>
+              <form class="form-large grey-color" id="frm_update" name="frm_update">
+              <input type='hidden' id='diary_reply_no' name='diary_reply_no' value = '${param.diary_reply_no }'>
+             
+                <div class="row">
+                  <div class="col-md-12">
+                    <label for="text-message">내용</label>
+                    <textarea name="text-message" id="text-message" rows="4" class="margin-bottom form-control"></textarea>
+                  </div>
+                </div>
+                <button type="button" id='submit'  name='submit' class="btn btn-default"  onclick="diary_update_proc()">수정</button>
+              </form> 
+          </DIV>
+          
+          
+          
+          <TABLE style='width: 80%; margin-left:10%; ' >
+                <tbody id='tbody_panel' data-nowPage='0' data-endPage='0'></tbody>
+              </TABLE>
+					
 
 					</div>
 					<div class="col-sm-4 col-md-3">
@@ -160,7 +424,7 @@ window.onload=function(){
 								<img id='pet_image' alt="Image Sample" src='./storage/${petVO.pet_image }' >
 							</a><!-- /.image -->
 							<div class="body">
-              
+               
 								<span class="title">${petVO.pet_name } ${petVO.pet_age } 살 (${petVO.pet_gender })</span>
 								<span class="date">${petVO.pet_kind}  ${petVO.pet_weight }kg</span>
 								<div class="text">
@@ -175,15 +439,12 @@ window.onload=function(){
 				</div>
 			</div>
 
+       <div id = "other diary">
+         
+       </div>
 		</section>
 
-		
-			<div class="">
-				
-        
-        
-			</div>
-			
+	
 		
 
 		<div class="modal fade login-modal" tabindex="-1" role="dialog" aria-hidden="true">

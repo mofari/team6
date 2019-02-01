@@ -25,6 +25,8 @@
                                 dev.mvc.product,
                                 dev.mvc.manufacturer,
                                 dev.mvc.country,
+                                dev.mvc.diary,
+                                dev.mvc.diary_reply,
                                 dev.mvc.event,
                                 dev.mvc.request,
                                 dev.mvc.qna,

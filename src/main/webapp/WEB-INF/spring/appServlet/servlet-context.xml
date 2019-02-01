@@ -33,7 +33,12 @@
   <context:component-scan base-package="dev.mvc.product" />
   <context:component-scan base-package="dev.mvc.event" />
   <context:component-scan base-package="dev.mvc.request" />
+<<<<<<< HEAD
   <context:component-scan base-package="dev.mvc.qna" />
+=======
+  <context:component-scan base-package="dev.mvc.diary" />
+  <context:component-scan base-package="dev.mvc.diary_reply" />
+>>>>>>> refs/remotes/origin/master
   <context:component-scan base-package="nation.web.tool" />
   
   

@@ -46,7 +46,17 @@ public interface DiaryDAOInter {
    * 
    */
   public int increseCnt(int diary_no);
-
+  
+  /**
+   * 댓글수 증가
+   * 
+   */
+  public int increseRcnt(int diary_no);
+  /**
+   * 댓글수 감소
+   * 
+   */
+  public int deincreseRcnt(int diary_no);
   
   /**
    * 전체 글수
@@ -67,4 +77,14 @@ public interface DiaryDAOInter {
    */
   public List<DiaryVO> list_paging(HashMap<String, Object> hashMap);
   
+  
+  /**좋아요 체크 */
+  public int like_check(HashMap hashMap);
+  /**좋아요 증가*/
+  public int like_up(int diary_no);
+ /**좋아요 감소*/
+  public int like_down(int diary_no);
+  
+  /** 조회수 top3 */
+  public List<DiaryVO> cnt_list(int category_no);
 }

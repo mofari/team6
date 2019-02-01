@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="diary"> 
+
+  
+  <!-- 다이어리 등록 -->
+  <insert id="create" parameterType="DiaryVO">
+    INSERT INTO diary(diary_no,
+                      category_no, member_no, diary_title, diary_content, diary_place, diary_thumb,
+                      diary_file, diary_size, diary_cnt, diary_rcnt ,diary_like, diary_rdate
+                      )  
+    VALUES((SELECT NVL(MAX(diary_no), 0) + 1 as diary_no FROM diary),
+                #{category_no}, 1,#{diary_title}, #{diary_content}, #{diary_place}, #{diary_thumb}, 
+                #{diary_file}, #{diary_size}, #{diary_cnt}, #{diary_rcnt}, #{diary_like}, sysdate
+                 )
+    
+    
+  </insert>
+  
+  <!--  카테고리 목록 -->
+<select id="list" resultType="DiaryVO" parameterType="int">
+    SELECT d.diary_no, d.category_no, d.diary_title, d.diary_content, d.diary_like , d.diary_thumb,
+              d.diary_cnt, d.diary_rcnt, d.diary_rdate,
+             m.member_nickname 
+    FROM diary d,  member m 
+    WHERE d.category_no=#{category_no}  AND d.member_no = m.member_no
+    ORDER BY d.diary_no ASC
+  </select>
+  
+<!--   조회 -->
+  <select id="read" resultType="DiaryVO" parameterType="int">
+   SELECT d.diary_no, d.category_no, 
+              d.diary_title, d.diary_content, d.diary_like, d.diary_file, d.diary_cnt, d.diary_rcnt, d.diary_rdate, d.diary_place,
+               p.pet_no, p.pet_name, p.pet_age, p.pet_weight, p.pet_gender, p.pet_kind,  p.pet_image, p.pet_specific        
+    FROM diary d, pet p
+    WHERE  d.diary_no =#{diary_no} AND d.member_no = p.member_no
+</select>
+  
+  
+  <!--  수정 -->
+   <update id="update" parameterType="DiaryVO"> 
+   UPDATE diary 
+   SET diary_title=#{diary_title}, diary_place=#{diary_place},
+   diary_content=#{diary_content}, diary_thumb=#{diary_thumb}, 
+   diary_file= #{diary_file}
+  WHERE diary_no=#{diary_no} 
+  </update> 
+  
+  <!--  삭제-->
+    <delete id="delete" parameterType="int"> 
+    DELETE FROM diary
+     WHERE diary_no=#{diary_no} 
+   </delete> 
+   
+   <!--  전체글 갯수 조회 -->
+   <select id="total_count" resultType="int" >
+     SELECT COUNT(*) as cnt
+     FROM diary
+     WHERE category_no=#{category_no}
+     
+   </select>
+   
+   <!--  조회수 증가-->
+     <update id="increseCnt" parameterType= "int">
+       UPDATE diary
+       SET diary_cnt = diary_cnt + 1
+       WHERE diary_no=#{diary_no}
+     </update>
+     
+     <!--  댓글수 증가 -->
+     <update id="increseRcnt" parameterType= "int">
+       UPDATE diary
+       SET diary_rcnt = diary_rcnt + 1
+       WHERE diary_no=#{diary_no}
+     </update>
+     
+     <!--  댓글수 감소-->
+     <update id="deincreseRcnt" parameterType= "int">
+       UPDATE diary
+       SET diary_rcnt = diary_rcnt - 1
+       WHERE diary_no=#{diary_no}
+     </update>
+     
+ <!-- category별 검색된 레코드 갯수 -->
+  <select id="search_count" resultType="int" parameterType="HashMap">
+    SELECT COUNT(*) as cnt
+    FROM diary
+    <choose>
+      <when test="word == null or word == ''"> <!-- 검색하지 않는 경우 -->
+        WHERE category_no=#{category_no}
+      </when>
+      <otherwise>
+        where category_no =#{category_no} AND 
+        (diary_title LIKE '%' || #{word} || '%'
+          OR diary_place LIKE '%'  || #{word} || '%' 
+          OR diary_content LIKE '%'  || #{word} || '%' )
+      </otherwise>
+    </choose>
+  </select>
+     
+     <!-- category별 검색된 레코드 목록 + 페이징 -->
+<!--   <select id="list_paging" resultType="DiaryVO" parameterType="HashMap"> -->
+<!--     SELECT diary_no, category_no, diary_title, diary_content, diary_like , diary_thumb,diary_file, -->
+<!--                                   diary_cnt, diary_rcnt, diary_rdate, -->
+<!--                                   member_nickname , r -->
+<!--     FROM ( -->
+<!--               SELECT diary_no, category_no, diary_title, diary_content, diary_like , diary_thumb,diary_file, -->
+<!--                                   diary_cnt, diary_rcnt, diary_rdate, -->
+<!--                                   member_nickname, rownum as r -->
+<!--               FROM   ( -->
+<!--                         SELECT d.diary_no, d.category_no, d.diary_title, d.diary_content, d.diary_like , d.diary_thumb,diary_file, -->
+<!--                                   d.diary_cnt, d.diary_rcnt, d.diary_rdate,  -->
+<!--                                   m.member_nickname  -->
+<!--                                   FROM diary d,  member m  -->
+<!--                                   <choose> -->
+<!--                                     <when test="word == null or word ==''"> 검색하지 않는 경우 -->
+<!--                                     WHERE  d.member_no = m.member_no AND d.category_no=#{category_no} -->
+<!--                                     </when> -->
+<!--                                     <otherwise> -->
+<!--                                     WHERE d.member_no = m.member_no AND d.category_no=#{category_no} -->
+<!--                                     AND (d.diary_content LIKE  '%' || #{word} || '%' OR d.diary_title LIKE '%' || #{word} || '%' )  -->
+<!--                                     </otherwise> -->
+<!--                                   </choose> -->
+<!--                                  ORDER BY d.diary_no DESC -->
+<!--               )               -->
+<!--     ) -->
+<!--     WHERE <![CDATA[ r >= #{startNum} AND r <= #{endNum} ]]>  -->
+<!--         WHERE r >= #{startNum} AND r <= #{endNum} -->
+    
+<!--   </select> -->
+  
+  <select id="list_paging" resultType="DiaryVO" parameterType="HashMap">
+     SELECT diary_no, category_no, diary_title, diary_content, diary_like, diary_thumb, diary_file,
+                                  diary_cnt, diary_rcnt, diary_rdate,
+                                  member_nickname, member_image, pet_name, pet_age, pet_kind, r
+    FROM (
+              SELECT diary_no, category_no, diary_title, diary_content, diary_like, diary_thumb, diary_file,
+                                  diary_cnt, diary_rcnt, diary_rdate, 
+                                  member_nickname, member_image, pet_name, pet_age, pet_kind, rownum as r
+              FROM   (
+                       SELECT d.diary_no, d.category_no, d.diary_title, d.diary_content, d.diary_like, d.diary_thumb, d.diary_file,
+                                  d.diary_cnt, d.diary_rcnt, d.diary_rdate, 
+                                  m.member_nickname, m.member_image,
+                                  p.pet_name, p.pet_age, p.pet_kind
+                                  FROM diary d left join member m on d.member_no= m.member_no
+                                  left join pet p on d.member_no= p.member_no
+                                    
+                                <choose>         
+                                    <when test="word == null or word ==''"> <!-- 검색하지 않는 경우 -->
+                                    WHERE d.category_no=#{category_no}  
+                                   </when> 
+                                 <otherwise> 
+                                    WHERE d.category_no=#{category_no}  
+                                AND (d.diary_content LIKE  '%' || #{word} || '%' OR d.diary_title LIKE '%' || #{word} || '%' ) 
+                                   </otherwise>
+                               </choose>
+                                 ORDER BY d.diary_no ASC
+              )              
+    )
+    WHERE <![CDATA[ r >= #{startNum} AND r <= #{endNum} ]]> 
+<!--          WHERE r >= #{startNum} AND r <= #{endNum}  -->
+    
+  </select>
+  
+  <!-- 좋아요 테이블에서 회원이 해당 리뷰글에서 좋아요를 눌렀는지 안눌렀는지 구별 -->
+  <select id="like_check" parameterType="HashMap" resultType="int">
+    SELECT COUNT(*) as cnt FROM diary_like WHERE diary_no=#{diary_no} AND member_no=#{member_no}
+  </select>
+  
+  <!-- 좋아요 갯수 증가 -->
+  <update id="like_up" parameterType="int">
+    UPDATE diary
+    SET diary_like = diary_like + 1
+    WHERE diary_no = #{diary_no}
+  </update>
+  
+    <update id="like_down" parameterType="int">
+    UPDATE diary
+    SET diary_like = diary_like - 1
+    WHERE diary_no = #{diary_no}
+  </update>
+  
+   
+  <!--  랭킹 1,2,3등 별점순  -->
+<!--    <select id="cnt_list" resultType="DiaryVO" parameterType="int">
+          SELECT d.diary_no, d.category_no, d.diary_title, d.diary_content, d.diary_like, d.diary_thumb, d.diary_file,
+                                  d.diary_cnt, d.diary_rcnt, d.diary_rdate,  rownum as r,
+                                  m.member_nickname, m.member_image,
+                                  p.pet_name, p.pet_age, p.pet_kind
+                                  FROM diary d left join member m on d.member_no= m.member_no
+                                  left join pet p on d.member_no= p.member_no
+                                  WHERE  category_no =#{category_no} AND r<=3
+                                  ORDER BY diary_cnt DESC
+                                            
+  </select>  -->
+    
+  </mapper>

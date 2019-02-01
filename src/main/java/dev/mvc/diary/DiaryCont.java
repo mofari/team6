@@ -7,12 +7,18 @@ import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -20,6 +26,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import dev.mvc.category.CategoryProcInter;
 import dev.mvc.category.CategoryVO;
+import dev.mvc.diary_reply.DiaryReplyProcInter;
+import dev.mvc.diary_reply.DiaryReplyVO;
 import dev.mvc.pet.PetProcInter;
 import dev.mvc.pet.PetVO;
 import nation.web.tool.Tool;
@@ -38,6 +46,10 @@ public class DiaryCont {
   @Autowired
   @Qualifier("dev.mvc.pet.PetProc")
   private PetProcInter petProc = null;
+  
+  @Autowired
+  @Qualifier("dev.mvc.diary_reply.DiaryReplyProc")
+  private DiaryReplyProcInter diaryReplyProc = null;
   
   /**
    *  다이어리 등록 폼 http://localhost:9090/review/diary/create.do
@@ -161,7 +173,9 @@ public class DiaryCont {
     DiaryVO diaryVO = diaryProc.read(diary_no);
     mav.addObject("diaryVO", diaryVO);
 
-   
+//    List<DiaryReplyVO> reply_list = diaryReplyProc.list(diary_no);
+//    mav.addObject("reply_list", reply_list);
+    
     
     CategoryVO categoryVO = categoryProc.read(diaryVO.getCategory_no()); // 카테고리
                                                                                    // 정보
@@ -428,6 +442,85 @@ public class DiaryCont {
     return mav;
   }
   
+  /**
+   * JSON 기반 전체 목록
+   * 
+   * @return
+   */
+  @ResponseBody
+  @RequestMapping(value = "/diary/list_json.do", method = RequestMethod.GET, produces = "text/plain;charset=UTF-8")
+  public ResponseEntity list_json(int diary_no) {
+    HttpHeaders responseHeaders = new HttpHeaders();
+     
+    List<DiaryReplyVO> list = diaryReplyProc.list(diary_no);
+
+    JSONArray json = new JSONArray(list);
+
+    return new ResponseEntity(json.toString(), responseHeaders, HttpStatus.CREATED);
+  }
   
+  /**
+   * 좋아요 
+   * @param diary_no
+   * @return
+   * @throws Exception
+   */
+  @ResponseBody
+  @RequestMapping(value = "/diary/like.do", method = RequestMethod.GET, produces = "application/json")
+  public String like(int diary_no){
+      System.out.println(">>like get<<");
+      DiaryVO diaryVO = diaryProc.read(diary_no);
+      int member_no = diaryVO.getMember_no();
+      
+      JSONObject obj = new JSONObject();
+      HashMap<String, Object> hashMap = new HashMap<String, Object>();
+      hashMap.put("diary_no", diary_no);
+      hashMap.put("member_no", member_no);
+      
+      int like_check = diaryProc.like_check(hashMap);
+
+      if(like_check ==0){ // 안누른 상태 
+        diaryProc.like_up(diary_no); 
+      } else if(like_check ==1){
+        diaryProc.like_down(diary_no);
+      }
+      
+      diaryVO = diaryProc.read(diary_no);
+
+      obj.put("like_check", like_check);
+      obj.put("diary_like", diaryVO.getDiary_like());
+      return obj.toString();
+
+  }
+
+  /**
+   * 조회수 top 3
+   * 
+   * @return
+   */
+  // http://localhost:9090/review/diary/list.do?category_no=1
+  @RequestMapping(value = "/diary/cnt_list.do", method = RequestMethod.GET)
+  public ModelAndView list(
+      @RequestParam(value="category_no") int category_no,
+      @RequestParam(value="nowPage", defaultValue="1" ) int nowPage) {
+    ModelAndView mav = new ModelAndView();
+
+    CategoryVO categoryVO = categoryProc.read(category_no);
+    mav.addObject("categoryVO", categoryVO);
+
+    System.out.println("▶ cnt _list(int...) 출력 : "+category_no);
+    List<DiaryVO> cnt_list = diaryProc.cnt_list(category_no);
+   
+    mav.addObject("cnt_list", cnt_list);
+
+    HashMap<String, Object> hashMap = new HashMap<String, Object>();
+    hashMap.put("category_no", category_no); 
+    hashMap.put("nowPage", nowPage); 
+    
+    mav.addObject("nowPage", nowPage);
+    mav.setViewName("/diary/cnt_list"); // /webapp/diary/list.jsp
+
+    return mav;
+  }
   
 }
