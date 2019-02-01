@@ -27,6 +27,7 @@
                                 dev.mvc.country,
                                 dev.mvc.event,
                                 dev.mvc.request,
+                                dev.mvc.qna,
                                 nation.web.tool" />
     <property name="mapperLocations" value="classpath:mybatis/*.xml" />
   </bean> 

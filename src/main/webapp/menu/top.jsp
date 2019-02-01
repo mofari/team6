@@ -102,8 +102,15 @@
                 </li>
               </ul>
             </li>
-            <li class="submenu">
-              <a href="${pageContext.request.contextPath}/category/list.do">카테고리</a>
+            <li class="has_submenu"><a href="#">카테고리</a>
+            <ul>
+                <li>
+                  <a href="${pageContext.request.contextPath}/category/list.do">리뷰/상품 카테고리</a>
+                </li>
+                <li>
+                  <a href="${pageContext.request.contextPath}/qna/list.do">Q&A 카테고리</a>
+                </li>
+              </ul>
             </li>
             <li class="has_submenu"><a href="#">리뷰</a>
               <ul>
