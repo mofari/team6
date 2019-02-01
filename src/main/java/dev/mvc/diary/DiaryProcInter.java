@@ -98,5 +98,15 @@ public interface DiaryProcInter {
    */ 
   public String paging(int category_no, int search_count, int nowPage, String word);
   
+  /**좋아요 체크 */
+  public int like_check(HashMap hashMap);
+  /**좋아요 증가*/
+  public int like_up(int diary_no);
+ /**좋아요 감소*/
+  public int like_down(int diary_no);
+  
+  /** 조회수 top3 */
+  public List<DiaryVO> cnt_list(int category_no);
+  
   
 }

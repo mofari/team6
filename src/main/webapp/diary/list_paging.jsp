@@ -167,6 +167,71 @@
         </ASIDE>
     
     </section>
+   <%--  <section id ="cnt-_list">
+    <form name='frm' method = "get" action="./cnt_list.do">
+     <c:forEach var="diaryVO" items="${list }">
+               <div class="col-md-4">
+<!--                <div style="display: inline-block;"> -->
+               <span class='event_title'> <img  id ='member_image' src='./storage/${diaryVO.member_image}' style=" ">${diaryVO.member_nickname } </span>
+<!--                <div class="" style=""> -->
+                 <span style="font-size: 10px;">${diaryVO.pet_kind }(${diaryVO.pet_age })</span>
+                  •<span style="font-size: 10px;"> ${diaryVO.pet_name }</span>
+<!--                </div> -->
+
+<!--                </div> -->
+               <div class="box-ads box-home" style="padding-bottom: 0px;">
+               <div style="margin:auto; width:300px; ">
+               <div class='event_title' style ="float:left; width:auto; margin-left:-30px;"> 
+               <img  id ='member_image' src='./storage/${diaryVO.member_image}' style=" ">
+                <span>${diaryVO.member_nickname } </span>
+               </div>
+              
+               <div class='pet_info'  style="float:left; margin-left:30px; margin-top: -25px;">
+                  <span style="font-size: 10px; display: inline-block;">${diaryVO.pet_kind }(${diaryVO.pet_age })</span>
+                 <span style="font-size: 10px;"> ${diaryVO.pet_name }</span>                
+               </div>
+               </div>           
+               <a class="hover-effect image image-fill" href="./read.do?diary_no=${diaryVO.diary_no}&category_no=${diaryVO.category_no}">
+                        <span class="cover"></span> 
+                <c:choose> 
+                  <c:when test="${diaryVO.diary_file != ''}">
+                            <img id='diary_file'  style='width:100%; height: 250px;' src='./storage/${diaryVO.diary_file }'>
+                          </c:when>
+                  <c:otherwise> 
+                    <!-- 파일이 존재하지 않는 경우 -->
+                    <IMG src='./images/none1.png' style='width: 100%; height: 250px;'>
+                  </c:otherwise>
+                </c:choose>
+
+              </a><!-- /.hover-effect -->
+              <span class="event_title" >
+               <a href="./read.do?diary_no=${diaryVO.diary_no}&category_no=${diaryVO.category_no}">
+                <c:choose>
+                  <c:when test="${fn:length(diaryVO.diary_title) > 12}"> 
+                    <c:out value="${fn:substring(diaryVO.diary_title,0,11)}"/>.... 
+                  </c:when>
+                  <c:otherwise>
+                    <c:out value="${diaryVO.diary_title}"/> 
+                  </c:otherwise>  
+                </c:choose>   
+                 
+               </a>     
+                     
+             </span> 
+             
+              <span class="event_good" >
+                <img src='./images/good.png' style="width: 8%; margin-right: 3px;">${diaryVO.diary_like }
+                <img src='./images/reply.png' style="width: 8%; margin-right: 3px; margin-left:8px; ">${diaryVO.diary_rcnt } 
+              
+              </span> 
+              <span class="event_good"> ${diaryVO.diary_cnt } views</span>
+              <span class="event_rdate" >${fn:substring(diaryVO.diary_rdate, 0, 10) }</span>
+            </div><!-- /.box-home .box-ads -->  
+          </div><!-- ./col-md-4 -->
+          </c:forEach> 
+    </form>
+    
+    </section> --%>
     <section id="recent-list">
     
 			<div class="container">
@@ -241,7 +306,9 @@
               <span class="event_good" >
                 <img src='./images/good.png' style="width: 8%; margin-right: 3px;">${diaryVO.diary_like }
                 <img src='./images/reply.png' style="width: 8%; margin-right: 3px; margin-left:8px; ">${diaryVO.diary_rcnt } 
+              
               </span> 
+              <span class="event_good"> ${diaryVO.diary_cnt } views</span>
 							<span class="event_rdate" >${fn:substring(diaryVO.diary_rdate, 0, 10) }</span>
 						</div><!-- /.box-home .box-ads -->  
 					</div><!-- ./col-md-4 -->

@@ -86,6 +86,30 @@ public class DiaryDAO implements DiaryDAOInter{
     // TODO Auto-generated method stub
     return sqlSessionTemplate.update("diary.deincreseRcnt",diary_no);
   }
+
+  @Override
+  public int like_check(HashMap hashMap) {
+    // TODO Auto-generated method stub
+    return sqlSessionTemplate.selectOne("diary.like_check",hashMap);
+  }
+
+  @Override
+  public int like_up(int diary_no) {
+    // TODO Auto-generated method stub
+    return sqlSessionTemplate.update("diary.like_up",diary_no);
+  }
+
+  @Override
+  public int like_down(int diary_no) {
+    // TODO Auto-generated method stub
+    return sqlSessionTemplate.update("diary.like_down",diary_no);
+  }
+
+  @Override
+  public List<DiaryVO> cnt_list(int category_no) {
+    // TODO Auto-generated method stub
+    return sqlSessionTemplate.selectList("diary.cnt_list",category_no);
+  }
   
   
 }

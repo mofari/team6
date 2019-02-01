@@ -165,4 +165,36 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     
   </select>
   
+  <!-- 좋아요 테이블에서 회원이 해당 리뷰글에서 좋아요를 눌렀는지 안눌렀는지 구별 -->
+  <select id="like_check" parameterType="HashMap" resultType="int">
+    SELECT COUNT(*) as cnt FROM diary_like WHERE diary_no=#{diary_no} AND member_no=#{member_no}
+  </select>
+  
+  <!-- 좋아요 갯수 증가 -->
+  <update id="like_up" parameterType="int">
+    UPDATE diary
+    SET diary_like = diary_like + 1
+    WHERE diary_no = #{diary_no}
+  </update>
+  
+    <update id="like_down" parameterType="int">
+    UPDATE diary
+    SET diary_like = diary_like - 1
+    WHERE diary_no = #{diary_no}
+  </update>
+  
+   
+  <!--  랭킹 1,2,3등 별점순  -->
+<!--    <select id="cnt_list" resultType="DiaryVO" parameterType="int">
+          SELECT d.diary_no, d.category_no, d.diary_title, d.diary_content, d.diary_like, d.diary_thumb, d.diary_file,
+                                  d.diary_cnt, d.diary_rcnt, d.diary_rdate,  rownum as r,
+                                  m.member_nickname, m.member_image,
+                                  p.pet_name, p.pet_age, p.pet_kind
+                                  FROM diary d left join member m on d.member_no= m.member_no
+                                  left join pet p on d.member_no= p.member_no
+                                  WHERE  category_no =#{category_no} AND r<=3
+                                  ORDER BY diary_cnt DESC
+                                            
+  </select>  -->
+    
   </mapper>

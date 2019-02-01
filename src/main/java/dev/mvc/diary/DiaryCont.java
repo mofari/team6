@@ -26,7 +26,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import dev.mvc.category.CategoryProcInter;
 import dev.mvc.category.CategoryVO;
-//import dev.mvc.diary_like.DiaryLikeVO;
 import dev.mvc.diary_reply.DiaryReplyProcInter;
 import dev.mvc.diary_reply.DiaryReplyVO;
 import dev.mvc.pet.PetProcInter;
@@ -460,33 +459,68 @@ public class DiaryCont {
     return new ResponseEntity(json.toString(), responseHeaders, HttpStatus.CREATED);
   }
   
-  /*@ResponseBody
-  @RequestMapping(value = "/like.do", method = RequestMethod.POST, produces = "application/json")
-  public int heart(HttpServletRequest httpRequest) throws Exception {
+  /**
+   * 좋아요 
+   * @param diary_no
+   * @return
+   * @throws Exception
+   */
+  @ResponseBody
+  @RequestMapping(value = "/diary/like.do", method = RequestMethod.GET, produces = "application/json")
+  public String like(int diary_no){
+      System.out.println(">>like get<<");
+      DiaryVO diaryVO = diaryProc.read(diary_no);
+      int member_no = diaryVO.getMember_no();
+      
+      JSONObject obj = new JSONObject();
+      HashMap<String, Object> hashMap = new HashMap<String, Object>();
+      hashMap.put("diary_no", diary_no);
+      hashMap.put("member_no", member_no);
+      
+      int like_check = diaryProc.like_check(hashMap);
 
-      int heart = Integer.parseInt(httpRequest.getParameter("heart"));
-      int diary_no = Integer.parseInt(httpRequest.getParameter("diary_no"));
-      int member_no = 2;
-
-      DiaryLikeVO diaryLikeVO = new DiaryLikeVO();
-
-      diaryLikeVO.setDiary_no(diary_no);
-      diaryLikeVO.setMember_no(member_no);
-
-      System.out.println(heart);
-
-      if(heart >= 1) {
-          service.deleteBoardLike(boardLikeVO);
-          heart=0;
-      } else {
-          service.insertBoardLike(boardLikeVO);
-          heart=1;
+      if(like_check ==0){ // 안누른 상태 
+        diaryProc.like_up(diary_no); 
+      } else if(like_check ==1){
+        diaryProc.like_down(diary_no);
       }
+      
+      diaryVO = diaryProc.read(diary_no);
 
-      return heart;
+      obj.put("like_check", like_check);
+      obj.put("diary_like", diaryVO.getDiary_like());
+      return obj.toString();
 
-  }*/
+  }
 
+  /**
+   * 조회수 top 3
+   * 
+   * @return
+   */
+  // http://localhost:9090/review/diary/list.do?category_no=1
+  @RequestMapping(value = "/diary/cnt_list.do", method = RequestMethod.GET)
+  public ModelAndView list(
+      @RequestParam(value="category_no") int category_no,
+      @RequestParam(value="nowPage", defaultValue="1" ) int nowPage) {
+    ModelAndView mav = new ModelAndView();
 
+    CategoryVO categoryVO = categoryProc.read(category_no);
+    mav.addObject("categoryVO", categoryVO);
+
+    System.out.println("▶ cnt _list(int...) 출력 : "+category_no);
+    List<DiaryVO> cnt_list = diaryProc.cnt_list(category_no);
+   
+    mav.addObject("cnt_list", cnt_list);
+
+    HashMap<String, Object> hashMap = new HashMap<String, Object>();
+    hashMap.put("category_no", category_no); 
+    hashMap.put("nowPage", nowPage); 
+    
+    mav.addObject("nowPage", nowPage);
+    mav.setViewName("/diary/cnt_list"); // /webapp/diary/list.jsp
+
+    return mav;
+  }
   
 }
