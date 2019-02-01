@@ -200,6 +200,18 @@ public class DiaryProc implements DiaryProcInter{
     // 
     return diaryDAO.total_count();
   }
+
+  @Override
+  public int increseRcnt(int diary_no) {
+    // TODO Auto-generated method stub
+    return diaryDAO.increseRcnt(diary_no);
+  }
+
+  @Override
+  public int deincreseRcnt(int diary_no) {
+    // TODO Auto-generated method stub
+    return diaryDAO.deincreseRcnt(diary_no);
+  }
   
   
 }

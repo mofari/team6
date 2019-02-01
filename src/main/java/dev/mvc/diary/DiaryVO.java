@@ -55,6 +55,36 @@ public class DiaryVO {
   /** 동물 번호 */
   private int pet_no;
   
+  /** 동물 종류*/
+ private String pet_kind;
+ 
+ /** 동물 종류*/
+ private String pet_name;
+ 
+ /** 동물 종류*/
+ private int pet_age;
+ 
+ /** 펫 이미지*/
+ private String pet_image;
+ 
+ public String getPet_image() {
+  return pet_image;
+}
+
+public void setPet_image(String pet_image) {
+  this.pet_image = pet_image;
+}
+
+public String getMember_image() {
+  return member_image;
+}
+
+public void setMember_image(String member_image) {
+  this.member_image = member_image;
+}
+
+/**회원 이미지 */
+ private String member_image;
   /** 
   Spring Framework에서 자동 주입되는 업로드 파일 객체,
   DBMS 상에 실제 컬럼은 존재하지 않고 파일 임시 저장 목적.
@@ -105,6 +135,30 @@ public class DiaryVO {
 
   public int getDiary_no() {
     return diary_no;
+  }
+
+  public String getPet_kind() {
+    return pet_kind;
+  }
+
+  public void setPet_kind(String pet_kind) {
+    this.pet_kind = pet_kind;
+  }
+
+  public String getPet_name() {
+    return pet_name;
+  }
+
+  public void setPet_name(String pet_name) {
+    this.pet_name = pet_name;
+  }
+
+  public int getPet_age() {
+    return pet_age;
+  }
+
+  public void setPet_age(int pet_age) {
+    this.pet_age = pet_age;
   }
 
   public void setDiary_no(int diary_no) {

@@ -7,12 +7,18 @@ import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -20,6 +26,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import dev.mvc.category.CategoryProcInter;
 import dev.mvc.category.CategoryVO;
+//import dev.mvc.diary_like.DiaryLikeVO;
+import dev.mvc.diary_reply.DiaryReplyProcInter;
+import dev.mvc.diary_reply.DiaryReplyVO;
 import dev.mvc.pet.PetProcInter;
 import dev.mvc.pet.PetVO;
 import nation.web.tool.Tool;
@@ -38,6 +47,10 @@ public class DiaryCont {
   @Autowired
   @Qualifier("dev.mvc.pet.PetProc")
   private PetProcInter petProc = null;
+  
+  @Autowired
+  @Qualifier("dev.mvc.diary_reply.DiaryReplyProc")
+  private DiaryReplyProcInter diaryReplyProc = null;
   
   /**
    *  다이어리 등록 폼 http://localhost:9090/review/diary/create.do
@@ -161,7 +174,9 @@ public class DiaryCont {
     DiaryVO diaryVO = diaryProc.read(diary_no);
     mav.addObject("diaryVO", diaryVO);
 
-   
+//    List<DiaryReplyVO> reply_list = diaryReplyProc.list(diary_no);
+//    mav.addObject("reply_list", reply_list);
+    
     
     CategoryVO categoryVO = categoryProc.read(diaryVO.getCategory_no()); // 카테고리
                                                                                    // 정보
@@ -428,6 +443,50 @@ public class DiaryCont {
     return mav;
   }
   
+  /**
+   * JSON 기반 전체 목록
+   * 
+   * @return
+   */
+  @ResponseBody
+  @RequestMapping(value = "/diary/list_json.do", method = RequestMethod.GET, produces = "text/plain;charset=UTF-8")
+  public ResponseEntity list_json(int diary_no) {
+    HttpHeaders responseHeaders = new HttpHeaders();
+     
+    List<DiaryReplyVO> list = diaryReplyProc.list(diary_no);
+
+    JSONArray json = new JSONArray(list);
+
+    return new ResponseEntity(json.toString(), responseHeaders, HttpStatus.CREATED);
+  }
   
+  /*@ResponseBody
+  @RequestMapping(value = "/like.do", method = RequestMethod.POST, produces = "application/json")
+  public int heart(HttpServletRequest httpRequest) throws Exception {
+
+      int heart = Integer.parseInt(httpRequest.getParameter("heart"));
+      int diary_no = Integer.parseInt(httpRequest.getParameter("diary_no"));
+      int member_no = 2;
+
+      DiaryLikeVO diaryLikeVO = new DiaryLikeVO();
+
+      diaryLikeVO.setDiary_no(diary_no);
+      diaryLikeVO.setMember_no(member_no);
+
+      System.out.println(heart);
+
+      if(heart >= 1) {
+          service.deleteBoardLike(boardLikeVO);
+          heart=0;
+      } else {
+          service.insertBoardLike(boardLikeVO);
+          heart=1;
+      }
+
+      return heart;
+
+  }*/
+
+
   
 }
