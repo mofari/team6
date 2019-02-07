@@ -1,37 +1,23 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<%
+String root = request.getContextPath();  // 절대 경로
+%>
+
 <!DOCTYPE html>
 <html lang="ko">
 
   <body class="fixed-header">
 
   <div id="page-container">
-      <c:import url="/menu/top.jsp" />
-     
-      
+    <c:import url="/menu/top.jsp" />
     
-    <section id="coming-soon" class="fixed-no-header">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-md-offset-2">
+  
+   
 
-            <div class="clock hidden-xs"></div>
-            <div class="message hidden-xs"></div>
-
-            <h2 class="line-broken">OUR NEW WEBSITE IS COMING SOON</h2>
-            <div class="text">
-              Our website is under construction, we are working very hard to give you the best experience with this one.<br />
-              We'll be here soon, subscribe to be notified.
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <c:import url="/menu/bottom.jsp" />
-
+        <c:import url="/menu/bottom.jsp" />
+    
     <div class="modal fade login-modal" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-close"></i></button>
@@ -165,9 +151,22 @@
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
   </div><!-- /#page-container -->
+ 
+ 
+  <script src="<%=root%>/resources/script/jquery.min.js"></script>    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="<%=root%>/resources/script/jquery-ui.min.js"></script>   <!-- jQuery UI is a curated set of user interface interactions, effects, widgets, and themes -->
+  <script src="<%=root%>/resources/script/bootstrap.min.js"></script>   <!-- Include all compiled plugins (below), or include individual files as needed -->
 
-<c:import url="/menu/js/index2_js.jsp" />
+  <script src="<%=root%>/resources/script/vendor/mmenu/mmenu.min.all.js"></script>          <!-- Menu Responsive -->
+  <script src="<%=root%>/resources/script/vendor/animation-wow/wow.min.js"></script>          <!-- Animate Script -->
+  <script src="<%=root%>/resources/script/vendor/labelauty/labelauty.min.js"></script>          <!-- Checkbox Script -->
+  <script src="<%=root%>/resources/script/vendor/parallax/parallax.min.js"></script>            <!-- Parallax Script -->
+  <script src="<%=root%>/resources/script/vendor/images-fill/imagesloaded.min.js"></script>     <!-- Loaded image with ImageFill -->
+  <script src="<%=root%>/resources/script/vendor/images-fill/imagefill.min.js"></script>          <!-- ImageFill Script -->
+  <script src="<%=root%>/resources/script/vendor/easydropdown/jquery.easydropdown.min.js"></script> <!-- Select list Script -->
+  <script src="<%=root%>/resources/script/vendor/carousel/responsiveCarousel.min.js"></script>    <!-- Carousel Script -->
 
+  <script src="<%=root%>/resources/script/custom.js"></script>    <!-- Custom Script -->
 
   </body>
 </html>
