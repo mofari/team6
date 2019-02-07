@@ -107,8 +107,15 @@
                 </li>
               </ul>
             </li>
-            <li class="submenu">
-              <a href="${pageContext.request.contextPath}/category/list.do">카테고리</a>
+            <li class="has_submenu"><a href="#">카테고리</a>
+            <ul>
+                <li>
+                  <a href="${pageContext.request.contextPath}/category/list.do">리뷰/상품 카테고리</a>
+                </li>
+                <li>
+                  <a href="${pageContext.request.contextPath}/qna/list.do">Q&A 카테고리</a>
+                </li>
+              </ul>
             </li>
             <li class="has_submenu"><a href="#">리뷰</a>
               <ul>
@@ -144,10 +151,14 @@
             </li>
             <li class="has_submenu">
               <a href="#">다이어리</a>
-              <ul>
-                <li><a href="invoice-print.html">강아지</a></li>
-                <li><a href="profile.html">고양이</a></li>
-                <li><a href="my-properties.html">기타</a></li>
+                 <ul>
+                <li>
+                  <a href="${pageContext.request.contextPath}/diary/list_paging.do?category_no=1">강아지</a>
+                </li>
+                <li>
+                  <a href="${pageContext.request.contextPath}/diary/list_paging.do?category_no=2">고양이</a>
+                </li>
+                <li><a href="${pageContext.request.contextPath}/diary/list_paging.do?category_no=3">기타</a></li>
               </ul>
             </li>
             <li class="current-menu-item has_submenu"><a href="#">About</a>
@@ -157,7 +168,11 @@
               </ul>
             </li>
             <li class="current-menu-item submenu">
+<<<<<<< HEAD
               <a href="${pageContext.request.contextPath}/event/list_event_paging.do">이벤트</a>
+=======
+              <a href="${pageContext.request.contextPath}/event/create.do">이벤트</a>
+>>>>>>> branch 'master' of https://github.com/mofari/team6.git
               </li>
               <li class="has_submenu"><a href="#">관리</a>
                 <ul>
@@ -167,7 +182,12 @@
                 <li><a href="blog-detail.html">blog Details</a></li>
                 <li><a href="blog-detail-full.html">blog Details V2</a></li>
                 </ul>
-              </li>              
+              </li>         
+              <li class="has_submenu"><a href="#">Q&A</a>
+                <ul>
+                <li><a href="${pageContext.request.contextPath}/qna/cate_qna.do?qnacategory=1">상품 문의</a></li>
+                </ul>
+              </li>               
             </ul>
           </nav>
         </div>

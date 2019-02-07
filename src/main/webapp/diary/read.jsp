@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
+ 
 <script type="text/javascript">
   window.onload=function(){
     action_cancel();
@@ -162,18 +162,54 @@
         alert("create error")
       }
     });  
-      
+       
   }
   
-
+  function like(member_no, like_check){
+    $.ajax({
+       url: "./like.do", // 요청을 보낼주소
+       type: "get",  // or get
+       cache: false,
+       dataType: "json", // 응답 데이터 형식, or json
+       data: 'diary_no=' +${param.diary_no},
+       // Ajax 통신 성공, JSP 정상 처리 
+       success: function(rdata) { // callback 함수
+         var diary_like = rdata.diary_like;
+       $('.diary_like').text(diary_like);
+ 					var like_check = rdata.like_check;      // 성공시 1
+					if(like_check==0){	// 흰색 -> 빨강
+					  document.heart.src="./images/like.png";
+					} else {	// 빨강 -> 흰색
+					  document.heart.src="./images/dislike.png";
+					} 
+       		 
+       },
+       // Ajax 통신 에러, 응답 코드가 200이 아닌경우, dataType이 다른경우 
+       error: function(request, status, error) { // callback 함수
+         alert("like_check error");
+       }
+     });   
+   }
    
   function action_cancel() {
     $('#panel_update').hide();
     $('#panel_create').show();
     $('#frm_create')[0].reset(); // id가 frm_create인 첫번째폼을 reset
   } 
+   /*  function like(member_no){
+      var like_check =${like_check};
+      if(like_check==1){
+        document.heart.src="./images/like.png";
+        like_check=0;
+      } else{
+        document.heart.src="./images/dislike.png";
+        like_check=1;
+      }
+    }
     
-  $(function() {
+ */
+
+  /* $(function() {
     $('#heart').click(function() {
       var $this = $(this);
       if ($this.hasClass('highlighted')) {
@@ -186,7 +222,7 @@
         $this.text('Unlike');
       }
     });
-  });
+  }); */
   
 /*   $(document).ready(function () {
 
@@ -226,7 +262,7 @@
         });
     });
 }
-);*/ 
+) */
   </script>
 
   </head>
@@ -299,13 +335,15 @@
               </a>/.image -->
               
 							<h3 class="subtitle">${diaryVO.diary_title }.</h3>
+               <div class="section-title line-style no-margin" >
 							<div class="text" style="">
                 ${diaryVO.diary_rdate.substring(0, 10) }  ... ${diaryVO.diary_place } 에서
               </div>
+                     </div>
               <div class="text">
 								${diaryVO.diary_content }
 							</div>
-              
+      
             </FORM> 
             <input type="button" class="button-read button-read btn btn-default" value="수정"  
              onclick="location.href='./update.do?diary_no=${diaryVO.diary_no }&nowPage=${param.nowPage }'">  
@@ -316,9 +354,10 @@
     <!--   좋아요 -->
 
        <div style='margin-left:45%; margin-top:8%;'>
-          <img name="heart" id="heart" src="./images/dislike.png"  onclick="like()">
+          <img name="heart" id="heart" src="./images/dislike.png"  onclick="like(${diaryVO.member_no},${like_check })">
        </div>
-       
+       <div class="diary_like" style="text-align:center; margin-right:7%;" id="diary_like" >${diary_like }
+       </div>
       <!--  댓글 ajax 로 해야함  -->
 
     <!-- 	<DIV id='panel_delete' style='padding: 10px 0px 10px 0px; background-color: #FFAAAA; width: 100%; text-align: center;'>

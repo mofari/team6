@@ -212,6 +212,30 @@ public class DiaryProc implements DiaryProcInter{
     // TODO Auto-generated method stub
     return diaryDAO.deincreseRcnt(diary_no);
   }
+
+  @Override
+  public int like_check(HashMap hashMap) {
+    // TODO Auto-generated method stub
+    return diaryDAO.like_check(hashMap);
+  }
+
+  @Override
+  public int like_up(int diary_no) {
+    // TODO Auto-generated method stub
+    return diaryDAO.like_up(diary_no);
+  }
+
+  @Override
+  public int like_down(int diary_no) {
+    // TODO Auto-generated method stub
+    return diaryDAO.like_down(diary_no);
+  }
+
+  @Override
+  public List<DiaryVO> cnt_list(int category_no) {
+    // TODO Auto-generated method stub
+    return diaryDAO.cnt_list(category_no);
+  }
   
   
 }

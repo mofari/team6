@@ -4,6 +4,7 @@ DROP TABLE rgood;
 DROP TABLE reply;
 DROP TABLE Category;
 
+SELECT *FROM product;
 
 SELECT COUNT(*) as cnt FROM rgood WHERE review_no=9 AND member_no=3
 SELECT review_no, review_title, review_file FROM review WHERE member_no=3;

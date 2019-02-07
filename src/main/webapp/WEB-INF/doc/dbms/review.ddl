@@ -87,7 +87,7 @@ COMMENT ON COLUMN qnacategory.qnacategory_name is '카테고리 이름';
 /**********************************/
 /* Table Name: 질문과 답변 */
 /**********************************/
-CREATE TABLE QNA(
+CREATE TABLE qna(
 		qna_no                        		NUMBER(10)		 NOT NULL		 PRIMARY KEY,
 		qna_title                     		VARCHAR2(50)		 NOT NULL,
 		qna_word                      		VARCHAR2(50)		 NOT NULL,
@@ -103,18 +103,18 @@ CREATE TABLE QNA(
   FOREIGN KEY (qnacategory_no) REFERENCES qnacategory (qnacategory_no)
 );
 
-COMMENT ON TABLE QNA is '질문과 답변';
-COMMENT ON COLUMN QNA.qna_no is 'QNA 번호';
-COMMENT ON COLUMN QNA.qna_title is '제목';
-COMMENT ON COLUMN QNA.qna_word is '글 내용';
-COMMENT ON COLUMN QNA.qna_image is '이미지';
-COMMENT ON COLUMN QNA.visible is '숨김/보임';
-COMMENT ON COLUMN QNA.qna_date is '날짜';
-COMMENT ON COLUMN QNA.qnacategory_no is 'QNA 카테고리 번호';
-COMMENT ON COLUMN QNA.member_no is '회원번호';
-COMMENT ON COLUMN QNA.qna_grpno is '그룹번호';
-COMMENT ON COLUMN QNA.qna_indent is '답변 차수';
-COMMENT ON COLUMN QNA.qna_ansnum is '답변 순서';
+COMMENT ON TABLE qna is '질문과 답변';
+COMMENT ON COLUMN qna.qna_no is 'QNA 번호';
+COMMENT ON COLUMN qna.qna_title is '제목';
+COMMENT ON COLUMN qna.qna_word is '글 내용';
+COMMENT ON COLUMN qna.qna_image is '이미지';
+COMMENT ON COLUMN qna.visible is '숨김/보임';
+COMMENT ON COLUMN qna.qna_date is '날짜';
+COMMENT ON COLUMN qna.qnacategory_no is 'QNA 카테고리 번호';
+COMMENT ON COLUMN qna.member_no is '회원번호';
+COMMENT ON COLUMN qna.qna_grpno is '그룹번호';
+COMMENT ON COLUMN qna.qna_indent is '답변 차수';
+COMMENT ON COLUMN qna.qna_ansnum is '답변 순서';
 
 
 /**********************************/
