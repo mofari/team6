@@ -31,7 +31,7 @@ public interface EventProcInter {
    * @param eventVO
    * @return
    */
-  public ArrayList<FileVO> getThumbs(EventVO eventVO);
+  public ArrayList<Event_FileVO> getThumbs(EventVO eventVO);
   
   /**
    * 총 레코드 개수

@@ -21,7 +21,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import dev.mvc.event.EventVO;
 import dev.mvc.event.Events;
-import dev.mvc.event.FileVO;
+import dev.mvc.event.Event_FileVO;
 import nation.web.tool.Tool;
 import nation.web.tool.Upload;
 

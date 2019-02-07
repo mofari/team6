@@ -228,7 +228,7 @@ public class EventCont {
    EventVO eventVO = eventProc.read(event_no);
    mav.addObject("eventVO", eventVO);
 
-   ArrayList<FileVO> file_list = eventProc.getThumbs(eventVO);
+   ArrayList<Event_FileVO> file_list = eventProc.getThumbs(eventVO);
 
    mav.addObject("file_list", file_list);
 

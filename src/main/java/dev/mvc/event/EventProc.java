@@ -32,8 +32,8 @@ public class EventProc implements EventProcInter {
   }
   
   @Override
-  public ArrayList<FileVO> getThumbs(EventVO eventVO) {
-    ArrayList<FileVO> file_list = new ArrayList<FileVO>();
+  public ArrayList<Event_FileVO> getThumbs(EventVO eventVO) {
+    ArrayList<Event_FileVO> file_list = new ArrayList<Event_FileVO>();
     
     String thumbs = eventVO.getEvent_thumb(); // xmas01_2_t.jpg/xmas02_2_t.jpg...
     String files = eventVO.getEvent_img();          // xmas01_2.jpg/xmas02_2.jpg...
@@ -52,7 +52,7 @@ public class EventProc implements EventProcInter {
       for (int index = 0; index < count; index++) {
         sizes_array[index] = Tool.unit(new Integer(sizes_array[index]));  // 1024 -> 1KB
       
-        FileVO fileVO = new FileVO(thumbs_array[index], files_array[index], sizes_array[index]);
+        Event_FileVO fileVO = new Event_FileVO(thumbs_array[index], files_array[index], sizes_array[index]);
         file_list.add(fileVO);
       }
     } 
