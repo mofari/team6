@@ -156,7 +156,7 @@
                 <li><a href="${pageContext.request.contextPath}/diary/list_paging.do?category_no=3">기타</a></li>
               </ul>
             </li>
-            <li class="current-menu-item has_submenu"><a href="${pageContext.request.contextPath}/event/list_event_paging.do">이벤트</a>
+            <li class="current-menu-item submenu"><a href="${pageContext.request.contextPath}/event/list_event_paging.do">이벤트</a>
             </li>
             <li class="has_submenu"><a href="#">관리</a>
               <ul>
