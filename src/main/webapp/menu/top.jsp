@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/vendor/mmenu/jquery.mmenu.all.css" />          <!-- Menu Responsive -->
   <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/vendor/animate-wow/animate.css">               <!-- Animation WOW -->
 
+ <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/vendor/flipclock/flipclock.css">               <!-- Flip Countdown -->
+
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/vendor/labelauty/labelauty.css">               <!-- Checkbox form Style -->
   <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/vendor/nouislider/nouislider.min.css">         <!-- Slider Price -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/vendor/easydropdown/easydropdown.css">         <!-- Select form Style -->
@@ -66,44 +68,18 @@
         </div><!-- /.logo -->
         <nav id="navigation">
           <ul>
-            <li class="has_submenu">
+            <li class="submenu">
               <a href="${pageContext.request.contextPath}/index.jsp">Home</a>
-              <ul>
-                <li><a href="index-property-slide.html">carousel Property</a></li>
-                <li class="has_submenu">
-                  <a href="#">carousel</a>
-                  <ul>
-                    <li><a href="index-carousel.html">Menu Base</a></li>
-                    <li><a href="index-carousel-v2.html">Menu V2</a></li>
-                    <li><a href="index-carousel-v3.html">Menu V3</a></li>
-                    <li><a href="index-carousel-v4.html">Menu V4</a></li>
-                    <li><a href="index-carousel-v5.html">Menu V5 + FullHeight</a></li>
-                  </ul>
+            </li>
+            <li class="has_submenu"><a href="#">카테고리</a>
+            <ul>
+                <li>
+                  <a href="${pageContext.request.contextPath}/category/list.do">리뷰/상품 카테고리</a>
                 </li>
-                <li class="has_submenu">
-                  <a href="#">Interactive Map</a>
-                  <ul>
-                    <li><a href="index-map.html">Menu Base</a></li>
-                    <li><a href="index-map-v2.html">Menu V2</a></li>
-                    <li><a href="index-map-v3.html">Menu V3</a></li>
-                    <li><a href="index-map-v4.html">Menu V4</a></li>
-                    <li><a href="index-map-v5.html">Menu V5 + FullHeight</a></li>
-                  </ul>
-                </li>
-                <li class="has_submenu">
-                  <a href="#">carousel + Search</a>
-                  <ul>
-                    <li><a href="index-search.html">Menu Base</a></li>
-                    <li><a href="index-search-v2.html">Menu V2</a></li>
-                    <li><a href="index-search-v3.html">Menu V3</a></li>
-                    <li><a href="index-search-v4.html">Menu V4</a></li>
-                    <li><a href="index-search-v5.html">Menu V5 + FullHeight</a></li>
-                  </ul>
+                <li>
+                  <a href="${pageContext.request.contextPath}/qna/list.do">Q&A 카테고리</a>
                 </li>
               </ul>
-            </li>
-            <li class="submenu">
-              <a href="${pageContext.request.contextPath}/category/list.do">카테고리</a>
             </li>
             <li class="has_submenu"><a href="#">리뷰</a>
               <ul>
@@ -140,16 +116,16 @@
             <li class="has_submenu">
               <a href="#">다이어리</a>
               <ul>
-                <li><a href="invoice-print.html">강아지</a></li>
-                <li><a href="profile.html">고양이</a></li>
-                <li><a href="my-properties.html">기타</a></li>
+                <li>
+                  <a href="${pageContext.request.contextPath}/diary/list_paging.do?category_no=1">강아지</a>
+                </li>
+                <li>
+                  <a href="${pageContext.request.contextPath}/diary/list_paging.do?category_no=2">고양이</a>
+                </li>
+                <li><a href="${pageContext.request.contextPath}/diary/list_paging.do?category_no=3">기타</a></li>
               </ul>
             </li>
-            <li class="current-menu-item has_submenu"><a href="#">About</a>
-              <ul>
-                <li><a href="about.html">About Version 1</a></li>
-                <li><a href="about-v2.html">About Version 2</a></li>
-              </ul>
+            <li class="current-menu-item submenu"><a href="${pageContext.request.contextPath}/event/list_event_paging.do">이벤트</a>
             </li>
             <li class="has_submenu"><a href="#">관리</a>
               <ul>

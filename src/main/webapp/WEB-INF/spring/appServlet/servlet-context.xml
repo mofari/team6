@@ -30,7 +30,14 @@
   <context:component-scan base-package="dev.mvc.review_reply" />
   <context:component-scan base-package="dev.mvc.country" />
   <context:component-scan base-package="dev.mvc.manufacturer" />
+  <context:component-scan base-package="dev.mvc.diary" />
+  <context:component-scan base-package="dev.mvc.diary_reply" />
   <context:component-scan base-package="dev.mvc.product" />
+  <context:component-scan base-package="dev.mvc.event" />
+  <context:component-scan base-package="dev.mvc.request" />
+  <context:component-scan base-package="dev.mvc.qna" />
+  <context:component-scan base-package="dev.mvc.diary" />
+  <context:component-scan base-package="dev.mvc.diary_reply" />
   <context:component-scan base-package="nation.web.tool" />
   
   

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="qna"> <!-- 테이블명 사용 -->
+  <select id="qna_category_list" resultType="QnACateVO" >
+    SELECT qnacategory_no, qnacategory_name, qnacategory_ids FROM qnacategory
+  </select>
+  
+  <insert id="qna_category_create" parameterType="QnACateVO">
+    INSERT INTO qnacategory(qnacategory_no, qnacategory_name, qnacategory_ids) 
+    VALUES ((SELECT NVL(MAX(qnacategory_no), 0)+1 as qnacategory_no FROM qnacategory),
+    #{qnacategory_name}, #{qnacategory_ids})
+  </insert>
+  
+  <select id="qna_category_read" resultType="QnACateVO" parameterType="int">
+    SELECT qnacategory_no, qnacategory_name, qnacategory_ids FROM qnacategory 
+    WHERE qnacategory_no = #{qnacategory_no}
+  </select>
+  
+  <select id="qna_category_all_read" resultType="QnACateVO">
+    SELECT qnacategory_no, qnacategory_name, qnacategory_ids FROM qnacategory
+  </select>
+  
+  <update id="qna_category_update" parameterType="QnACateVO">
+    UPDATE qnacategory
+    SET qnacategory_name=#{qnacategory_name}, qnacategory_ids = #{qnacategory_ids}
+    WHERE qnacategory_no=#{qnacategory_no}
+  </update>
+  
+  <delete id="qna_category_delete" parameterType="int">
+    DELETE FROM qnacategory
+    WHERE qnacategory_no = #{qnacategory_no}
+  </delete>
+  
+  <insert id="qna_create" parameterType="QnAVO">
+    INSERT INTO qna(qna_no, qna_title, qna_content, qna_grpno, qna_ansnum, qna_indent, 
+    qna_visible, qna_pw, qna_date, qnacategory_no, member_no)
+    VALUES ((SELECT NVL(MAX(qna_no), 0)+1 as qna_no FROM QNA), #{qna_title}, #{qna_content}, 
+    (SELECT NVL(MAX(qna_grpno), 0) + 1 as qna_grpno FROM qna),
+    #{qna_ansnum}, #{qna_indent}, #{qna_visible}, #{qna_pw}, sysdate, #{qnacategory_no}, #{member_no})
+  </insert>
+</mapper>

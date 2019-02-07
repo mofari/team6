@@ -65,50 +65,24 @@
         </div>      
       </div><!-- /.info -->
       <div class="logo hidden-xs">
-        <a href="#"><img id="logo-header" src="${pageContext.request.contextPath}/resources/images/logo.jpg"  alt="Logo" /></a>
+        <a href="${pageContext.request.contextPath}/index.jsp"><img id="logo-header" src="${pageContext.request.contextPath}/resources/images/logo-lovepet3_2.png" alt="Logo" /></a>
       </div><!-- /.logo -->
       <div class="menu-navbar">
         <div class="container" id="menu-nav">
           <nav id="navigation">
           <ul>
-            <li class="has_submenu">
+            <li class="submenu">
               <a href="${pageContext.request.contextPath}/index.jsp">Home</a>
-              <ul>
-                <li><a href="index-property-slide.html">carousel Property</a></li>
-                <li class="has_submenu">
-                  <a href="#">carousel</a>
-                  <ul>
-                    <li><a href="index-carousel.html">Menu Base</a></li>
-                    <li><a href="index-carousel-v2.html">Menu V2</a></li>
-                    <li><a href="index-carousel-v3.html">Menu V3</a></li>
-                    <li><a href="index-carousel-v4.html">Menu V4</a></li>
-                    <li><a href="index-carousel-v5.html">Menu V5 + FullHeight</a></li>
-                  </ul>
+            </li>
+            <li class="has_submenu"><a href="#">카테고리</a>
+            <ul>
+                <li>
+                  <a href="${pageContext.request.contextPath}/category/list.do">리뷰/상품 카테고리</a>
                 </li>
-                <li class="has_submenu">
-                  <a href="#">Interactive Map</a>
-                  <ul>
-                    <li><a href="index-map.html">Menu Base</a></li>
-                    <li><a href="index-map-v2.html">Menu V2</a></li>
-                    <li><a href="index-map-v3.html">Menu V3</a></li>
-                    <li><a href="index-map-v4.html">Menu V4</a></li>
-                    <li><a href="index-map-v5.html">Menu V5 + FullHeight</a></li>
-                  </ul>
-                </li>
-                <li class="has_submenu">
-                  <a href="#">carousel + Search</a>
-                  <ul>
-                    <li><a href="index-search.html">Menu Base</a></li>
-                    <li><a href="index-search-v2.html">Menu V2</a></li>
-                    <li><a href="index-search-v3.html">Menu V3</a></li>
-                    <li><a href="index-search-v4.html">Menu V4</a></li>
-                    <li><a href="index-search-v5.html">Menu V5 + FullHeight</a></li>
-                  </ul>
+                <li>
+                  <a href="${pageContext.request.contextPath}/qna/cate_qna.jsp">Q&A 카테고리</a>
                 </li>
               </ul>
-            </li>
-            <li class="submenu">
-              <a href="${pageContext.request.contextPath}/category/list.do">카테고리</a>
             </li>
             <li class="has_submenu"><a href="#">리뷰</a>
               <ul>
@@ -144,10 +118,14 @@
             </li>
             <li class="has_submenu">
               <a href="#">다이어리</a>
-              <ul>
-                <li><a href="invoice-print.html">강아지</a></li>
-                <li><a href="profile.html">고양이</a></li>
-                <li><a href="my-properties.html">기타</a></li>
+                 <ul>
+                <li>
+                  <a href="${pageContext.request.contextPath}/diary/list_paging.do?category_no=1">강아지</a>
+                </li>
+                <li>
+                  <a href="${pageContext.request.contextPath}/diary/list_paging.do?category_no=2">고양이</a>
+                </li>
+                <li><a href="${pageContext.request.contextPath}/diary/list_paging.do?category_no=3">기타</a></li>
               </ul>
             </li>
             <li class="current-menu-item has_submenu"><a href="#">About</a>
@@ -157,7 +135,7 @@
               </ul>
             </li>
             <li class="current-menu-item submenu">
-              <a href="#">이벤트</a>
+              <a href="${pageContext.request.contextPath}/event/create.do">이벤트</a>
               </li>
               <li class="has_submenu"><a href="#">관리</a>
                 <ul>
@@ -167,7 +145,13 @@
                 <li><a href="blog-detail.html">blog Details</a></li>
                 <li><a href="blog-detail-full.html">blog Details V2</a></li>
                 </ul>
-              </li>              
+              </li>         
+              <li class="has_submenu"><a href="#">Q&A</a>
+                <ul>
+                <li><a href="${pageContext.request.contextPath}/qna/qna_list.do?qnacategory_no=1">상품 문의</a></li>
+                <li><a href="${pageContext.request.contextPath}/qna/qna_list.do?qnacategory_no=2">리뷰 문의</a></li>
+                </ul>
+              </li>               
             </ul>
           </nav>
         </div>
