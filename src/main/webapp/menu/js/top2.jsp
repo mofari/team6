@@ -71,41 +71,8 @@
         <div class="container" id="menu-nav">
           <nav id="navigation">
             <ul>
-              <li class="has_submenu">
-                <a href="#">Home</a>
-                <ul>
-                  <li><a href="index-property-slide.html">carousel Property</a></li>
-                  <li class="has_submenu">
-                    <a href="#">carousel</a>
-                    <ul>
-                      <li><a href="index-carousel.html">Menu Base</a></li>
-                      <li><a href="index-carousel-v2.html">Menu V2</a></li>
-                      <li><a href="index-carousel-v3.html">Menu V3</a></li>
-                      <li><a href="index-carousel-v4.html">Menu V4</a></li>
-                      <li><a href="index-carousel-v5.html">Menu V5 + FullHeight</a></li>
-                    </ul>
-                  </li>
-                  <li class="has_submenu">
-                    <a href="#">Interactive Map</a>
-                    <ul>
-                      <li><a href="index-map.html">Menu Base</a></li>
-                      <li><a href="index-map-v2.html">Menu V2</a></li>
-                      <li><a href="index-map-v3.html">Menu V3</a></li>
-                      <li><a href="index-map-v4.html">Menu V4</a></li>
-                      <li><a href="index-map-v5.html">Menu V5 + FullHeight</a></li>
-                    </ul>
-                  </li>
-                  <li class="has_submenu">
-                    <a href="#">carousel + Search</a>
-                    <ul>
-                      <li><a href="index-search.html">Menu Base</a></li>
-                      <li><a href="index-search-v2.html">Menu V2</a></li>
-                      <li><a href="index-search-v3.html">Menu V3</a></li>
-                      <li><a href="index-search-v4.html">Menu V4</a></li>
-                      <li><a href="index-search-v5.html">Menu V5 + FullHeight</a></li>
-                    </ul>
-                  </li>
-                </ul>
+              <li class="submenu">
+                <a href="${pageContext.request.contextPath}/index.jsp">Home</a>
               </li>
               <li class="has_submenu">
                 <a href="#">Properties</a>
