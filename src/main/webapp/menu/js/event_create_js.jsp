@@ -9,10 +9,8 @@
   <script src="${pageContext.request.contextPath}/resources/script/vendor/images-fill/imagesloaded.min.js"></script>     <!-- Loaded image with ImageFill -->
   <script src="${pageContext.request.contextPath}/resources/script/vendor/images-fill/imagefill.min.js"></script>          <!-- ImageFill Script -->
   <script src="${pageContext.request.contextPath}/resources/script/vendor/easydropdown/jquery.easydropdown.min.js"></script> <!-- Select list Script -->
-  <script src="${pageContext.request.contextPath}/resources/script/vendor/death/death.min.js"></script>              <!-- Edit Textarea -->
   <script src="${pageContext.request.contextPath}/resources/script/vendor/noui-slider/nouislider.all.min.js"></script>       <!-- Range Slider -->
-  <script src="${pageContext.request.contextPath}/resources/script/vendor/dropzone/dropzone.min.js"></script>          <!-- Dropzone Upload Image Script -->
-  <script src="${pageContext.request.contextPath}/resources/script/vendor/dropzone/custom.js"></script>            <!-- Dropzone custom Script -->
   <script src="${pageContext.request.contextPath}/resources/script/vendor/carousel/responsiveCarousel.min.js"></script>    <!-- Carousel Script -->
-
+    <script src="${pageContext.request.contextPath}/resources/script/bootstrap-filestyle.min.js"></script>                          <!-- file style -->
+    
   <script src="${pageContext.request.contextPath}/resources/script/custom.js"></script>    <!-- Custom Script -->
