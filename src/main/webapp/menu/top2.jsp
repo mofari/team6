@@ -65,7 +65,7 @@
         </div>      
       </div><!-- /.info -->
       <div class="logo hidden-xs">
-        <a href="#"><img id="logo-header" src="${pageContext.request.contextPath}/resources/images/logo.jpg"  alt="Logo" /></a>
+        <a href="#"><img id="logo-header" src="${pageContext.request.contextPath}/resources/images/logo-lovepet3_2.png" alt="Logo" /></a>
       </div><!-- /.logo -->
       <div class="menu-navbar">
         <div class="container" id="menu-nav">
