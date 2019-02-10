@@ -12,10 +12,7 @@ String root = request.getContextPath();  // 절대 경로
 
   <div id="page-container">
     <c:import url="/menu/top.jsp" />
-    
-  
-   
-
+     
         <c:import url="/menu/bottom.jsp" />
     
     <div class="modal fade login-modal" tabindex="-1" role="dialog" aria-hidden="true">

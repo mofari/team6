@@ -38,6 +38,7 @@
   <context:component-scan base-package="dev.mvc.qna" />
   <context:component-scan base-package="dev.mvc.diary" />
   <context:component-scan base-package="dev.mvc.diary_reply" />
+  <context:component-scan base-package="dev.mvc.proreport" />
   <context:component-scan base-package="nation.web.tool" />
   
   

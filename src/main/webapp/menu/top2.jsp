@@ -96,25 +96,8 @@
                 
               </ul>
             </li>
-            <li class="has_submenu">
-              <a href="#">상품</a>
-              <ul>
-                <li class="has_submenu">
-                <a href="create-agency.html">강아지</a>
-                <ul>
-                    <li><a href="agents-listing.html">사료</a></li>
-                    <li><a href="agents-listing-v2.html">간식</a></li>
-                  </ul>
-                </li>
-                <li class="has_submenu">
-                  <a href="#">고양이</a>
-                  <ul>
-                    <li><a href="agents-listing.html">사료</a></li>
-                    <li><a href="agents-listing-v2.html">간식</a></li>
-                  </ul>
-                </li>
-                <li><a href="agent-detail.html">기타</a></li>
-              </ul>
+            <li class="current-menu-item submenu">
+              <a href="${pageContext.request.contextPath}/product/list.do">상품</a>
             </li>
             <li class="has_submenu">
               <a href="#">다이어리</a>
@@ -128,12 +111,6 @@
                 <li><a href="${pageContext.request.contextPath}/diary/list_paging.do?category_no=3">기타</a></li>
               </ul>
             </li>
-            <li class="current-menu-item has_submenu"><a href="#">About</a>
-              <ul>
-                <li><a href="about.html">About Version 1</a></li>
-                <li><a href="about-v2.html">About Version 2</a></li>
-              </ul>
-            </li>
             <li class="current-menu-item submenu">
               <a href="${pageContext.request.contextPath}/event/create.do">이벤트</a>
               </li>
@@ -141,9 +118,7 @@
                 <ul>
                 <li><a href="${pageContext.request.contextPath}/mnf/list.do">제조사</a></li>
                 <li><a href="${pageContext.request.contextPath}/country/list.do">제조국</a></li>
-                <li><a href="blog-v3.html">blog V3</a></li>
-                <li><a href="blog-detail.html">blog Details</a></li>
-                <li><a href="blog-detail-full.html">blog Details V2</a></li>
+                <li><a href="${pageContext.request.contextPath}/proreport/list.do">상품수정 요청</a></li>
                 </ul>
               </li>         
               <li class="has_submenu"><a href="#">Q&A</a>
