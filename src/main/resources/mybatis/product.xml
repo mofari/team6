@@ -13,7 +13,7 @@ INSERT INTO product(product_no,
 							product_like, product_visible, product_rpcnt, product_rvcnt, product_rdate, product_udate)
 VALUES((SELECT NVL(MAX(product_no), 0)+1 AS product_no FROM product), 
 							#{manufacturer_no}, #{country_no}, #{category_no}, #{product_name}, #{product_img}, #{material}, #{product_introimg}, #{product_target},
-							#{product_weight}, #{product_price}, #{product_wprotein}, #{product_wfat}, #{product_wash}, #{product_wfiber}, #{product_wcalcium}, #{product_wp},
+							#{product_weight}, #{product_price}, #{product_wprotain}, #{product_wfat}, #{product_wash}, #{product_wfiber}, #{product_wcalcium}, #{product_wp},
                             0, 'Y', 0, 0, sysdate, null)
     </insert>
     
@@ -22,15 +22,195 @@ VALUES((SELECT NVL(MAX(product_no), 0)+1 AS product_no FROM product),
         WHERE procate_upno = 0
     </select>
     
-            <select id="select_category_two" resultType="CategoryVO" parameterType="int">
+    <select id="select_category_two" resultType="CategoryVO" parameterType="int">
         SELECT * FROM category
         WHERE procate_upno = #{categoryno}
     </select>
+    
+    <select id="readcategory" resultType="CategoryVO" parameterType="int">
+        SELECT * FROM category
+        WHERE category_no = #{categoryno}
+    </select>
+    
     
     <select id="country_list" resultType="CountryVO">
         SELECT * FROM country 
     ORDER BY country_name ASC
     </select>
     
+        <select id="manufacturer_list" resultType="ManufacturerVO">
+        SELECT * FROM manufacturer 
+    ORDER BY manufacturer_name ASC
+    </select>
+
+  <select id="list" resultType="OutProductVO" parameterType="HashMap">
+  SELECT * FROM (SELECT 
+    a.product_no, a.manufacturer_no, a.country_no, a.category_no, a.product_name, a.product_img,
+    a.material, a.product_introimg, a.product_target, a.product_weight, a.product_price, a.product_wprotein, a.product_wfat, a.product_wash,
+    a.product_wfiber, a.product_wcalcium, a.product_wp, a.product_like, a.product_visible, a.product_rpcnt, a.product_rvcnt,
+    a.product_rdate, a.product_udate,
+    b.category_title,
+    c.country_name,
+    d.manufacturer_name, d.manufacturer_img,
+    rownum as r
+    FROM (SELECT *
+      FROM product
+      WHERE 1 = 1
+      <choose>
+        <when test="word == null or word == ''"> <!-- 검색하지 않는 경우 -->
+        </when>
+        <otherwise> <!-- 검색하는 경우 -->
+         AND LOWER(product_name) LIKE '%' || LOWER(#{word}) || '%'
+        </otherwise>
+      </choose>
+      
+      <choose>
+        <when test="manno == null or manno == ''"> <!-- 검색하지 않는 경우 -->
+        </when>
+        <otherwise> <!-- 검색하는 경우 -->
+         AND manufacturer_no = #{manno}
+        </otherwise>
+      </choose>
+      
+      <choose>
+        <when test="trcate == null or trcate == ''"> <!-- 3카테고리가 없는 경우 -->
+              <choose>
+                <when test="secate == null or secate == ''"> <!-- 2카테고리가 없는 경우 -->
+                  
+                  <choose>
+                    <when test="ficate == null or ficate == ''"> <!-- 1카테고리가 없는 경우 -->
+                    </when>
+                    <otherwise> <!-- 검색하는 경우 -->
+                      AND category_no IN (
+                        SELECT bb.category_no FROM (
+                          SELECT * FROM category WHERE procate_upno = #{ficate}
+                        ) aa, category bb WHERE aa.category_no = bb.procate_upno
+                      )
+                    </otherwise>
+                  </choose>
+                </when>
+                <otherwise> <!-- 검색하는 경우 -->
+                  AND category_no IN (
+                    SELECT category_no FROM category WHERE procate_upno = #{secate}
+                  )
+                </otherwise>
+              </choose>
+        </when>
+        <otherwise> <!-- 검색하는 경우 -->
+         AND category_no = #{trcate}
+        </otherwise>
+      </choose>
+      ORDER BY product_no DESC) a, category b, country c, manufacturer d
+    WHERE a.category_no = b.category_no AND a.country_no = c.country_no
+    AND a.manufacturer_no = d.manufacturer_no)
+  WHERE <![CDATA[ r >= #{startNum} AND r <= #{endNum} ]]>
+  </select>
     
+    <select id="listcount" resultType="int" parameterType="HashMap">
+    SELECT COUNT(*) as cnt FROM product
+    WHERE 1 = 1
+    <choose>
+      <when test="word == null or word == ''"> <!-- 검색하지 않는 경우 -->
+      </when>
+      <otherwise> <!-- 검색하는 경우 -->
+    AND LOWER(product_name) LIKE '%' || LOWER(#{word}) || '%'
+      </otherwise>
+    </choose>
+    <choose>
+        <when test="trcate == null or trcate == ''"> <!-- 3카테고리가 없는 경우 -->
+              <choose>
+                <when test="secate == null or secate == ''"> <!-- 2카테고리가 없는 경우 -->
+                  
+                  <choose>
+                    <when test="ficate == null or ficate == ''"> <!-- 1카테고리가 없는 경우 -->
+                    </when>
+                    <otherwise> <!-- 검색하는 경우 -->
+                      AND category_no IN (
+                        SELECT bb.category_no FROM (
+                          SELECT * FROM category WHERE procate_upno = #{ficate}
+                        ) aa, category bb WHERE aa.category_no = bb.procate_upno
+                      )
+                    </otherwise>
+                  </choose>
+                </when>
+                <otherwise> <!-- 검색하는 경우 -->
+                  AND category_no IN (
+                    SELECT category_no FROM category WHERE procate_upno = #{secate}
+                  )
+                </otherwise>
+              </choose>
+        </when>
+        <otherwise> <!-- 검색하는 경우 -->
+         AND category_no = #{trcate}
+        </otherwise>
+      </choose>
+  </select>
+    
+  <delete id="delete" parameterType="int">
+      DELETE product
+      WHERE product_no = #{prono}
+    </delete>
+    
+    <select id="read" resultType="OutProductVO" parameterType="int">
+  SELECT 
+    a.product_no, a.manufacturer_no, a.country_no, a.category_no, a.product_name, a.product_img,
+    a.material, a.product_introimg, a.product_target, a.product_weight, a.product_price, a.product_wprotein, a.product_wfat, a.product_wash,
+    a.product_wfiber, a.product_wcalcium, a.product_wp, a.product_like, a.product_visible, a.product_rpcnt, a.product_rvcnt,
+    a.product_rdate, a.product_udate,
+    b.category_title,
+    c.country_name,
+    d.manufacturer_name, d.manufacturer_img
+    FROM product a, category b, country c, manufacturer d
+    WHERE a.category_no = b.category_no AND a.country_no = c.country_no
+    AND a.manufacturer_no = d.manufacturer_no AND a.product_no = #{prono}
+    </select>
+    
+    <select id="findlike" parameterType="HashMap" resultType="int">
+      SELECT COUNT(*) as count 
+      FROM prolike
+      WHERE member_no = #{memno} AND product_no = #{prono}
+    </select>
+    
+    <insert id="like" parameterType="HashMap">
+      INSERT INTO prolike(prolike_no, member_no, product_no, prolike_rdate)
+      VALUES ((SELECT NVL(MAX(prolike_no), 0)+1 AS prolike_no FROM prolike), #{memno}, #{prono}, sysdate)
+    </insert>
+    
+    <update id="likeup" parameterType="int">
+      UPDATE product
+      SET product_like = product_like+1
+      WHERE product_no = #{prono}
+    </update>
+    
+    <delete id="delike" parameterType="HashMap">
+      DELETE prolike
+      WHERE member_no = #{memno} AND product_no = #{prono}
+    </delete>
+    
+    <update id="likedown" parameterType="int" >
+      UPDATE product
+      SET product_like = product_like-1
+      WHERE product_no = #{prono}
+    </update>
+    
+    <update id="update" parameterType="ProductVO">
+    UPDATE  product
+    SET country_no = #{country_no},
+         category_no = #{category_no},
+         product_name = #{product_name},
+         product_img = #{product_img},
+         material = #{material},
+         product_introimg = #{product_introimg},
+         product_target = #{product_target},
+         product_weight = #{product_weight},
+         product_price = #{product_price},
+         product_wprotein = #{product_wprotain},
+         product_wfat = #{product_wfat},
+         product_wash = #{product_wash},
+         product_wfiber = #{product_wfiber},
+         product_wcalcium = #{product_wcalcium},
+         product_wp = #{product_wp},
+         product_udate = sysdate
+    WHERE product_no = #{product_no}
+    </update>
 </mapper>

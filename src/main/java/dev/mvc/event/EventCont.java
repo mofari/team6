@@ -7,12 +7,14 @@ import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -138,12 +140,20 @@ public class EventCont {
  @RequestMapping(value = "/event/read.do", method = RequestMethod.GET)
  public ModelAndView read(int event_no) {
    ModelAndView mav = new ModelAndView();
-   mav.setViewName("/event/read"); // /webapp/contents/read.jsp
-
-   EventVO eventVO = eventProc.read(event_no);
    
+   EventVO eventVO = eventProc.read(event_no);
    mav.addObject("eventVO", eventVO);
-
+   mav.addObject("good_cnt", eventVO.getEvent_good());
+   
+   HashMap<String, Object> hashMap = new HashMap<String, Object>();
+   hashMap.put("event_no", event_no);
+   hashMap.put("member_no", eventVO.getMember_no());
+   
+   int like_check = eventProc.like_check(hashMap);
+   mav.addObject("like_check", like_check);
+   
+   mav.setViewName("/event/read"); // /webapp/contents/read.jsp
+   
    return mav;
  }
  
@@ -218,7 +228,7 @@ public class EventCont {
    EventVO eventVO = eventProc.read(event_no);
    mav.addObject("eventVO", eventVO);
 
-   ArrayList<FileVO> file_list = eventProc.getThumbs(eventVO);
+   ArrayList<Event_FileVO> file_list = eventProc.getThumbs(eventVO);
 
    mav.addObject("file_list", file_list);
 
@@ -412,6 +422,42 @@ public class EventCont {
    mav.setViewName("redirect:/event/delete_message.jsp?count=" + count);
 
    return mav;
+ }
+ 
+ /**
+  * 좋아요 <-> 좋아요 해제
+  * @param event_no
+  * @return
+  */
+ @ResponseBody
+ @RequestMapping(value = "/event/like_change.do", method = RequestMethod.GET, produces = "text/plain;charset=UTF-8")
+ public String like_change(int event_no) {
+   System.out.println("--> like_change() GET executed");
+   
+   EventVO eventVO = eventProc.read(event_no);
+   int member_no = eventVO.getMember_no();
+   
+   JSONObject obj = new JSONObject();
+   HashMap<String, Object> hashMap = new HashMap<String, Object>();
+   hashMap.put("event_no", event_no);
+   hashMap.put("member_no", member_no);
+   
+   int like_check = eventProc.like_check(hashMap);    // 좋아요 테이블에서 회원이 좋아요 했는지 안했는지 카운트로 확인 ( 1: 누름 / 0: 안누름)
+   
+   if(like_check == 0){  // 안누른 상태 (= 좋아요를 누른다면)
+     eventProc.like_member_insert(hashMap);  // 좋아요 테이블에 좋아요한 회원 추가
+     eventProc.like_up(event_no);    // 좋아요 갯수 증가
+   } else if(like_check == 1) {  // 누른 상태 (= 좋아요 취소시)
+     eventProc.like_member_delete(hashMap);  // 좋아요 테이블에 좋아요한 회원 삭제
+     eventProc.like_down(event_no);    // 좋아요 갯수 감소
+   }
+   eventVO = eventProc.read(event_no);
+   
+   obj.put("like_check", like_check);    // 성공시 1
+   obj.put("good_cnt", eventVO.getEvent_good());
+   
+   return obj.toString();
+   
  }
  
 }

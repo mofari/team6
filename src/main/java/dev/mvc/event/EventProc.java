@@ -32,8 +32,8 @@ public class EventProc implements EventProcInter {
   }
   
   @Override
-  public ArrayList<FileVO> getThumbs(EventVO eventVO) {
-    ArrayList<FileVO> file_list = new ArrayList<FileVO>();
+  public ArrayList<Event_FileVO> getThumbs(EventVO eventVO) {
+    ArrayList<Event_FileVO> file_list = new ArrayList<Event_FileVO>();
     
     String thumbs = eventVO.getEvent_thumb(); // xmas01_2_t.jpg/xmas02_2_t.jpg...
     String files = eventVO.getEvent_img();          // xmas01_2.jpg/xmas02_2.jpg...
@@ -52,7 +52,7 @@ public class EventProc implements EventProcInter {
       for (int index = 0; index < count; index++) {
         sizes_array[index] = Tool.unit(new Integer(sizes_array[index]));  // 1024 -> 1KB
       
-        FileVO fileVO = new FileVO(thumbs_array[index], files_array[index], sizes_array[index]);
+        Event_FileVO fileVO = new Event_FileVO(thumbs_array[index], files_array[index], sizes_array[index]);
         file_list.add(fileVO);
       }
     } 
@@ -196,6 +196,31 @@ public class EventProc implements EventProcInter {
   @Override
   public int delete(int event_no) {
     return eventDAO.delete(event_no);
+  }
+
+  @Override
+  public int like_check(HashMap hashMap) {
+    return eventDAO.like_check(hashMap);
+  }
+
+  @Override
+  public int like_up(int event_no) {
+    return eventDAO.like_up(event_no);
+  }
+
+  @Override
+  public int like_down(int event_no) {
+    return eventDAO.like_down(event_no);
+  }
+
+  @Override
+  public int like_member_insert(HashMap hashMap) {
+    return eventDAO.like_member_insert(hashMap);
+  }
+
+  @Override
+  public int like_member_delete(HashMap hashMap) {
+    return eventDAO.like_member_delete(hashMap);
   }
   
 

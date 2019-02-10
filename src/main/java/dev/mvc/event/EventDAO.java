@@ -58,4 +58,29 @@ public class EventDAO implements EventDAOInter{
     return sqlSessionTemplate.update("event.increaseView", event_no);
   }
 
+  @Override
+  public int like_check(HashMap hashMap) {
+    return sqlSessionTemplate.selectOne("event.like_check", hashMap);
+  }
+
+  @Override
+  public int like_up(int event_no) {
+    return sqlSessionTemplate.update("event.like_up", event_no);
+  }
+
+  @Override
+  public int like_down(int event_no) {
+    return sqlSessionTemplate.update("event.like_down", event_no);
+  }
+
+  @Override
+  public int like_member_insert(HashMap hashMap) {
+    return sqlSessionTemplate.insert("event.like_member_insert",hashMap);
+  }
+
+  @Override
+  public int like_member_delete(HashMap hashMap) {
+    return sqlSessionTemplate.delete("event.like_member_delete",hashMap);
+  }
+
 }

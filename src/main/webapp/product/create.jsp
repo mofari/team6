@@ -108,18 +108,67 @@ function selcate2(){
                     </c:forEach>
                   </select>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-12" style="margin-bottom: 14px;">
                   <label for="subject">Manufacturer</label>
-                  <input type="text" class="margin-bottom form-control" id="manufacturer" name="manufacturer" placeholder="제조사" required>
+                  <select id="manufacturer" name="manufacturer">
+                    <option value="">제조사 선택</option>
+                    <c:forEach var="manufacturerVO" items="${manufacturer_list}">
+                    <option value="${manufacturerVO.manufacturer_no}">${manufacturerVO.manufacturer_name}</option>
+                    </c:forEach>
+                  </select>
                 </div>
                 <div class="col-md-12">
-                  <label for="text-message">Webpage</label>
-                  <input type="text" class="margin-bottom form-control" id="webpageurl" name="webpageurl" placeholder="URL" required>
+                  <label for="text-message">Name</label>
+                  <input type="text" class="margin-bottom form-control" id="name" name="name" placeholder="제품명" required>
                 </div>
-
+                <div class="col-md-12">
+                  <label for="text-message">Material</label>
+                  <input type="text" class="margin-bottom form-control" id="material" name="material" placeholder="재료" required>
+                </div>
+                <div class="col-md-12">
+                  <label for="text-message">Target</label>
+                  <input type="text" class="margin-bottom form-control" id="target" name="target" placeholder="상품 타겟" required>
+                </div>
+                <div class="col-md-12">
+                  <label for="text-message">Weight</label>
+                  <input type="text" class="margin-bottom form-control" id="weight" name="weight" placeholder="상품 중량" required>
+                </div>
+                <div class="col-md-12">
+                  <label for="text-message">Price</label>
+                  <input type="text" class="margin-bottom form-control" id="price" name="price" placeholder="상품 가격" required>
+                </div>
+                
+                <div class="col-md-4">
+                  <label for="text-message">조단백</label>
+                  <input type="number" class="margin-bottom form-control" step="0.1" id="wprotein" name="wprotein" placeholder="조단백" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="text-message">조지방</label>
+                  <input type="number" class="margin-bottom form-control" step="0.1" id="wfat" name="wfat" placeholder="조지방" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="text-message">조회분</label>
+                  <input type="number" class="margin-bottom form-control" step="0.1" id="wash" name="wash" placeholder="조회분" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="text-message">조섬유</label>
+                  <input type="number" class="margin-bottom form-control" step="0.1" id="wfiber" name="wfiber" placeholder="조섬유" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="text-message">칼슘</label>
+                  <input type="number" class="margin-bottom form-control" step="0.1" id="wcalcium" name="wcalcium" placeholder="칼슘" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="text-message">인</label>
+                  <input type="number" class="margin-bottom form-control" step="0.1" id="wp" name="wp" placeholder="인" required>
+                </div>
                 <div class="col-md-12 margin-bottom">
-                   <label for="text-message">Logo Image</label>
-                   <input type="file" class="margin-bottom form-control" id="img" name="img" placeholder="로고">
+                   <label for="text-message">Image</label>
+                   <input type="file" class="margin-bottom form-control" id="img" name="img" placeholder="상품이미지">
+                </div>
+                <div class="col-md-12 margin-bottom">
+                   <label for="text-message">Intro Image</label>
+                   <input type="file" class="margin-bottom form-control" id="introimg" name="introimg" placeholder="상품이미지">
                 </div>
               </div>
               <div style="text-align: right;">

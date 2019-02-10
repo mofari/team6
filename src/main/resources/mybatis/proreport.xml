@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="proreport"> <!-- 테이블명 사용 -->
+
+  <select id="readproduct" parameterType="int" resultType="ProductVO">
+    SELECT * FROM product
+    WHERE product_no = #{prono}
+  </select>
+  
+  <insert id="create" parameterType="ProreportVO">
+    INSERT INTO proreport(proreport_no,
+                  product_no, member_no, proreport_title, proreport_doc, proreport_img, proreport_rdate)
+VALUES((SELECT NVL(MAX(proreport_no), 0)+1 as proreport_no FROM proreport),
+                  #{product_no}, #{member_no}, #{proreport_title}, #{proreport_doc}, #{proreport_img}, sysdate)
+  </insert>
+ 
+  
+    <select id="list" resultType="OutProreportVO" parameterType="HashMap">
+    SELECT * FROM (
+      SELECT a.proreport_no, a.product_no, a.member_no, a.proreport_title, a.proreport_doc, a.proreport_img, a.proreport_rdate, b.product_name, b.product_weight, rownum as r
+      FROM proreport a, product b
+      WHERE a.product_no = b.product_no
+      ORDER BY proreport_no DESC
+    )
+    WHERE <![CDATA[ r >= #{startNum} AND r <= #{endNum} ]]>
+  </select>
+  
+  <select id="listcount" resultType="int" parameterType="HashMap">
+    SELECT COUNT(*) as cnt FROM proreport
+  </select>
+  
+  <update id="reportup" parameterType="ProreportVO">
+    UPDATE product
+    SET product_rpcnt = product_rpcnt+1
+    WHERE product_no = #{product_no}
+  </update>
+    <update id="reportdown" parameterType="int">
+    UPDATE product
+    SET product_rpcnt = product_rpcnt-1
+    WHERE product_no = #{product_no}
+  </update>
+  
+  <delete id="delete" parameterType="int">
+    DELETE FROM proreport
+    WHERE product_no = #{prono}
+  </delete>
+  
+  <select id="detail" parameterType="int" resultType="OutProreportVO">      
+    SELECT a.proreport_no, a.product_no, a.member_no, a.proreport_title, a.proreport_doc, a.proreport_img, a.proreport_rdate, b.product_name, b.product_weight, rownum as r
+    FROM proreport a, product b
+    WHERE a.product_no = b.product_no AND a.proreport_no = #{rptno}
+  </select>
+
+</mapper>

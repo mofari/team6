@@ -31,7 +31,7 @@ public interface EventProcInter {
    * @param eventVO
    * @return
    */
-  public ArrayList<FileVO> getThumbs(EventVO eventVO);
+  public ArrayList<Event_FileVO> getThumbs(EventVO eventVO);
   
   /**
    * 총 레코드 개수
@@ -68,6 +68,41 @@ public interface EventProcInter {
    * @return
    */
   public int delete(int event_no);
+  
+  /**
+   * 좋아요 체크
+   * @param hashMap
+   * @return
+   */
+  public int like_check(HashMap hashMap);
+  
+  /**
+   * 좋아요 증가
+   * @param event_no
+   * @return
+   */
+  public int like_up(int event_no);
+  
+  /**
+   * 좋아요 다운
+   * @param event_no
+   * @return
+   */
+  public int like_down(int event_no);
+
+  /**
+   * 좋아요 멤버 등록
+   * @param hashMap
+   * @return
+   */
+  public int like_member_insert(HashMap hashMap);
+
+  /**
+   * 좋아요 멤버 삭제
+   * @param hashMap
+   * @return
+   */
+  public int like_member_delete(HashMap hashMap);
   
 
 }

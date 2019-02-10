@@ -12,7 +12,7 @@
   position: absolute;
   padding: 20px;
   top: 0%;
-  width: 262px;
+  width: calc(100% - 30px);
   height: 100%;
   background: #030303bb;
   color: #fff;
@@ -72,7 +72,7 @@
                 <div class="col-md-3" style="margin-bottom: 24px;">
                   <div class="recent-post" style="margin-bottom: 0px;">
                     <a href="./update.do?manno=${manufacturerVO.manufacturer_no }" class="image image-fill" style="overflow: hidden; line-height: 160px">
-                      <img src="${pageContext.request.contextPath}/manufacturer/storage/${manufacturerVO.manufacturer_img}" alt="Image Sample" class="" style="width: 262px; height: auto; left: 0px; vertical-align: middle;">
+                      <img src="${pageContext.request.contextPath}/manufacturer/storage/${manufacturerVO.manufacturer_img}" alt="Image Sample" class="" style="width: 100%; max-height: 100%; left: 0px; vertical-align: middle;">
 
                     </a><!-- /.image -->
                     <div class="body">

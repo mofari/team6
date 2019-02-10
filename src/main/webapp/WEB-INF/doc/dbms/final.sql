@@ -545,3 +545,17 @@ COMMENT ON COLUMN diary_like.diary_like_no is '이벤트좋아요번호';
 COMMENT ON COLUMN diary_like.diary_like_rdate is '등록일';
 COMMENT ON COLUMN diary_like.diary_no is '이벤트 번호';
 COMMENT ON COLUMN diary_like.member_no is '회원번호';
+
+
+
+
+ALTER TABLE product ADD CONSTRAINT IDX_product_FK0 FOREIGN KEY (manufacturer_no) REFERENCES manufacturer (manufacturer_no);
+ALTER TABLE product ADD CONSTRAINT IDX_product_FK1 FOREIGN KEY (country_no) REFERENCES country (country_no);
+ALTER TABLE product ADD CONSTRAINT IDX_product_FK2 FOREIGN KEY (category_no) REFERENCES category (category_no);
+
+
+ALTER TABLE prolike ADD CONSTRAINT IDX_prolike_FK0 FOREIGN KEY (product_no) REFERENCES product (product_no);
+ALTER TABLE prolike ADD CONSTRAINT IDX_prolike_FK1 FOREIGN KEY (member_no) REFERENCES member (member_no);
+
+ALTER TABLE proreport ADD CONSTRAINT IDX_proreport_FK0 FOREIGN KEY (product_no) REFERENCES product (product_no);
+ALTER TABLE proreport ADD CONSTRAINT IDX_proreport_FK1 FOREIGN KEY (member_no) REFERENCES member (member_no);
