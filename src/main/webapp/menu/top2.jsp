@@ -112,7 +112,7 @@
               </ul>
             </li>
             <li class="current-menu-item submenu">
-              <a href="${pageContext.request.contextPath}/event/create.do">이벤트</a>
+              <a href="${pageContext.request.contextPath}/event/list_event_paging.do">이벤트</a>
               </li>
               <li class="has_submenu"><a href="#">관리</a>
                 <ul>
