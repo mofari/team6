@@ -6,11 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
-
-<script type="text/JavaScript"
-        src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-<script src="http://malsup.github.com/jquery.form.js"></script> 
 <script type="text/javascript">
 
 $(document).ready(function() {
@@ -64,7 +59,7 @@ function send_response(data, state){
                    <label for="text-message">Logo Image</label><br>
                    <div class="col-sm-3 col-md-2" id="edit-image">
                      <!-- avatar -->
-                   <a onclick="alert('이미지 변경 즉시 적용됩니다');document.getElementById('img').click();" class="avatar image-fill" style="overflow: hidden; position: relative; width: 165px; height: auto;">
+                   <a onclick="document.getElementById('img').click();" class="avatar image-fill" style="overflow: hidden; position: relative; width: 165px; height: auto;">
                    <c:choose>
                    <c:when test="${manufacturerVO.manufacturer_img eq 'default-user-image.png' }">
                    <img src="${pageContext.request.contextPath}/resources/images/${manufacturerVO.manufacturer_img }" id="image" name="image" style="width: 100%; height: auto; top: -6.5px; left: 0px;">
