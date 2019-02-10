@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <title>문의 등록</title>    
+    <title>댓글 등록</title>    
     <style>
     input[type="checkbox"] {
   position: absolute;
@@ -127,11 +127,12 @@ input:checked + label span {
       <span class="cover"></span>
     </section><!-- /#header -->
     
-<FORM name='frm' method='POST' action='./create.do'
+<FORM name='frm' method='POST' action='./reply.do'
                enctype="multipart/form-data" class="form-horizontal">
                <input type="hidden" name="nowPage" value="${param.nowPage}"> 
               <input type='hidden' name='qna_visible' id='qna_visible' value="Y">
               <input type='hidden' name='member_no' id='member_no' value='3'>
+              <input type='' name='qna_no' id='qna_no' value="${param.qna_no}">
     <section id="new-property">
       <div class="container">
         <div class="row">
@@ -144,22 +145,19 @@ input:checked + label span {
             </ul>
           </div>
           <div class="col-sm-9 col-md-9">
-            <div class="info-block" id="basic">
+            <div class="info-block" id="pet">
               <div class="section-title line-style no-margin">
                 <h3 class="title">문의유형 선택</h3>
               </div> 
               <div class="row">
                 <div class="col-md-12 space-form">
                 <div style="font-size: 13px; margin-bottom: 6px; color: #1fb7a6;">문의유형</div>
-                  <select id="qnacategory_no" name="qnacategory_no" >
-                    <c:forEach var ="qnacateVO"  items="${qnacate_list }">
-                      <option value="${qnacateVO.qnacategory_no }">${qnacateVO.qnacategory_name }</option>
-                    </c:forEach>
+                  <select id="qnacategory_no" name="qnacategory_no" disabled="disabled" >
+                    <option value="${qnacateVO.qnacategory_no }">${qnacateVO.qnacategory_name }</option>
                   </select>
                 </div>
                 </div>
             </div>
-            
             <div class="info-block" id="info" >
               <div class="section-title line-style no-margin" style="margin-top: 30px;">
                 <h3 class="title">정보 입력</h3>

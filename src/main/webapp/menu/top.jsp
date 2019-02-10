@@ -108,7 +108,7 @@
                   <a href="${pageContext.request.contextPath}/category/list.do">리뷰/상품 카테고리</a>
                 </li>
                 <li>
-                  <a href="${pageContext.request.contextPath}/qna/list.do">Q&A 카테고리</a>
+                  <a href="${pageContext.request.contextPath}/qna/cate_qna.jsp">Q&A 카테고리</a>
                 </li>
               </ul>
             </li>

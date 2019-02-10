@@ -113,7 +113,7 @@
                   <a href="${pageContext.request.contextPath}/category/list.do">리뷰/상품 카테고리</a>
                 </li>
                 <li>
-                  <a href="${pageContext.request.contextPath}/qna/list.do">Q&A 카테고리</a>
+                  <a href="${pageContext.request.contextPath}/qna/cate_qna.jsp">Q&A 카테고리</a>
                 </li>
               </ul>
             </li>
@@ -181,7 +181,8 @@
               </li>         
               <li class="has_submenu"><a href="#">Q&A</a>
                 <ul>
-                <li><a href="${pageContext.request.contextPath}/qna/cate_qna.do?qnacategory=1">상품 문의</a></li>
+                <li><a href="${pageContext.request.contextPath}/qna/qna_list.do?qnacategory_no=1">상품 문의</a></li>
+                <li><a href="${pageContext.request.contextPath}/qna/qna_list.do?qnacategory_no=2">리뷰 문의</a></li>
                 </ul>
               </li>               
             </ul>

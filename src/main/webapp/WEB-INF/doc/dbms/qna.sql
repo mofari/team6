@@ -1,7 +1,15 @@
 --조회
 SELECT qnacategory_no, qnacategory_name, qnacategory_ids FROM qnacategory;
-SELECT *FROM qna;
+SELECT qna_no,qna_visible, qna_title, qna_ansnum, qna_grpno, qna_indent FROM qna;
+SELECT* FROM qna;
 
+ QNA_NO QNA_TITLE      							QNA_ANSNUM 		QNA_GRPNO 		QNA_INDENT
+ ------ --------------															 ---------- 						--------- 						----------
+      1 상품 문의 있어요             									  0        								 1          							0
+      2 리뷰 작성 어떻게 해요??          					0        								 2        							  0
+
+SELECT COUNT(*) as cnt FROM qna WHERE qna_no=6 AND qna_pw=1111
+      
 DROP TABLE qna;
 DROP TABLE qnacategory;
 --생성
@@ -20,14 +28,13 @@ COMMENT ON COLUMN qnacategory.qnacategory_no is 'QNA 카테고리 번호';
 COMMENT ON COLUMN qnacategory.qnacategory_name is '카테고리 이름';
 COMMENT ON COLUMN qnacategory.qnacategory_ids is '접근 계정';
 
-
 /**********************************/
 /* Table Name: 질문과 답변 */
 /**********************************/
 CREATE TABLE qna(
 		qna_no                        		NUMBER(10)		 NOT NULL		 PRIMARY KEY,
 		qna_title                     		VARCHAR2(50)		 NOT NULL,
-		qna_content                      		VARCHAR2(50)		 NOT NULL,
+		qna_content                      		VARCHAR2(500)		 NOT NULL,
 		qna_image                     		VARCHAR2(100)		 NULL ,
 		qna_visible                       		VARCHAR2(100)	DEFAULT 'Y' NOT NULL,
 		qna_pw														VARCHAR2(50)			NULL,
@@ -37,6 +44,7 @@ CREATE TABLE qna(
 		qna_grpno                     		NUMBER(10)		 NULL ,
 		qna_indent                    		NUMBER(10)	DEFAULT 0 NOT	 NULL ,
 		qna_ansnum                    		NUMBER(10)	DEFAULT 0 NOT	 NULL ,
+		word																	 VARCHAR2(100) NULL ,
   FOREIGN KEY (member_no) REFERENCES member (member_no),
   FOREIGN KEY (qnacategory_no) REFERENCES qnacategory (qnacategory_no)
 );
@@ -54,8 +62,12 @@ COMMENT ON COLUMN qna.member_no is '회원번호';
 COMMENT ON COLUMN qna.qna_grpno is '그룹번호';
 COMMENT ON COLUMN qna.qna_indent is '답변 차수';
 COMMENT ON COLUMN qna.qna_ansnum is '답변 순서';
+COMMENT ON COLUMN qna.word is '검색어';
 
 
+
+ALTER TABLE qna add word VARCHAR2(100) NULL;
+COMMENT ON COLUMN qna.word is '검색어';
 --등록
 
 /* qnacategory 테이블 등록*/
