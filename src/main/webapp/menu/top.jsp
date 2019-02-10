@@ -117,6 +117,12 @@
                 <li><a href="${pageContext.request.contextPath}/proreport/list.do">상품수정 요청</a></li>
               </ul>
             </li>
+            <li class="has_submenu"><a href="#">Q&A</a>
+                <ul>
+                <li><a href="${pageContext.request.contextPath}/qna/qna_list.do?qnacategory_no=1">상품 문의</a></li>
+                <li><a href="${pageContext.request.contextPath}/qna/qna_list.do?qnacategory_no=2">리뷰 문의</a></li>
+                </ul>
+              </li>      
           </ul>
         </nav>
       </div>
