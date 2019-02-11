@@ -34,38 +34,39 @@ String root = request.getContextPath();  // 절대 경로
     
 <div class="gallery"  style="position: relative;">
   <div class="row"  style="margin: 70px 70px 30px 70px;">
+  
      <div class="col-md-3">
-        <img src='${pageContext.request.contextPath}/menu/images/diary.png'  alt="Sample images" class="img-responsive" style="width: 250px;
-    height: 250px; border: 1px solid #d1d1d1;">
+        <img src='${pageContext.request.contextPath}/menu/images/diary.png'  alt="Sample images" class="img-responsive" style="border: 1px solid #d1d1d1;">
         <div style="text-align: center; margin-top: 5px;">
         <span style="font-size: 17px; font-weight: 600;">러브펫 다이어리</span> <br>
         <button class="btn btn-reverse  select-button" style="color: #1fb7a6; font-size: 17px;    margin-top: 8px;
           margin-bottom: 5px;">자세히 알아보기 →</button></div>
       </div>
+      
      <div class="col-md-3">
-        <img src='${pageContext.request.contextPath}/menu/images/review.png'   alt="Sample images" class="img-responsive" style="width: 250px;
-    height: 250px; border: 1px solid #d1d1d1;">
+        <img src='${pageContext.request.contextPath}/menu/images/review.png'   alt="Sample images" class="img-responsive" style="border: 1px solid #d1d1d1;">
          <div style="text-align: center; margin-top: 5px;">
          <span style="font-size: 17px; font-weight: 600;">사료/간식 리뷰</span> <br>
         <button class="btn btn-reverse  select-button" style="color: #1fb7a6; font-size: 17px;    margin-top: 8px;
           margin-bottom: 5px;">자세히 알아보기 →</button></div>
       </div>
+      
       <div class="col-md-3">
-         <img src='${pageContext.request.contextPath}/menu/images/event.png'  alt="Sample images" class="img-responsive" style="width: 250px;
-    height: 250px; border: 1px solid #d1d1d1;">
+         <img src='${pageContext.request.contextPath}/menu/images/event.png'  alt="Sample images" class="img-responsive" style="border: 1px solid #d1d1d1;">
         <div style="text-align: center; margin-top: 5px;">
         <span style="font-size: 17px; font-weight: 600;">러브펫 이벤트</span> <br>
         <button class="btn btn-reverse  select-button" style="color: #1fb7a6; font-size: 17px;    margin-top: 8px;
           margin-bottom: 5px;">자세히 알아보기 →</button></div>
        </div>
+       
         <div class="col-md-3">
-           <img src='${pageContext.request.contextPath}/menu/images/product.png'  alt="Sample images" class="img-responsive" style="width: 250px;
-    height: 250px; border: 1px solid #d1d1d1;">
+           <img src='${pageContext.request.contextPath}/menu/images/product.png'  alt="Sample images" class="img-responsive" style="border: 1px solid #d1d1d1;">
          <div style="text-align: center; margin-top: 5px;">
          <span style="font-size: 17px; font-weight: 600;">사료/간식 상품</span> <br>
         <button class="btn btn-reverse  select-button" style="color: #1fb7a6; font-size: 17px;    margin-top: 8px;
           margin-bottom: 5px;">자세히 알아보기 →</button></div>
         </div>
+        
     </div>
 <!--     <div style="height: 190px;width: 100%;background-color: #eaeaea;bottom: -30px;position: absolute;z-index: -1;">
     </div> -->
