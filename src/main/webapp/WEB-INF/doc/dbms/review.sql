@@ -547,11 +547,12 @@ WHERE category_no=1;
 
 DELETE FROM Category;   
 
-
+DELETE FROM act;
+DELETE FROM pet;
 
 INSERT INTO act(act_no, act_name) VALUES ((SELECT NVL(MAX(act_no), 0)+1 as act_no FROM act),'마스터');
 INSERT INTO act(act_no, act_name) VALUES ((SELECT NVL(MAX(act_no), 0)+1 as act_no FROM act),'회원');
-SELECT *FROM act;
+SELECT *FROM pet;
 
 INSERT INTO member(member_no, member_name, member_email, member_passwd, 
 member_nickname, member_image, member_tel, member_zipcode, member_address,member_address2
