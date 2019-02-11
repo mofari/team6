@@ -187,4 +187,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     WHERE r.product_no = p.product_no AND m.member_no = #{member_no} AND r.category_no = #{category_no}
     ORDER BY r.review_rdate DESC
   </select>
+  
+  <select id="pet_read_mem" resultType="PetVO" parameterType="int">
+    SELECT pet_no, pet_name, pet_age, pet_weight, 
+    pet_kind, pet_image, pet_gender, pet_specific, member_no
+    FROM pet
+    WHERE member_no=#{member_no}
+  </select>
 </mapper>

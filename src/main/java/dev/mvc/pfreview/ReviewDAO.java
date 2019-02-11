@@ -130,7 +130,10 @@ public class ReviewDAO implements ReviewDAOInter {
     return sqlSessionTemplate.selectList("review.pet_category", hashMap);
   }
 
-
+  @Override
+  public List<PetVO> pet_read_mem(int member_no) {
+    return sqlSessionTemplate.selectList("review.pet_read_mem", member_no);
+  }
 
 
 }

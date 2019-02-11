@@ -36,7 +36,7 @@
                                 nation.web.tool" />
     <property name="mapperLocations" value="classpath:mybatis/*.xml" />
   </bean> 
-  
+   
   <!-- Spring이 MyBATIS를 사용할 때 호출하는 객체 -->
   <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
     <constructor-arg ref="sqlSessionFactory"/>

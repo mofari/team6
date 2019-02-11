@@ -241,4 +241,8 @@ public class ReviewProc implements ReviewProcInter {
     return reviewDAO.pet_category(hashMap);
   }
 
+  @Override
+  public List<PetVO> pet_read_mem(int member_no) {
+    return reviewDAO.pet_read_mem(member_no);
+  }
 }

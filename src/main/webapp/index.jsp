@@ -3,33 +3,18 @@
 
 <!DOCTYPE html>
 <html lang="ko">
+<style>
 
-  <body class="fixed-header">
+</style>
+  <body class="fixed-header"> 
 
-  <div id="page-container">
-      <c:import url="/menu/top.jsp" />
+  <div id="page-container"> 
+    <c:import url="/menu/top.jsp" />
      
-      
-    
-    <section id="coming-soon" class="fixed-no-header">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-md-offset-2">
-
-            <div class="clock hidden-xs"></div>
-            <div class="message hidden-xs"></div>
-
-            <h2 class="line-broken">OUR NEW WEBSITE IS COMING SOON</h2>
-            <div class="text">
-              Our website is under construction, we are working very hard to give you the best experience with this one.<br />
-              We'll be here soon, subscribe to be notified.
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
-
+     
+ 
+  </div>
+ 
     <c:import url="/menu/bottom.jsp" />
 
     <div class="modal fade login-modal" tabindex="-1" role="dialog" aria-hidden="true">

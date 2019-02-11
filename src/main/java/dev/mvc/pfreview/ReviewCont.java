@@ -70,7 +70,7 @@ public class ReviewCont {
     System.out.println("--> create() GET executed");
     ModelAndView mav = new ModelAndView();
     
-    List<PetVO> pet_list = petProc.read(3);
+    List<PetVO> pet_list = petProc.read(1);
     mav.addObject("pet_list", pet_list);
     
     CategoryVO categoryVO = categoryProc.read(category_no);
@@ -252,7 +252,7 @@ public class ReviewCont {
     ModelAndView mav = new ModelAndView();
     mav.setViewName("/review/update"); // /webapp/review/update.jsp
 
-    List<PetVO> pet_list = petProc.read(3);
+    List<PetVO> pet_list = petProc.read(1);
     mav.addObject("pet_list", pet_list);
     
     Review_MemberVO review_memberVO = reviewProc.read(review_no);
