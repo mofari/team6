@@ -7,13 +7,117 @@ String root = request.getContextPath();  // 절대 경로
 
 <!DOCTYPE html>
 <html lang="ko">
+  <head>
+    <title>러브펫</title>
+  </head>
+  
 
   <body class="fixed-header">
 
   <div id="page-container">
     <c:import url="/menu/top.jsp" />
+    
+    
+    <section id="welcome" style="margin-top: 120px; margin-bottom: 80px;">
+     <img alt="welcome"  src='${pageContext.request.contextPath}/menu/images/main.PNG'  style="width: 100%; height: 550px;">
+    </section>
+    
+    <div style="text-align: center;">
+    <b style="font-size: 35px;"><strong>나의 소중한 반려동물</strong></b> <br>
+    <p style="font-size: 25px; font-weight: 400;">러브펫과 함께 최적의 사료 간식을 찾아보세요</p>
+    </div>
+    
+    <div style="text-align: center; font-size: 20px; font-weight: 400; margin: 60px 0px 40px 0px">
+    나를 위해 함께해주는 반려동물을 위한 <br>
+    다양한 사료들과 간식 브랜드 까지
+    </div>
+    
+<div class="gallery"  style="position: relative;">
+  <div class="row"  style="margin: 70px 70px 30px 70px;">
+     <div class="col-md-3">
+        <img src='${pageContext.request.contextPath}/menu/images/diary.png'  alt="Sample images" class="img-responsive" style="width: 250px;
+    height: 250px; border: 1px solid #d1d1d1;">
+        <div style="text-align: center; margin-top: 5px;">
+        <span style="font-size: 17px; font-weight: 600;">러브펫 다이어리</span> <br>
+        <button class="btn btn-reverse  select-button" style="color: #1fb7a6; font-size: 17px;    margin-top: 8px;
+          margin-bottom: 5px;">자세히 알아보기 →</button></div>
+      </div>
+     <div class="col-md-3">
+        <img src='${pageContext.request.contextPath}/menu/images/review.png'   alt="Sample images" class="img-responsive" style="width: 250px;
+    height: 250px; border: 1px solid #d1d1d1;">
+         <div style="text-align: center; margin-top: 5px;">
+         <span style="font-size: 17px; font-weight: 600;">사료/간식 리뷰</span> <br>
+        <button class="btn btn-reverse  select-button" style="color: #1fb7a6; font-size: 17px;    margin-top: 8px;
+          margin-bottom: 5px;">자세히 알아보기 →</button></div>
+      </div>
+      <div class="col-md-3">
+         <img src='${pageContext.request.contextPath}/menu/images/event.png'  alt="Sample images" class="img-responsive" style="width: 250px;
+    height: 250px; border: 1px solid #d1d1d1;">
+        <div style="text-align: center; margin-top: 5px;">
+        <span style="font-size: 17px; font-weight: 600;">러브펫 이벤트</span> <br>
+        <button class="btn btn-reverse  select-button" style="color: #1fb7a6; font-size: 17px;    margin-top: 8px;
+          margin-bottom: 5px;">자세히 알아보기 →</button></div>
+       </div>
+        <div class="col-md-3">
+           <img src='${pageContext.request.contextPath}/menu/images/product.png'  alt="Sample images" class="img-responsive" style="width: 250px;
+    height: 250px; border: 1px solid #d1d1d1;">
+         <div style="text-align: center; margin-top: 5px;">
+         <span style="font-size: 17px; font-weight: 600;">사료/간식 상품</span> <br>
+        <button class="btn btn-reverse  select-button" style="color: #1fb7a6; font-size: 17px;    margin-top: 8px;
+          margin-bottom: 5px;">자세히 알아보기 →</button></div>
+        </div>
+    </div>
+<!--     <div style="height: 190px;width: 100%;background-color: #eaeaea;bottom: -30px;position: absolute;z-index: -1;">
+    </div> -->
+ </div>
+    
+  <div style="margin-top: 60px; margin-bottom: 15px; background-color: #dfdfdf;">
+  <div style="padding: 30px;">
+    <div style="text-align: center;font-size: 35px;font-weight: 400;">
+      이달의 인기 상품
+    </div>
+    </div>
+    
+    요따가 집어넣으면 됨
+    
+  </div>
+    
+  <div>
+   <div style="padding: 30px;">
+    <div style="text-align: center; font-size: 35px; font-weight: 400; ">
+    러브펫 리얼 리뷰
+    </div>
+    <div style="text-align: center; margin-top: 15px; font-size: 18px;">러브펫 이용자들의 리뷰를 확인해보세요!</div>
+    </div>
+    
+     요따가 집어넣으면 됨
+    
+  </div>
+  
+  <div style="background-color:#1fb7a694; padding: 30px;">
+  <div style="text-align: center;font-size: 35px;font-weight: 400;">
+  러브펫 Q & A
+  </div>
+  <div style="text-align: center; margin-top: 15px; font-size: 18px;">
+  궁금하신 사항이 있으면, 언제든지 문의해주세요! <br><br>
+      <button class="btn btn-reverse  select-button" style="color: #1fb7a6; font-size: 17px;    margin-top: 8px;
+      margin-bottom: 5px;">문의하기 ▶</button>
+    </div>
+  </div> 
+
+   <div style="padding: 30px;"> </div>
+ 
+  
+  
+  
+ </div> <!-- page end -->
+ 
+
+    
+    
      
-        <c:import url="/menu/bottom.jsp" />
+    <c:import url="/menu/bottom.jsp" />
+
     
     <div class="modal fade login-modal" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog">

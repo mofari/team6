@@ -497,7 +497,7 @@ COMMENT ON COLUMN diary.diary_no is '다이어리 번호';
 COMMENT ON COLUMN diary.category_no is '카테고리 번호';
 COMMENT ON COLUMN diary.member_no is '회원 번호';
 COMMENT ON COLUMN diary.diary_content is '다이어리 내용';
-COMMENT ON COLUMN diary.diary_like is '다이어리 내용';
+COMMENT ON COLUMN diary.diary_like is '다이어리 좋아요';
 COMMENT ON COLUMN diary.diary_cnt is '다이어리 조회수';
 COMMENT ON COLUMN diary.diary_rcnt is '다이어리 댓글수';
 COMMENT ON COLUMN diary.diary_like is '다이어리 좋아요 수';
