@@ -178,32 +178,12 @@
             ${eventVO.event_good}
           </div>
           <div style="display: inline-block; color: #bdbdbd;">
-            <img alt="good images" src='./images/comment.png'  style="width: 13px;margin-right: 3px;">
-            ${eventVO.event_comment}
-          </div>
-          <div style="display: inline-block; color: #bdbdbd;">
             <img alt="good images" src='./images/view.png'  style="width: 13px;margin-right: 3px;">
             ${eventVO.event_view}
           </div>
       </div>
       
 
-      
-      <%--댓글 등록 --%>
-      <div id="panel_create" style="">
-          <h3 class="title-form" style="margin-left: 20px; font-size: 15px;  font-weight: 600;"><img alt="good images" src="./images/comment.png" style="width: 23px;"> 댓글을 달아주세요~ </h3>
-              <form class="form-large grey-color" action="./create.do" method="post" id="frm_create" name="frm_create"  style="border-top: 1px solid #E5E5E5;">
-              <input type="hidden" value="2" id="member_no" name="member_no">
-                <div class="row">
-                  <div class="col-md-12">
-                    <textarea name="text-message" id="text-message" rows="4" class="margin-bottom form-control"  required disabled placeholder="로그인을 해주세요"></textarea>
-                  </div>
-                </div>
-                <button type="button" id="submit" name="submit" class="btn btn-default" onclick="create()" style="margin-left: 91%;">등록</button>
-              </form> 
-          </div>
-          <%--댓글 등록 폼 END --%>
-          
           
 				</div>
       </div>
