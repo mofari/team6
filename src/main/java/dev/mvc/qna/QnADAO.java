@@ -1,5 +1,6 @@
 package dev.mvc.qna;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -50,5 +51,37 @@ public class QnADAO implements QnADAOInter{
   public int qna_create(QnAVO qnaVO) {
     return sqlSessionTemplate.insert("qna.qna_create", qnaVO);
   }
+
+  @Override
+  public List<QnAVO> list_by_category_search_paging(HashMap<String, Object> hashMap) {
+    return sqlSessionTemplate.selectList("qna.list_by_category_search_paging2", hashMap);
+  }
+
+  @Override
+  public int search_count(HashMap hashMap) {
+    return sqlSessionTemplate.selectOne("qna.search_count", hashMap);
+  }
+
+  @Override
+  public QnAVO qna_read(int qna_no) {
+    return sqlSessionTemplate.selectOne("qna.qna_read", qna_no);
+  }
+
+  @Override
+  public int updateAnsnum(QnAVO qnaVO) {
+    return sqlSessionTemplate.update("qna.updateAnsnum", qnaVO); 
+  }
+
+  @Override
+  public int reply(QnAVO qnaVO) {
+    return sqlSessionTemplate.insert("qna.reply", qnaVO);
+  }
+
+  @Override
+  public int qna_pw(QnAVO qnaVO) {
+    return sqlSessionTemplate.selectOne("qna.qna_pw", qnaVO);
+  }
+
+
   
 }

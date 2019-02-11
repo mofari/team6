@@ -144,7 +144,7 @@ input:checked + label span {
             </ul>
           </div>
           <div class="col-sm-9 col-md-9">
-            <div class="info-block" id="pet">
+            <div class="info-block" id="basic">
               <div class="section-title line-style no-margin">
                 <h3 class="title">문의유형 선택</h3>
               </div> 
@@ -173,7 +173,7 @@ input:checked + label span {
               <div class="row">
                <div class="col-md-12 space-form"  style="margin-top: 30px;">
                 <div style="font-size: 13px; margin-bottom: 6px; color: #1fb7a6;">공개 여부</div>
-                  <input type="checkbox" id="qna_visible2" name="qna_visible2"   onclick="check_event()" checked>
+                  <input  type="checkbox" id="qna_visible2" name="qna_visible2"   onclick="check_event()" checked>
                   <label for="qna_visible2"><span></span></label>
                </div>
               </div>

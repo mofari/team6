@@ -20,14 +20,15 @@ public class QnAVO {
   private String qna_image;
   private String qna_visible;
   private String qna_pw;
-  private String pna_date;
+  private String qna_date;
   private int qnacategory_no;
   private int member_no;
   private int qna_grpno;
   private int qna_indent;
   private int qna_ansnum;
+  private String word;
   
-  
+  private String member_nickname;
   
   public QnAVO() {
     super();
@@ -36,7 +37,8 @@ public class QnAVO {
 
 
   public QnAVO(int qna_no, String qna_title, String qna_content, String qna_image, String qna_visible, String qna_pw,
-      String pna_date, int qnacategory_no, int member_no, int qna_grpno, int qna_indent, int qna_ansnum) {
+      String qna_date, int qnacategory_no, int member_no, int qna_grpno, int qna_indent, int qna_ansnum, 
+      String member_nickname, String word) {
     super();
     this.qna_no = qna_no;
     this.qna_title = qna_title;
@@ -44,12 +46,14 @@ public class QnAVO {
     this.qna_image = qna_image;
     this.qna_visible = qna_visible;
     this.qna_pw = qna_pw;
-    this.pna_date = pna_date;
+    this.qna_date = qna_date;
     this.qnacategory_no = qnacategory_no;
     this.member_no = member_no;
     this.qna_grpno = qna_grpno;
     this.qna_indent = qna_indent;
     this.qna_ansnum = qna_ansnum;
+    this.member_nickname = member_nickname;
+    this.word = word;
   }
 
 
@@ -113,13 +117,13 @@ public class QnAVO {
   }
 
 
-  public String getPna_date() {
-    return pna_date;
+  public String getQna_date() {
+    return qna_date;
   }
 
 
-  public void setPna_date(String pna_date) {
-    this.pna_date = pna_date;
+  public void setQna_date(String qna_date) {
+    this.qna_date = qna_date;
   }
 
 
@@ -170,6 +174,26 @@ public class QnAVO {
 
   public void setQna_ansnum(int qna_ansnum) {
     this.qna_ansnum = qna_ansnum;
+  }
+
+
+  public String getMember_nickname() {
+    return member_nickname;
+  }
+
+
+  public void setMember_nickname(String member_nickname) {
+    this.member_nickname = member_nickname;
+  }
+
+
+  public String getWord() {
+    return word;
+  }
+
+
+  public void setWord(String word) {
+    this.word = word;
   }
   
   

@@ -1,57 +1,5 @@
 1. 테이블 구조
-DROP TABLE review;
-DROP TABLE rgood;
-DROP TABLE reply;
-DROP TABLE Category;
 
-SELECT *FROM product;
-
-SELECT COUNT(*) as cnt FROM rgood WHERE review_no=9 AND member_no=3
-SELECT review_no, review_title, review_file FROM review WHERE member_no=3;
-
-SELECT review_good FROM review WHERE review_no=8;
-SELECT COUNT(*) as cnt FROM rgood WHERE review_no=1 AND member_no=2
-
-SELECT r.review_no, r.review_title, r.review_thumb, r.review_grade, r.review_good, r.review_rdate, r.category_no, 
-                  m.member_nickname, r.review_file, p.product_no, p.product_name, p.product_price, p.product_img
-      FROM review r, member m, product p 
-      WHERE r.category_no=1 AND r.member_no = m.member_no AND r.product_no=p.product_no
-      
-      
-SELECT review_no, review_title, review_thumb, review_grade, review_good, review_rdate, category_no, review_reply_cnt,
-                  member_nickname, review_file, product_no, product_name, product_price, product_img, rownum as r
-                  FROM (
-                  SELECT r.review_no, r.review_title, r.review_thumb, r.review_grade, r.review_good, r.review_rdate, r.category_no, r.review_reply_cnt,
-                                  m.member_nickname, r.review_file, p.product_no, p.product_name, p.product_price, p.product_img
-                      FROM review r, member m, product p 
-                        WHERE r.category_no=1 AND r.member_no = m.member_no 
-                        AND r.product_no=p.product_no                                                   
-                      ORDER BY r.review_no DESC
-                      )
-                      
-SELECT rownum as no,
-    				r.review_no, r.review_title, r.review_grade, r.review_good, r.review_rdate, r.review_file, r.review_reply_cnt, r.category_no,
-						 p.product_no, p.product_name, p.product_img,
-						 m.member_no, m.member_nickname, m.member_image
-    FROM review r, product p, member m
-    WHERE r.product_no = p.product_no AND m.member_no = 3
-    ORDER BY no ASC                      
-                      
-                      
-UPDATE review
-            SET review_title='hahaha', review_content='eeee',
-            review_thumb='a', review_file='b', review_size=3
-            WHERE review_no=5
-             
-            
-            
-SELECT review_no, review_file, review_thumb FROM REVIEW;
-    INSERT INTO review_reply(review_reply_no,review_no, 
-    member_no, review_reply_content, review_reply_rdate) 
-    VALUES ((SELECT NVL(MAX(review_reply_no), 0)+1 as review_reply_no 
-    FROM review_reply), 4, 2, '다음에도 구매할거에요 궁금했었는데 도움됐어요 구매해볼게요! 또 구매해요', sysdate)
-
-    SELECT review_no, review_good FROM review;
 /**********************************/
 /* Table Name: 리뷰 */
 /**********************************/
@@ -60,7 +8,7 @@ CREATE TABLE review(
 		product_no                    		NUMBER(10)		 NOT NULL,
 		member_no                     		NUMBER(10)		 NOT NULL,
 		review_title                  		VARCHAR2(100)		 NOT NULL,
-		review_content                		VARCHAR2(500)		 NOT NULL,
+		review_content                		CLOB		 NOT NULL,
 		review_thumb                  		VARCHAR2(500)		 NULL,
 		review_file                   		VARCHAR2(500)		 NULL,
 		review_size                   		VARCHAR2(1000)		 NULL,
@@ -71,17 +19,12 @@ CREATE TABLE review(
 		review_rdate                  		DATE		 NULL,
 		review_visible                		CHAR(1)		 NULL,
 		category_no                   		NUMBER(10)		NOT NULL,
-		pet_no																NUMBER NULL
-		FOREIGN KEY (product_no) REFERENCES product (product_no),
+		pet_no																NUMBER NULL,
+		word															  VARCHAR2(100) NULL,
+	FOREIGN KEY (product_no) REFERENCES product (product_no),
   FOREIGN KEY (category_no) REFERENCES Category (category_no),
   FOREIGN KEY (pet_no) REFERENCES pet (pet_no)
 );
-ALTER TABLE review ADD FOREIGN KEY (pet_no) REFERENCES pet(pet_no);
-
-ALTER TABLE review MODIFY category_no NUMBER(10) NOT NULL;
-ALTER TABLE Category MODIFY category_title VARCHAR2(20);
-ALTER TABLE Category MODIFY goods_cnt DEFAULT 0;
-SELECT pet_no FROM review;
 
 COMMENT ON TABLE review is '리뷰';
 COMMENT ON COLUMN review.review_no is '리뷰 번호';
@@ -100,15 +43,12 @@ COMMENT ON COLUMN review.review_rdate is '등록일';
 COMMENT ON COLUMN review.review_visible is '출력여부';
 COMMENT ON COLUMN review.category_no is '카테고리번호';
 COMMENT ON COLUMN review.pet_no is '반려동물 번호';
+COMMENT ON COLUMN review.word is '검색어';
 
-SELECT *FROM rgood;
-SELECT COUNT(*) as review_cnt
-    FROM review
-    WHERE category_no=1 AND review_title LIKE '%테스%'  
+
 /**********************************/
 /* Table Name: 리뷰 댓글 */
 /**********************************/
-    DELETE FROM review_reply
 CREATE TABLE review_reply(
 		review_reply_no               		NUMBER(10)		 NOT NULL		 PRIMARY KEY,
 		review_no                     		NUMBER(10)		 NULL ,
@@ -126,7 +66,6 @@ COMMENT ON COLUMN review_reply.member_no is '회원 번호';
 COMMENT ON COLUMN review_reply.review_reply_content is '내용';
 COMMENT ON COLUMN review_reply.review_reply_rdate is '등록일';
 
-SELECT *FROM review_reply;
 
 /**********************************/
 /* Table Name: 카테고리 */
@@ -153,28 +92,6 @@ COMMENT ON COLUMN Category.category_visible is '출력모드';
 COMMENT ON COLUMN Category.category_ids is '접근 계정';
 COMMENT ON COLUMN Category.procate_upno is '상위 카테고리 번호';
 COMMENT ON COLUMN Category.goods_cnt is '상품 갯수';
-
-
-SELECT *FROM Category;
-ALTER TABLE Category add category_ids VARCHAR2(30) NULL; 
-COMMENT ON COLUMN Category.category_ids is '접근 계정';
-
-ALTER TABLE Category add procate_upno NUMBER(10) DEFAULT 0 NOT NULL;
-COMMENT ON COLUMN Category.procate_upno is '상위 카테고리 번호';
-
-ALTER TABLE Category add goods_cnt NUMBER(10) NULL;
-COMMENT ON COLUMN Category.goods_cnt is '상품 갯수';
-
-ALTER TABLE review add review_size VARCHAR2(1000) NULL; 
-COMMENT ON COLUMN review.review_size is '파일 크기';
-
-ALTER TABLE review add pet_no NUMBER NULL;
-COMMENT ON COLUMN review.pet_no is '반려동물 번호';
-
-
-ALTER TABLE review add word VARCHAR2(100) NULL;
-COMMENT ON COLUMN review.word is '검색어';
-
 
 /**********************************/
 /* Table Name: 리뷰 좋아요 */
@@ -267,9 +184,6 @@ VALUES((SELECT NVL(MAX(review_no), 0)+1 as review_no FROM review),1, 2,
 '우리 고양이 간식 후기!!', '냥이가 잘 먹네요^^ 앞으로도 자주 사줘야겠어요',		
 '', '', 300, 4, 7, 3, 4, sysdate, 'Y');						 
 
-SELECT *FROM review;
-SELECT *FROM review_reply;
-
 
 /* review_reply 테이블 등록 */						 
 INSERT INTO review_reply(review_reply_no,review_no, 
@@ -296,10 +210,6 @@ FROM rgood), sysdate, 1, 2);
 INSERT INTO rgood(rgood_no, rgood_rdate, review_no, member_no)
 VALUES ((SELECT NVL(MAX(rgood_no), 0)+1 as rgood_no 
 FROM rgood), sysdate, 1, 3);
-
-SELECT *FROM rgood;
-SELECT *FROM review;
-
 
 /* Category 테이블 등록 */
 INSERT INTO Category(category_no, category_title, category_rdate, 
@@ -637,20 +547,4 @@ WHERE category_no=5;
 DELETE FROM review
 WHERE category_no=1;
 
-DELETE FROM Category;
-
-
--- 검색
-SELECT r.review_no, r.review_title, r.review_thumb, r.review_grade, r.review_good, r.review_rdate, r.category_no, 
-                  m.member_nickname, r.review_file, p.product_no, p.product_name, p.product_price, p.product_img
-      FROM review r, member m, product p 
-      WHERE r.category_no=1 AND r.member_no = m.member_no AND r.product_no=p.product_no
-      AND (r.review_title LIKE '%테%' OR p.product_name LIKE '%A%')
-      ORDER BY review_no DESC
-      
-      
-SELECT *FROM rgood;
-SELECT COUNT(*) as cnt FROM rgood WHERE review_no=1 AND member_no=32;
-
-
-      
+DELETE FROM Category;   

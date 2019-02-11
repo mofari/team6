@@ -417,15 +417,15 @@ public class ReviewCont {
     Review_MemberVO review_memberVO = reviewProc.read(category_no);
     mav.addObject("review_memberVO", review_memberVO);
     
-    int review_no=0;
+/*    int review_no=0;
     int product_no = 0;
     int review_grade=0;
     FileWriter fw = null; // 파일에 기록
     String createfile="C:\\ai3\\ws_frame\\team6_v1s4m3c\\src\\main\\java\\dev\\mvc\\pfreview\\csv\\csvfile.csv";
     try {
       fw = new FileWriter(createfile, true);
-      /*fw.append("리뷰번호,상품번호,별점");
-      fw.append('\n');*/
+      fw.append("리뷰번호,상품번호,별점");
+      fw.append('\n');
       
       if(create_count == 1){
         for(int i=0; i<1; i++){
@@ -450,7 +450,7 @@ public class ReviewCont {
     } catch (IOException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
-    }
+    }*/
    
   
     /*
@@ -650,8 +650,7 @@ public class ReviewCont {
   @RequestMapping(value = "/review/pet_category.do", method = RequestMethod.GET, produces = "text/plain;charset=UTF-8")
   public ResponseEntity pet_category(int category_no, int member_no) {
     HttpHeaders responseHeaders = new HttpHeaders();
-    
-    
+        
     HashMap<String, Object> hashMap = new HashMap<String, Object>();
     hashMap.put("category_no", category_no);
     hashMap.put("member_no", member_no);
@@ -659,7 +658,6 @@ public class ReviewCont {
     List<Review_MemberVO> pet_category_list = reviewProc.pet_category(hashMap);
     
     JSONArray json = new JSONArray(pet_category_list);
-    
 
     return new ResponseEntity(json.toString(), responseHeaders, HttpStatus.CREATED);
   }

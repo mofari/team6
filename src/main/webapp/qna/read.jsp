@@ -69,162 +69,41 @@
       </div><!-- /#breadcrumb -->
       <span class="cover"></span>
     </section><!-- /#header -->
-		<section id="user-profile">
-			<div class="container"> 
-				<div class="row">
-
-					<div class="col-sm-12 col-md-12">
-						<div class="section-title line-style no-margin">
-							<h3 class="title">My Propertiesd</h3>
-						</div>
-						<div class="table-responsive property-list">
-							<table class="table-striped table-hover">
-							  <thead>
-								<tr>
-									<th class="hidden-xs">&nbsp;</th>
-									<th>Images</th>
-									<th>Title</th>
-									<th class="hidden-xs">Type</th>
-									<th class="hidden-xs hidden-sm">Added</th>
-									<th class="hidden-xs">View</th>
-									<th>Status</th>
-									<th></th>
-								</tr>
-							  </thead>
-							  <tbody>
-								<tr>
-									<th class="hidden-xs"><input class="labelauty" type="checkbox" data-labelauty=" " checked/></th>
-									<td>
-										<span class="image image-fill">
-											<img src="http://placehold.it/1240x745/bbbbbb/ffffff" alt="Image Sample" />
-										</span>
-									</td>
-									<td><a href="property-detail.html">59 Paterson Ave</a> Hoboken, NJ 07030, USA</td>
-									<td class="hidden-xs">Apartement</td>
-									<td class="hidden-xs hidden-sm">20/05/2014</td>
-									<td class="hidden-xs">4723</td>
-									<td><span class="label label-success">Active</span></td>
-									<td><a href="#"><i class="icon fa fa-cog"></i></a></td>
-								</tr>
-								<tr>
-									<th class="hidden-xs"><input class="labelauty" type="checkbox" data-labelauty=" " checked/></th>
-									<td>
-										<span class="image image-fill">
-											<img src="http://placehold.it/1240x745/bbbbbb/ffffff" alt="Image Sample" />
-										</span>
-									</td>
-									<td><a href="property-detail.html">477 Jersey Ave</a>Jersey City, NJ 07302, USA</td>
-									<td class="hidden-xs">Apartement</td>
-									<td class="hidden-xs hidden-sm">19/05/2014</td>
-									<td class="hidden-xs">7278</td>
-									<td><span class="label label-success">Active</span></td>
-									<td><a href="#"><i class="icon fa fa-cog"></i></a></td>
-								</tr>
-								<tr>
-									<th class="hidden-xs"><input class="labelauty" type="checkbox" data-labelauty=" " checked/></th>
-									<td>
-										<span class="image image-fill">
-											<img src="http://placehold.it/1240x745/bbbbbb/ffffff" alt="Image Sample" />
-										</span>
-									</td>
-									<td><a href="property-detail.html">27 W 17th St</a> New York, NY 10011, USA</td>
-									<td class="hidden-xs">Apartement</td>
-									<td class="hidden-xs hidden-sm">16/05/2014</td>
-									<td class="hidden-xs">1370</td>
-									<td><span class="label label-success">Active</span></td>
-									<td><a href="#"><i class="icon fa fa-cog"></i></a></td>
-								</tr>
-								<tr>
-									<th class="hidden-xs"><input class="labelauty" type="checkbox" data-labelauty=" " checked/></th>
-									<td>
-										<span class="image image-fill">
-											<img src="http://placehold.it/1240x745/bbbbbb/ffffff" alt="Image Sample" />
-										</span>
-									</td>
-									<td><a href="property-detail.html">403 Bloomfield St</a> Hoboken, NJ 07030, USA</td>
-									<td class="hidden-xs">Cottage</td>
-									<td class="hidden-xs hidden-sm">14/05/2014</td>
-									<td class="hidden-xs">876</td>
-									<td><span class="label label-success">Active</span></td>
-									<td><a href="#"><i class="icon fa fa-cog"></i></a></td>
-								</tr>
-								<tr>
-									<th class="hidden-xs"><input class="labelauty" type="checkbox" data-labelauty=" " checked/></th>
-									<td>
-										<span class="image image-fill">
-											<img src="http://placehold.it/1240x745/bbbbbb/ffffff" alt="Image Sample" />
-										</span>
-									</td>
-									<td><a href="property-detail.html">339 Broadway</a> New York, NY 10013, USA</td>
-									<td class="hidden-xs">Villa</td>
-									<td class="hidden-xs hidden-sm">29/04/2014</td>
-									<td class="hidden-xs">4578</td>
-									<td><span class="label label-danger">Inactive</span></td>
-									<td><a href="#"><i class="icon fa fa-cog"></i></a></td>
-								</tr>
-								<tr>
-									<th class="hidden-xs"><input class="labelauty" type="checkbox" data-labelauty=" " checked/></th>
-									<td>
-										<span class="image image-fill">
-											<img src="http://placehold.it/1240x745/bbbbbb/ffffff" alt="Image Sample" />
-										</span>
-									</td>
-									<td><a href="property-detail.html">560 Marshall Dr</a> Hoboken, NJ 07056, USA</td>
-									<td class="hidden-xs">Apartement</td>
-									<td class="hidden-xs hidden-sm">22/04/2014</td>
-									<td class="hidden-xs">786</td>
-									<td><span class="label label-success">Active</span></td>
-									<td><a href="#"><i class="icon fa fa-cog"></i></a></td>
-								</tr>
-								<tr>
-									<th class="hidden-xs"><input class="labelauty" type="checkbox" data-labelauty=" " checked/></th>
-									<td>
-										<span class="image image-fill">
-											<img src="http://placehold.it/1240x745/bbbbbb/ffffff" alt="Image Sample" />
-										</span>
-									</td>
-									<td><a href="property-detail.html">223 E 6th St</a> New York, NY 10003, USA</td>
-									<td class="hidden-xs">Villa</td>
-									<td class="hidden-xs hidden-sm">20/04/2014</td>
-									<td class="hidden-xs">4768</td>
-									<td><span class="label label-danger">Inactive</span></td>
-									<td><a href="#"><i class="icon fa fa-cog"></i></a></td>
-								</tr>
-								<tr>
-									<th class="hidden-xs"><input class="labelauty" type="checkbox" data-labelauty=" " checked/></th>
-									<td>
-										<span class="image image-fill">
-											<img src="http://placehold.it/1240x745/bbbbbb/ffffff" alt="Image Sample" />
-										</span>
-									</td>
-									<td><a href="property-detail.html">435 Newark Ave</a> Jersey City, NJ 07302, USA</td>
-									<td class="hidden-xs">Building</td>
-									<td class="hidden-xs hidden-sm">19/03/2014</td>
-									<td class="hidden-xs">465</td>
-									<td><span class="label label-danger">Inactive</span></td>
-									<td><a href="#"><i class="icon fa fa-cog"></i></a></td>
-								</tr>
-							  </tbody>
-							</table>
-						</div><!-- /.table-responsive -->
-						<div class="pagination-content">
-							<ul class="pagination">
-							<li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
-							<li><a class="active" href="#">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a class="no-active">...</a></li>
-							<li><a href="#">9</a></li>
-							<li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
-							</ul><!-- /.pagination -->
-						</div><!-- /.pagination-content -->
-					</div>
-				</div>
-			</div>
-		</section>
+		
+        <section id="new-property" style="padding-top: 15px; background-color: #f6f6f6; ">
+      <div class="container"  style="max-width: 60%; background-color: white; ">
+       <div class="row">
+      <input type="hidden" name="qna_no" value="${param.qna_no}">
+       <div class="event_read_header" > 
+             <div class="event_read_headr_title" style="position: relative;">
+              <div class="event_read_headr_title_sub"  style="font-weight: 600; font-size: 20px; width: 80%;margin: 10px;">
+              <img src="./images/question.png" style="width:45px; height:45px; margin-right:10px">              
+              ${qnaVO.qna_title }
+              </div>
+              
+          </div> 
+       </div>
+        </div>
+      </div>
+      
+      <div class="container"  style="max-width: 60%; margin-top:3px; background-color: white; ">
+       <div class="row">        
+       <div class="event_read_header" > 
+             <div class="event_read_headr_title" style="position: relative;">
+              <div class="event_read_headr_title_sub"  style=" font-size: 18px; width: 80%;margin: 10px;">
+              ${qnaVO.qna_content }
+              </div>
+              <span style="float:right; margin-right:10px">${qnaVO.qna_date.substring(0, 16)}</span>
+          </div> 
+       </div>
+        </div>
+      </div>
+      
+      <button type="button" onclick="location.href='./reply.do?qna_no=${param.qna_no}&qnacategory_no=${param.qnacategory_no }'" style="margin-left:46%; margin-top:1%;" class="btn btn-default btn-sm">답변하기</button>
+      
+    </section>
 
 		 <c:import url="/menu/bottom.jsp" />
-
 
 		<div class="modal fade login-modal" tabindex="-1" role="dialog" aria-hidden="true">
 			<div class="modal-dialog">

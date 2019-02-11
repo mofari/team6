@@ -42,4 +42,84 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     (SELECT NVL(MAX(qna_grpno), 0) + 1 as qna_grpno FROM qna),
     #{qna_ansnum}, #{qna_indent}, #{qna_visible}, #{qna_pw}, sysdate, #{qnacategory_no}, #{member_no})
   </insert>
+  
+  
+  <!-- category별 검색된 레코드 목록 + 페이징 -->
+  <select id="list_by_category_search_paging2" resultType="QnAVO" parameterType="HashMap">
+    SELECT member_no, member_nickname, 
+           qna_no, qnacategory_no, qna_title, qna_content, qna_visible,
+           qna_date, word, qna_grpno, qna_indent, qna_ansnum, r
+    FROM (
+              SELECT member_no, member_nickname, 
+                     qna_no, qnacategory_no, qna_title, qna_content, qna_visible,
+                     qna_date, word, qna_grpno, qna_indent, qna_ansnum, rownum as r
+              FROM (
+                        SELECT m.member_no, m.member_nickname,
+                               q.qna_no, q.qnacategory_no, q.qna_title, q.qna_content, q.qna_visible,
+                               q.qna_date, q.word, q.qna_grpno, q.qna_indent, q.qna_ansnum
+                        FROM member m, qna q
+                        <choose>
+                          <when test="word == null or word == ''"> <!-- 검색하지 않는 경우 -->
+                            WHERE m.member_no = q.member_no AND qnacategory_no=#{qnacategory_no}
+                          </when>
+                          <otherwise> <!-- 검색하는 경우 -->
+                            WHERE m.member_no = q.member_no AND qnacategory_no=#{qnacategory_no} AND word LIKE '%' || #{word} || '%'  
+                          </otherwise>
+                        </choose>
+                        ORDER BY q.qna_grpno DESC, q.qna_ansnum ASC
+              )            
+    )
+    WHERE <![CDATA[ r >= #{startNum} AND r <= #{endNum} ]]> 
+    <!--     WHERE r >= #{startNum} AND r <= #{endNum} -->
+    
+  </select>
+  
+  
+    <!-- category별 검색된 레코드 갯수 -->
+  <select id="search_count" resultType="int" parameterType="HashMap">
+    SELECT COUNT(*) as cnt
+    FROM qna
+    <choose>
+      <when test="word == null or word == ''"> <!-- 검색하지 않는 경우 -->
+        WHERE qnacategory_no=#{qnacategory_no}
+      </when>
+      <otherwise>
+        WHERE qnacategory_no=#{qnacategory_no} AND word LIKE '%' || #{word} || '%'  
+      </otherwise>
+    </choose>
+  </select>
+  
+  
+  <select id="qna_read" parameterType="int" resultType="QnAVO">
+    SELECT qna_no, qna_title, qna_content, qna_visible, qna_date, qnacategory_no, member_no,
+    qna_grpno, qna_indent, qna_ansnum, word
+    FROM qna
+    WHERE qna_no=#{qna_no}
+  </select>
+  
+  
+  <!-- ******************** 답변 관련 시작 ******************** -->
+  <!-- 신규 답변을 최우선으로 출력하기위한 답변 순서 조절 -->
+  <update id='updateAnsnum' parameterType="QnAVO">
+    UPDATE qna
+    SET qna_ansnum = qna_ansnum + 1
+    WHERE qna_grpno = #{qna_grpno} AND qna_ansnum > #{qna_ansnum}
+  </update>  
+   
+  <!-- 답변 --> 
+  <insert id="reply" parameterType="QnAVO">
+    INSERT INTO qna(qna_no,
+                      qnacategory_no, member_no, qna_title, qna_content, qna_date, 
+                      qna_grpno, qna_indent, qna_ansnum)  
+    VALUES((SELECT NVL(MAX(qna_no), 0) + 1 as qna_no FROM qna),
+                #{qnacategory_no}, #{member_no}, #{qna_title}, #{qna_content}, sysdate,
+                #{qna_grpno}, #{qna_indent}, #{qna_ansnum})
+  </insert>
+  
+  <!-- ******************** 답변 관련 종료 ******************** -->
+  
+  
+  <select id="qna_pw" resultType="int" parameterType="QnAVO">
+    SELECT COUNT(*) as cnt FROM qna WHERE qna_no=#{qna_no} AND qna_pw=#{qna_pw}
+  </select>
 </mapper>
