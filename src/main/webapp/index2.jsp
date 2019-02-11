@@ -19,7 +19,7 @@ String root = request.getContextPath();  // 절대 경로
     
     
     <section id="welcome" style="margin-top: 120px; margin-bottom: 80px;">
-     <img alt="welcome"  src='${pageContext.request.contextPath}/menu/images/main.PNG'  style="width: 100%; height: 550px;">
+     <img alt="welcome"  src='${pageContext.request.contextPath}/menu/images/main3.PNG'  style="width: 100%; height: 550px;">
     </section>
     
     <div style="text-align: center;">
