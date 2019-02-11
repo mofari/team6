@@ -90,5 +90,5 @@ public interface ReviewDAOInter {
   
   public List<Review_MemberVO> pet_category(HashMap hashMap);
   
-  
+
 }

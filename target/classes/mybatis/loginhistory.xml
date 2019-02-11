@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "loginhistory">
+ 
+ 
+<!--  CREATE TABLE loginhistory(
+      loginhistory_loginno                NUMBER(10)       NOT NULL       PRIMARY KEY,
+      loginhistory_ip                     VARCHAR2(30)       NOT NULL,
+      loginhistory_email                  VARCHAR2(30)       NOT NULL,
+      loginhistory_time                   DATE       NOT NULL,
+      act_no                                 NUMBER(10)       NOT NULL,
+      member_no                           NUMBER(10)       NULL ,
+  FOREIGN KEY (member_no) REFERENCES member (member_no)
+);
+ -->
+
+   <!-- 로그인 내역 등록 -->
+  <insert id="create" parameterType="LoginhistoryVO">
+    INSERT INTO loginhistory(loginhistory_loginno, loginhistory_ip, loginhistory_email, loginhistory_time, act_no,member_no)
+    VALUES ((SELECT NVL(MAX(loginhistory_loginno), 0)+1 as loginhistory_loginno FROM loginhistory),
+            #{loginhistory_ip}, #{loginhistory_email}, sysdate, #{act_no}, #{member_no})
+  </insert>
+ 
+  <!--  로그인 내역 목록 -->
+  <select id="list" resultType="LoginhistoryVO">
+    SELECT loginhistory_loginno, loginhistory_ip, loginhistory_email, loginhistory_time, act_no, member_no
+    FROM loginhistory
+    ORDER BY loginhistory_loginno ASC
+  </select>
+  
+   <!-- 로그인 내역 정보 검색 -->
+  <select id="read" resultType="LoginhistoryVO" parameterType="int">
+    SELECT loginhistory_loginno, loginhistory_ip, loginhistory_email, loginhistory_time, act_no, member_no
+    FROM loginhistory
+    WHERE loginhistory_loginno=#{loginhistory_loginno}
+  </select>
+ 
+   <!--  로그인 내역 이메일로 검색 -->
+  <select id="readById" resultType="LoginhistoryVO" parameterType="String">
+    SELECT loginhistory_loginno, loginhistory_ip, loginhistory_email, loginhistory_time, act_no, member_no
+    FROM loginhistory
+    WHERE loginhistory_email=#{loginhistory_email}
+  </select>
+  
+     <!-- 권한으로 검색 -->
+  <select id="readByAct" resultType="LoginhistoryVO" parameterType="int">
+    SELECT loginhistory_loginno, loginhistory_ip, loginhistory_email, loginhistory_time, act_no, member_no
+    FROM loginhistory
+    WHERE act_no=#{act_no}
+  </select>
+  
+  <!-- 로그인 내역 삭제 -->
+  <delete id="delete" parameterType="int">
+    DELETE FROM loginhistory
+    WHERE loginhistory_loginno=#{loginhistory_loginno}
+  </delete>
+  
+  <select id="search_count" resultType="int" parameterType="HashMap">
+    SELECT COUNT(*) as cnt
+    FROM loginhistory
+  </select>
+  
+   <!-- 페이징 -->
+  <select id="list_loginhistory_paging" resultType="LoginhistoryVO" parameterType="HashMap">
+  SELECT * FROM (
+  SELECT loginhistory_loginno, loginhistory_ip, loginhistory_email, loginhistory_time, act_no, member_no, rownum as r
+    FROM loginhistory
+    ORDER BY loginhistory_loginno DESC
+    )
+    WHERE <![CDATA[ r >= #{startNum} AND r <= #{endNum} ]]>
+  </select>
+  
+</mapper> 

@@ -213,19 +213,19 @@ FROM rgood), sysdate, 1, 3);
 
 /* Category 테이블 등록 */
 INSERT INTO Category(category_no, category_title, category_rdate, 
-category_cnt, category_visible)
+category_cnt, category_visible, category_ids)
 VALUES ((SELECT NVL(MAX(category_no), 0)+1 as category_no 
-FROM Category), '개', sysdate, 2, 'Y');
+FROM Category), '강아지', sysdate, 0, 'Y', 'admin');
 
 INSERT INTO Category(category_no, category_title, category_rdate, 
-category_cnt, category_visible)
+category_cnt, category_visible, category_ids)
 VALUES ((SELECT NVL(MAX(category_no), 0)+1 as category_no 
-FROM Category), '고양이', sysdate, 5, 'Y');
+FROM Category), '고양이', sysdate, 0, 'Y', 'admin');
 
 INSERT INTO Category(category_no, category_title, category_rdate, 
-category_cnt, category_visible)
+category_cnt, category_visible, category_ids)
 VALUES ((SELECT NVL(MAX(category_no), 0)+1 as category_no 
-FROM Category), '기타', sysdate, 5, 'Y');
+FROM Category), '기타', sysdate, 0, 'Y', 'admin');
 
 -- 강아지 사료
 INSERT INTO Category(category_no, category_title, category_rdate, 
@@ -299,8 +299,6 @@ category_cnt, category_visible, category_ids, procate_upno)
 VALUES ((SELECT NVL(MAX(category_no), 0)+1 as category_no 
 FROM Category), '습식 간식', sysdate, 0, 'Y', 'admin', 11);
 
-
-INSERT INTO rgood(rgood_no, )
 
 
 
@@ -446,7 +444,7 @@ SET review_thumb = '3_1_t.jpg'
 WHERE review_no=1;
 
 UPDATE Category
-SET goods_cnt=0;
+SET category_cnt=0;
 
 SELECT *FROM Category;
 
@@ -548,3 +546,24 @@ DELETE FROM review
 WHERE category_no=1;
 
 DELETE FROM Category;   
+
+DELETE FROM act;
+DELETE FROM pet;
+
+INSERT INTO act(act_no, act_name) VALUES ((SELECT NVL(MAX(act_no), 0)+1 as act_no FROM act),'마스터');
+INSERT INTO act(act_no, act_name) VALUES ((SELECT NVL(MAX(act_no), 0)+1 as act_no FROM act),'회원');
+SELECT *FROM pet;
+
+INSERT INTO member(member_no, member_name, member_email, member_passwd, 
+member_nickname, member_image, member_tel, member_zipcode, member_address,member_address2
+,member_logintype,visible,member_date,act_no)
+VALUES ((SELECT NVL(MAX(member_no), 0)+1 as member_no FROM member),
+'김혜연', 'mofari96@gmail.com', '4825', 'mofari', '1.jpg', '010-8963-4825', 07929, '서울특별시 양천구 월정로 9길 20, ',
+'203-803','K','Y',sysdate,2);
+
+INSERT INTO pet(pet_no, pet_name, pet_age, pet_weight, pet_kind, pet_image, pet_gender, pet_specific, member_no)
+VALUES ((SELECT NVL(MAX(pet_no), 0)+1 as pet_no FROM pet), '달이', 5, 3, '토이 푸들', 'dali.jpg','암컷', '피부병',1);
+
+INSERT INTO pet(pet_no, pet_name, pet_age, pet_weight, pet_kind, pet_image, pet_gender, pet_specific, member_no)
+VALUES ((SELECT NVL(MAX(pet_no), 0)+1 as pet_no FROM pet), '별이', 4, 2, '말티즈', 'star.jpg','수컷', '중성화 수술 마침',1);
+

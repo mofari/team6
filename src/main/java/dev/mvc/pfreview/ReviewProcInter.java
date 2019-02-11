@@ -109,4 +109,5 @@ public interface ReviewProcInter {
 
   public List<Review_MemberVO> pet_category(HashMap hashMap);
 
+
 }

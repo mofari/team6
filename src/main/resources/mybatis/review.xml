@@ -187,4 +187,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     WHERE r.product_no = p.product_no AND m.member_no = #{member_no} AND r.category_no = #{category_no}
     ORDER BY r.review_rdate DESC
   </select>
+  
 </mapper>

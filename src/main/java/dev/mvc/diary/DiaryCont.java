@@ -63,7 +63,7 @@ public class DiaryCont {
     CategoryVO categoryVO = categoryProc.read(category_no);
     mav.addObject("categoryVO", categoryVO);
      
-    List<PetVO> pet_list = petProc.read(1);
+    List<PetVO> pet_list = petProc.readpet(1);
     mav.addObject("pet_list", pet_list);
     
     mav.setViewName("/diary/create"); // /webapp/diary/create.jsp
@@ -167,7 +167,7 @@ public class DiaryCont {
     mav.setViewName("/diary/read"); // /webapp/diary/read.jsp
     diaryProc.increseCnt(diary_no);
      //반려동물 정보 불러오기 
-    List<PetVO> pet_list = petProc.read(1);
+    List<PetVO> pet_list = petProc.readpet(1);
     mav.addObject("pet_list",pet_list );
     
     DiaryVO diaryVO = diaryProc.read(diary_no);
@@ -206,7 +206,7 @@ public class DiaryCont {
                                                                                    // 정보
     mav.addObject("categoryVO", categoryVO);
     // 추출
-    List<PetVO> pet_list = petProc.read(1);
+    List<PetVO> pet_list = petProc.readpet(1);
     mav.addObject("pet_list",pet_list );
     
 

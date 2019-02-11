@@ -24,7 +24,7 @@
 	
 	<context:component-scan base-package="dev.mvc.team6" />
 	<context:component-scan base-package="dev.mvc.review" />
-	<context:component-scan base-package="dev.mvc.pfreview" />
+	<context:component-scan base-package="dev.mvc.pfreview" /> 
   <context:component-scan base-package="dev.mvc.category" />
   <context:component-scan base-package="dev.mvc.pet" />
   <context:component-scan base-package="dev.mvc.review_reply" />
@@ -39,6 +39,8 @@
   <context:component-scan base-package="dev.mvc.diary" />
   <context:component-scan base-package="dev.mvc.diary_reply" />
   <context:component-scan base-package="dev.mvc.proreport" />
+  <context:component-scan base-package="dev.mvc.loginhistory" />
+  <context:component-scan base-package="dev.mvc.member" />
   <context:component-scan base-package="nation.web.tool" />
   
   

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "member">
+ 
+  <!-- 회원 id 체크 -->
+  <select id="checkId" resultType="int" parameterType="String">
+    SELECT COUNT(member_email) as cnt
+    FROM member
+    WHERE member_email=#{member_email}
+  </select>
+  
+    <!-- 회원 id 찾기 -->
+  <select id="findId" resultType="int" parameterType="String">
+    SELECT COUNT(member_email) as cnt
+    FROM member
+    WHERE member_tel= #{member_tel} AND member_name= #{member_name}
+  </select>
+  
+  <!-- 회원 등록 -->
+  <insert id="create" parameterType="MemberVO">
+    INSERT INTO member(member_no, member_name, member_email, member_passwd, member_nickname,
+    member_tel, member_zipcode, member_address, member_address2, member_logintype, visible, member_date)
+    VALUES ((SELECT NVL(MAX(member_no), 0)+1 as member_no FROM member),
+            #{member_name}, #{member_email}, #{member_passwd}, #{member_nickname}, #{member_tel}, #{member_zipcode},
+            #{member_address}, #{member_address2}, #{member_logintype}, #{visible}, sysdate)
+  </insert>
+ 
+  <!--  회원 목록 -->
+  <select id="list" resultType="MemberVO">
+    SELECT member_no, member_email, member_name, member_tel, member_address, member_address2, member_date, act_no
+    FROM member
+    ORDER BY member_no ASC
+  </select>
+  
+   <!-- 회원 정보 검색 -->
+  <select id="read" resultType="MemberVO" parameterType="int">
+    SELECT member_no, member_tel, member_zipcode, member_name, member_email, member_nickname, member_address, member_address2, member_image, act_no
+    FROM member
+    WHERE member_no=#{member_no}
+  </select>
+ 
+ <!-- 회원 이름으로 검색 -->
+  <select id="readByname" resultType="MemberVO" parameterType="String">
+    SELECT member_no, member_tel, member_zipcode, member_name, member_email, member_nickname, member_address, member_address2, member_image, act_no
+    FROM member
+    WHERE member_name=#{member_name}
+  </select>
+  
+   <!-- 이메일로 검색 -->
+  <select id="readById" resultType="MemberVO" parameterType="String">
+    SELECT member_no, member_tel, member_zipcode, member_name, member_email, member_nickname, member_address, member_address2, member_image, act_no
+    FROM member
+    WHERE member_email=#{member_email}
+  </select>
+  
+  
+   <!-- 회원 정보 수정 -->
+  <update id="update" parameterType="MemberVO">
+    UPDATE member
+    SET member_nickname=#{member_nickname}, member_tel=#{member_tel}, member_zipcode=#{member_zipcode}, member_address=#{member_address}
+    ,member_address2=#{member_address2}
+    WHERE member_no=#{member_no}
+  </update>
+  
+  <!-- 패스워드 변경 -->
+  <update id="passwd_update" parameterType="HashMap">
+    UPDATE member
+    SET member_passwd=#{member_passwd}
+    WHERE member_no=#{member_no}    
+  </update>
+
+  <!-- 회원 탈퇴 -->
+  <delete id="delete" parameterType="int">
+    DELETE FROM member
+    WHERE member_no=#{member_no}
+  </delete>
+  
+  <!-- 로그인 -->
+  <select id="login" resultType="int" parameterType="Map">
+    SELECT COUNT(*) as cnt
+    FROM member
+    WHERE member_email=#{member_email} AND member_passwd=#{member_passwd}
+  </select>
+  
+  <!-- 숨김/보임 변경 -->
+    <select id="member_visible" resultType="MemberVO" parameterType="String">
+    UPDATE member
+    SET visible=#{visible}
+    WHERE member_no=#{member_no};
+  </select>
+  
+  <!-- 권한 변경 -->
+    <select id="member_act" resultType="MemberVO" parameterType="int">
+    UPDATE member
+    SET act_no= #{act_no}
+    WHERE member_no=#{member_no}
+  </select>  
+  
+  <!-- category별 검색된 레코드 목록 -->
+  <select id="member_search" resultType="MemberVO" parameterType="String">
+     SELECT member_no, member_passwd, member_tel, member_address, member_name, member_email, member_nickname, member_image, member_date, visible, act_no
+     FROM member
+     WHERE member_name LIKE '%' || #{member_name} || '%'
+  </select>
+
+  <!-- category별 검색된 레코드 갯수 -->
+  <select id="search_count" resultType="int" parameterType="String">
+    SELECT COUNT(*) as cnt
+    FROM member
+    WHERE member_name LIKE '%' || #{member_name} || '%'
+    </select> 
+</mapper> 

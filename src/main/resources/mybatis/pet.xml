@@ -1,14 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="pet"> <!-- 테이블명 사용 -->
+<mapper namespace = "pet">
+
+   <!-- 펫 등록 -->
+  <insert id="create" parameterType="PetVO">
+    INSERT INTO pet(pet_no, pet_name, pet_age, pet_weight, pet_thumbs ,pet_thumb, pet_gender, pet_kind,pet_image,pet_specific,member_no)
+    VALUES ((SELECT NVL(MAX(pet_no), 0)+1 as pet_no FROM pet),
+            #{pet_name}, #{pet_age}, #{pet_weight}, #{pet_thumbs},#{pet_thumb},#{pet_gender}, #{pet_kind}, #{pet_image}, #{pet_specific}, #{member_no})
+  </insert>
+ 
+  <!--  펫 전체 목록 -->
+  <select id="list" resultType="PetVO">
+    SELECT pet_no, pet_name, pet_age, pet_weight, pet_gender, pet_kind, pet_image, pet_thumbs, pet_thumb, pet_specific, member_no
+    FROM pet
+    ORDER BY pet_no ASC
+  </select>
+  
+  <!--  나의 펫 목록 -->
+  <select id="mylist" resultType="PetVO">
+    SELECT pet_no, pet_name, pet_age, pet_weight, pet_gender, pet_kind, pet_image, pet_thumbs, pet_thumb, pet_specific, member_no
+    FROM pet
+    WHERE member_no=#{member_no}
+    ORDER BY pet_no ASC
+  </select>
+  
+   <!-- 회원 펫 정보 검색 -->
   <select id="read" resultType="PetVO" parameterType="int">
+    SELECT pet_no, pet_name, pet_age, pet_weight, pet_gender, pet_kind, pet_image, pet_thumbs, pet_thumb, pet_specific, member_no
+    FROM pet
+    WHERE pet_no=#{pet_no}
+  </select>
+ 
+   <!-- 펫 정보 수정 -->
+  <update id="update" parameterType="PetVO">
+    UPDATE pet
+    SET pet_name=#{pet_name}, pet_age=#{pet_age}, pet_weight=#{pet_weight}, pet_gender=#{pet_gender}
+    ,pet_kind=#{pet_kind}, pet_image=#{pet_image}, pet_specific=#{pet_specific}, pet_thumbs=#{pet_thumbs}, pet_thumb=#{pet_thumb}
+    WHERE pet_no=#{pet_no}
+  </update> 
+  
+  
+  <!-- 펫 삭제 -->
+  <delete id="delete" parameterType="int">
+    DELETE FROM pet
+    WHERE pet_no=#{pet_no}
+  </delete>
+  
+  <select id="search_count" resultType="int" parameterType="HashMap">
+    SELECT COUNT(*) as cnt
+    FROM pet
+  </select>
+  
+   <!-- 페이징 -->
+  <select id="list_pet_paging" resultType="PetVO" parameterType="HashMap">
+    SELECT * FROM (
+    SELECT pet_no, pet_name, pet_age, pet_weight, pet_gender, pet_kind, pet_image, pet_thumbs, pet_thumb, pet_specific, member_no, rownum as r
+    FROM pet
+    ORDER BY pet_no DESC
+    )
+    WHERE <![CDATA[ r >= #{startNum} AND r <= #{endNum} ]]>
+  </select>
+  
+    <select id="readpet" resultType="PetVO" parameterType="int">
     SELECT pet_no, pet_name, pet_age, pet_weight, 
     pet_kind, pet_image, pet_gender, pet_specific, member_no
     FROM pet
     WHERE member_no=#{member_no}
   </select>
-</mapper>
+</mapper> 
