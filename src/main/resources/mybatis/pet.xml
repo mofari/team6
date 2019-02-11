@@ -64,4 +64,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     WHERE <![CDATA[ r >= #{startNum} AND r <= #{endNum} ]]>
   </select>
   
+    <select id="readpet" resultType="PetVO" parameterType="int">
+    SELECT pet_no, pet_name, pet_age, pet_weight, 
+    pet_kind, pet_image, pet_gender, pet_specific, member_no
+    FROM pet
+    WHERE member_no=#{member_no}
+  </select>
 </mapper> 

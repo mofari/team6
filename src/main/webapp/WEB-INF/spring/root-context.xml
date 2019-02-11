@@ -32,6 +32,8 @@
                                 dev.mvc.event,
                                 dev.mvc.request,
                                 dev.mvc.qna,
+                                dev.mvc.loginhistory,
+                                dev.mvc.member,
                                 dev.mvc.proreport,
                                 nation.web.tool" />
     <property name="mapperLocations" value="classpath:mybatis/*.xml" />
