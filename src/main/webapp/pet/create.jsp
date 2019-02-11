@@ -8,7 +8,7 @@ String root = request.getContextPath();  // 절대 경로
 <!DOCTYPE html>
 <html lang="ko">
 
-  <body class="fixed-header">
+  <body class="fixed-header*"> 
   <script type="text/JavaScript"
           src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript" src="../js/js.cookie-2.2.0.min.js"></script>

@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -66,11 +67,12 @@ public class ReviewCont {
    * @return
    */
   @RequestMapping(value = "/review/create.do", method = RequestMethod.GET)
-  public ModelAndView create(int category_no) {
+  public ModelAndView create(HttpSession session, int category_no) {
     System.out.println("--> create() GET executed");
     ModelAndView mav = new ModelAndView();
     
-    List<PetVO> pet_list = petProc.readpet(1);
+    int member_no = (Integer)session.getAttribute("member_no");
+    List<PetVO> pet_list = petProc.readpet(member_no);
     mav.addObject("pet_list", pet_list);
     
     CategoryVO categoryVO = categoryProc.read(category_no);
@@ -248,11 +250,12 @@ public class ReviewCont {
   
  
   @RequestMapping(value = "/review/update.do", method = RequestMethod.GET)
-  public ModelAndView update(int review_no) {
+  public ModelAndView update(HttpSession session, int review_no) {
     ModelAndView mav = new ModelAndView();
     mav.setViewName("/review/update"); // /webapp/review/update.jsp
 
-    List<PetVO> pet_list = petProc.readpet(1);
+    int member_no = (Integer)session.getAttribute("member_no");
+    List<PetVO> pet_list = petProc.readpet(member_no);
     mav.addObject("pet_list", pet_list);
     
     Review_MemberVO review_memberVO = reviewProc.read(review_no);
@@ -266,7 +269,7 @@ public class ReviewCont {
   
 
   @RequestMapping(value = "/review/update.do", method = RequestMethod.POST)
-  public ModelAndView update(RedirectAttributes redirectAttributes, 
+  public ModelAndView update(HttpSession session, RedirectAttributes redirectAttributes, 
       HttpServletRequest request, ReviewVO reviewVO) {
     ModelAndView mav = new ModelAndView();
     // -------------------------------------------------------------------
@@ -355,7 +358,8 @@ public class ReviewCont {
     reviewVO.setReview_size(review_size);
     reviewVO.setReview_thumb(review_thumb);
 
-    reviewVO.setMember_no(1); // 회원 개발후 session으로 변경
+    int member_no = (Integer)session.getAttribute("member_no");
+    reviewVO.setMember_no(member_no); // 회원 개발후 session으로 변경
 
     count = reviewProc.update(reviewVO);
 

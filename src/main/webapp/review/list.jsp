@@ -75,7 +75,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <title>PROHOME - Responsive Real Estate Template</title>
+    <title>펫러브</title>
 
 
 
@@ -181,7 +181,7 @@ function data_analysis(product_no, review_no) {
                 </c:choose>        
              </span>  
              <span>
-             <img src="./storage/${review_MemberVO.product_img }" style="width:20%;" onclick="javascript:data_analysis(${review_MemberVO.product_no}, ${review_MemberVO.review_no });">
+             <img src="../product/storage/${review_MemberVO.product_img }" style="width:20%;" onclick="javascript:data_analysis(${review_MemberVO.product_no}, ${review_MemberVO.review_no });">
              <c:choose>
                              <c:when test="${fn:length(review_MemberVO.product_name) > 20}">
                               <c:out value="${fn:substring(review_MemberVO.product_name,0,19)}"/>....

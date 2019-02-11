@@ -1,6 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%int member_no = (Integer)session.getAttribute("member_no"); %> 
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -350,7 +352,7 @@
            <div style='text-align:center; margin-bottom:10px;'><button onclick="javascript:data_analysis(${reviewVO.product_no}, ${reviewVO.review_no });" class="btn btn-default btn-sm">상품 만족도 보기</button></div>
 						<div class="logo">
               <a data-toggle='popover'  data-full='${review_memberVO.product_name }'>
-							 <img src='./storage/${review_memberVO.product_img }' style='width:100%;' class="img-responsive" alt="logo Agency" />
+							 <img src='../product/storage/${review_memberVO.product_img }' style='width:100%;' class="img-responsive" alt="logo Agency" />
               </a>
 						</div><br>
             <div style='text-align:center'>
@@ -381,7 +383,7 @@
 								<div class="agent-box-card grey">
 									<div class="image-content">
 										<div class="image image-fill">
-											<img alt="Image Sample" src='./storage/${petVO.pet_image }' style='width:100%'>
+											<img alt="Image Sample" src='../pet/storage/${petVO.pet_image }' style='width:100%'>
 										</div>						
 									</div>
 									<div class="info-agent"> 
@@ -407,7 +409,7 @@
        <DIV id='panel_create' style='width: 80%; margin-left:10%; margin-top:8%' >
           <h3 class="title-form"><i class="icon fa fa-comment"></i> 댓글 </h3>
               <form class="form-large grey-color" action="./create.do" method="post" id="frm_create" name='frm_create'>
-              <input type='hidden' value='2' id='member_no' name='member_no'>
+              <input type='hidden' value='<%=member_no %>' id='member_no' name='member_no'>
                 <div class="row">
                   <div class="col-md-12">
                     <label for="text-message">내용</label>

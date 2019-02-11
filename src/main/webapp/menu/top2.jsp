@@ -57,9 +57,27 @@
               <a href="call:1-800-555-1234" class="hidden-xs"><i class="icon fa fa-phone"></i> (011)-8800-555</a>
               <a href="#" data-section="modal-contact" data-target="#modal-contact" data-toggle="modal" class="hidden-xs"><i class="icon fa fa-envelope-o"></i> Info</a>
             </div>
-            <div id="login-pan" class="col-md-6 hidden-xs">
-              <a href="#" data-toggle="modal" data-target=".login-modal" data-section="sign-in"><i class="icon fa fa-pencil-square-o"></i> Sign up</a>
-              <a href="#" data-toggle="modal" data-target=".login-modal" data-section="login"><i class="icon fa fa-user user"></i> Login</a>
+            <div id="login-pan" class="col-md-6 hidden-xs">  
+            
+            
+            <c:choose>
+            <c:when test="${sessionScope.member_email == null}">
+              <A class='menu_link'  href='${pageContext.request.contextPath}/member/create.jsp' ><i class="icon fa fa-pencil-square-o"></i>회원가입</A>
+              <A class='menu_link'  href='${pageContext.request.contextPath}/member/login.do' ><i class="icon fa fa-pencil-square-o"></i>로그인</A>
+           </c:when>
+            <c:otherwise>
+              <A class='menu_link'  href='${pageContext.request.contextPath}/member/logout.do' >로그아웃</A> 
+              <a class="hidden-xs" href="${pageContext.request.contextPath}/member/read.do?member_no=${member_no}"><i class="icon fa fa-user user"></i>${sessionScope.member_nickname} 님 환영합니다.</a>
+              <a class="hidden-xs" href="${pageContext.request.contextPath}/member/list.do"><i class="icon fa fa-user user"></i>회원 목록</a>
+              <a class="hidden-xs" href="${pageContext.request.contextPath}/member/findId.do"><i class="icon fa fa-user user"></i>아이디 찾기</a>
+              <a class="hidden-xs" href="${pageContext.request.contextPath}/pet/mylist.do?member_no=${member_no}"><i class="icon fa fa-user user"></i>내 펫 목록</a>
+              <a class="hidden-xs" href="${pageContext.request.contextPath}/pet/create.do"><i class="icon fa fa-user user"></i>펫 등록</a>
+              <a class="hidden-xs" href="${pageContext.request.contextPath}/pet/list.do"><i class="icon fa fa-user user"></i>펫 전체 목록</a>
+              <a class="hidden-xs" href="${pageContext.request.contextPath}/loginhistory/list_loginhistory_paging.do"><i class="icon fa fa-user user"></i>로그인 내역</a>
+           </c:otherwise>
+          </c:choose>
+       
+
             </div>
           </div>
         </div>      

@@ -110,3 +110,6 @@ VALUES ((SELECT NVL(MAX(qna_no), 0)+1 as qna_no FROM QNA),'해결됐어요', '감사', 
 INSERT INTO QNA(qna_no, qna_title, qna_word, qna_image, qna_cnt, qna_grpno, qna_ansnum, qna_indent,
 visible, qna_date, qnacategory_no, member_no)
 VALUES ((SELECT NVL(MAX(qna_no), 0)+1 as qna_no FROM QNA),'이렇게 해결하세요', '해결', '3.jpg',2, 0,0,1 'Y', sysdate, 1, 1);
+
+
+DELETE FROM qna WHERE qna_no=4;

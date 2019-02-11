@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -290,7 +291,7 @@ public class QnACont {
   
   
   @RequestMapping(value="/qna/reply.do", method=RequestMethod.POST)
-  public ModelAndView reply(RedirectAttributes redirectAttributes, 
+  public ModelAndView reply(HttpSession session, RedirectAttributes redirectAttributes, 
                                        HttpServletRequest request, 
                                        QnAVO qnaVO,
                                        @RequestParam(value="nowPage", defaultValue="1") int nowPage){
@@ -303,8 +304,8 @@ public class QnACont {
     int qnacategory_no = qnaVO.getQnacategory_no();
 
     // 회원 개발 후 session 으로변경
-    // int mno = (Integer)session.getAttribute("mno");
-    qnaVO.setMember_no(3);
+    int member_no = (Integer)session.getAttribute("member_no");
+    qnaVO.setMember_no(member_no);
     
     // --------------------------- 답변 관련 코드 시작 --------------------------
     QnAVO parentVO = qnaProc.qna_read(qnaVO.getQna_no()); // 부모글 정보 추출

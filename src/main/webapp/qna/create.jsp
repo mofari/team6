@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
+<%int member_no = (Integer)session.getAttribute("member_no"); %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -131,7 +131,7 @@ input:checked + label span {
                enctype="multipart/form-data" class="form-horizontal">
                <input type="hidden" name="nowPage" value="${param.nowPage}"> 
               <input type='hidden' name='qna_visible' id='qna_visible' value="Y">
-              <input type='hidden' name='member_no' id='member_no' value='3'>
+              <input type='hidden' name='member_no' id='member_no' value='<%=member_no%>'>
     <section id="new-property">
       <div class="container">
         <div class="row">

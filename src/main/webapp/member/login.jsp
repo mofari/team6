@@ -8,7 +8,7 @@ String root = request.getContextPath();  // 절대 경로
 <!DOCTYPE html>
 <html lang="ko">
 
-  <body class="fixed-header">
+  <body class="fixed-header*">
   <script type="text/JavaScript"
           src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript" src="../js/js.cookie-2.2.0.min.js"></script>
@@ -136,7 +136,8 @@ naverLogin.init();
  -->
 
 							<div class="field footer-form text-right">
-								<button type="submit" class="btn btn-default button-form">Login</button>
+                <button type="button" onclick="location.href='${pageContext.request.contextPath}/member/findId.do'" class="btn btn-default button-form">아이디 찾기</button>
+								<button type="submit" class="btn btn-default button-form">로그인</button>
 							</div>
 						</div>
 					</div>

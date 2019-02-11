@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%int member_no = (Integer)session.getAttribute("member_no"); %> 
 
 
 <!DOCTYPE html>
@@ -99,7 +100,7 @@
                enctype="multipart/form-data" class="form-horizontal">
   <input type="hidden"  id="review_no" name="review_no" value="${param.review_no }">
   <input type='hidden' name='product_no' id='product_no' value='1'>
-  <input type='hidden' name='member_no' id='member_no' value='3'>
+  <input type='hidden' name='member_no' id='member_no' value='<%=member_no%>'>
   <input type='hidden' name='category_no' id='category_no' value='${param.category_no}'>
   <input type='text' name='review_file' id='review_file'  value='${review_memberVO.review_file }'>
                                             
