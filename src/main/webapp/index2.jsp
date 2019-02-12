@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <%
 String root = request.getContextPath();  // 절대 경로
@@ -9,6 +10,98 @@ String root = request.getContextPath();  // 절대 경로
 <html lang="ko">
   <head>
     <title>러브펫</title>
+    <style type="text/css">
+.box-ads .description dt,
+.box-ads .description dd {
+  border-bottom: 1px solid #f7f7f7;
+  height: 35px;
+  padding: 5px 6px 3px;
+  width: 35%;
+  font-size: 14px;
+}
+.box-ads .description dt {
+  background: url(../../images/icon-ads-grey.png) no-repeat scroll left center;
+  float: left;
+  font-weight: 400 !important;
+}
+.box-ads .description dt.status {
+  background-position: left -35px;
+}
+.box-ads .description dt.bed {
+  background-position: left -134px;
+}
+.box-ads .description dt.bath {
+  background-position: left -164px;
+}
+.box-ads .description dd {
+  background: url(../../images/separator.png) no-repeat scroll left center;
+  float: right;
+  width: 64%;
+  padding-left: 18px;
+}
+.box-ads .description dd span {
+  text-align: right;
+  display: block;
+  padding: 1px 6px;
+  background-color: #FAFAFA;
+  border: 1px solid #F0F0F0;
+  -webkit-border-radius: 1px;
+  -khtml-border-radius: 1px;
+  -moz-border-radius: 1px;
+  -o-border-radius: 1px;
+  border-radius: 1px;
+}
+  .event_title{
+  display: block;
+  padding: 6px 12px;  
+  font-weight: 600;
+  color: #222;
+   font-size: 16px;
+   }
+  .event_rdate{
+    display: inline-block;
+    padding: 8px 12px 10px;
+    font-size: 10px;
+    border-top: none;
+    text-align: right;
+    border-bottom: none;
+    float: right!important;
+    background-color: #ffffff;
+    }
+    .event_good{
+    display: inline-block;
+    padding: 8px 12px 10px;
+    font-size: 10px;
+    border-top: none;
+    text-align: left;
+    border-bottom: none;
+    background-color: #ffffff;
+    }
+    .event_start{
+    background-color: #000000;
+    font-weight: 600;
+    color: #fff;
+    font-size: 10px;
+    padding: 4px 11px;
+    position: absolute !important;
+    top: 11px;
+    right: 4%;
+    left: auto;
+    z-index: 3;
+    }
+    .event_end{
+    background-color: rgba(192, 192, 192, 0.9);
+    font-weight: 600;
+    color: #fff;
+    font-size: 10px;
+    padding: 4px 11px;
+    position: absolute !important;
+    top: 11px;
+    right: 4%;
+    left: auto;
+    z-index: 3;
+    }
+</style>
   </head>
   
 
@@ -39,7 +132,7 @@ String root = request.getContextPath();  // 절대 경로
         <img src='${pageContext.request.contextPath}/menu/images/diary.png'  alt="Sample images" class="img-responsive" style="border: 1px solid #d1d1d1;">
         <div style="text-align: center; margin-top: 5px;">
         <span style="font-size: 17px; font-weight: 600;">러브펫 다이어리</span> <br>
-        <button class="btn btn-reverse  select-button" style="color: #1fb7a6; font-size: 17px;    margin-top: 8px;
+        <button class="btn btn-reverse  select-button" onclick="location.href='diary/list_paging.do?category_no=1'" style="color: #1fb7a6; font-size: 17px;    margin-top: 8px;
           margin-bottom: 5px;">자세히 알아보기 →</button></div>
       </div>
       
@@ -47,7 +140,7 @@ String root = request.getContextPath();  // 절대 경로
         <img src='${pageContext.request.contextPath}/menu/images/review.png'   alt="Sample images" class="img-responsive" style="border: 1px solid #d1d1d1;">
          <div style="text-align: center; margin-top: 5px;">
          <span style="font-size: 17px; font-weight: 600;">사료/간식 리뷰</span> <br>
-        <button class="btn btn-reverse  select-button" style="color: #1fb7a6; font-size: 17px;    margin-top: 8px;
+        <button class="btn btn-reverse  select-button" onclick="location.href='review/list.do?category_no=1'" style="color: #1fb7a6; font-size: 17px;    margin-top: 8px;
           margin-bottom: 5px;">자세히 알아보기 →</button></div>
       </div>
       
@@ -55,7 +148,7 @@ String root = request.getContextPath();  // 절대 경로
          <img src='${pageContext.request.contextPath}/menu/images/event.png'  alt="Sample images" class="img-responsive" style="border: 1px solid #d1d1d1;">
         <div style="text-align: center; margin-top: 5px;">
         <span style="font-size: 17px; font-weight: 600;">러브펫 이벤트</span> <br>
-        <button class="btn btn-reverse  select-button" style="color: #1fb7a6; font-size: 17px;    margin-top: 8px;
+        <button class="btn btn-reverse  select-button" onclick="location.href='event/list_event_paging.do'" style="color: #1fb7a6; font-size: 17px;    margin-top: 8px;
           margin-bottom: 5px;">자세히 알아보기 →</button></div>
        </div>
        
@@ -63,7 +156,7 @@ String root = request.getContextPath();  // 절대 경로
            <img src='${pageContext.request.contextPath}/menu/images/product.png'  alt="Sample images" class="img-responsive" style="border: 1px solid #d1d1d1;">
          <div style="text-align: center; margin-top: 5px;">
          <span style="font-size: 17px; font-weight: 600;">사료/간식 상품</span> <br>
-        <button class="btn btn-reverse  select-button" style="color: #1fb7a6; font-size: 17px;    margin-top: 8px;
+        <button class="btn btn-reverse  select-button" onclick="location.href='product/list.do'" style="color: #1fb7a6; font-size: 17px;    margin-top: 8px;
           margin-bottom: 5px;">자세히 알아보기 →</button></div>
         </div>
         
@@ -72,14 +165,39 @@ String root = request.getContextPath();  // 절대 경로
     </div> -->
  </div>
     
-  <div style="margin-top: 60px; margin-bottom: 15px; background-color: #dfdfdf;">
+  <div style="margin-top: 60px; margin-bottom: 15px; background-color: #f8f7f7;">
   <div style="padding: 30px;">
     <div style="text-align: center;font-size: 35px;font-weight: 400;">
       이달의 인기 상품
     </div>
     </div>
-    
-    요따가 집어넣으면 됨
+    <div class="gallery"  style="position: relative;">
+  <div class="row"  style="margin: 30px 70px 30px 70px;">
+    <c:forEach var="outproductVO" items="${listproduct}">
+                                <div class="col-md-3">
+                           <div class="box-ads box-grid">
+                              <a class="hover-effect image image-fill" href="product/detail.do?prono=${outproductVO.product_no }" style="overflow: hidden; text-align:center; line-height: 100%;     background: white;">
+                                 <span class="cover"></span>
+                                 <img alt="Sample images" src="product/storage/${outproductVO.product_img }" class="" style="max-width: 100%; top: 0px;  max-height: 100%; left: 0px; vertical-align: middle;">
+                              </a>
+                              <span class="price">￦ ${outproductVO.product_price }</span>
+                              <span class="address" style="background: white;"><i class="fa fa-map-marker"></i> ${outproductVO.product_name }</span>
+                              <span class="description" style="background-color: #fff;">
+                                            <dt class="bath">중량</dt><dd><span>${outproductVO.product_weight }</span></dd>
+                                            <dt class="status">좋아요</dt><dd><span>${outproductVO.product_like } 개</span></dd>
+                                        </span>
+                              <dl class="detail">
+                                            <dt class="bath">제조국</dt><dd><span>${outproductVO.country_name }</span></dd>
+                                            <dt class="status">제조사</dt><dd><span>${outproductVO.manufacturer_name }</span></dd>
+                                 <dt class="bed">타겟</dt><dd><span>${outproductVO.product_target }</span></dd>
+                              </dl>
+                              <div class="footer">
+                              </div>
+                           </div>
+                        </div>
+          </c:forEach>
+    </div>
+    </div>
     
   </div>
     
@@ -90,9 +208,64 @@ String root = request.getContextPath();  // 절대 경로
     </div>
     <div style="text-align: center; margin-top: 15px; font-size: 18px;">러브펫 이용자들의 리뷰를 확인해보세요!</div>
     </div>
-    
-     요따가 집어넣으면 됨
-    
+    <div class="gallery"  style="position: relative;">
+  <div class="row"  style=" margin: 30px 70px 30px 90px; padding-left:50px;">
+    <c:forEach var="review_MemberVO" items="${list }">
+               <div class="col-md-4" style="width:420px;">
+                  <div class="box-ads box-home" style="padding-bottom: 0px;">
+               <a class="hover-effect image image-fill" href="review/read.do?review_no=${review_MemberVO.review_no}&category_no=${review_MemberVO.category_no}">
+                        <span class="cover"></span> 
+                <c:choose>
+                  <c:when test="${review_MemberVO.review_thumb != ''}">
+                            <img alt="thumb" id='thumb'  style="width:100%; height:300px;" src='review/storage/${review_MemberVO.review_file }'>
+                          </c:when>
+                  <c:otherwise>
+                    <!-- 파일이 존재하지 않는 경우 -->
+                    <IMG src='./images/good.png' style='width: 120px; height: 80px;'>
+                  </c:otherwise>
+                </c:choose>
+
+              </a><!-- /.hover-effect --> 
+              <span class="event_title" >
+                <c:choose>
+                  <c:when test="${fn:length(review_MemberVO.review_title) > 12}">
+                    <a href="review/read.do?review_no=${review_MemberVO.review_no}&category_no=${review_MemberVO.category_no}"><c:out value="${fn:substring(review_MemberVO.review_title,0,11)}"/>....</a>
+                    <span style="float:right;">
+                      <a href="review/update.do?review_no=${review_MemberVO.review_no}&category_no=${review_MemberVO.category_no}"><img alt="update" src="review/images/update.png" title="수정"></a>
+                      <a href="review/delete.do?review_no=${review_MemberVO.review_no }&category_no=${review_MemberVO.category_no}"><img alt="delete" src="review/images/delete.png" title="삭제" onclick="javascript:review_delete(${review_MemberVO.review_no})"></a>
+                    </span>
+                  </c:when>
+                  <c:otherwise >
+                    <a href="review/read.do?review_no=${review_MemberVO.review_no}&category_no=${review_MemberVO.category_no}"><c:out value="${review_MemberVO.review_title}"/></a>
+                    <span style="float:right;">
+                      <a href="review/update.do?review_no=${review_MemberVO.review_no}&category_no=${review_MemberVO.category_no}"><img alt="update" src="review/images/update.png" title="수정"></a>
+                      <a href="review/delete.do?review_no=${review_MemberVO.review_no }&category_no=${review_MemberVO.category_no}"><img alt="delete" src="review/images/delete.png" title="삭제" onclick="javascript:review_delete(${review_MemberVO.review_no})"></a>
+                    </span>
+                  </c:otherwise> 
+                </c:choose>        
+             </span>  
+             <span>
+             <img src="product/storage/${review_MemberVO.product_img }" style="width:20%;" onclick="javascript:data_analysis(${review_MemberVO.product_no}, ${review_MemberVO.review_no });">
+             <c:choose>
+                             <c:when test="${fn:length(review_MemberVO.product_name) > 20}">
+                              <c:out value="${fn:substring(review_MemberVO.product_name,0,19)}"/>....
+                             </c:when>
+                             <c:otherwise>
+                              <c:out value="${review_MemberVO.product_name}"/>
+                             </c:otherwise> 
+                             
+                           </c:choose><br> 
+             </span>
+              <span class="event_good" >
+                <img src='review/images/good.png' style="width: 8%; margin-right: 3px;">${review_MemberVO.review_good }
+                <img src='review/images/reply.png' style="width: 8%; margin-right: 3px; margin-left:8px;">${review_MemberVO.review_reply_cnt }
+              </span>
+              <span class="event_rdate" >${fn:substring(review_MemberVO.review_rdate, 0, 10) }</span>
+              
+            </div><!-- /.box-home .box-ads -->  
+          </div><!-- ./col-md-4 -->
+          </c:forEach> 
+          </div>
   </div>
   
   <div style="background-color:#1fb7a694; padding: 30px;">
@@ -101,7 +274,7 @@ String root = request.getContextPath();  // 절대 경로
   </div>
   <div style="text-align: center; margin-top: 15px; font-size: 18px;">
   궁금하신 사항이 있으면, 언제든지 문의해주세요! <br><br>
-      <button class="btn btn-reverse  select-button" style="color: #1fb7a6; font-size: 17px;    margin-top: 8px;
+      <button class="btn btn-reverse  select-button" onclick="location.href='qna/qna_list.do?qnacategory_no=1'" style="color: #1fb7a6; font-size: 17px;    margin-top: 8px;
       margin-bottom: 5px;">문의하기 ▶</button>
     </div>
   </div> 
@@ -264,7 +437,7 @@ String root = request.getContextPath();  // 절대 경로
   <script src="<%=root%>/resources/script/vendor/labelauty/labelauty.min.js"></script>          <!-- Checkbox Script -->
   <script src="<%=root%>/resources/script/vendor/parallax/parallax.min.js"></script>            <!-- Parallax Script -->
   <script src="<%=root%>/resources/script/vendor/images-fill/imagesloaded.min.js"></script>     <!-- Loaded image with ImageFill -->
-  <script src="<%=root%>/resources/script/vendor/images-fill/imagefill.min.js"></script>          <!-- ImageFill Script -->
+  <%-- <script src="<%=root%>/resources/script/vendor/images-fill/imagefill.min.js"></script>          <!-- ImageFill Script --> --%>
   <script src="<%=root%>/resources/script/vendor/easydropdown/jquery.easydropdown.min.js"></script> <!-- Select list Script -->
   <script src="<%=root%>/resources/script/vendor/carousel/responsiveCarousel.min.js"></script>    <!-- Carousel Script -->
 

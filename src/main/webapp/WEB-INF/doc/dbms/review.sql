@@ -45,6 +45,39 @@ COMMENT ON COLUMN review.category_no is '카테고리번호';
 COMMENT ON COLUMN review.pet_no is '반려동물 번호';
 COMMENT ON COLUMN review.word is '검색어';
 
+SELECT 
+    a.product_no, a.manufacturer_no, a.country_no, a.category_no, a.product_name, a.product_img,
+    a.material, a.product_introimg, a.product_target, a.product_weight, a.product_price, a.product_wprotein, a.product_wfat, a.product_wash,
+    a.product_wfiber, a.product_wcalcium, a.product_wp, a.product_like, a.product_visible, a.product_rpcnt, a.product_rvcnt,
+    a.product_rdate, a.product_udate,
+    b.category_title,
+    c.country_name,
+    d.manufacturer_name, d.manufacturer_img,
+    rownum as r
+    FROM (SELECT *
+      FROM product
+      WHERE 1 = 1 
+      ORDER BY product_like DESC) a, category b, country c, manufacturer d
+    WHERE a.category_no = b.category_no AND a.country_no = c.country_no
+    AND a.manufacturer_no = d.manufacturer_no
+
+
+  SELECT review_no, review_title, review_thumb, review_grade, review_good, review_rdate, category_no, review_reply_cnt,
+                  member_nickname, review_file, product_no, product_name, product_price, product_img, r
+  FROM (
+                  SELECT review_no, review_title, review_thumb, review_grade, review_good, review_rdate, category_no, review_reply_cnt,
+                  member_nickname, review_file, product_no, product_name, product_price, product_img, rownum as r
+                  FROM (
+                  SELECT r.review_no, r.review_title, r.review_thumb, r.review_grade, r.review_good, r.review_rdate, r.category_no, r.review_reply_cnt,
+                                  m.member_nickname, r.review_file, p.product_no, p.product_name, p.product_price, p.product_img
+                      FROM review r, member m, product p 
+                        WHERE r.member_no = m.member_no 
+                        AND r.product_no=p.product_no
+                       ORDER BY r.review_no DESC
+                  )
+  )
+   WHERE  r >= 1 AND r <= 3 
+                      
 
 /**********************************/
 /* Table Name: 리뷰 댓글 */

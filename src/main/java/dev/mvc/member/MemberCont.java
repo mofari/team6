@@ -377,7 +377,7 @@ public class MemberCont {
         
        loginhistoryProc.create(old_LoginhistoryVO);
         
-       mav.setViewName("redirect:/index.jsp"); // 확장자 명시 
+       mav.setViewName("redirect:/"); // 확장자 명시 
 
       }else { // 패스워드 일치하는 경우
         MemberVO old_memberVO = memberProc.readById(member_email);
@@ -444,7 +444,7 @@ public class MemberCont {
         response.addCookie(ck_passwd_save);
         // -------------------------------------------------------------------
         
-        mav.setViewName("redirect:/index.jsp"); // 확장자 명시 
+        mav.setViewName("redirect:/"); // 확장자 명시 
         
         }
       }else{

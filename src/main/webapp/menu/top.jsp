@@ -106,12 +106,12 @@
       </div><!-- /.info -->
       <div class="container hidden-xs" id="menu-nav">
         <div class="logo">
-          <a href="${pageContext.request.contextPath}/index3.jsp"><img id="logo-header" src="${pageContext.request.contextPath}/resources/images/logo.jpg" alt="Logo" /></a>
+          <a href="${pageContext.request.contextPath}/"><img id="logo-header" src="${pageContext.request.contextPath}/resources/images/logo.jpg" alt="Logo" /></a>
         </div><!-- /.logo -->
         <nav id="navigation">
           <ul>
             <li class="submenu">
-              <a href="${pageContext.request.contextPath}/index3.jsp">Home</a>
+              <a href="${pageContext.request.contextPath}/">Home</a>
             </li>
             <li class="has_submenu"><a href="#">카테고리</a>
             <ul>
@@ -127,7 +127,6 @@
               <ul>
                 <li>
                   <a href="${pageContext.request.contextPath}/review/list.do?category_no=1">강아지</a>
-                </li>
                 <li>
                   <a href="${pageContext.request.contextPath}/review/list.do?category_no=2">고양이</a>
                 </li>

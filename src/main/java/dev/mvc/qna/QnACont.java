@@ -304,7 +304,7 @@ public class QnACont {
     int qnacategory_no = qnaVO.getQnacategory_no();
 
     // 회원 개발 후 session 으로변경
-    int member_no = (Integer)session.getAttribute("member_no");
+    int member_no = session.getAttribute("member_no").equals(null) ? 0 : (Integer)session.getAttribute("member_no");
     qnaVO.setMember_no(member_no);
     
     // --------------------------- 답변 관련 코드 시작 --------------------------

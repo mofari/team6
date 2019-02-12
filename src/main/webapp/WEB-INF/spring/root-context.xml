@@ -35,6 +35,7 @@
                                 dev.mvc.loginhistory,
                                 dev.mvc.member,
                                 dev.mvc.proreport,
+                                dev.mvc.team6,
                                 nation.web.tool" />
     <property name="mapperLocations" value="classpath:mybatis/*.xml" />
   </bean> 

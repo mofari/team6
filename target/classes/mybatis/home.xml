@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="home"> <!-- 테이블명 사용 -->
+  <select id="main_review" resultType="Review_MemberVO">
+  SELECT review_no, review_title, review_thumb, review_grade, review_good, review_rdate, category_no, review_reply_cnt,
+                  member_nickname, review_file, product_no, product_name, product_price, product_img, r
+  FROM (
+                  SELECT review_no, review_title, review_thumb, review_grade, review_good, review_rdate, category_no, review_reply_cnt,
+                  member_nickname, review_file, product_no, product_name, product_price, product_img, rownum as r
+                  FROM (
+                  SELECT r.review_no, r.review_title, r.review_thumb, r.review_grade, r.review_good, r.review_rdate, r.category_no, r.review_reply_cnt,
+                                  m.member_nickname, r.review_file, p.product_no, p.product_name, p.product_price, p.product_img
+                      FROM review r, member m, product p 
+                        WHERE r.member_no = m.member_no 
+                        AND r.product_no=p.product_no
+                       ORDER BY r.review_no DESC
+                  )
+  )
+   WHERE <![CDATA[ r >= 1 AND r <= 3 ]]>  
+  </select> 
+  
+  <select id="homeproductlist" resultType="OutProductVO">
+  SELECT * FROM (SELECT 
+    a.product_no, a.manufacturer_no, a.country_no, a.category_no, a.product_name, a.product_img,
+    a.material, a.product_introimg, a.product_target, a.product_weight, a.product_price, a.product_wprotein, a.product_wfat, a.product_wash,
+    a.product_wfiber, a.product_wcalcium, a.product_wp, a.product_like, a.product_visible, a.product_rpcnt, a.product_rvcnt,
+    a.product_rdate, a.product_udate,
+    b.category_title,
+    c.country_name,
+    d.manufacturer_name, d.manufacturer_img,
+    rownum as r
+    FROM (SELECT *
+      FROM product
+      WHERE 1 = 1 
+      ORDER BY product_like DESC) a, category b, country c, manufacturer d
+    WHERE a.category_no = b.category_no AND a.country_no = c.country_no
+    AND a.manufacturer_no = d.manufacturer_no)
+  WHERE <![CDATA[ r >= 1 AND r <= 4 ]]>
+  </select>
+  
+
+</mapper>

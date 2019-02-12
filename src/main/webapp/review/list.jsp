@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+ <%int member_no = (Integer)session.getAttribute("member_no"); %> 
  
 
 <!DOCTYPE html>
@@ -153,7 +154,7 @@ function data_analysis(product_no, review_no) {
                         <span class="cover"></span> 
                 <c:choose>
                   <c:when test="${review_MemberVO.review_thumb != ''}">
-                            <img alt="thumb" id='thumb'  src='./storage/${review_MemberVO.review_file }'>
+                            <img alt="thumb" id='thumb'   src='./storage/${review_MemberVO.review_file }'>
                           </c:when>
                   <c:otherwise>
                     <!-- 파일이 존재하지 않는 경우 -->

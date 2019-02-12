@@ -71,7 +71,7 @@ public class ReviewCont {
     System.out.println("--> create() GET executed");
     ModelAndView mav = new ModelAndView();
     
-    int member_no = (Integer)session.getAttribute("member_no");
+    int member_no = session.getAttribute("member_no").equals(null) ? 0 : (Integer)session.getAttribute("member_no");
     List<PetVO> pet_list = petProc.readpet(member_no);
     mav.addObject("pet_list", pet_list);
     
@@ -195,7 +195,7 @@ public class ReviewCont {
 
   
   @RequestMapping(value = "/review/read.do", method = RequestMethod.GET)
-  public ModelAndView read(int review_no) {
+  public ModelAndView read(HttpSession session, int review_no) {
     ModelAndView mav = new ModelAndView();
     
     Review_MemberVO reviewVO = reviewProc.read(review_no);
@@ -254,7 +254,7 @@ public class ReviewCont {
     ModelAndView mav = new ModelAndView();
     mav.setViewName("/review/update"); // /webapp/review/update.jsp
 
-    int member_no = (Integer)session.getAttribute("member_no");
+    int member_no = session.getAttribute("member_no").equals(null) ? 0 : (Integer)session.getAttribute("member_no");
     List<PetVO> pet_list = petProc.readpet(member_no);
     mav.addObject("pet_list", pet_list);
     
@@ -358,7 +358,7 @@ public class ReviewCont {
     reviewVO.setReview_size(review_size);
     reviewVO.setReview_thumb(review_thumb);
 
-    int member_no = (Integer)session.getAttribute("member_no");
+    int member_no = session.getAttribute("member_no").equals(null) ? 0 : (Integer)session.getAttribute("member_no");
     reviewVO.setMember_no(member_no); // 회원 개발후 session으로 변경
 
     count = reviewProc.update(reviewVO);

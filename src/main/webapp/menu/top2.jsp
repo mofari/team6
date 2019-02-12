@@ -83,14 +83,14 @@
         </div>      
       </div><!-- /.info -->
       <div class="logo hidden-xs">
-        <a href="${pageContext.request.contextPath}/index.jsp"><img id="logo-header" src="${pageContext.request.contextPath}/resources/images/logo-lovepet3_2.png" alt="Logo" /></a>
+        <a href="${pageContext.request.contextPath}/"><img id="logo-header" src="${pageContext.request.contextPath}/resources/images/logo-lovepet3_2.png" alt="Logo" /></a>
       </div><!-- /.logo -->
       <div class="menu-navbar">
         <div class="container" id="menu-nav">
           <nav id="navigation">
           <ul>
             <li class="submenu">
-              <a href="${pageContext.request.contextPath}/index.jsp">Home</a>
+              <a href="${pageContext.request.contextPath}/">Home</a>
             </li>
             <li class="has_submenu"><a href="#">카테고리</a>
             <ul>

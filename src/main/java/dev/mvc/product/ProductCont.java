@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -304,7 +305,7 @@ public class ProductCont {
   }
   
   @RequestMapping(value = "/product/detail.do", method = RequestMethod.GET)
-  public ModelAndView detail(int prono) {
+  public ModelAndView detail(HttpSession session, int prono) {
     ModelAndView mav = new ModelAndView();
 
     HashMap<String, Object> hashMap = new HashMap<String, Object>();
